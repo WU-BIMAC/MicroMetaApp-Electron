@@ -48,31 +48,13 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 		let workingFolder = this.state.workingFolder;
 		let dirPath = workingFolder + "schemas/";
 		let schema = [];
-		// readdirAsync(dirPath).then(filenames => {
-		// 	filenames.forEach(file => {
-		// 		let filePath = dirPath + file;
-		// 		readFileAsync(filePath).then( {
-		// 			if (err) {
-		// 				throw err;
-		// 			}
-		// 			console.log("im here");
-		// 			let fileSchema = JSON.parse(data);
-		// 			if (fileSchema) schema = schema.concat(fileSchema);
-		// 		});
-		// 	})
-		// }).then(() => {
-		// 	console.log("schema");
-		// 	console.log(schema);
-		// 	complete(schema);
-		// });
 		readDirAsync(dirPath)
 			.then(function(fileNames) {
-				let absoFileNames = [];
+				let absoluteFileNames = [];
 				fileNames.forEach(function(fileName) {
-					absoFileNames.push(dirPath + fileName);
+					absoluteFileNames.push(dirPath + fileName);
 				});
-				return Promise.all(absoFileNames.map(readFileAsync));
-				//return Promise.all(filenames.map(readFileAsync));
+				return Promise.all(absoluteFileNames.map(readFileAsync));
 			})
 			.then(function(files) {
 				files.forEach(function(file) {
@@ -86,34 +68,14 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 	onLoadMicroscopes(complete) {
 		let workingFolder = this.state.workingFolder;
 		let dirPath = workingFolder + "microscopes/";
-		//let microscopesFiles = [];
 		let microscopesDB = {};
-		// fs.readdir(dirPath, (err, files) => {
-		// 	if (err) {
-		// 		throw err;
-		// 	}
-		// 	files.forEach(file => {
-		// 		let filePath = dirPath + file;
-		// 		fs.readFile(filePath, function read(err, data) {
-		// 			if (err) {
-		// 				throw err;
-		// 			}
-		// 			let obj = JSON.parse(data);
-		// 			microscopesDB[obj.name + "_" + obj.id] = obj;
-		// 		});
-		// 	});
-		// }).then(() => {
-		// 	complete(microscopesDB);
-		// });
-
 		readDirAsync(dirPath)
 			.then(function(fileNames) {
-				let absoFileNames = [];
+				let absoluteFileNames = [];
 				fileNames.forEach(function(fileName) {
-					absoFileNames.push(dirPath + fileName);
+					absoluteFileNames.push(dirPath + fileName);
 				});
-				return Promise.all(absoFileNames.map(readFileAsync));
-				//return Promise.all(filenames.map(readFileAsync));
+				return Promise.all(absoluteFileNames.map(readFileAsync));
 			})
 			.then(function(files) {
 				files.forEach(function(file) {
