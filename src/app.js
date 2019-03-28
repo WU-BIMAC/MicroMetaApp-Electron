@@ -58,12 +58,6 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 			});
 			complete(microscopesDB);
 		});
-
-		// Object.keys(microscopesFiles).forEach(index => {
-		// 	//DO something here;
-		// 	let file = microscopesFiles[index];
-
-		// });
 	}
 
 	render() {
