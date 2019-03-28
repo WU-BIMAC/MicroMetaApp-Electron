@@ -19,6 +19,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 			workingFolder: null
 		};
 		this.onLoadSchema = this.onLoadSchema.bind(this);
+		this.onLoadMicroscopes = this.onLoadMicroscopes.bind(this);
 
 		window.addEventListener("resize", this.render);
 	}
@@ -27,7 +28,6 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 		let workingFolder = this.state.workingFolder;
 		//let schemaFile = fs.readFile(workingFolder + "testSchema.json");
 		let filePath = workingFolder + "testSchema.json";
-		let schemaFile = null;
 		fs.readFile(filePath, function read(err, data) {
 			if (err) {
 				throw err;
@@ -35,6 +35,35 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 			let schemaFile = JSON.parse(data);
 			complete(schemaFile);
 		});
+	}
+
+	onLoadMicroscopes(complete) {
+		let workingFolder = this.state.workingFolder;
+		let dirPath = workingFolder + "microscopes/";
+		//let microscopesFiles = [];
+		let microscopesDB = {};
+		fs.readdir(dirPath, (err, files) => {
+			if (err) {
+				throw err;
+			}
+			files.forEach(file => {
+				let filePath = dirPath + file;
+				fs.readFile(filePath, function read(err, data) {
+					if (err) {
+						throw err;
+					}
+					let obj = JSON.parse(data);
+					microscopesDB[obj.name + "_" + obj.id] = obj;
+				});
+			});
+			complete(microscopesDB);
+		});
+
+		// Object.keys(microscopesFiles).forEach(index => {
+		// 	//DO something here;
+		// 	let file = microscopesFiles[index];
+
+		// });
 	}
 
 	render() {
@@ -49,34 +78,13 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 			this.setState({ workingFolder: workingFolder });
 			return null;
 		} else {
-			let microscopesPath = workingFolder + "microscopes/";
-			let microscopesFiles = [];
-			fs.readdir(microscopesPath, (err, files) => {
-				files.forEach(file => {
-					microscopesFiles.push(file);
-				});
-			});
-			console.log(microscopesFiles);
-			let microscopesDB = {};
-			Object.keys(microscopesFiles).forEach(index => {
-				//DO something here;
-				let file = microscopesFiles[index];
-				fs.readFile(file, function read(err, data) {
-					if (err) {
-						throw err;
-					}
-					let obj = JSON.parse(data);
-					microscopesDB[obj.name + "_" + obj.id] = obj;
-				});
-			});
-
 			return (
 				<MicroscopeMetadataTool
 					width={dims.width}
 					height={dims.height}
 					onLoadSchema={this.onLoadSchema}
+					onLoadMicroscopes={this.onLoadMicroscopes}
 					imagesPath={"./../public/assets/"}
-					microscopes={microscopesDB}
 				/>
 			);
 		}
