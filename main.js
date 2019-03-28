@@ -9,7 +9,13 @@ let mainWindow;
 
 function createWindow() {
 	mainWindow = new BrowserWindow({ width: 900, height: 680 });
-	mainWindow.loadURL(`file://${path.join(__dirname, "./public/index.html")}`);
+	let indexURL = url.format({
+		pathname: path.join(__dirname, "src/index.html"),
+		protocol: "file:",
+		slashes: true
+	});
+	//mainWindow.loadURL(`file://${path.join(__dirname, "./src/index.html")}`);
+	mainWindow.loadURL(indexURL);
 	mainWindow.on("closed", () => (mainWindow = null));
 }
 

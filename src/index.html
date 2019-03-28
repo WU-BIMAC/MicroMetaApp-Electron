@@ -9,7 +9,6 @@
 			crossorigin
 			src="https://unpkg.com/react-dom@16.8.4/umd/react-dom.development.js"
 		></script>
-		<script src="./microscope-app.dev.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css" />
 		<meta charset="utf-8" />
 		<link rel="shortcut icon" href="./favicon.ico" />
@@ -32,7 +31,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-		<title>4DN Microscopy Metadata Tool</title>
+		<title>4DN Microscopy Metadata Tool StandAlone</title>
 	</head>
 	<body>
 		<noscript>You need to enable JavaScript to run this app.</noscript>
@@ -47,49 +46,8 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
 		-->
-		<script>
-			(function() {
-				// Parent app could be required to handle detecting window resize
-				var MicroscopyApp = window.MicroscopeApp.default;
-
-				function render() {
-					let dims = {
-						width: window.innerWidth,
-						height: window.innerHeight
-					};
-					ReactDOM.render(
-						React.createElement(MicroscopyApp, {
-							height: dims.height,
-							width: dims.width,
-							key: "my-app",
-							onLoadSchema: function(complete) {
-								// Maybe some UI to select something...
-								// Not all browsers have `window.fetch`, used for demoing purposes.
-								// Also, window.fetch requires HTTP so we getting this from GitHub... lol
-								window
-									.fetch(
-										"https://raw.githubusercontent.com/WU-BIMAC/4DNMicroscopyMetadataToolReact/master/src/schema/testSchema.json"
-									)
-									.then(function(resp) {
-										console.log(resp);
-										return resp.text();
-									})
-									.then(function(respText) {
-										var schema = JSON.parse(respText);
-										complete(schema);
-									});
-							}
-						}),
-						document.getElementById("root")
-					);
-				}
-
-				window.addEventListener("resize", render);
-				render();
-
-				var width = window.innerWidth;
-				var height = window.innerHeight;
-			})();
+		<script type="application/javascript">
+			require("./MicroscopyMetadataToolStandAlone.dev.js");
 		</script>
 	</body>
 </html>

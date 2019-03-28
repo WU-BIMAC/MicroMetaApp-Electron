@@ -15,10 +15,13 @@ module.exports = {
 	mode: mode,
 	entry: "./src/app.js",
 	output: {
-		library: "MicroscopeApp", // Unsure if best naming convention
+		library: "MicroscopyMetadataToolStandAlone", // Unsure if best naming convention
 		libraryTarget: "umd",
 		path: path.resolve("./dist"),
-		filename: mode === "production" ? "microscope-app.min.js" : "microscope-app.dev.js"
+		filename:
+			mode === "production"
+				? "MicroscopyMetadataToolStandAlone.min.js"
+				: "MicroscopyMetadataToolStandAlone.dev.js"
 	},
 	module: {
 		rules: [
