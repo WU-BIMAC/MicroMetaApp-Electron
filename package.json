@@ -2,15 +2,17 @@
 	"name": "4dn_microscopy_metadata_tool_standalone",
 	"version": "0.1.0",
 	"private": true,
-	"main": "dist/MicroscopyMetadataToolStandAlone.min.js",
+	"main": "./main.js",
 	"publishConfig": {
 		"access": "restricted"
 	},
 	"dependencies": {
-		"4dn-microscopy-metadata-tool": "file:../4DNMicroscopyMetadataToolReact"
+		"4dn-microscopy-metadata-tool": "file:../4DNMicroscopyMetadataToolReact",
+		"fs": "0.0.1-security",
+		"react": "^16.8.5",
+		"react-dom": "^16.8.5"
 	},
 	"scripts": {
-		"preinstall": "rm-local-modules",
 		"start": "electron .",
 		"test": "node scripts/test.js",
 		"build": "gulp build",
@@ -68,10 +70,6 @@
 		"webpack": "^4.29.6",
 		"webpack-cli": "^3.3.0",
 		"workbox-webpack-plugin": "3.6.3"
-	},
-	"peerDependencies": {
-		"react": "^16.8.1",
-		"react-dom": "^16.8.1"
 	},
 	"jest": {
 		"collectCoverageFrom": [

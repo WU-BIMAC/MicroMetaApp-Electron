@@ -1,0 +1,1 @@
+{"name":"New Microscope","schema_id":"Microscope.json","id":"8fb329c4-20ad-4c11-949b-6226edb739ca","tier":3,"manufacturer":"a","model":"b","components":[{"name":"New AutoFocus","id":"af89186f-699d-4ddb-ad5b-eab68661ff7c","tier":3,"schema_id":"AutoFocus.json","xPosition":172.5,"yPosition":560.5,"manufacturer":"c","model":"d"}]}
