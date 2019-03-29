@@ -69,7 +69,8 @@ class MicroscopeMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 		dialog.showOpenDialog(
 			mainWindow,
 			{
-				properties: ["openDirectory", `defaultPath: ${value}`]
+				defaultPath: `${value}`,
+				properties: ["openDirectory"]
 			},
 			this.props.handleSelectWorkingDirectory
 		);
@@ -77,7 +78,6 @@ class MicroscopeMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 
 	handleWorkingDirectoryChange() {
 		let value = this.inputRef.current.value;
-		console.log("testing: " + value);
 		this.props.handleSelectWorkingDirectory(value);
 	}
 
@@ -89,6 +89,8 @@ class MicroscopeMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 			if (fs.existsSync(workingDirectory)) {
 				isPathValid = true;
 			}
+			if (fs.lstatSync(workingDirectory).isDirectory())
+				workingDirectory += path.sep;
 		}
 		let buttonStyle = {
 			width: "200px",
@@ -184,6 +186,9 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 		this.handleSelectWorkingDirectory = this.handleSelectWorkingDirectory.bind(
 			this
 		);
+		this.handleConfirmWorkingDirectory = this.handleConfirmWorkingDirectory.bind(
+			this
+		);
 
 		window.addEventListener("resize", this.render);
 	}
@@ -231,11 +236,20 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 			});
 	}
 
-	handleSelectWorkingDirectory(filePath) {
-		if (filePath) {
-			console.log(filePath);
-			this.setState({ workingDirectory: filePath });
+	handleSelectWorkingDirectory(filePaths) {
+		if (!filePaths) {
+			return;
 		}
+		let filePath = null;
+		if (filePaths instanceof Array) {
+			if (!filePaths[0]) {
+				return;
+			}
+			filePath = filePaths[0];
+		} else {
+			filePath = filePaths;
+		}
+		this.setState({ workingDirectory: filePath });
 	}
 
 	handleConfirmWorkingDirectory(value) {
@@ -257,6 +271,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 					height={dims.height}
 					workingDirectory={workingDirectory}
 					handleSelectWorkingDirectory={this.handleSelectWorkingDirectory}
+					handleConfirmWorkingDirectory={this.handleConfirmWorkingDirectory}
 				/>
 			);
 		} else {
