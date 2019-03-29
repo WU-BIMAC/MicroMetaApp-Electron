@@ -1,14 +1,16 @@
 const electron = require("electron");
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
-
 const path = require("path");
 const url = require("url");
+const app = electron.app;
+const BrowserWindow = electron.BrowserWindow;
 
 let mainWindow;
 
 function createWindow() {
-	mainWindow = new BrowserWindow({ width: 900, height: 680 });
+	mainWindow = new BrowserWindow({
+		width: 900,
+		height: 680
+	});
 	let indexURL = url.format({
 		pathname: path.join(__dirname, "src/index.html"),
 		protocol: "file:",
