@@ -17,7 +17,7 @@ module.exports = {
 	output: {
 		library: "MicroscopyMetadataToolStandAlone", // Unsure if best naming convention
 		libraryTarget: "umd",
-		path: path.resolve("./build"),
+		path: path.resolve("./dist"),
 		filename:
 			mode === "production"
 				? "MicroscopyMetadataToolStandAlone.min.js"
