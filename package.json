@@ -24,6 +24,7 @@
 	},
 	"build": {
 		"appId": "4DNMicroscopyMetadataTool",
+		"asar": "false",
 		"files": [
 			"**/*",
 			"!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
@@ -41,16 +42,16 @@
 		"extraResources": [
 			{
 				"from": "./public/",
-				"to": "public",
+				"to": "./app/public",
 				"filter": [
 					"**/*"
 				]
 			},
 			{
-				"from": "./dist/",
-				"to": "dist",
+				"from": "./build/",
+				"to": "./app/build",
 				"filter": [
-					"**/*.js"
+					"**/MicroscopyMetadataToolStandAlone.*.js"
 				]
 			}
 		],
