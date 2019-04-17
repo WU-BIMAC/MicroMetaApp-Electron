@@ -89,7 +89,7 @@ class MicroscopeMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 			if (fs.existsSync(workingDirectory)) {
 				isPathValid = true;
 			}
-			if (fs.lstatSync(workingDirectory).isDirectory())
+			if (isPathValid && fs.lstatSync(workingDirectory).isDirectory())
 				workingDirectory += path.sep;
 		}
 		let buttonStyle = {
@@ -182,6 +182,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 		};
 		this.onLoadSchema = this.onLoadSchema.bind(this);
 		this.onLoadMicroscopes = this.onLoadMicroscopes.bind(this);
+		this.onWorkingDirectorySave = this.onWorkingDirectorySave.bind(this);
 
 		this.handleSelectWorkingDirectory = this.handleSelectWorkingDirectory.bind(
 			this
@@ -236,6 +237,23 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 			});
 	}
 
+	onWorkingDirectorySave(complete, microscope) {
+		let workingDirectory = this.state.workingDirectory;
+		let dirPath = workingDirectory + "microscopes/";
+		//let dirPath = null;
+		// let isTemplate = microscope.isTemplate;
+		// if (isTemplate) {
+		// 	dirPath = workingDirectory + "templates/";
+		// } else {
+		// 	dirPath = workingDirectory + "microscopes/";
+		// }
+		let json = JSON.stringify(microscope);
+		let micName = microscope.name;
+		let micNameNormalized = micName.replace(/\s+/g, "_").toLowerCase();
+		let fileName = dirPath + `${micNameNormalized}.json`;
+		fs.writeFile(fileName, json, complete);
+	}
+
 	handleSelectWorkingDirectory(filePaths) {
 		if (!filePaths) {
 			return;
@@ -264,7 +282,6 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 		let workingDirectory = this.state.workingDirectory;
 		let workingDirectoryConfirmed = this.state.workingDirectoryConfirmed;
 		if (!workingDirectoryConfirmed) {
-			//TODO add component that let user select folder
 			return (
 				<MicroscopeMetadataToolWorkingDirectoryChooser
 					width={dims.width}
@@ -281,6 +298,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 					height={dims.height}
 					onLoadSchema={this.onLoadSchema}
 					onLoadMicroscopes={this.onLoadMicroscopes}
+					onSaveMicroscope={this.onWorkingDirectorySave}
 					imagesPath={"./../public/assets/"}
 				/>
 			);
