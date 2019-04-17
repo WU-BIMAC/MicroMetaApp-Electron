@@ -9,6 +9,7 @@
 	"dependencies": {
 		"4dn-microscopy-metadata-tool": "file:../4DNMicroscopyMetadataToolReact",
 		"fs": "0.0.1-security",
+		"fsevents": "^2.0.6",
 		"react": "^16.8.6",
 		"react-bootstrap": "^1.0.0-beta.8",
 		"react-dom": "^16.8.6"
@@ -27,6 +28,9 @@
 		"asar": "false",
 		"files": [
 			"**/*",
+			"./public/assets/*",
+			"./build/MicroscopyMetadataToolStandAlone.dev.js",
+			"./build/MicroscopyMetadataToolStandAlone.min.js",
 			"!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
 			"!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
 			"!**/node_modules/*.d.ts",
@@ -39,23 +43,10 @@
 			"!**/{appveyor.yml,.travis.yml,circle.yml}",
 			"!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
 		],
-		"extraResources": [
-			{
-				"from": "./public/",
-				"to": "./app/public",
-				"filter": [
-					"**/*"
-				]
-			},
-			{
-				"from": "./build/",
-				"to": "./app/build",
-				"filter": [
-					"**/MicroscopyMetadataToolStandAlone.*.js"
-				]
-			}
-		],
-		"directories": {},
+		"asar": false,
+		"directories": {
+			"app": "./"
+		},
 		"dmg": {
 			"contents": [
 				{
