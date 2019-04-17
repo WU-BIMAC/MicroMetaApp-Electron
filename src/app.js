@@ -178,7 +178,11 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 		super(props);
 		this.state = {
 			workingDirectory: "./",
-			workingDirectoryConfirmed: false
+			workingDirectoryConfirmed: false,
+			windowDimensions: {
+				width: window && window.innerWidth,
+				height: window && window.innerHeight
+			}
 		};
 		this.onLoadSchema = this.onLoadSchema.bind(this);
 		this.onLoadMicroscopes = this.onLoadMicroscopes.bind(this);
@@ -191,7 +195,22 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 			this
 		);
 
-		window.addEventListener("resize", this.render);
+		this.onWindowResize = this.onWindowResize.bind(this);
+	}
+
+	onWindowResize() {
+		var windowDimensions = {
+			width: window.innerWidth,
+			height: window.innerHeight
+		};
+		this.setState({ windowDimensions });
+	}
+
+	componentDidMount() {
+		window.addEventListener("resize", this.onWindowResize);
+		if (!this.state.windowDimensions.width) {
+			this.onWindowResize();
+		}
 	}
 
 	onLoadSchema(complete) {
@@ -275,10 +294,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 	}
 
 	render() {
-		let dims = {
-			width: window.innerWidth,
-			height: window.innerHeight
-		};
+		let dims = this.state.windowDimensions;
 		let workingDirectory = this.state.workingDirectory;
 		let workingDirectoryConfirmed = this.state.workingDirectoryConfirmed;
 		if (!workingDirectoryConfirmed) {

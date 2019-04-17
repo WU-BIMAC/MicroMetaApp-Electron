@@ -44,7 +44,11 @@ let watch = () => {
 };
 
 const devSlow = gulp.series(setDev, doWebpack, watch);
-const build = gulp.series(setProduction, doWebpack);
+const buildInternal = gulp.series(setProduction, doWebpack);
+const build = gulp.series(buildInternal, () => {
+	/* todo */
+});
 
 gulp.task("dev", devSlow);
+gulp.task("build-internal", buildInternal);
 gulp.task("build", build);
