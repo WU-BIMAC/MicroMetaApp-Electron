@@ -28,7 +28,6 @@
 		"asar": "false",
 		"files": [
 			"**/*",
-			"./public/assets/*",
 			"./build/MicroscopyMetadataToolStandAlone.dev.js",
 			"./build/MicroscopyMetadataToolStandAlone.min.js",
 			"!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
@@ -43,6 +42,7 @@
 			"!**/{appveyor.yml,.travis.yml,circle.yml}",
 			"!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
 		],
+		"extraFiles": {},
 		"asar": false,
 		"directories": {
 			"app": "./"
