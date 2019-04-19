@@ -9,9 +9,14 @@ import MicroscopeMetadataTool from "4dn-microscopy-metadata-tool";
 
 let fs = window.require("fs");
 let electron = window.require("electron");
+let homePath = electron.remote.app.getPath("home");
 let path = window.require("path");
 let dialog = electron.remote.dialog;
 let mainWindow = electron.BrowserWindow;
+
+let toolDirectory = "MicroscopyMetadataTool";
+let schemaDirectory = "schemas";
+let microscopeDirectory = "microscopes";
 
 window.onload = () => {
 	ReactDOM.render(
@@ -86,11 +91,12 @@ class MicroscopeMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 		let isPathValid = false;
 		if (this.props.workingDirectory) {
 			workingDirectory = path.resolve(this.props.workingDirectory);
-			if (fs.existsSync(workingDirectory)) {
+			if (
+				fs.existsSync(workingDirectory) &&
+				fs.lstatSync(workingDirectory).isDirectory()
+			) {
 				isPathValid = true;
 			}
-			if (isPathValid && fs.lstatSync(workingDirectory).isDirectory())
-				workingDirectory += path.sep;
 		}
 		let buttonStyle = {
 			width: "200px",
@@ -194,6 +200,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 		this.handleConfirmWorkingDirectory = this.handleConfirmWorkingDirectory.bind(
 			this
 		);
+		this.copyFiles = this.copyFiles.bind(this);
 
 		this.onWindowResize = this.onWindowResize.bind(this);
 	}
@@ -211,11 +218,47 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 		if (!this.state.windowDimensions.width) {
 			this.onWindowResize();
 		}
+
+		let oldWorkingDirectory = this.state.workingDirectory;
+		let newWorkingDirectory = homePath + path.sep + toolDirectory;
+		if (!fs.existsSync(newWorkingDirectory)) {
+			fs.mkdirSync(newWorkingDirectory);
+		}
+		let oldSchemaDirectory =
+			oldWorkingDirectory + path.sep + schemaDirectory + path.sep;
+		let newSchemaDirectory =
+			newWorkingDirectory + path.sep + schemaDirectory + path.sep;
+		if (!fs.existsSync(newSchemaDirectory)) {
+			fs.mkdirSync(newSchemaDirectory);
+		}
+		this.copyFiles(oldSchemaDirectory, newSchemaDirectory);
+		let oldMicroscopeDirectory =
+			oldWorkingDirectory + path.sep + microscopeDirectory + path.sep;
+		let newMicroscopeDirectory =
+			newWorkingDirectory + path.sep + microscopeDirectory + path.sep;
+		if (!fs.existsSync(newMicroscopeDirectory)) {
+			fs.mkdirSync(newMicroscopeDirectory);
+		}
+		this.copyFiles(oldMicroscopeDirectory, newMicroscopeDirectory);
+		this.setState({ workingDirectory: newWorkingDirectory });
+	}
+
+	copyFiles(oldDirectory, newDirectory) {
+		readDirAsync(oldDirectory).then(function(fileNames) {
+			fileNames.forEach(function(fileName) {
+				let oldFile = oldDirectory + fileName;
+				let newFile = newDirectory + fileName;
+				fs.copyFile(oldFile, newFile, err => {
+					if (err) throw err;
+					console.log(oldFile + " was copied to " + newFile);
+				});
+			});
+		});
 	}
 
 	onLoadSchema(complete) {
 		let workingDirectory = this.state.workingDirectory;
-		let dirPath = workingDirectory + "schemas/";
+		let dirPath = workingDirectory + schemaDirectory + path.sep;
 		let schema = [];
 		readDirAsync(dirPath)
 			.then(function(fileNames) {
@@ -236,7 +279,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 
 	onLoadMicroscopes(complete) {
 		let workingDirectory = this.state.workingDirectory;
-		let dirPath = workingDirectory + "microscopes/";
+		let dirPath = workingDirectory + microscopeDirectory + path.sep;
 		let microscopesDB = {};
 		readDirAsync(dirPath)
 			.then(function(fileNames) {
@@ -258,7 +301,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 
 	onWorkingDirectorySave(complete, microscope) {
 		let workingDirectory = this.state.workingDirectory;
-		let dirPath = workingDirectory + "microscopes/";
+		let dirPath = workingDirectory + microscopeDirectory + path.sep;
 		//let dirPath = null;
 		// let isTemplate = microscope.isTemplate;
 		// if (isTemplate) {
@@ -290,7 +333,14 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 	}
 
 	handleConfirmWorkingDirectory(value) {
-		this.setState({ workingDirectory: value, workingDirectoryConfirmed: true });
+		let newValue = null;
+		if (fs.lstatSync(value).isDirectory() && !value.endsWith(path.sep))
+			newValue = value + path.sep;
+		else newValue = value;
+		this.setState({
+			workingDirectory: newValue,
+			workingDirectoryConfirmed: true
+		});
 	}
 
 	render() {
