@@ -1,0 +1,64 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"ID": "DetectorCalibration.json",
+	"type": "object",
+	"title": "DetectorCalibration",
+	"description": "This procedure measures the performance of the dectector.",
+	"category": "Calibration",
+	"image": "Calibration_DetectorCalibration.png",
+	"tier": 3,
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"null",
+			"tier":"3",
+			"category":"Generic",
+			"readonly": true
+		},
+		"Date": {
+			"type":"string",
+			"description":"The date in which this calibration procedure was performed.",
+			"tier":"3",
+			"category":"IntensityCalibration"
+		},
+		"ObservedExcitationWavelenght": {
+			"type":"string",
+			"description":"Observed peak excitation wavelength.",
+			"tier":"3",
+			"category":"IntensityCalibration"
+		},
+		"ObservedExcitationWavelenghtUnit": {
+			"type":"string",
+			"description":"null",
+			"tier":"3",
+			"category":"IntensityCalibration"
+		},
+		"ObservedExcitationPower": {
+			"type":"string",
+			"description":"Observed mean excitation light irradiance as measured at the sample plane over the Field of View (FOV).",
+			"tier":"null",
+			"category":"IntensityCalibration"
+		},
+		"ObservedExcitationPowerUnit": {
+			"type":"string",
+			"description":"null",
+			"tier":"3",
+			"category":"IntensityCalibration"
+		},
+		"ObservedExcitationVariance": {
+			"type":"string",
+			"description":"Observed irradiance variation over the Field of View (FOV).",
+			"tier":"3",
+			"category":"IntensityCalibration"
+		},
+		"tier": {
+			"type": "integer",
+			"description": "The tier level of this component.",
+			"tier": 3,
+			"category": "Generic",
+			"readonly": true
+		}
+	},
+	"required": [
+	]
+}

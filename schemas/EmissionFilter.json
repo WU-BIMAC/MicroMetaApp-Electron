@@ -1,0 +1,85 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"ID": "EmissionFilter.json",
+	"type": "object",
+	"title": "EmissionFilter",
+	"description": "An optical filter is a device that selectively transmits light of different wavelengths.This element refers to an emission filter. For each fluorescence Image there should be at least one emission filter element specified per Channel.This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
+	"category": "LightPath",
+	"image": "LightPath_EmissionFilter.png",
+	"tier": 2,
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this Filter",
+			"tier":"2",
+			"category":"Generic"
+		},
+		"ID": {
+			"type":"string",
+			"description":"null",
+			"tier":"2",
+			"category":"Generic",
+			"readonly": true
+		},
+		"Type": {
+			"type":"string",
+			"description":"The type of filter used in this case.",
+			"tier":"3",
+			"category":"FIlter"
+		},
+		"FilterWheel": {
+			"type":"string",
+			"description":"A filter 'wheel' in OME can refer to any arrangement of filters in a filter holder of any shape. It could, for example, be a filter slider.",
+			"tier":"3",
+			"category":"FIlter"
+		},
+		"ReflectionCoating": {
+			"type":"string",
+			"description":"An optical coating is one or more thin layers of material deposited on an optical component such as a lens or mirror, which alters the way in which the optic reflects and transmits light",
+			"tier":"5",
+			"category":"FIlter"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of the component.",
+			"tier":"1",
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The Model of the component.",
+			"tier":"3",
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of the component",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of the component",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"string",
+			"description":"Attach a PDF file with the specifications for the component as provided by the manufacturer",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"tier": {
+			"type": "integer",
+			"description": "The tier level of this component.",
+			"tier": 2,
+			"category": "Generic",
+			"readonly": true
+		}
+	},
+	"required": [
+		"ID",
+		"Manufacturer",
+		"Model"
+	]
+}

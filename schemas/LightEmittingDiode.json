@@ -1,0 +1,121 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"ID": "LightEmittingDiode.json",
+	"type": "object",
+	"title": "LightEmittingDiode",
+	"description": "The LightEmittingDiode element is used to describe various kinds of LED lamps",
+	"category": "LightSource",
+	"image": "LightSource_LightEmittingDiode.png",
+	"tier": 1,
+	"properties": {
+		"Type": {
+			"type":"string",
+			"description":"The type of LightEmittingDiode light source.",
+			"tier":"3",
+			"category":"LightEmittingDiode"
+		},
+		"PeakWavelenght": {
+			"type":"string",
+			"description":"null",
+			"tier":"2",
+			"category":"LightEmittingDiode"
+		},
+		"PeakWavelenghtUnit": {
+			"type":"string",
+			"description":"null",
+			"tier":"3",
+			"category":"LightEmittingDiode"
+		},
+		"LumenPower": {
+			"type":"string",
+			"description":"The amount of light this light source generate at maximum expressed in lumen. The lumen is the SI derived unit of luminous flux, a measure of the total quantity of visible light emitted by a source.",
+			"tier":"3",
+			"category":"LightEmittingDiode"
+		},
+		"LumenPowerUnit": {
+			"type":"string",
+			"description":"null",
+			"tier":"3",
+			"category":"LightEmittingDiode"
+		},
+		"ProjectionAngle": {
+			"type":"string",
+			"description":"null",
+			"tier":"5",
+			"category":"LightEmittingDiode"
+		},
+		"ProjectionAngleUnit": {
+			"type":"string",
+			"description":"null",
+			"tier":"5",
+			"category":"LightEmittingDiode"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this element",
+			"tier":"1",
+			"category":"Generic"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A LightSource ID must be specified for each light source, and the individual light sources can be referred to by their LightSource IDs (eg from Channel).",
+			"tier":"1",
+			"category":"Generic",
+			"readonly": true
+		},
+		"NominalPower": {
+			"type":"string",
+			"description":"The nominal power of the light-source",
+			"tier":"3",
+			"category":"LightSource"
+		},
+		"NominalPowerUnit": {
+			"type":"string",
+			"description":"null",
+			"tier":"null",
+			"category":"LightSource"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of the component.",
+			"tier":"1",
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The Model of the component.",
+			"tier":"3",
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of the component",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of the component",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"string",
+			"description":"Attach a PDF file with the specifications for the component as provided by the manufacturer",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"tier": {
+			"type": "integer",
+			"description": "The tier level of this component.",
+			"tier": 1,
+			"category": "Generic",
+			"readonly": true
+		}
+	},
+	"required": [
+		"ID",
+		"Manufacturer",
+		"Model"
+	]
+}

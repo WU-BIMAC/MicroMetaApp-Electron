@@ -1,0 +1,67 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"ID": "FilterSet.json",
+	"type": "object",
+	"title": "FilterSet",
+	"description": "A filter set is typically composed of one excitation filter, one emission filter and a dichroic. Often they are pre-assebled by the manufacturer and pruchased as a whole",
+	"category": "LightPath",
+	"image": "LightPath_FilterSet.png",
+	"tier": 2,
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this FilterSet element",
+			"tier":"2",
+			"category":"Generic"
+		},
+		"ID": {
+			"type":"string",
+			"description":"null",
+			"tier":"2",
+			"category":"Generic",
+			"readonly": true
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of the component.",
+			"tier":"1",
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The Model of the component.",
+			"tier":"3",
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of the component",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of the component",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"string",
+			"description":"Attach a PDF file with the specifications for the component as provided by the manufacturer",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"tier": {
+			"type": "integer",
+			"description": "The tier level of this component.",
+			"tier": 2,
+			"category": "Generic",
+			"readonly": true
+		}
+	},
+	"required": [
+		"ID",
+		"Manufacturer",
+		"Model"
+	]
+}

@@ -1,0 +1,84 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"ID": "Direct.json",
+	"type": "object",
+	"title": "Direct",
+	"description": "Direct coupling consists of either direct mounting or a optical light path that connects the Light Source with the microscope",
+	"category": "LightSourceCoupling",
+	"image": "LightSourceCoupling_Direct.png",
+	"tier": 4,
+	"properties": {
+		"Type": {
+			"type":"string",
+			"description":"The type of direct coupling available for this Instrument.",
+			"tier":"5",
+			"category":"Direct"
+		},
+		"Mount": {
+			"type":"string",
+			"description":"The mount utilized to attach a LightSource to the microscope",
+			"tier":"5",
+			"category":"Direct"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this LightSourceCoupling device",
+			"tier":"4",
+			"category":"Generic"
+		},
+		"ID": {
+			"type":"string",
+			"description":"null",
+			"tier":"4",
+			"category":"Generic",
+			"readonly": true
+		},
+		"Transmittance": {
+			"type":"string",
+			"description":"The amount of light this LightSourceCoupling apparatus transmits at a maximum. A fraction, as a value from 0.0 to 1.0",
+			"tier":"5",
+			"category":"LightSourceCoupling"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of the component.",
+			"tier":"1",
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The Model of the component.",
+			"tier":"3",
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of the component",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of the component",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"string",
+			"description":"Attach a PDF file with the specifications for the component as provided by the manufacturer",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"tier": {
+			"type": "integer",
+			"description": "The tier level of this component.",
+			"tier": 4,
+			"category": "Generic",
+			"readonly": true
+		}
+	},
+	"required": [
+		"Manufacturer",
+		"Model"
+	]
+}

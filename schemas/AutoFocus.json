@@ -1,0 +1,74 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"ID": "AutoFocus.json",
+	"type": "object",
+	"title": "AutoFocus",
+	"description": "This element describes the focus stabilization device(s) available for this microscope.",
+	"category": "SampleHolderAndFocusing.Focusing",
+	"image": "SampleHolderAndFocusing_Focusing_AutoFocus.png",
+	"tier": 3,
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this element",
+			"tier":"3",
+			"category":"Generic"
+		},
+		"ID": {
+			"type":"string",
+			"description":"null",
+			"tier":"3",
+			"category":"Generic",
+			"readonly": true
+		},
+		"Type": {
+			"type":"string",
+			"description":"The type of this autofocus device.",
+			"tier":"3",
+			"category":"AutoFocus"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of the component.",
+			"tier":"1",
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The Model of the component.",
+			"tier":"3",
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of the component",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of the component",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"string",
+			"description":"Attach a PDF file with the specifications for the component as provided by the manufacturer",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"tier": {
+			"type": "integer",
+			"description": "The tier level of this component.",
+			"tier": 3,
+			"category": "Generic",
+			"readonly": true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"Manufacturer",
+		"Model"
+	]
+}

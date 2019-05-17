@@ -1,0 +1,138 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"ID": "SampleHolder.json",
+	"type": "object",
+	"title": "SampleHolder",
+	"description": "This element describes an optional sample holder mounted on the microscope stage.",
+	"category": "SampleHolderAndFocusing",
+	"image": "SampleHolderAndFocusing_SampleHolder.png",
+	"tier": 3,
+	"properties": {
+		"Type": {
+			"type":"string",
+			"description":"The type of sample holder.",
+			"tier":"5",
+			"category":"SampleHolder"
+		},
+		"RotationAngle": {
+			"type":"string",
+			"description":"The angle by which this device is capable of rotating",
+			"tier":"5",
+			"category":"SampleHolder"
+		},
+		"RotationAngleUnit": {
+			"type":"string",
+			"description":"null",
+			"tier":"5",
+			"category":"SampleHolder"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this element",
+			"tier":"3",
+			"category":"Generic"
+		},
+		"ID": {
+			"type":"string",
+			"description":"null",
+			"tier":"3",
+			"category":"Generic",
+			"readonly": true
+		},
+		"MovementAxes": {
+			"type":"string",
+			"description":"The axis along which this device moves.",
+			"tier":"5",
+			"category":"Stage"
+		},
+		"XTravelRange": {
+			"type":"string",
+			"description":"The X axis range this device is capable of moving in",
+			"tier":"5",
+			"category":"Stage"
+		},
+		"XTravelRangeUnit": {
+			"type":"string",
+			"description":"null",
+			"tier":"5",
+			"category":"Stage"
+		},
+		"YTravelRange": {
+			"type":"string",
+			"description":"The Y axis range this device is capable of moving in",
+			"tier":"5",
+			"category":"Stage"
+		},
+		"YTravelRangeUnit": {
+			"type":"string",
+			"description":"null",
+			"tier":"5",
+			"category":"Stage"
+		},
+		"ZTravelRange": {
+			"type":"string",
+			"description":"The Z axis range this device is capable of moving in",
+			"tier":"5",
+			"category":"Stage"
+		},
+		"ZTravelRangeUnit": {
+			"type":"string",
+			"description":"null",
+			"tier":"5",
+			"category":"Stage"
+		},
+		"MaxVelocity": {
+			"type":"string",
+			"description":"The maximum velocity this device is capable of moving at",
+			"tier":"5",
+			"category":"Stage"
+		},
+		"MaxVelocityUnit": {
+			"type":"string",
+			"description":"null",
+			"tier":"5",
+			"category":"Stage"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of the component.",
+			"tier":"1",
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The Model of the component.",
+			"tier":"3",
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of the component",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of the component",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"string",
+			"description":"Attach a PDF file with the specifications for the component as provided by the manufacturer",
+			"tier":"5",
+			"category":"ManufacturerSpec"
+		},
+		"tier": {
+			"type": "integer",
+			"description": "The tier level of this component.",
+			"tier": 3,
+			"category": "Generic",
+			"readonly": true
+		}
+	},
+	"required": [
+		"Manufacturer",
+		"Model"
+	]
+}
