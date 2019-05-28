@@ -1,77 +1,86 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema",
-	"ID": "Microscope.json",
-	"type": "object",
-	"title": "Microscope",
-	"description": "This element describes the instrument used to capture the Image. It is primarily a container for manufacturer's model and catalog numbers for the Microscope, LightSource, Detector, Objective and Filters components. The Objective element contains the additional elements LensNA and Magnification. The Filters element can be composed either of separate excitation, emission filters and a dichroic mirror or a single filter set. Within the Image itself, a reference is made to this one Filter element. There may be multiple light sources, detectors, objectives and filters on a microscope. Each of these has their own ID attribute, which can be referred to from Channel. It is understood that the light path configuration can be different for each channel, but cannot be different for each timepoint or each plane of an XYZ stack",
-	"image": "Microscope_default.png",
-	"tier": 1,
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Microscope.json",
+	"type":"object",
+	"title":"Microscope",
+	"description":"This element describes the instrument used to capture the Image. It is primarily a container for manufacturer's model and catalog numbers for the Microscope, LightSource, Detector, Objective and Filters components. The Objective element contains the additional elements LensNA and Magnification. The Filters element can be composed either of separate excitation, emission filters and a dichroic mirror or a single filter set. Within the Image itself, a reference is made to this one Filter element. There may be multiple light sources, detectors, objectives and filters on a microscope. Each of these has their own ID attribute, which can be referred to from Channel. It is understood that the light path configuration can be different for each channel, but cannot be different for each timepoint or each plane of an XYZ stack",
+	"image":"Microscope_default.png",
+	"tier":1,
+	"subCategoriesOrder": [
+		"ManufacturerSpec",
+		"MicroscopeBody"
+	],
 	"properties": {
 		"Name": {
 			"type":"string",
-			"description":"A user defined name for this element",
-			"tier":"1",
+			"description":"A user defined name for this component.",
+			"tier":1,
 			"category":"Generic"
 		},
 		"ID": {
 			"type":"string",
-			"description":"null",
-			"tier":"1",
+			"description":"A unique identifier for this component.",
+			"tier":1,
 			"category":"Generic",
-			"readonly": true
+			"readonly":true
 		},
 		"Type": {
 			"type":"string",
-			"description":"This element describes the type of this microscope.",
-			"tier":"1",
+			"description":"The type of this microscope.",
+			"tier":1,
 			"category":"MicroscopeBody"
 		},
 		"EyePieceFieldNumber": {
 			"type":"string",
-			"description":"The Field Number represents the diaphragm size of the microscope eyepiece expressed in mm",
-			"tier":"3",
+			"description":"The Field Number represents the diaphragm size of the microscope eyepiece expressed in mm.",
+			"tier":3,
 			"category":"MicroscopeBody"
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"The manufacturer of the component.",
-			"tier":"1",
+			"description":"The manufacturer of this component.",
+			"tier":1,
 			"category":"ManufacturerSpec"
 		},
 		"Model": {
 			"type":"string",
-			"description":"The Model of the component.",
-			"tier":"3",
+			"description":"The model of this component.",
+			"tier":3,
 			"category":"ManufacturerSpec"
 		},
 		"SerialNumber": {
 			"type":"string",
-			"description":"The serial number of the component",
-			"tier":"5",
+			"description":"The serial number of this component",
+			"tier":5,
 			"category":"ManufacturerSpec"
 		},
 		"LotNumber": {
 			"type":"string",
-			"description":"The lot number of the component",
-			"tier":"5",
+			"description":"The lot number of this component",
+			"tier":5,
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
 			"type":"string",
-			"description":"Attach a PDF file with the specifications for the component as provided by the manufacturer",
-			"tier":"5",
+			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
+			"tier":5,
 			"category":"ManufacturerSpec"
 		},
 		"tier": {
-			"type": "integer",
-			"description": "The tier level of the microscope.",
-			"tier": 1,
-			"category": "Generic",
-			"readonly": true
+			"type":"integer",
+			"description":"The tier level of the microscope.",
+			"tier":1,
+			"category":"Generic",
+			"readonly":true
 		}
 	},
 	"required": [
+		"ID",
+		"Name",
+		"Type",
 		"Manufacturer",
-		"Model"
+		"Model",
+		"SerialNumber",
+		"SpecsFile"
 	]
 }

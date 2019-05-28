@@ -1,0 +1,180 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Fluorescence_LightSource_Laser.json",
+	"type":"object",
+	"title":"Laser",
+	"description":"A Light Amplification by Stimulated Emission of Radiation (LASER) is a device that emits light through a process of optical amplification based on the stimulated emission of electromagnetic radiation.",
+	"category":"Fluorescence_LightSource",
+	"image":"Fluorescence_LightSource_Laser.png",
+	"tier":1,
+	"subCategoriesOrder": [
+		"Generic",
+		"ManufacturerSpec",
+		"LightSource",
+		"Laser",
+		"Pump"
+	],
+	"properties": {
+		"Type": {
+			"type":"string",
+			"description":"Type is the general category of laser.",
+			"tier":5,
+			"category":"Laser"
+		},
+		"LaserMedium": {
+			"type":"string",
+			"description":"The Medium attribute specifies the actual lasing medium for a given laser type.           ",
+			"tier":5,
+			"category":"Laser"
+		},
+		"Wavelength": {
+			"type":"string",
+			"description":"The Wavelength of the laser",
+			"tier":2,
+			"category":"Laser"
+		},
+		"WavelengthUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"category":"Laser"
+		},
+		"FrequencyMultiplication": {
+			"type":"string",
+			"description":"FrequencyMultiplication that may be specified.",
+			"tier":5,
+			"category":"Laser"
+		},
+		"Tuneable": {
+			"type":"string",
+			"description":"Whether or not the laser is Tuneable.",
+			"tier":5,
+			"category":"Laser"
+		},
+		"Pulse": {
+			"type":"string",
+			"description":"The Pulse mode of the laser.",
+			"tier":5,
+			"category":"Laser"
+		},
+		"PockelCell": {
+			"type":"string",
+			"description":"If true the laser has a PockelCell to rotate the polarization of the beam.",
+			"tier":5,
+			"category":"Laser"
+		},
+		"RepetitionRate": {
+			"type":"string",
+			"description":"The is the rate in Hz at which the laser pulses if the Pulse type is 'Repetitive' hertz[Hz]",
+			"tier":5,
+			"category":"Laser"
+		},
+		"RepetitionRateUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"Laser"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this component.",
+			"tier":1,
+			"category":"Generic"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A LightSource ID must be specified for each light source, and the individual light sources can be referred to by their LightSource IDs (eg from Channel).",
+			"tier":1,
+			"category":"Generic",
+			"readonly": true
+		},
+		"NominalPower": {
+			"type":"string",
+			"description":"The nominal power of the light-source",
+			"tier":3,
+			"category":"LightSource"
+		},
+		"NominalPowerUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"category":"LightSource"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The model of this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"string",
+			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"tier":2,
+			"category":"Generic"
+		},
+		"Pump": {
+			"type":"object",
+			"description":"The Pump element is a reference to a LightSource. It is used within the Laser element to specify the light source for the laser's pump (if any).",
+			"tier":5,
+			"properties": {
+				"ID": {
+					"type":"string",
+					"description":"A unique identifier for this component.",
+					"tier":5,
+					"category":"Pump",
+					"readonly": true
+				}
+			},
+			"required": [
+				"ID"
+			]
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"Generic",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Type",
+		"LaserMedium",
+		"Wavelength",
+		"Tuneable",
+		"Pulse",
+		"ID",
+		"Name",
+		"NominalPower",
+		"Manufacturer",
+		"Model",
+		"SerialNumber",
+		"SpecsFile",
+		"Description"
+	]
+}

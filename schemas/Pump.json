@@ -1,0 +1,33 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Pump.json",
+	"type":"object",
+	"title":"Pump",
+	"description":"The Pump element is a reference to a LightSource. It is used within the Laser element to specify the light source for the laser's pump (if any).",
+	"category":"ChildrenElement",
+	"tier":5,
+	"subCategoriesOrder": [
+		"Generic",
+		"Reference",
+		"Pump"
+	],
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":5,
+			"category":"Generic",
+			"readonly": true
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":5,
+			"category":"Generic",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID"
+	]
+}
