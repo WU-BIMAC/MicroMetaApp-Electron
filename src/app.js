@@ -282,7 +282,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 			.then(function(files) {
 				files.forEach(function(file) {
 					var fileSchema = JSON.parse(file);
-					console.log(fileSchema);
+					//console.log(fileSchema);
 					if (fileSchema !== null) {
 						if (fileSchema.constructor === Array) {
 							schema = schema.concat(fileSchema);
@@ -291,7 +291,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 						}
 					}
 				});
-				console.log(schema);
+				//console.log(schema);
 				complete(schema);
 			});
 	}
