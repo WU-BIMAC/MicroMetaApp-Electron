@@ -1,0 +1,56 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"WavelengthRange.json",
+	"type":"object",
+	"title":"WavelengthRange",
+	"description":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
+	"category":"ChildrenElement",
+	"tier":5,
+	"subCategoriesOrder": [
+		"WavelengthRange"
+	],
+	"properties": {
+		"CutIn": {
+			"type":"string",
+			"description":"CutIn is the wavelength below which the response rate is below 50%.",
+			"tier":5,
+			"category":"WavelengthRange"
+		},
+		"CutInUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"WavelengthRange"
+		},
+		"CutOut": {
+			"type":"string",
+			"description":"CutOut is the wavelength above which the response rate is below 50%.",
+			"tier":5,
+			"category":"WavelengthRange"
+		},
+		"CutOutUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"WavelengthRange"
+		},
+		"WavelenghtProfile": {
+			"type":"string",
+			"description":"The location of a file containing the wavelenght profile of this component.",
+			"tier":5,
+			"category":"WavelengthRange"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":5,
+			"category":"Generic",
+			"readonly":true
+		}
+	},
+	"required": [
+		"CutIn",
+		"CutOut",
+		"WavelenghtProfile"
+	]
+}

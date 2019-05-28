@@ -1,0 +1,182 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"MechanicalStage.json",
+	"type":"object",
+	"title":"MechanicalStage",
+	"description":"This is a mechanical stage positioning device",
+	"category":"SampleHolderAndFocusing.Focusing",
+	"image":"SampleHolderAndFocusing_Focusing_MechanicalStage.png",
+	"tier":3,
+	"subCategoriesOrder": [
+		"Generic",
+		"ManufacturerSpec",
+		"Stage",
+		"Focusing",
+		"MechanicalStage"
+	],
+	"properties": {
+		"Resolution": {
+			"type":"string",
+			"description":"The expected motion resolution of this device.",
+			"tier":5,
+			"category":"Focusing"
+		},
+		"ResolutionUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"Focusing"
+		},
+		"PositionLinearityError": {
+			"type":"string",
+			"description":"The expected positioning error associated with this device. Typically expressed as % error.",
+			"tier":5,
+			"category":"Focusing"
+		},
+		"Repetability": {
+			"type":"string",
+			"description":"The expected precision with which this device is capable of returning to a previously visited position. Typically expressed in % error.",
+			"tier":5,
+			"category":"Focusing"
+		},
+		"SettingTime": {
+			"type":"string",
+			"description":"The expected time it takes for this device to stabilize at the target position.",
+			"tier":5,
+			"category":"Focusing"
+		},
+		"SettlingTimeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"Focusing"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this component.",
+			"tier":3,
+			"category":"Generic"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":3,
+			"category":"Generic",
+			"readonly": true
+		},
+		"MovementAxes": {
+			"type":"string",
+			"description":"The axis along which this device moves.",
+			"tier":5,
+			"category":"Stage"
+		},
+		"XTravelRange": {
+			"type":"string",
+			"description":"The X axis range this device is capable of moving in",
+			"tier":5,
+			"category":"Stage"
+		},
+		"XTravelRangeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"Stage"
+		},
+		"YTravelRange": {
+			"type":"string",
+			"description":"The Y axis range this device is capable of moving in",
+			"tier":5,
+			"category":"Stage"
+		},
+		"YTravelRangeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"Stage"
+		},
+		"ZTravelRange": {
+			"type":"string",
+			"description":"The Z axis range this device is capable of moving in",
+			"tier":5,
+			"category":"Stage"
+		},
+		"ZTravelRangeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"Stage"
+		},
+		"MaxVelocity": {
+			"type":"string",
+			"description":"The maximum velocity this device is capable of moving at",
+			"tier":5,
+			"category":"Stage"
+		},
+		"MaxVelocityUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"Stage"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The model of this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"string",
+			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"tier":2,
+			"category":"Generic"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"Generic",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Resolution",
+		"PositionLinearityError",
+		"Repetability",
+		"SettingTime",
+		"ID",
+		"Name",
+		"XTravelRange",
+		"YTravelRange",
+		"ZTravelRange",
+		"Manufacturer",
+		"Model",
+		"SerialNumber",
+		"SpecsFile",
+		"Description"
+	]
+}

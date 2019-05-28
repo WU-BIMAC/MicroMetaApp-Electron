@@ -1,0 +1,95 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Optovar.json",
+	"type":"object",
+	"title":"Optovar",
+	"description":"Optovars are magnification changing devices originally developed by Zeiss, which provide additional magnification that can be beneficial when a desired field of view is required for the imaging sensor. Magnification changer components are placed before the tube lens within the infinity space of the optical system. Typical magnification increments are: 1.25x, 1.6x, and 2x",
+	"category":"Magnification",
+	"image":"Magnification_Optovar.png",
+	"tier":1,
+	"subCategoriesOrder": [
+		"Generic",
+		"ManufacturerSpec",
+		"Optovar"
+	],
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this component.",
+			"tier":1,
+			"category":"Generic"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":1,
+			"category":"Generic",
+			"readonly": true
+		},
+		"Magnification": {
+			"type":"string",
+			"description":"The magnification of the optovar lens as specified by the manufacturer.",
+			"tier":1,
+			"category":"Optovar"
+		},
+		"LensType": {
+			"type":"string",
+			"description":"The type of lens used by the Magnification Changer available with this microscope.",
+			"tier":5,
+			"category":"Optovar"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The model of this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"string",
+			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"tier":2,
+			"category":"Generic"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"Generic",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"Manufacturer",
+		"Model",
+		"SerialNumber",
+		"SpecsFile",
+		"Description"
+	]
+}

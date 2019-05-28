@@ -1,0 +1,105 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Fluorescence_LightSource_GenericExcitationSource.json",
+	"type":"object",
+	"title":"GenericExcitationSource",
+	"description":"The GenericExcitationSource element is used to represent a source as a collection of key/value pairs, stored in a Map. The other lightsource objects should always be used in preference to this if possible.",
+	"category":"Fluorescence_LightSource",
+	"image":"Fluorescence_LightSource_GenericExcitationSource.png",
+	"tier":1,
+	"subCategoriesOrder": [
+		"Generic",
+		"ManufacturerSpec",
+		"LightSource",
+		"GenericExcitationSource"
+	],
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this component.",
+			"tier":1,
+			"category":"Generic"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A LightSource ID must be specified for each light source, and the individual light sources can be referred to by their LightSource IDs (eg from Channel).",
+			"tier":1,
+			"category":"Generic",
+			"readonly": true
+		},
+		"NominalPower": {
+			"type":"string",
+			"description":"The nominal power of the light-source",
+			"tier":3,
+			"category":"LightSource"
+		},
+		"NominalPowerUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"category":"LightSource"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The model of this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"string",
+			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"tier":2,
+			"category":"Generic"
+		},
+		"Map": {
+			"type":"object",
+			"description":"This is a Mapping of key/value pairs used to store customized metadata that describes this element.",
+			"tier":3,
+			"properties": {
+			}
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"Generic",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"NominalPower",
+		"Manufacturer",
+		"Model",
+		"SerialNumber",
+		"SpecsFile",
+		"Description",
+		"Description"
+	]
+}

@@ -200,6 +200,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 		this.handleConfirmWorkingDirectory = this.handleConfirmWorkingDirectory.bind(
 			this
 		);
+		this.cleanDirectory = this.cleanDirectory.bind(this);
 		this.copyFiles = this.copyFiles.bind(this);
 
 		this.onWindowResize = this.onWindowResize.bind(this);
@@ -231,6 +232,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 		if (!fs.existsSync(newSchemaDirectory)) {
 			fs.mkdirSync(newSchemaDirectory);
 		}
+		this.cleanDirectory(newSchemaDirectory);
 		this.copyFiles(oldSchemaDirectory, newSchemaDirectory);
 		let oldMicroscopeDirectory =
 			oldWorkingDirectory + path.sep + microscopeDirectory + path.sep;
@@ -243,6 +245,15 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 		this.setState({ workingDirectory: newWorkingDirectory });
 	}
 
+	cleanDirectory(newSchemaDirectory) {
+		readDirAsync(newSchemaDirectory).then(function(fileNames) {
+			fileNames.forEach(function(fileName) {
+				let oldFile = newSchemaDirectory + fileName;
+				fs.unlinkSync(oldFile);
+			});
+		});
+	}
+
 	copyFiles(oldDirectory, newDirectory) {
 		readDirAsync(oldDirectory).then(function(fileNames) {
 			fileNames.forEach(function(fileName) {
@@ -250,7 +261,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 				let newFile = newDirectory + fileName;
 				fs.copyFile(oldFile, newFile, err => {
 					if (err) throw err;
-					console.log(oldFile + " was copied to " + newFile);
+					//console.log(oldFile + " was copied to " + newFile);
 				});
 			});
 		});
@@ -271,8 +282,16 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 			.then(function(files) {
 				files.forEach(function(file) {
 					var fileSchema = JSON.parse(file);
-					if (fileSchema !== null) schema = schema.concat(fileSchema);
+					//console.log(fileSchema);
+					if (fileSchema !== null) {
+						if (fileSchema.constructor === Array) {
+							schema = schema.concat(fileSchema);
+						} else {
+							schema.push(fileSchema);
+						}
+					}
 				});
+				//console.log(schema);
 				complete(schema);
 			});
 	}
@@ -310,10 +329,12 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 		// 	dirPath = workingDirectory + "microscopes/";
 		// }
 		let json = JSON.stringify(microscope);
-		let micName = microscope.name;
+		let micName = microscope.Name;
 		let micNameNormalized = micName.replace(/\s+/g, "_").toLowerCase();
 		let fileName = dirPath + `${micNameNormalized}.json`;
-		fs.writeFile(fileName, json, complete);
+		fs.writeFile(fileName, json, function() {
+			complete(micNameNormalized);
+		});
 	}
 
 	handleSelectWorkingDirectory(filePaths) {

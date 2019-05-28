@@ -1,0 +1,226 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"LightGuide.json",
+	"type":"object",
+	"title":"LightGuide",
+	"description":"Light Guides interface with illuminators to transfer light to the speciment in a usable manner.",
+	"category":"LightSourceCoupling",
+	"image":"LightSourceCoupling_LightGuide.png",
+	"tier":4,
+	"subCategoriesOrder": [
+		"Generic",
+		"ManufacturerSpec",
+		"LightSourceCoupling",
+		"LightGuide",
+		"CouplingLens",
+		"WavelengthRange"
+	],
+	"properties": {
+		"Type": {
+			"type":"string",
+			"description":"The type of light guide used in this case.",
+			"tier":5,
+			"category":"LightGuide"
+		},
+		"PeakWavelength": {
+			"type":"string",
+			"description":"The wavelength associated with maximum light intensity transmitted by this light guide",
+			"tier":5,
+			"category":"LightGuide"
+		},
+		"PeakWavelengthUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"LightGuide"
+		},
+		"RefractiveIndex": {
+			"type":"string",
+			"description":"The refractive index of the material this light guide is made of",
+			"tier":5,
+			"category":"LightGuide"
+		},
+		"NumericalAperture": {
+			"type":"string",
+			"description":"The numerical aperture of the light guide expressed as a floating point (real) number. Expected range 0.02 - 1.5",
+			"tier":5,
+			"category":"LightGuide"
+		},
+		"AcceptanceAngle": {
+			"type":"string",
+			"description":"The angle within which light beam may be coupled into the bound modes of an optical fiber.",
+			"tier":5,
+			"category":"LightGuide"
+		},
+		"AcceptanceAngleUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"LightGuide"
+		},
+		"Geometry": {
+			"type":"string",
+			"description":"The shape of this LightGuide",
+			"tier":5,
+			"category":"LightGuide"
+		},
+		"MaterialName": {
+			"type":"string",
+			"description":"This records the chemical composition or the nonproprietary trade designation of the material used for this light guide",
+			"tier":5,
+			"category":"LightGuide"
+		},
+		"SingleMode": {
+			"type":"string",
+			"description":"Records whether or not the light guide is single-mode. If not, then the guide is assumend to be multi-modal",
+			"tier":5,
+			"category":"LightGuide"
+		},
+		"WaveguideMode": {
+			"type":"string",
+			"description":"When boundary conditions are imposed by a physical structure, a wave of a particular frequency can be described in terms of a transverse mode (or superposition of such modes). These modes generally follow different propagation constants",
+			"tier":5,
+			"category":"LightGuide"
+		},
+		"Diameter": {
+			"type":"string",
+			"description":"The outer diameter of the light guide",
+			"tier":5,
+			"category":"LightGuide"
+		},
+		"DiameterUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"LightGuide"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this component.",
+			"tier":4,
+			"category":"Generic"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":4,
+			"category":"Generic",
+			"readonly": true
+		},
+		"Transmittance": {
+			"type":"string",
+			"description":"The amount of light this LightSourceCoupling apparatus transmits at a maximum. A fraction, as a value from 0.0 to 1.0",
+			"tier":5,
+			"category":"LightSourceCoupling"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The model of this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"string",
+			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"CouplingLens": {
+			"type":"string",
+			"description":"This is a reference to a lens positioned at connector between this light source coupling element and the microscope body.",
+			"tier":5,
+			"category":"CouplingLens",
+			"linkTo":"CouplingLens"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"tier":4,
+			"category":"Generic"
+		},
+		"WavelengthRange": {
+			"type":"object",
+			"description":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
+			"tier":5,
+			"properties": {
+				"CutIn": {
+					"type":"string",
+					"description":"CutIn is the wavelength below which the response rate is below 50%.",
+					"tier":5,
+					"category":"WavelengthRange"
+				},
+				"CutInUnit": {
+					"type":"string",
+					"description":"NA",
+					"tier":5,
+					"category":"WavelengthRange"
+				},
+				"CutOut": {
+					"type":"string",
+					"description":"CutOut is the wavelength above which the response rate is below 50%.",
+					"tier":5,
+					"category":"WavelengthRange"
+				},
+				"CutOutUnit": {
+					"type":"string",
+					"description":"NA",
+					"tier":5,
+					"category":"WavelengthRange"
+				},
+				"WavelenghtProfile": {
+					"type":"string",
+					"description":"The location of a file containing the wavelenght profile of this component.",
+					"tier":5,
+					"category":"WavelengthRange"
+				}
+			},
+			"required": [
+				"CutIn",
+				"CutOut",
+				"WavelenghtProfile"
+			]
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":4,
+			"category":"Generic",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Type",
+		"PeakWavelength",
+		"RefractiveIndex",
+		"NumericalAperture",
+		"AcceptanceAngle",
+		"ID",
+		"Name",
+		"Transmittance",
+		"Manufacturer",
+		"Model",
+		"SerialNumber",
+		"SpecsFile",
+		"Description",
+		"WavelengthRange"
+	]
+}

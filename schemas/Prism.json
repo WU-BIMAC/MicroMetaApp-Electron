@@ -1,0 +1,223 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Prism.json",
+	"type":"object",
+	"title":"Prism",
+	"description":"A prism is a block of glass or other transparent material with flat, polished surfaces. A prism can be employed to deflect or deviate a light beam, rotate or invert an image, separate polarization states, or disperse light into its component wavelengths. Prisms can be classified in three general categories: reflecting prisms, polarizing prisms, and refracting or dispersion prisms. Reflecting prisms are useful for redirecting light beams by total internal reflection. Refracting prisms can be employed to bend and separate light into its component colors. Polarizing prisms are birefringent crystals that divide incident non-polarized light into separate components polarized orthogonally to each other. These prisms are employed to produce polarized light for optical instruments such as microscopes and polarimeters. A prism can be viewed as an ensamble of different rigidly mounted mirrors, with each face having a permanent orientation with respect to all the others",
+	"category":"AdditionalOptics",
+	"image":"AdditionalOptics_Prism.png",
+	"tier":2,
+	"subCategoriesOrder": [
+		"Generic",
+		"ManufacturerSpec",
+		"Prism",
+		"WavelengthRange"
+	],
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this component.",
+			"tier":2,
+			"category":"Generic"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":2,
+			"category":"Generic",
+			"readonly": true
+		},
+		"Type": {
+			"type":"string",
+			"description":"The category to which this prism belongs.",
+			"tier":3,
+			"category":"Prism"
+		},
+		"Geometry": {
+			"type":"string",
+			"description":"The geometrical shape of this prism",
+			"tier":5,
+			"category":"Prism"
+		},
+		"Reflectance": {
+			"type":"string",
+			"description":"The amount of light the prism reflects at a maximum. It is represented as a fraction, as a value from 0.0 to 1.0",
+			"tier":5,
+			"category":"Prism"
+		},
+		"PrismAngle": {
+			"type":"string",
+			"description":"The angle between two surfaces of a Prism",
+			"tier":5,
+			"category":"Prism"
+		},
+		"PrismAngleUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"Prism"
+		},
+		"AngleOfIncidence": {
+			"type":"string",
+			"description":"The angle of incidence (AOI) is the angle between a beam of light incident on the prism surface and the line perpendicular to the surface at the point of incidence, called the normal.",
+			"tier":5,
+			"category":"Prism"
+		},
+		"AngleOfIncidenceUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"Prism"
+		},
+		"DeviationAngle": {
+			"type":"string",
+			"description":"A beam passing through an object like a prism is deflected twice: once entering, and again when exiting. The sum of these two deflections is called the deviation angle and is measured with respect to the incident ray",
+			"tier":5,
+			"category":"Prism"
+		},
+		"DevianceAngleUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"Prism"
+		},
+		"MaterialName": {
+			"type":"string",
+			"description":"This records the chemical composition or the nonproprietary trade designation of the glass",
+			"tier":5,
+			"category":"Prism"
+		},
+		"GlassCode": {
+			"type":"string",
+			"description":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642",
+			"tier":5,
+			"category":"Prism"
+		},
+		"RefractiveIndex": {
+			"type":"string",
+			"description":"The refractive index of the material of which the prism is made",
+			"tier":5,
+			"category":"Prism"
+		},
+		"AbbeNumber": {
+			"type":"string",
+			"description":"The Abbe Number is a measure of the material's dispersion (variation of refractive index versus wavelength), with high values indicating low dispersion",
+			"tier":5,
+			"category":"Prism"
+		},
+		"Density": {
+			"type":"string",
+			"description":"The density of the material of which the prism is made",
+			"tier":5,
+			"category":"Prism"
+		},
+		"DensityUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"Prism"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The model of this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"string",
+			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"WavelengthRange": {
+			"type":"object",
+			"description":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
+			"tier":5,
+			"properties": {
+				"CutIn": {
+					"type":"string",
+					"description":"CutIn is the wavelength below which the response rate is below 50%.",
+					"tier":5,
+					"category":"WavelengthRange"
+				},
+				"CutInUnit": {
+					"type":"string",
+					"description":"NA",
+					"tier":5,
+					"category":"WavelengthRange"
+				},
+				"CutOut": {
+					"type":"string",
+					"description":"CutOut is the wavelength above which the response rate is below 50%.",
+					"tier":5,
+					"category":"WavelengthRange"
+				},
+				"CutOutUnit": {
+					"type":"string",
+					"description":"NA",
+					"tier":5,
+					"category":"WavelengthRange"
+				},
+				"WavelenghtProfile": {
+					"type":"string",
+					"description":"The location of a file containing the wavelenght profile of this component.",
+					"tier":5,
+					"category":"WavelengthRange"
+				}
+			},
+			"required": [
+				"CutIn",
+				"CutOut",
+				"WavelenghtProfile"
+			]
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"tier":2,
+			"category":"Generic"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":2,
+			"category":"Generic",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"Type",
+		"Reflectance",
+		"AngleOfIncidence",
+		"DeviationAngle",
+		"RefractiveIndex",
+		"AbbeNumber",
+		"Manufacturer",
+		"Model",
+		"SerialNumber",
+		"SpecsFile",
+		"WavelengthRange",
+		"Description"
+	]
+}

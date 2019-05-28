@@ -1,0 +1,219 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"RelayLens.json",
+	"type":"object",
+	"title":"RelayLens",
+	"description":"A lens positioned at the mount connecting this detector to the microscope body.",
+	"category":"AdditionalOptics",
+	"image":"AdditionalOptics_RelayLens.png",
+	"tier":3,
+	"subCategoriesOrder": [
+		"Generic",
+		"ManufacturerSpec",
+		"Lens",
+		"RelayLens"
+	],
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this component.",
+			"tier":2,
+			"category":"Generic"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":2,
+			"category":"Generic",
+			"readonly": true
+		},
+		"Type": {
+			"type":"string",
+			"description":"The general category to which this lens belongs.",
+			"tier":5,
+			"category":"Lens"
+		},
+		"Geometry": {
+			"type":"string",
+			"description":"The geometrical shape of the lens surfaces",
+			"tier":5,
+			"category":"Lens"
+		},
+		"Construction": {
+			"type":"string",
+			"description":"Whether or not the lens is simple or composite",
+			"tier":5,
+			"category":"Lens"
+		},
+		"Magnification": {
+			"type":"string",
+			"description":"The nominal magnification provided by this lens",
+			"tier":2,
+			"category":"Lens"
+		},
+		"AttenuationCoefficient": {
+			"type":"string",
+			"description":"The attenuation coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a lens. The attenuation coefficient is often defined in units of optical density (OD), wherease OD= -log10(T), and T=Transmittance (0?T?1).",
+			"tier":5,
+			"category":"Lens"
+		},
+		"RadiusOfCurvature": {
+			"type":"string",
+			"description":"A spherical lens or mirror surface has a center of curvature located either along or decentered from the system local optical axis. The vertex of the lens surface is located on the local optical axis. The distance from the vertex to the center of curvature is the radius of curvature of the surface",
+			"tier":5,
+			"category":"Lens"
+		},
+		"RadiusOfCurvatureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"Lens"
+		},
+		"FocalDistanceToObject": {
+			"type":"string",
+			"description":"The distance between the front principal plane of the lens and the specimen",
+			"tier":5,
+			"category":"Lens"
+		},
+		"FocalDistanceToObjectUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"Lens"
+		},
+		"FocalDistanceToImage": {
+			"type":"string",
+			"description":"The distance from the rear principal plane to the image",
+			"tier":5,
+			"category":"Lens"
+		},
+		"FocalDistanceToImageUnits": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"Lens"
+		},
+		"FocalLength": {
+			"type":"string",
+			"description":"The distance from the rear principal plane of the lens and its focal point",
+			"tier":5,
+			"category":"Lens"
+		},
+		"FocalLengthUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"Lens"
+		},
+		"MaterialName": {
+			"type":"string",
+			"description":"This records the chemical composition or the nonproprietary trade designation of the glass",
+			"tier":5,
+			"category":"Lens"
+		},
+		"GlassCode": {
+			"type":"string",
+			"description":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642",
+			"tier":5,
+			"category":"Lens"
+		},
+		"RefractiveIndex": {
+			"type":"string",
+			"description":"The refractive index of the material the prism is made of",
+			"tier":5,
+			"category":"Lens"
+		},
+		"AbbeNumber": {
+			"type":"string",
+			"description":"The Abbe Number is a measure of the material's dispersion (variation of refractive index versus wavelength), with high values indicating low dispersion",
+			"tier":5,
+			"category":"Lens"
+		},
+		"Density": {
+			"type":"string",
+			"description":"The density of the material this lens is made of",
+			"tier":5,
+			"category":"Lens"
+		},
+		"DensityUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"Lens"
+		},
+		"Diameter": {
+			"type":"string",
+			"description":"The physical diamter of this lens",
+			"tier":5,
+			"category":"Lens"
+		},
+		"DiameterUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":5,
+			"category":"Lens"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The model of this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"string",
+			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"tier":2,
+			"category":"Generic"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"Generic",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"Type",
+		"Construction",
+		"Magnification",
+		"AttenuationCoefficient",
+		"FocalDistanceToObject",
+		"FocalDistanceToImage",
+		"FocalLength",
+		"RefractiveIndex",
+		"AbbeNumber",
+		"Manufacturer",
+		"Model",
+		"SerialNumber",
+		"SpecsFile",
+		"Description"
+	]
+}

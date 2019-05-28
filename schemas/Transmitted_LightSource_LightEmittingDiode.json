@@ -1,0 +1,188 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Transmitted_LightSource_LightEmittingDiode.json",
+	"type":"object",
+	"title":"LightEmittingDiode",
+	"description":"The LightEmittingDiode element is used to describe various kinds of LED lamps",
+	"category":"Transmitted_LightSource",
+	"image":"Transmitted_LightSource_LightEmittingDiode.png",
+	"tier":1,
+	"subCategoriesOrder": [
+		"Generic",
+		"ManufacturerSpec",
+		"LightSource",
+		"LightEmittingDiode",
+		"LEDModule"
+	],
+	"properties": {
+		"Type": {
+			"type":"string",
+			"description":"The type of LightEmittingDiode light source.",
+			"tier":3,
+			"category":"LightEmittingDiode"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this component.",
+			"tier":1,
+			"category":"Generic"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A LightSource ID must be specified for each light source, and the individual light sources can be referred to by their LightSource IDs (eg from Channel).",
+			"tier":1,
+			"category":"Generic",
+			"readonly": true
+		},
+		"NominalPower": {
+			"type":"string",
+			"description":"The nominal power of the light-source",
+			"tier":3,
+			"category":"LightSource"
+		},
+		"NominalPowerUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"category":"LightSource"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The model of this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"string",
+			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"tier":2,
+			"category":"Generic"
+		},
+		"LEDModule": {
+			"type":"array",
+			"description":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used.",
+			"tier":2,
+			"items": {
+				"properties": {
+					"PeakWavelenght": {
+						"type":"string",
+						"description":"The wavelength at which there is maximal response rate.",
+						"tier":2,
+						"category":"LEDModule"
+					},
+					"PeakWavelenghtUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"category":"LEDModule"
+					},
+					"LumenPower": {
+						"type":"string",
+						"description":"The amount of light this light source generate at maximum expressed in lumen. The lumen is the SI derived unit of luminous flux, a measure of the total quantity of visible light emitted by a source.",
+						"tier":3,
+						"category":"LEDModule"
+					},
+					"LumenPowerUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"category":"LEDModule"
+					},
+					"ProjectionAngle": {
+						"type":"string",
+						"description":"The angle at which this light source projects light.",
+						"tier":5,
+						"category":"LEDModule"
+					},
+					"ProjectionAngleUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":5,
+						"category":"LEDModule"
+					},
+					"CutIn": {
+						"type":"string",
+						"description":"CutIn is the wavelength below which the response rate is below 50%.",
+						"tier":3,
+						"category":"LEDModule"
+					},
+					"CutInUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"category":"LEDModule"
+					},
+					"CutOut": {
+						"type":"string",
+						"description":"CutOut is the wavelength above which the response rate is below 50%",
+						"tier":3,
+						"category":"LEDModule"
+					},
+					"CutOutUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"category":"LEDModule"
+					},
+					"WavelenghtProfile": {
+						"type":"string",
+						"description":"The location of a file containing the wavelenght profile of this component.",
+						"tier":5,
+						"category":"LEDModule"
+					}
+				},
+				"required": [
+					"PeakWavelenght",
+					"LumenPower",
+					"CutIn",
+					"CutOut",
+					"WavelenghtProfile"
+				]
+			}
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"Generic",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Type",
+		"ID",
+		"Name",
+		"NominalPower",
+		"Manufacturer",
+		"Model",
+		"SerialNumber",
+		"SpecsFile",
+		"Description",
+		"LEDModule"
+	]
+}

@@ -1,0 +1,113 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Direct.json",
+	"type":"object",
+	"title":"Direct",
+	"description":"Direct coupling consists of either direct mounting or a optical light path that connects the Light Source with the microscope",
+	"category":"LightSourceCoupling",
+	"image":"LightSourceCoupling_Direct.png",
+	"tier":4,
+	"subCategoriesOrder": [
+		"Generic",
+		"ManufacturerSpec",
+		"LightSourceCoupling",
+		"Direct",
+		"CouplingLens"
+	],
+	"properties": {
+		"Type": {
+			"type":"string",
+			"description":"The type of direct coupling available for this Instrument.",
+			"tier":5,
+			"category":"Direct"
+		},
+		"Mount": {
+			"type":"string",
+			"description":"The mount utilized to attach a LightSource to the microscope",
+			"tier":5,
+			"category":"Direct"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this component.",
+			"tier":4,
+			"category":"Generic"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":4,
+			"category":"Generic",
+			"readonly": true
+		},
+		"Transmittance": {
+			"type":"string",
+			"description":"The amount of light this LightSourceCoupling apparatus transmits at a maximum. A fraction, as a value from 0.0 to 1.0",
+			"tier":5,
+			"category":"LightSourceCoupling"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The model of this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"string",
+			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"CouplingLens": {
+			"type":"string",
+			"description":"This is a reference to a lens positioned at connector between this light source coupling element and the microscope body.",
+			"tier":5,
+			"category":"CouplingLens",
+			"linkTo":"CouplingLens"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"tier":4,
+			"category":"Generic"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":4,
+			"category":"Generic",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Type",
+		"Mount",
+		"ID",
+		"Name",
+		"Transmittance",
+		"Manufacturer",
+		"Model",
+		"SerialNumber",
+		"SpecsFile",
+		"Description"
+	]
+}
