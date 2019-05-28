@@ -25,7 +25,6 @@
 	},
 	"build": {
 		"appId": "4DNMicroscopyMetadataTool",
-		"asar": "false",
 		"files": [
 			"**/*",
 			"./build/MicroscopyMetadataToolStandAlone.dev.js",
