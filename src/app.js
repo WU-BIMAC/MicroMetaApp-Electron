@@ -14,9 +14,9 @@ const path = window.require("path");
 const dialog = electron.remote.dialog;
 const mainWindow = electron.BrowserWindow;
 
-const toolDirectory = "MicroscopyMetadataTool";
-const schemaDirectory = "schemas";
-const microscopeDirectory = "microscopes";
+const toolDirectory = "./MicroscopyMetadataTool/";
+const schemaDirectory = "./schemas/";
+const microscopeDirectory = "./microscopes/";
 
 window.onload = () => {
 	ReactDOM.render(
@@ -183,8 +183,8 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 	static copyFiles(oldDirectory, newDirectory) {
 		readDirAsync(oldDirectory).then(function(fileNames) {
 			fileNames.forEach(function(fileName) {
-				let oldFile = oldDirectory + fileName;
-				let newFile = newDirectory + fileName;
+				let oldFile = path.resolve(oldDirectory, fileName);
+				let newFile = path.resolve(newDirectory, fileName);
 				fs.copyFile(oldFile, newFile, err => {
 					if (err) throw err;
 					//console.log(oldFile + " was copied to " + newFile);
@@ -390,7 +390,8 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 			workingDirectory,
 			workingDirectoryConfirmed
 		} = this.state;
-		const imagesPath = path.resolve("./../public/assets/");
+		const imagesPath = path.resolve("./public/assets/");
+		console.log(imagesPath);
 		if (!workingDirectoryConfirmed) {
 			return (
 				<MicroscopeMetadataToolWorkingDirectoryChooser
