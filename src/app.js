@@ -9,6 +9,7 @@ import MicroscopeMetadataTool from "4dn-microscopy-metadata-tool";
 
 const fs = window.require("fs");
 const electron = window.require("electron");
+const appPath = electron.remote.app.getAppPath();
 const homePath = electron.remote.app.getPath("home");
 const path = window.require("path");
 const dialog = electron.remote.dialog;
@@ -205,7 +206,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
-			workingDirectory: path.resolve("./"),
+			workingDirectory: path.resolve(appPath),
 			workingDirectoryConfirmed: false,
 			windowDimensions: {
 				width: window && window.innerWidth,
