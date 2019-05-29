@@ -1,6 +1,6 @@
 {
-	"name": "4dn_microscopy_metadata_tool_standalone",
-	"version": "0.1.0",
+	"name": "4dn-microscopy-metadata-tool-standalone",
+	"version": "0.0.1",
 	"private": true,
 	"main": "./main.js",
 	"publishConfig": {
@@ -17,20 +17,29 @@
 		"start": "electron .",
 		"test": "node scripts/test.js",
 		"build-internal": "gulp build-internal",
-		"build": "gulp build",
+		"build": "gulp build-dev && gulp build",
 		"dev": "gulp dev",
 		"dist": "build",
 		"dist_32": "build --win --ia32 --dir"
 	},
 	"build": {
-		"appId": "4DNMicroscopyMetadataTool",
+		"appId": "com.4dn.MicroscopyMetadataTool",
 		"asar": false,
 		"files": [
 			"**/*",
-			"./build/MicroscopyMetadataToolStandAlone.dev.js",
-			"./build/MicroscopyMetadataToolStandAlone.min.js",
-			"!**./dist/",
-			"!**./dist/*"
+			"build/*.js",
+			"!dist/**/*",
+			"!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+			"!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+			"!**/node_modules/*.d.ts",
+			"!**/node_modules/.bin",
+  			"!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+  			"!.editorconfig",
+  			"!**/._*",
+  			"!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+  			"!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+  			"!**/{appveyor.yml,.travis.yml,circle.yml}",
+  			"!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
 		],
 		"directories": {
 			"app": "./"
@@ -73,7 +82,6 @@
 		"@babel/core": "^7.4.5",
 		"@babel/preset-env": "^7.4.5",
 		"@babel/preset-react": "^7.0.0",
-		"babel-core": "^6.26.3",
 		"babel-eslint": "^10.0.1",
 		"babel-loader": "^8.0.6",
 		"babel-preset-react-app": "^9.0.0",

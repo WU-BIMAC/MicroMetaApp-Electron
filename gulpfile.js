@@ -43,6 +43,8 @@ let watch = () => {
 	webpack(webpackConfig).watch(300, webpackOnBuild());
 };
 
+
+const buildDev = gulp.series(setDev, doWebpack);
 const devSlow = gulp.series(setDev, doWebpack, watch);
 
 // TODO add step in series to build node_modules/4dn-metadata-tool-react/src to node_modules/4dn-metadata-tool-react/dist maybe
@@ -55,3 +57,5 @@ const build = gulp.series(buildInternal, done => {
 gulp.task("dev", devSlow);
 gulp.task("build-internal", buildInternal);
 gulp.task("build", build);
+gulp.task("build-dev", buildDev);
+

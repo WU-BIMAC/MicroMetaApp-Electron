@@ -7,16 +7,16 @@ import FormControl from "react-bootstrap/FormControl";
 
 import MicroscopeMetadataTool from "4dn-microscopy-metadata-tool";
 
-let fs = window.require("fs");
-let electron = window.require("electron");
-let homePath = electron.remote.app.getPath("home");
-let path = window.require("path");
-let dialog = electron.remote.dialog;
-let mainWindow = electron.BrowserWindow;
+const fs = window.require("fs");
+const electron = window.require("electron");
+const homePath = electron.remote.app.getPath("home");
+const path = window.require("path");
+const dialog = electron.remote.dialog;
+const mainWindow = electron.BrowserWindow;
 
-let toolDirectory = "MicroscopyMetadataTool";
-let schemaDirectory = "schemas";
-let microscopeDirectory = "microscopes";
+const toolDirectory = "MicroscopyMetadataTool";
+const schemaDirectory = "schemas";
+const microscopeDirectory = "microscopes";
 
 window.onload = () => {
 	ReactDOM.render(
@@ -180,10 +180,33 @@ class MicroscopeMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 }
 
 class MicroscopeMetadataToolComponent extends React.PureComponent {
+
+	static copyFiles(oldDirectory, newDirectory) {
+		readDirAsync(oldDirectory).then(function(fileNames) {
+			fileNames.forEach(function(fileName) {
+				let oldFile = oldDirectory + fileName;
+				let newFile = newDirectory + fileName;
+				fs.copyFile(oldFile, newFile, err => {
+					if (err) throw err;
+					//console.log(oldFile + " was copied to " + newFile);
+				});
+			});
+		});
+	}
+
+	static cleanDirectory(newSchemaDirectory) {
+		readDirAsync(newSchemaDirectory).then(function(fileNames) {
+			fileNames.forEach(function(fileName) {
+				let oldFile = path.resolve(newSchemaDirectory, fileName);
+				fs.unlinkSync(oldFile);
+			});
+		});
+	}
+
 	constructor(props) {
 		super(props);
 		this.state = {
-			workingDirectory: "./",
+			workingDirectory: path.resolve("./"),
 			workingDirectoryConfirmed: false,
 			windowDimensions: {
 				width: window && window.innerWidth,
@@ -200,8 +223,6 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 		this.handleConfirmWorkingDirectory = this.handleConfirmWorkingDirectory.bind(
 			this
 		);
-		this.cleanDirectory = this.cleanDirectory.bind(this);
-		this.copyFiles = this.copyFiles.bind(this);
 
 		this.onWindowResize = this.onWindowResize.bind(this);
 	}
@@ -220,62 +241,41 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 			this.onWindowResize();
 		}
 
-		let oldWorkingDirectory = this.state.workingDirectory;
-		let newWorkingDirectory = homePath + path.sep + toolDirectory;
+		const oldWorkingDirectory = this.state.workingDirectory;
+		const newWorkingDirectory = path.resolve(homePath, toolDirectory);
 		if (!fs.existsSync(newWorkingDirectory)) {
 			fs.mkdirSync(newWorkingDirectory);
 		}
-		let oldSchemaDirectory =
-			oldWorkingDirectory + path.sep + schemaDirectory + path.sep;
-		let newSchemaDirectory =
-			newWorkingDirectory + path.sep + schemaDirectory + path.sep;
+
+		const oldSchemaDirectory = path.resolve(oldWorkingDirectory, schemaDirectory);
+		const newSchemaDirectory = path.resolve(newWorkingDirectory, schemaDirectory);
 		if (!fs.existsSync(newSchemaDirectory)) {
 			fs.mkdirSync(newSchemaDirectory);
 		}
-		this.cleanDirectory(newSchemaDirectory);
-		this.copyFiles(oldSchemaDirectory, newSchemaDirectory);
-		let oldMicroscopeDirectory =
-			oldWorkingDirectory + path.sep + microscopeDirectory + path.sep;
-		let newMicroscopeDirectory =
-			newWorkingDirectory + path.sep + microscopeDirectory + path.sep;
+		MicroscopeMetadataToolComponent.cleanDirectory(newSchemaDirectory);
+		MicroscopeMetadataToolComponent.copyFiles(oldSchemaDirectory, newSchemaDirectory);
+
+		const oldMicroscopeDirectory = path.resolve(oldWorkingDirectory, microscopeDirectory);
+		const newMicroscopeDirectory = path.resolve(newWorkingDirectory, microscopeDirectory);
 		if (!fs.existsSync(newMicroscopeDirectory)) {
 			fs.mkdirSync(newMicroscopeDirectory);
 		}
-		this.copyFiles(oldMicroscopeDirectory, newMicroscopeDirectory);
+		MicroscopeMetadataToolComponent.copyFiles(oldMicroscopeDirectory, newMicroscopeDirectory);
 		this.setState({ workingDirectory: newWorkingDirectory });
+
+		window.console.log("workingDirectory -- old, new", oldWorkingDirectory, newWorkingDirectory);
 	}
 
-	cleanDirectory(newSchemaDirectory) {
-		readDirAsync(newSchemaDirectory).then(function(fileNames) {
-			fileNames.forEach(function(fileName) {
-				let oldFile = newSchemaDirectory + fileName;
-				fs.unlinkSync(oldFile);
-			});
-		});
-	}
-
-	copyFiles(oldDirectory, newDirectory) {
-		readDirAsync(oldDirectory).then(function(fileNames) {
-			fileNames.forEach(function(fileName) {
-				let oldFile = oldDirectory + fileName;
-				let newFile = newDirectory + fileName;
-				fs.copyFile(oldFile, newFile, err => {
-					if (err) throw err;
-					//console.log(oldFile + " was copied to " + newFile);
-				});
-			});
-		});
-	}
 
 	onLoadSchema(complete) {
-		let workingDirectory = this.state.workingDirectory;
-		let dirPath = workingDirectory + schemaDirectory + path.sep;
+		const workingDirectory = this.state.workingDirectory;
+		const dirPath = path.resolve(workingDirectory, schemaDirectory);
 		let schema = [];
 		readDirAsync(dirPath)
 			.then(function(fileNames) {
 				let absoluteFileNames = [];
 				fileNames.forEach(function(fileName) {
-					absoluteFileNames.push(dirPath + fileName);
+					absoluteFileNames.push(path.resolve(dirPath, fileName));
 				});
 				return Promise.all(absoluteFileNames.map(readFileAsync));
 			})
@@ -297,14 +297,14 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 	}
 
 	onLoadMicroscopes(complete) {
-		let workingDirectory = this.state.workingDirectory;
-		let dirPath = workingDirectory + microscopeDirectory + path.sep;
+		const workingDirectory = this.state.workingDirectory;
+		const dirPath = path.resolve(workingDirectory, microscopeDirectory);
 		let microscopesDB = {};
 		readDirAsync(dirPath)
 			.then(function(fileNames) {
 				let absoluteFileNames = [];
 				fileNames.forEach(function(fileName) {
-					absoluteFileNames.push(dirPath + fileName);
+					absoluteFileNames.push(path.resolve(dirPath, fileName));
 				});
 				return Promise.all(absoluteFileNames.map(readFileAsync));
 			})
@@ -319,8 +319,8 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 	}
 
 	onWorkingDirectorySave(complete, microscope) {
-		let workingDirectory = this.state.workingDirectory;
-		let dirPath = workingDirectory + microscopeDirectory + path.sep;
+		const workingDirectory = this.state.workingDirectory;
+		const dirPath = path.resolve(workingDirectory, microscopeDirectory);
 		//let dirPath = null;
 		// let isTemplate = microscope.isTemplate;
 		// if (isTemplate) {
@@ -365,9 +365,8 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 	}
 
 	render() {
-		let dims = this.state.windowDimensions;
-		let workingDirectory = this.state.workingDirectory;
-		let workingDirectoryConfirmed = this.state.workingDirectoryConfirmed;
+		const { windowDimensions: dims, workingDirectory, workingDirectoryConfirmed } = this.state;
+		const imagesPath = path.resolve("./../public/assets/");
 		if (!workingDirectoryConfirmed) {
 			return (
 				<MicroscopeMetadataToolWorkingDirectoryChooser
@@ -386,7 +385,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 					onLoadSchema={this.onLoadSchema}
 					onLoadMicroscopes={this.onLoadMicroscopes}
 					onSaveMicroscope={this.onWorkingDirectorySave}
-					imagesPath={"./../public/assets/"}
+					imagesPath={imagesPath}
 				/>
 			);
 		}
