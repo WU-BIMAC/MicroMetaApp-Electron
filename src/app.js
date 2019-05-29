@@ -312,7 +312,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 				files.forEach(function(file) {
 					var microscope = JSON.parse(file);
 					if (microscope !== null)
-						microscopesDB[microscope.name + "_" + microscope.id] = microscope;
+						microscopesDB[microscope.Name + "_" + microscope.ID] = microscope;
 				});
 				complete(microscopesDB);
 			});
