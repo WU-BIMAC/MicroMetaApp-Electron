@@ -26,7 +26,7 @@
 				"EMCCD",
 				"Interline",
 				"Other"
-			]
+			],
 			"category":"CMOS"
 		},
 ,
@@ -39,7 +39,7 @@
 				"Front",
 				"Back",
 				"Other"
-			]
+			],
 			"category":"Camera"
 		},
 ,
@@ -104,7 +104,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Camera"
 		},
 ,
@@ -155,7 +155,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Camera"
 		},
 ,
@@ -206,7 +206,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Camera"
 		},
 ,
@@ -257,7 +257,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Camera"
 		},
 ,
@@ -277,7 +277,7 @@
 				"e-",
 				"Coulomb",
 				"Other"
-			]
+			],
 			"category":"Camera"
 		},
 ,
@@ -297,7 +297,7 @@
 				"e-",
 				"Coulomb",
 				"Other"
-			]
+			],
 			"category":"Camera"
 		},
 ,
@@ -338,7 +338,7 @@
 				"min",
 				"h",
 				"d"
-			]
+			],
 			"category":"Camera"
 		},
 ,
@@ -378,7 +378,7 @@
 				"yHz",
 				"fps",
 				"pixel per second"
-			]
+			],
 			"category":"Camera"
 		},
 ,
@@ -418,7 +418,7 @@
 				"yHz",
 				"fps",
 				"pixel per second"
-			]
+			],
 			"category":"Camera"
 		},
 ,
@@ -455,7 +455,7 @@
 				"SLR adapter",
 				"D-SLR adapter",
 				"Other"
-			]
+			],
 			"category":"Detector"
 		},
 ,
@@ -475,7 +475,7 @@
 				"A",
 				"e-/pixel/sec",
 				"e- rms"
-			]
+			],
 			"category":"Detector"
 		},
 ,
@@ -487,7 +487,7 @@
 				"Poisson",
 				"Gaussian",
 				"Other"
-			]
+			],
 			"category":"Detector"
 		},
 ,
@@ -507,7 +507,7 @@
 				"A",
 				"e-/pixel/sec",
 				"e- rms"
-			]
+			],
 			"category":"Detector"
 		},
 ,
@@ -557,7 +557,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Detector"
 		},
 ,
@@ -585,7 +585,7 @@
 				"°F",
 				"K",
 				"°R"
-			]
+			],
 			"category":"Detector"
 		},
 ,
@@ -683,7 +683,7 @@
 						"pt",
 						"pixel",
 						"reference frame"
-					]
+					],
 					"category":"WavelengthRange"
 				},
 ,
@@ -734,7 +734,7 @@
 						"pt",
 						"pixel",
 						"reference frame"
-					]
+					],
 					"category":"WavelengthRange"
 				},
 ,

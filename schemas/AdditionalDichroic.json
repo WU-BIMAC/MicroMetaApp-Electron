@@ -27,7 +27,7 @@
 				"Longpass",
 				"Shortpass",
 				"Other"
-			]
+			],
 			"category":"Dichroic"
 		},
 ,
@@ -55,7 +55,7 @@
 				"Reflection",
 				"Rifraction",
 				" Other"
-			]
+			],
 			"category":"Dichroic"
 		},
 ,
@@ -70,7 +70,7 @@
 				"Acousto-optical",
 				"Liquid-crystal",
 				"Other"
-			]
+			],
 			"category":"Dichroic"
 		},
 ,
@@ -83,7 +83,7 @@
 				"Circular",
 				"Elliptical",
 				"Other"
-			]
+			],
 			"category":"Dichroic"
 		},
 ,
@@ -139,7 +139,7 @@
 				"Concave",
 				"Planar",
 				"Other"
-			]
+			],
 			"category":"Mirror"
 		},
 ,
@@ -155,7 +155,7 @@
 				"Hyeprboloidal",
 				"Paraboloidal",
 				"Other"
-			]
+			],
 			"category":"Mirror"
 		},
 ,
@@ -173,7 +173,7 @@
 			"default":"deg",
 			"enum": [
 				"deg"
-			]
+			],
 			"category":"Mirror"
 		},
 ,
@@ -223,7 +223,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Mirror"
 		},
 ,
@@ -235,7 +235,7 @@
 				"Metallic",
 				"Dielectric",
 				"Other"
-			]
+			],
 			"category":"Mirror"
 		},
 ,
@@ -251,7 +251,7 @@
 				"Zerodur (Lithium Aluminum Ailicon Oxide)",
 				"Zinc Selenide (ZnSe)",
 				"Other"
-			]
+			],
 			"category":"Mirror"
 		},
 ,
@@ -357,7 +357,7 @@
 							"pt",
 							"pixel",
 							"reference frame"
-						]
+						],
 						"category":"TransmittanceRange"
 					},
 ,
@@ -408,7 +408,7 @@
 							"pt",
 							"pixel",
 							"reference frame"
-						]
+						],
 						"category":"TransmittanceRange"
 					},
 ,
@@ -480,7 +480,7 @@
 							"pt",
 							"pixel",
 							"reference frame"
-						]
+						],
 						"category":"ReflectanceRange"
 					},
 ,
@@ -531,7 +531,7 @@
 							"pt",
 							"pixel",
 							"reference frame"
-						]
+						],
 						"category":"ReflectanceRange"
 					},
 

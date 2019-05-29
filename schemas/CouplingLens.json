@@ -43,7 +43,7 @@
 				"Concave Meniscus",
 				"Equiconvex",
 				"Other"
-			]
+			],
 			"category":"Lens"
 		},
 ,
@@ -62,7 +62,7 @@
 				"Rod",
 				"Toric",
 				"Other"
-			]
+			],
 			"category":"Lens"
 		},
 ,
@@ -74,7 +74,7 @@
 				"Simple",
 				"Composite",
 				"Other"
-			]
+			],
 			"category":"Lens"
 		},
 ,
@@ -138,7 +138,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Lens"
 		},
 ,
@@ -188,7 +188,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Lens"
 		},
 ,
@@ -238,7 +238,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Lens"
 		},
 ,
@@ -288,7 +288,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Lens"
 		},
 ,
@@ -307,7 +307,7 @@
 				"Polytetrafluoroethylene (PFTE)",
 				"Zinc Selenide (ZnSe)",
 				"Other"
-			]
+			],
 			"category":"Lens"
 		},
 ,
@@ -348,7 +348,7 @@
 				"g/ml",
 				"mg/µg",
 				"µg/ng"
-			]
+			],
 			"category":"Lens"
 		},
 ,
@@ -398,7 +398,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Lens"
 		},
 ,

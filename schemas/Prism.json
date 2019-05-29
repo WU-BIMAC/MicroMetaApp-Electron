@@ -38,7 +38,7 @@
 				"Polarizing",
 				"Refracting",
 				"Other"
-			]
+			],
 			"category":"Prism"
 		},
 ,
@@ -64,7 +64,7 @@
 				"Grim",
 				"Compound",
 				"Other"
-			]
+			],
 			"category":"Prism"
 		},
 ,
@@ -90,7 +90,7 @@
 				"deg",
 				"rad",
 				"gon"
-			]
+			],
 			"category":"Prism"
 		},
 ,
@@ -109,7 +109,7 @@
 				"deg",
 				"rad",
 				"gon"
-			]
+			],
 			"category":"Prism"
 		},
 ,
@@ -128,7 +128,7 @@
 				"deg",
 				"rad",
 				"gon"
-			]
+			],
 			"category":"Prism"
 		},
 ,
@@ -146,7 +146,7 @@
 				"Yttrium Orthovanadate (YVO4)",
 				"Zinc Selenide (ZnSe)",
 				"Other"
-			]
+			],
 			"category":"Prism"
 		},
 ,
@@ -187,7 +187,7 @@
 				"g/ml",
 				"mg/µg",
 				"µg/ng"
-			]
+			],
 			"category":"Prism"
 		},
 ,
@@ -278,7 +278,7 @@
 						"pt",
 						"pixel",
 						"reference frame"
-					]
+					],
 					"category":"WavelengthRange"
 				},
 ,
@@ -329,7 +329,7 @@
 						"pt",
 						"pixel",
 						"reference frame"
-					]
+					],
 					"category":"WavelengthRange"
 				},
 ,

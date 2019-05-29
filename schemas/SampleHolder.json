@@ -22,7 +22,7 @@
 				"Rigid Stand",
 				"Translational",
 				"Other"
-			]
+			],
 			"category":"SampleHolder"
 		},
 ,
@@ -41,7 +41,7 @@
 				"deg",
 				"rad",
 				"gon"
-			]
+			],
 			"category":"SampleHolder"
 		},
 ,
@@ -72,7 +72,7 @@
 				"XY",
 				"XYZ",
 				"Other"
-			]
+			],
 			"category":"Stage"
 		},
 ,
@@ -123,7 +123,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Stage"
 		},
 ,
@@ -174,7 +174,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Stage"
 		},
 ,
@@ -225,7 +225,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Stage"
 		},
 ,
@@ -247,7 +247,7 @@
 				"µm/s",
 				"nm/s",
 				"Other"
-			]
+			],
 			"category":"Stage"
 		},
 ,

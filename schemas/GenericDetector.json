@@ -49,7 +49,7 @@
 				"SLR adapter",
 				"D-SLR adapter",
 				"Other"
-			]
+			],
 			"category":"Detector"
 		},
 ,
@@ -69,7 +69,7 @@
 				"A",
 				"e-/pixel/sec",
 				"e- rms"
-			]
+			],
 			"category":"Detector"
 		},
 ,
@@ -81,7 +81,7 @@
 				"Poisson",
 				"Gaussian",
 				"Other"
-			]
+			],
 			"category":"Detector"
 		},
 ,
@@ -101,7 +101,7 @@
 				"A",
 				"e-/pixel/sec",
 				"e- rms"
-			]
+			],
 			"category":"Detector"
 		},
 ,
@@ -151,7 +151,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Detector"
 		},
 ,
@@ -179,7 +179,7 @@
 				"°F",
 				"K",
 				"°R"
-			]
+			],
 			"category":"Detector"
 		},
 ,
@@ -277,7 +277,7 @@
 						"pt",
 						"pixel",
 						"reference frame"
-					]
+					],
 					"category":"WavelengthRange"
 				},
 ,
@@ -328,7 +328,7 @@
 						"pt",
 						"pixel",
 						"reference frame"
-					]
+					],
 					"category":"WavelengthRange"
 				},
 ,

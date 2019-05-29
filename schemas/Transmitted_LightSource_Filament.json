@@ -22,7 +22,7 @@
 				"Incandescent",
 				"Halogen",
 				"Other"
-			]
+			],
 			"category":"Filament"
 		},
 ,
@@ -75,7 +75,7 @@
 				"aW",
 				"zW",
 				"yW"
-			]
+			],
 			"category":"LightSource"
 		},
 ,

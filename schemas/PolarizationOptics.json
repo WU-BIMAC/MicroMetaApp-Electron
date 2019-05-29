@@ -36,7 +36,7 @@
 			"enum": [
 				"Polarizer",
 				"Analyzer"
-			]
+			],
 			"category":"PolarizationOptics"
 		},
 ,
@@ -49,7 +49,7 @@
 				"Zero Order",
 				"Multiple Order",
 				"Other"
-			]
+			],
 			"category":"PolarizationOptics"
 		},
 ,
@@ -67,7 +67,7 @@
 				"Polymer",
 				"Quarz",
 				"Other"
-			]
+			],
 			"category":"PolarizationOptics"
 		},
 ,
@@ -80,7 +80,7 @@
 				"Quarter Wave",
 				"Full Wave",
 				"Other"
-			]
+			],
 			"category":"PolarizationOptics"
 		},
 ,
@@ -97,7 +97,7 @@
 				"Yttrium Orthovanadate (YVO4)",
 				"Zinc Selenide (ZnSe)",
 				"Other"
-			]
+			],
 			"category":"PolarizationOptics"
 		},
 ,
@@ -195,7 +195,7 @@
 						"pt",
 						"pixel",
 						"reference frame"
-					]
+					],
 					"category":"WavelengthRange"
 				},
 ,
@@ -246,7 +246,7 @@
 						"pt",
 						"pixel",
 						"reference frame"
-					]
+					],
 					"category":"WavelengthRange"
 				},
 ,

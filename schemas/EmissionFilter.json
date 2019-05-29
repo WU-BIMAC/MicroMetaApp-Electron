@@ -46,7 +46,7 @@
 				"Acousto-optical",
 				"Liquid-crystal",
 				"Other"
-			]
+			],
 			"category":"FIlter"
 		},
 ,
@@ -159,7 +159,7 @@
 							"pt",
 							"pixel",
 							"reference frame"
-						]
+						],
 						"category":"TransmittanceRange"
 					},
 ,
@@ -210,7 +210,7 @@
 							"pt",
 							"pixel",
 							"reference frame"
-						]
+						],
 						"category":"TransmittanceRange"
 					},
 ,

@@ -24,7 +24,7 @@
 				"Fiber optics",
 				"Liquid",
 				"Other"
-			]
+			],
 			"category":"LightGuide"
 		},
 ,
@@ -75,7 +75,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"LightGuide"
 		},
 ,
@@ -108,7 +108,7 @@
 				"deg",
 				"rad",
 				"gon"
-			]
+			],
 			"category":"LightGuide"
 		},
 ,
@@ -123,7 +123,7 @@
 				"Backlight",
 				"Diffuse Axial",
 				"Other"
-			]
+			],
 			"category":"LightGuide"
 		},
 ,
@@ -136,7 +136,7 @@
 				"Silica",
 				"Borosilicate",
 				"Other"
-			]
+			],
 			"category":"LightGuide"
 		},
 ,
@@ -157,7 +157,7 @@
 				"Transverse magnetic",
 				"Hybrid",
 				"Other"
-			]
+			],
 			"category":"LightGuide"
 		},
 ,
@@ -207,7 +207,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"LightGuide"
 		},
 ,
@@ -334,7 +334,7 @@
 						"pt",
 						"pixel",
 						"reference frame"
-					]
+					],
 					"category":"WavelengthRange"
 				},
 ,
@@ -385,7 +385,7 @@
 						"pt",
 						"pixel",
 						"reference frame"
-					]
+					],
 					"category":"WavelengthRange"
 				},
 ,

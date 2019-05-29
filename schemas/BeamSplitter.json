@@ -59,7 +59,7 @@
 				"Concave",
 				"Planar",
 				"Other"
-			]
+			],
 			"category":"Mirror"
 		},
 ,
@@ -75,7 +75,7 @@
 				"Hyeprboloidal",
 				"Paraboloidal",
 				"Other"
-			]
+			],
 			"category":"Mirror"
 		},
 ,
@@ -93,7 +93,7 @@
 			"default":"deg",
 			"enum": [
 				"deg"
-			]
+			],
 			"category":"Mirror"
 		},
 ,
@@ -143,7 +143,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Mirror"
 		},
 ,
@@ -155,7 +155,7 @@
 				"Metallic",
 				"Dielectric",
 				"Other"
-			]
+			],
 			"category":"Mirror"
 		},
 ,
@@ -171,7 +171,7 @@
 				"Zerodur (Lithium Aluminum Ailicon Oxide)",
 				"Zinc Selenide (ZnSe)",
 				"Other"
-			]
+			],
 			"category":"Mirror"
 		},
 ,

@@ -62,7 +62,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Focusing"
 		},
 ,
@@ -117,7 +117,7 @@
 				"min",
 				"h",
 				"d"
-			]
+			],
 			"category":"Focusing"
 		},
 ,
@@ -148,7 +148,7 @@
 				"XY",
 				"XYZ",
 				"Other"
-			]
+			],
 			"category":"Stage"
 		},
 ,
@@ -199,7 +199,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Stage"
 		},
 ,
@@ -250,7 +250,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Stage"
 		},
 ,
@@ -301,7 +301,7 @@
 				"pt",
 				"pixel",
 				"reference frame"
-			]
+			],
 			"category":"Stage"
 		},
 ,
@@ -323,7 +323,7 @@
 				"µm/s",
 				"nm/s",
 				"Other"
-			]
+			],
 			"category":"Stage"
 		},
 ,
