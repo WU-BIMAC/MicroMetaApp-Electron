@@ -600,7 +600,6 @@
 					"tier":5,
 					"category":"WavelengthRange"
 				},
-,
 				"CutInUnit": {
 					"type":"string",
 					"description":"NA",
@@ -644,14 +643,12 @@
 					],
 					"category":"WavelengthRange"
 				},
-,
 				"CutOut": {
 					"type":"string",
 					"description":"CutOut is the wavelength above which the response rate is below 50%.",
 					"tier":5,
 					"category":"WavelengthRange"
 				},
-,
 				"CutOutUnit": {
 					"type":"string",
 					"description":"NA",
@@ -695,33 +692,34 @@
 					],
 					"category":"WavelengthRange"
 				},
-,
 				"WavelenghtProfile": {
 					"type":"string",
 					"description":"The location of a file containing the wavelenght profile of this component.",
 					"tier":5,
 					"category":"WavelengthRange"
-				},
-
+				}
 			},
 			"required": [
 				"CutIn",
 				"CutOut",
 				"WavelenghtProfile"
 			]
-		}		"RelayLens": {
+		},
+		"RelayLens": {
 			"type":"string",
 			"description":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body.",
 			"tier":3,
 			"category":"RelayLens",
 			"linkTo":"RelayLens"
-		}		"Description": {
+		},
+		"Description": {
 			"title":"Description",
 			"type":"string",
 			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
 			"tier":2,
 			"category":"Generic"
-		}		"Tier": {
+		},
+		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
 			"tier":2,

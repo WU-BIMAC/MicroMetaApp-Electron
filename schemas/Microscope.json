@@ -74,7 +74,7 @@
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
-		"tier": {
+		"Tier": {
 			"type":"integer",
 			"description":"The tier level of the microscope.",
 			"tier":1,

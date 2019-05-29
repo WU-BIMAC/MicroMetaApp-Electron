@@ -415,7 +415,8 @@
 			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
 			"tier":2,
 			"category":"Generic"
-		}		"Tier": {
+		},
+		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
 			"tier":2,

@@ -65,25 +65,29 @@
 			"tier":2,
 			"category":"ExcitationFilter",
 			"linkTo":"ExcitationFilter"
-		}		"StandardDichroic": {
+		},
+		"StandardDichroic": {
 			"type":"string",
 			"description":"NA",
 			"tier":1,
 			"category":"StandardDichroic",
 			"linkTo":"StandardDichroic"
-		}		"EmissionFilter": {
+		},
+		"EmissionFilter": {
 			"type":"string",
 			"description":"This empty element has a reference (the Filter ID attribute) to the Filters placed in the Emission light path",
 			"tier":2,
 			"category":"EmissionFilter",
 			"linkTo":"EmissionFilter"
-		}		"Description": {
+		},
+		"Description": {
 			"title":"Description",
 			"type":"string",
 			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
 			"tier":2,
 			"category":"Generic"
-		}		"Tier": {
+		},
+		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
 			"tier":2,

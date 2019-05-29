@@ -278,7 +278,8 @@
 			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
 			"tier":2,
 			"category":"Generic"
-		}		"Pump": {
+		},
+		"Pump": {
 			"type":"object",
 			"description":"The Pump element is a reference to a LightSource. It is used within the Laser element to specify the light source for the laser's pump (if any).",
 			"tier":5,
@@ -289,13 +290,13 @@
 					"tier":5,
 					"category":"Pump",
 					"readonly":true
-				},
-
+				}
 			},
 			"required": [
 				"ID"
 			]
-		}		"Tier": {
+		},
+		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
 			"tier":1,

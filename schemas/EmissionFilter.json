@@ -107,7 +107,6 @@
 						"tier":2,
 						"category":"TransmittanceRange"
 					},
-,
 					"CutInUnit": {
 						"type":"string",
 						"description":"NA",
@@ -151,14 +150,12 @@
 						],
 						"category":"TransmittanceRange"
 					},
-,
 					"CutOut": {
 						"type":"string",
 						"description":"CutOut is the wavelength above which the response rate is below 50%.",
 						"tier":2,
 						"category":"TransmittanceRange"
 					},
-,
 					"CutOutUnit": {
 						"type":"string",
 						"description":"NA",
@@ -202,14 +199,12 @@
 						],
 						"category":"TransmittanceRange"
 					},
-,
 					"Transmittance": {
 						"type":"string",
 						"description":"The amount of light the filter transmits at a maximum. A fraction, as a value from 0.0 to 1.0.",
 						"tier":3,
 						"category":"TransmittanceRange"
-					},
-
+					}
 				},
 				"required": [
 					"CutIn",
@@ -217,13 +212,15 @@
 					"Transmittance"
 				]
 			}
-		}		"Description": {
+		},
+		"Description": {
 			"title":"Description",
 			"type":"string",
 			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
 			"tier":2,
 			"category":"Generic"
-		}		"Tier": {
+		},
+		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
 			"tier":2,

@@ -99,13 +99,15 @@
 			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
 			"tier":2,
 			"category":"Generic"
-		}		"Map": {
+		},
+		"Map": {
 			"type":"object",
 			"description":"This is a Mapping of key/value pairs used to store customized metadata that describes this element.",
 			"tier":3,
 			"properties": {
 			}
-		}		"Tier": {
+		},
+		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
 			"tier":1,
