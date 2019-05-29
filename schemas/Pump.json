@@ -19,7 +19,6 @@
 			"category":"Generic",
 			"readonly":true
 		},
-,
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",

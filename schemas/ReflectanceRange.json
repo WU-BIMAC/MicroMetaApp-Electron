@@ -16,7 +16,6 @@
 			"tier":3,
 			"category":"ReflectanceRange"
 		},
-,
 		"CutInUnit": {
 			"type":"string",
 			"description":"NA",
@@ -60,14 +59,12 @@
 			],
 			"category":"ReflectanceRange"
 		},
-,
 		"CutOut": {
 			"type":"string",
 			"description":"CutOut is the wavelength above which the response rate is below 50%.",
 			"tier":3,
 			"category":"ReflectanceRange"
 		},
-,
 		"CutOutUnit": {
 			"type":"string",
 			"description":"NA",
@@ -111,7 +108,6 @@
 			],
 			"category":"ReflectanceRange"
 		},
-,
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",

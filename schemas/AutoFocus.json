@@ -19,7 +19,6 @@
 			"tier":3,
 			"category":"Generic"
 		},
-,
 		"ID": {
 			"type":"string",
 			"description":"A unique identifier for this component.",
@@ -27,7 +26,6 @@
 			"category":"Generic",
 			"readonly":true
 		},
-,
 		"Type": {
 			"type":"string",
 			"description":"The type of this autofocus device.",
@@ -39,50 +37,43 @@
 			],
 			"category":"AutoFocus"
 		},
-,
 		"Manufacturer": {
 			"type":"string",
 			"description":"The manufacturer of this component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
-,
 		"Model": {
 			"type":"string",
 			"description":"The model of this component.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
-,
 		"SerialNumber": {
 			"type":"string",
 			"description":"The serial number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
-,
 		"LotNumber": {
 			"type":"string",
 			"description":"The lot number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
-,
 		"SpecsFile": {
 			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
-,
 		"Description": {
 			"title":"Description",
 			"type":"string",
 			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
 			"tier":3,
 			"category":"Generic"
-		},
-		"Tier": {
+		}		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
 			"tier":3,

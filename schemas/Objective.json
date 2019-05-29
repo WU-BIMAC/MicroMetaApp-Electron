@@ -19,7 +19,6 @@
 			"tier":1,
 			"category":"Generic"
 		},
-,
 		"ID": {
 			"type":"string",
 			"description":"A unique identifier for this component.",
@@ -27,7 +26,6 @@
 			"category":"Generic",
 			"readonly":true
 		},
-,
 		"Correction": {
 			"type":"string",
 			"description":"The correction applied to the lens.",
@@ -55,28 +53,24 @@
 			],
 			"category":"Objective"
 		},
-,
 		"NominalMagnification": {
 			"type":"string",
 			"description":"The magnification of the lens as specified by the manufacturer - i.e. 60 represents a 60X lens.",
 			"tier":1,
 			"category":"Objective"
 		},
-,
 		"CalibratedMagnification": {
 			"type":"string",
 			"description":"The magnification of the lens as measured by a calibration process- i.e. '59.987' for a 60X lens.",
 			"tier":5,
 			"category":"Objective"
 		},
-,
 		"LensNA": {
 			"type":"string",
 			"description":"The numerical aperture of the lens expressed as a floating point (real) number. Expected range 0.02 - 1.5.",
 			"tier":1,
 			"category":"Objective"
 		},
-,
 		"NominalImmersionMedium": {
 			"type":"string",
 			"description":"The immersion medium the lens is designed for.",
@@ -92,28 +86,24 @@
 			],
 			"category":"Objective"
 		},
-,
 		"Infinity": {
 			"type":"string",
 			"description":"Records whether or not the objective is infinity corrected.",
 			"tier":3,
 			"category":"Objective"
 		},
-,
 		"CoverslipTickness": {
 			"type":"string",
 			"description":"NA",
 			"tier":2,
 			"category":"Objective"
 		},
-,
 		"WorkingDistance": {
 			"type":"string",
 			"description":"The working distance of the lens expressed as a floating point (real) number.",
 			"tier":3,
 			"category":"Objective"
 		},
-,
 		"WorkingDistanceUnit": {
 			"type":"string",
 			"description":"NA",
@@ -157,28 +147,24 @@
 			],
 			"category":"Objective"
 		},
-,
 		"Iris": {
 			"type":"string",
 			"description":"Records whether or not the objective was fitted with an Iris.",
 			"tier":4,
 			"category":"Objective"
 		},
-,
 		"ObjectiveFieldNumber": {
 			"type":"string",
 			"description":"The maximal diameter of the viewfield allowed by this objective expressed in mm and measured at the intermediate image plane. NB: The field of view is influenced by the magnification and diameter of the ocular (eyepiece) field diaphragm, but also by the limits imposed by the design of the objective.",
 			"tier":3,
 			"category":"Objective"
 		},
-,
 		"ParfocalizingDistance": {
 			"type":"string",
 			"description":"The distance between the objective lens mounting plane and the specimen.",
 			"tier":5,
 			"category":"Objective"
 		},
-,
 		"ParfocalizingDistanceUnit": {
 			"type":"string",
 			"description":"NA",
@@ -222,14 +208,12 @@
 			],
 			"category":"Objective"
 		},
-,
 		"BackFocalPlanePosition": {
 			"type":"string",
 			"description":"The position of the back focal plane with respect to the specimen position.",
 			"tier":5,
 			"category":"Objective"
 		},
-,
 		"BackFocalPlanePositionUnit": {
 			"type":"string",
 			"description":"NA",
@@ -273,50 +257,43 @@
 			],
 			"category":"Objective"
 		},
-,
 		"Manufacturer": {
 			"type":"string",
 			"description":"The manufacturer of this component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
-,
 		"Model": {
 			"type":"string",
 			"description":"The model of this component.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
-,
 		"SerialNumber": {
 			"type":"string",
 			"description":"The serial number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
-,
 		"LotNumber": {
 			"type":"string",
 			"description":"The lot number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
-,
 		"SpecsFile": {
 			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
-,
 		"Description": {
 			"title":"Description",
 			"type":"string",
 			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
 			"tier":2,
 			"category":"Generic"
-		},
-		"Tier": {
+		}		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
 			"tier":1,

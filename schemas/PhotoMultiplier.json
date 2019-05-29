@@ -28,21 +28,18 @@
 			],
 			"category":"PhotoMultiplier"
 		},
-,
 		"RadiantSensitivity": {
 			"type":"string",
 			"description":"The radiant sensitivity observed with this PhotoMultiplier at peak wavelength.",
 			"tier":5,
 			"category":"PhotoMultiplier"
 		},
-,
 		"Name": {
 			"type":"string",
 			"description":"A user defined name for this component.",
 			"tier":2,
 			"category":"Generic"
 		},
-,
 		"ID": {
 			"type":"string",
 			"description":"A unique identifier for this component.",
@@ -50,14 +47,12 @@
 			"category":"Generic",
 			"readonly":true
 		},
-,
 		"Gain": {
 			"type":"string",
 			"description":"The analog gain is the conversion unit for this detector. It specifies how many electrons correspond to 1 signal unit. It is expressed in e-/Analog-to-Digit-Unit (ADU).",
 			"tier":3,
 			"category":"Detector"
 		},
-,
 		"Mount": {
 			"type":"string",
 			"description":"The type of mount used for the camera.",
@@ -72,14 +67,12 @@
 			],
 			"category":"Detector"
 		},
-,
 		"ReadNoise": {
 			"type":"string",
 			"description":"Read noise includes thermal noise build-up and clock induced charge. This is generally expressed in e- rms",
 			"tier":5,
 			"category":"Detector"
 		},
-,
 		"ReadNoiseUnit": {
 			"type":"string",
 			"description":"NA",
@@ -92,7 +85,6 @@
 			],
 			"category":"Detector"
 		},
-,
 		"DetectorNoiseModel": {
 			"type":"string",
 			"description":"The noise contribution that comes from the detector",
@@ -104,14 +96,12 @@
 			],
 			"category":"Detector"
 		},
-,
 		"DarkCurrentRate": {
 			"type":"string",
 			"description":"Median current detected in the absence of light. Generally expressed in e-/pixel/sec",
 			"tier":5,
 			"category":"Detector"
 		},
-,
 		"DarkCurrentRateUnit": {
 			"type":"string",
 			"description":"NA",
@@ -124,14 +114,12 @@
 			],
 			"category":"Detector"
 		},
-,
 		"PeakWavelength": {
 			"type":"string",
 			"description":"The wavelength associated with maximum light intensity detected by this device",
 			"tier":3,
 			"category":"Detector"
 		},
-,
 		"PeakWavelenghtUnit": {
 			"type":"string",
 			"description":"NA",
@@ -174,21 +162,18 @@
 			],
 			"category":"Detector"
 		},
-,
 		"QuantumEfficiencyatPeakWavelength": {
 			"type":"string",
 			"description":"The Quantum Efficiency observed at peak wavelength. Quantum Efficiency is generally defined as is the ratio of incident photon to converted electrons. Typically expressed as a number between 0 and 1.",
 			"tier":3,
 			"category":"Detector"
 		},
-,
 		"AmbientOperatingTemperature": {
 			"type":"string",
 			"description":"The ambient temperature at which this detector is designed to operate",
 			"tier":5,
 			"category":"Detector"
 		},
-,
 		"AmbientOperatingTemperatureUnit": {
 			"type":"string",
 			"description":"NA",
@@ -202,49 +187,42 @@
 			],
 			"category":"Detector"
 		},
-,
 		"AmbientOperatingHumidity": {
 			"type":"string",
 			"description":"The ambient humidity at which this detector is designed to operate",
 			"tier":5,
 			"category":"Detector"
 		},
-,
 		"Manufacturer": {
 			"type":"string",
 			"description":"The manufacturer of this component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
-,
 		"Model": {
 			"type":"string",
 			"description":"The model of this component.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
-,
 		"SerialNumber": {
 			"type":"string",
 			"description":"The serial number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
-,
 		"LotNumber": {
 			"type":"string",
 			"description":"The lot number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
-,
 		"SpecsFile": {
 			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
-,
 		"WavelengthRange": {
 			"type":"object",
 			"description":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
@@ -365,22 +343,19 @@
 				"CutOut",
 				"WavelenghtProfile"
 			]
-		},
-		"RelayLens": {
+		}		"RelayLens": {
 			"type":"string",
 			"description":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body.",
 			"tier":3,
 			"category":"RelayLens",
 			"linkTo":"RelayLens"
-		},
-		"Description": {
+		}		"Description": {
 			"title":"Description",
 			"type":"string",
 			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
 			"tier":2,
 			"category":"Generic"
-		},
-		"Tier": {
+		}		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
 			"tier":2,

@@ -16,7 +16,6 @@
 			"tier":5,
 			"category":"WavelengthRange"
 		},
-,
 		"CutInUnit": {
 			"type":"string",
 			"description":"NA",
@@ -60,14 +59,12 @@
 			],
 			"category":"WavelengthRange"
 		},
-,
 		"CutOut": {
 			"type":"string",
 			"description":"CutOut is the wavelength above which the response rate is below 50%.",
 			"tier":5,
 			"category":"WavelengthRange"
 		},
-,
 		"CutOutUnit": {
 			"type":"string",
 			"description":"NA",
@@ -111,14 +108,12 @@
 			],
 			"category":"WavelengthRange"
 		},
-,
 		"WavelenghtProfile": {
 			"type":"string",
 			"description":"The location of a file containing the wavelenght profile of this component.",
 			"tier":5,
 			"category":"WavelengthRange"
 		},
-,
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
