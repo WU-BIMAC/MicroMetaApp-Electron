@@ -205,6 +205,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 
 	constructor(props) {
 		super(props);
+		window.console.log("Application directory:", appPath);
 		this.state = {
 			workingDirectory: path.resolve(appPath),
 			workingDirectoryConfirmed: false,
