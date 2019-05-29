@@ -391,7 +391,6 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 			workingDirectoryConfirmed
 		} = this.state;
 		const imagesPath = path.resolve("./public/assets/");
-		console.log(imagesPath);
 		if (!workingDirectoryConfirmed) {
 			return (
 				<MicroscopeMetadataToolWorkingDirectoryChooser
