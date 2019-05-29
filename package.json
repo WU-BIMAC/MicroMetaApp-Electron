@@ -19,7 +19,7 @@
 		"build-internal": "gulp build-internal",
 		"build": "gulp build-dev && gulp build",
 		"dev": "gulp dev",
-		"dist": "build",
+		"dist": "gulp build-dev && build",
 		"dist_32": "build --win --ia32 --dir"
 	},
 	"build": {
