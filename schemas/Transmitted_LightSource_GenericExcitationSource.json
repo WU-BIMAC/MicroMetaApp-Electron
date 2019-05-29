@@ -20,55 +20,88 @@
 			"tier":1,
 			"category":"Generic"
 		},
+,
 		"ID": {
 			"type":"string",
 			"description":"A LightSource ID must be specified for each light source, and the individual light sources can be referred to by their LightSource IDs (eg from Channel).",
 			"tier":1,
 			"category":"Generic",
-			"readonly": true
+			"readonly":true
 		},
+,
 		"NominalPower": {
 			"type":"string",
 			"description":"The nominal power of the light-source",
 			"tier":3,
 			"category":"LightSource"
 		},
+,
 		"NominalPowerUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":3,
+			"default":"mW",
+			"enum": [
+				"YW",
+				"ZW",
+				"EW",
+				"PW",
+				"TW",
+				"GW",
+				"MW",
+				"kW",
+				"hW",
+				"daW",
+				"W",
+				"dW",
+				"cW",
+				"mW",
+				"µW",
+				"nW",
+				"pW",
+				"fW",
+				"aW",
+				"zW",
+				"yW"
+			]
 			"category":"LightSource"
 		},
+,
 		"Manufacturer": {
 			"type":"string",
 			"description":"The manufacturer of this component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
+,
 		"Model": {
 			"type":"string",
 			"description":"The model of this component.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SerialNumber": {
 			"type":"string",
 			"description":"The serial number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"LotNumber": {
 			"type":"string",
 			"description":"The lot number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SpecsFile": {
 			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"Description": {
 			"title":"Description",
 			"type":"string",

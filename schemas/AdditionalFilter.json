@@ -21,67 +21,91 @@
 			"tier":2,
 			"category":"Generic"
 		},
+,
 		"ID": {
 			"type":"string",
 			"description":"A unique identifier for this component.",
 			"tier":2,
 			"category":"Generic",
-			"readonly": true
+			"readonly":true
 		},
+,
 		"Type": {
 			"type":"string",
 			"description":"The type of filter used in this case.",
 			"tier":3,
+			"default":"BandPass",
+			"enum": [
+				"BandPass",
+				"MultiPass",
+				"LongPass",
+				"ShortPass",
+				"NeutralDensity",
+				"Tuneable",
+				"HeatFilter",
+				"Acousto-optical",
+				"Liquid-crystal",
+				"Other"
+			]
 			"category":"FIlter"
 		},
+,
 		"ReflectionCoating": {
 			"type":"string",
 			"description":"An optical coating is one or more thin layers of material deposited on an optical component such as a lens or mirror, which alters the way in which the optic reflects and transmits light",
 			"tier":5,
 			"category":"FIlter"
 		},
+,
 		"FilterWheel": {
 			"type":"string",
 			"description":"A filter 'wheel' in OME can refer to any arrangement of filters in a filter holder of any shape. It could, for example, be a filter slider.",
 			"tier":3,
 			"category":"FIlter"
 		},
+,
 		"TransmittanceProfileFile": {
 			"type":"string",
 			"description":"This contains the location of file in .csv or other suitable formats containing the wavelenght profile of this component.",
 			"tier":5,
 			"category":"FIlter"
 		},
+,
 		"Manufacturer": {
 			"type":"string",
 			"description":"The manufacturer of this component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
+,
 		"Model": {
 			"type":"string",
 			"description":"The model of this component.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SerialNumber": {
 			"type":"string",
 			"description":"The serial number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"LotNumber": {
 			"type":"string",
 			"description":"The lot number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SpecsFile": {
 			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"TransmittanceRange": {
 			"type":"array",
 			"description":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
@@ -94,30 +118,109 @@
 						"tier":2,
 						"category":"TransmittanceRange"
 					},
+,
 					"CutInUnit": {
 						"type":"string",
 						"description":"NA",
 						"tier":2,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						]
 						"category":"TransmittanceRange"
 					},
+,
 					"CutOut": {
 						"type":"string",
 						"description":"CutOut is the wavelength above which the response rate is below 50%.",
 						"tier":2,
 						"category":"TransmittanceRange"
 					},
+,
 					"CutOutUnit": {
 						"type":"string",
 						"description":"NA",
 						"tier":2,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						]
 						"category":"TransmittanceRange"
 					},
+,
 					"Transmittance": {
 						"type":"string",
 						"description":"The amount of light the filter transmits at a maximum. A fraction, as a value from 0.0 to 1.0.",
 						"tier":3,
 						"category":"TransmittanceRange"
-					}
+					},
+
 				},
 				"required": [
 					"CutIn",

@@ -29,6 +29,13 @@
 			"type":"string",
 			"description":"The type of this microscope.",
 			"tier":1,
+			"enum": [
+				"Upright",
+				"Inverted",
+				"Dissection",
+				"Electrophysiology",
+				"Other"
+			]
 			"category":"MicroscopeBody"
 		},
 		"EyePieceFieldNumber": {

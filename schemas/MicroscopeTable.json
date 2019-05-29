@@ -19,73 +19,165 @@
 			"tier":4,
 			"category":"Generic"
 		},
+,
 		"ID": {
 			"type":"string",
 			"description":"A unique identifier for this component.",
 			"tier":4,
 			"category":"Generic",
-			"readonly": true
+			"readonly":true
 		},
+,
 		"Type": {
 			"type":"string",
 			"description":"This element describes the type of microscope table available for this instrument.",
 			"tier":4,
+			"enum": [
+				"Simple Bench",
+				"Non-isolating Frame",
+				"Active Air",
+				"Passive Air",
+				"Stone",
+				"Other"
+			]
 			"category":"MicroscopeTable"
 		},
+,
 		"TableWidth": {
 			"type":"string",
 			"description":"The width of this microscope table",
 			"tier":5,
 			"category":"MicroscopeTable"
 		},
+,
 		"TableWidthUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			]
 			"category":"MicroscopeTable"
 		},
+,
 		"TableDepth": {
 			"type":"string",
 			"description":"The depth of this microscope table",
 			"tier":5,
 			"category":"MicroscopeTable"
 		},
+,
 		"TableDepthUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			]
 			"category":"MicroscopeTable"
 		},
+,
 		"Manufacturer": {
 			"type":"string",
 			"description":"The manufacturer of this component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
+,
 		"Model": {
 			"type":"string",
 			"description":"The model of this component.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SerialNumber": {
 			"type":"string",
 			"description":"The serial number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"LotNumber": {
 			"type":"string",
 			"description":"The lot number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SpecsFile": {
 			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"Description": {
 			"title":"Description",
 			"type":"string",

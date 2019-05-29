@@ -20,133 +20,212 @@
 			"tier":2,
 			"category":"Generic"
 		},
+,
 		"ID": {
 			"type":"string",
 			"description":"A unique identifier for this component.",
 			"tier":2,
 			"category":"Generic",
-			"readonly": true
+			"readonly":true
 		},
+,
 		"Type": {
 			"type":"string",
 			"description":"The category to which this prism belongs.",
 			"tier":3,
+			"enum": [
+				"Reflecting",
+				"Polarizing",
+				"Refracting",
+				"Other"
+			]
 			"category":"Prism"
 		},
+,
 		"Geometry": {
 			"type":"string",
 			"description":"The geometrical shape of this prism",
 			"tier":5,
+			"enum": [
+				"Right-Angle",
+				"Porro",
+				"Dove",
+				"Amici",
+				"Penta",
+				"Romboid",
+				"Nicol",
+				"Glan-Thompson",
+				"Wollaston",
+				"Rochon",
+				"Senarmont",
+				"Triangular",
+				"Abbe prism",
+				"Pellin–Broca",
+				"Grim",
+				"Compound",
+				"Other"
+			]
 			"category":"Prism"
 		},
+,
 		"Reflectance": {
 			"type":"string",
 			"description":"The amount of light the prism reflects at a maximum. It is represented as a fraction, as a value from 0.0 to 1.0",
 			"tier":5,
 			"category":"Prism"
 		},
+,
 		"PrismAngle": {
 			"type":"string",
 			"description":"The angle between two surfaces of a Prism",
 			"tier":5,
 			"category":"Prism"
 		},
+,
 		"PrismAngleUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"enum": [
+				"deg",
+				"rad",
+				"gon"
+			]
 			"category":"Prism"
 		},
+,
 		"AngleOfIncidence": {
 			"type":"string",
 			"description":"The angle of incidence (AOI) is the angle between a beam of light incident on the prism surface and the line perpendicular to the surface at the point of incidence, called the normal.",
 			"tier":5,
 			"category":"Prism"
 		},
+,
 		"AngleOfIncidenceUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"enum": [
+				"deg",
+				"rad",
+				"gon"
+			]
 			"category":"Prism"
 		},
+,
 		"DeviationAngle": {
 			"type":"string",
 			"description":"A beam passing through an object like a prism is deflected twice: once entering, and again when exiting. The sum of these two deflections is called the deviation angle and is measured with respect to the incident ray",
 			"tier":5,
 			"category":"Prism"
 		},
+,
 		"DevianceAngleUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"enum": [
+				"deg",
+				"rad",
+				"gon"
+			]
 			"category":"Prism"
 		},
+,
 		"MaterialName": {
 			"type":"string",
 			"description":"This records the chemical composition or the nonproprietary trade designation of the glass",
 			"tier":5,
+			"enum": [
+				"Calcium Fluoride",
+				"F2 (Flint)",
+				"N-BK7 (Borosilicate Crown)",
+				"N-SF11 (Dense Flint)",
+				"Rutile (TiO2)",
+				"UV-Grade Fused Silica (UVFS)",
+				"Yttrium Orthovanadate (YVO4)",
+				"Zinc Selenide (ZnSe)",
+				"Other"
+			]
 			"category":"Prism"
 		},
+,
 		"GlassCode": {
 			"type":"string",
 			"description":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642",
 			"tier":5,
 			"category":"Prism"
 		},
+,
 		"RefractiveIndex": {
 			"type":"string",
 			"description":"The refractive index of the material of which the prism is made",
 			"tier":5,
 			"category":"Prism"
 		},
+,
 		"AbbeNumber": {
 			"type":"string",
 			"description":"The Abbe Number is a measure of the material's dispersion (variation of refractive index versus wavelength), with high values indicating low dispersion",
 			"tier":5,
 			"category":"Prism"
 		},
+,
 		"Density": {
 			"type":"string",
 			"description":"The density of the material of which the prism is made",
 			"tier":5,
 			"category":"Prism"
 		},
+,
 		"DensityUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"enum": [
+				"kg/m3",
+				"g/ml",
+				"mg/µg",
+				"µg/ng"
+			]
 			"category":"Prism"
 		},
+,
 		"Manufacturer": {
 			"type":"string",
 			"description":"The manufacturer of this component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
+,
 		"Model": {
 			"type":"string",
 			"description":"The model of this component.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SerialNumber": {
 			"type":"string",
 			"description":"The serial number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"LotNumber": {
 			"type":"string",
 			"description":"The lot number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SpecsFile": {
 			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"WavelengthRange": {
 			"type":"object",
 			"description":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
@@ -158,30 +237,109 @@
 					"tier":5,
 					"category":"WavelengthRange"
 				},
+,
 				"CutInUnit": {
 					"type":"string",
 					"description":"NA",
 					"tier":5,
+					"default":"nm",
+					"enum": [
+						"Ym",
+						"Zm",
+						"Em",
+						"Pm",
+						"Tm",
+						"Gm",
+						"Mm",
+						"km",
+						"hm",
+						"dam",
+						"m",
+						"dm",
+						"cm",
+						"mm",
+						"µm",
+						"nm",
+						"pm",
+						"fm",
+						"am",
+						"zm",
+						"ym",
+						"Å",
+						"thou",
+						"li",
+						"in",
+						"ft",
+						"yd",
+						"mi",
+						"ua",
+						"ly",
+						"pc",
+						"pt",
+						"pixel",
+						"reference frame"
+					]
 					"category":"WavelengthRange"
 				},
+,
 				"CutOut": {
 					"type":"string",
 					"description":"CutOut is the wavelength above which the response rate is below 50%.",
 					"tier":5,
 					"category":"WavelengthRange"
 				},
+,
 				"CutOutUnit": {
 					"type":"string",
 					"description":"NA",
 					"tier":5,
+					"default":"nm",
+					"enum": [
+						"Ym",
+						"Zm",
+						"Em",
+						"Pm",
+						"Tm",
+						"Gm",
+						"Mm",
+						"km",
+						"hm",
+						"dam",
+						"m",
+						"dm",
+						"cm",
+						"mm",
+						"µm",
+						"nm",
+						"pm",
+						"fm",
+						"am",
+						"zm",
+						"ym",
+						"Å",
+						"thou",
+						"li",
+						"in",
+						"ft",
+						"yd",
+						"mi",
+						"ua",
+						"ly",
+						"pc",
+						"pt",
+						"pixel",
+						"reference frame"
+					]
 					"category":"WavelengthRange"
 				},
+,
 				"WavelenghtProfile": {
 					"type":"string",
 					"description":"The location of a file containing the wavelenght profile of this component.",
 					"tier":5,
 					"category":"WavelengthRange"
-				}
+				},
+
 			},
 			"required": [
 				"CutIn",

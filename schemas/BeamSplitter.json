@@ -20,115 +20,203 @@
 			"tier":3,
 			"category":"BeamSplitter"
 		},
+,
 		"TransmissionAngle": {
 			"type":"string",
 			"description":"The angle at which light is transmitted by this beamsplitter",
 			"tier":5,
 			"category":"BeamSplitter"
 		},
+,
 		"Name": {
 			"type":"string",
 			"description":"A user defined name for this component.",
 			"tier":2,
 			"category":"Generic"
 		},
+,
 		"ID": {
 			"type":"string",
 			"description":"A unique identifier for this component.",
 			"tier":2,
 			"category":"Generic",
-			"readonly": true
+			"readonly":true
 		},
+,
 		"Reflectance": {
 			"type":"string",
 			"description":"The amount of light the mirror reflects at a maximum. It is represented as a fraction, as a value from 0.0 to 1.0",
 			"tier":3,
 			"category":"Mirror"
 		},
+,
 		"MirrorType": {
 			"type":"string",
 			"description":"The general category to which this lens belongs.",
 			"tier":5,
+			"enum": [
+				"Convex",
+				"Concave",
+				"Planar",
+				"Other"
+			]
 			"category":"Mirror"
 		},
+,
 		"Geometry": {
 			"type":"string",
 			"description":"The geometrical shape of the surface of this mirror",
 			"tier":5,
+			"enum": [
+				"Spherical, , , , , ",
+				"Aspherical",
+				"Cylindrical",
+				"Ellipsoidal",
+				"Hyeprboloidal",
+				"Paraboloidal",
+				"Other"
+			]
 			"category":"Mirror"
 		},
+,
 		"AngleOfIncidence": {
 			"type":"string",
 			"description":"This field records the optimal angle of incidence (AOI) for this mirror. TheAOI is the angle between the optical axis of the incident light and the axis normal to the surface of the mirror. In specular reflection AOI is by definition equal to the Angle Of Reflection (AOR).",
 			"tier":5,
 			"category":"Mirror"
 		},
+,
 		"AngleOfIncidenceUnit": {
 			"type":"string",
 			"description":"This field records the optimal angle of incidence (AOI) for this mirror. TheAOI is the angle between the optical axis of the incident light and the axis normal to the surface of the mirror. In specular reflection AOI is by definition equal to the Angle Of Reflection (AOR).",
 			"tier":5,
+			"default":"deg",
+			"enum": [
+				"deg"
+			]
 			"category":"Mirror"
 		},
+,
 		"RadiusOfCurvature": {
 			"type":"string",
 			"description":"A spherical lens or mirror surface has a center of curvature located either along or decentered from the system local optical axis. The vertex of the lens surface is located on the local optical axis. The distance from the vertex to the center of curvature is the radius of curvature of the surface",
 			"tier":5,
 			"category":"Mirror"
 		},
+,
 		"RadiusOfCurvatureUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			]
 			"category":"Mirror"
 		},
+,
 		"SubstrateType": {
 			"type":"string",
 			"description":"This field records the type of substrate that is used for the beamsplitter coating. It is typically a ground and polished piece of optical glass.",
 			"tier":5,
+			"enum": [
+				"Metallic",
+				"Dielectric",
+				"Other"
+			]
 			"category":"Mirror"
 		},
+,
 		"SubstrateMaterial": {
 			"type":"string",
 			"description":"This records the chemical composition or the nonproprietary trade designation of the mirror's optical substrate. For dichoric mirrors the substrate is typically composed of a glass material with low autofluorescence, such as UV-grade fused silica.",
 			"tier":5,
+			"default":"UV-Grade Fused Silica (UVFS)",
+			"enum": [
+				"Calcium Fluoride",
+				"N-BK7 (Borosilicate Crown)",
+				"UV-Grade Fused Silica (UVFS)",
+				"Zerodur (Lithium Aluminum Ailicon Oxide)",
+				"Zinc Selenide (ZnSe)",
+				"Other"
+			]
 			"category":"Mirror"
 		},
+,
 		"GlassCode": {
 			"type":"string",
 			"description":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642",
 			"tier":5,
 			"category":"Mirror"
 		},
+,
 		"Manufacturer": {
 			"type":"string",
 			"description":"The manufacturer of this component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
+,
 		"Model": {
 			"type":"string",
 			"description":"The model of this component.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SerialNumber": {
 			"type":"string",
 			"description":"The serial number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"LotNumber": {
 			"type":"string",
 			"description":"The lot number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SpecsFile": {
 			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"Description": {
 			"title":"Description",
 			"type":"string",

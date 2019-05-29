@@ -20,79 +20,129 @@
 			"tier":2,
 			"category":"Generic"
 		},
+,
 		"ID": {
 			"type":"string",
 			"description":"A unique identifier for this component.",
 			"tier":2,
 			"category":"Generic",
-			"readonly": true
+			"readonly":true
 		},
+,
 		"Function": {
 			"type":"string",
 			"description":"This records whether this polarizer optics is used to generate polarized light or to analyze polarized light",
 			"tier":2,
+			"enum": [
+				"Polarizer",
+				"Analyzer"
+			]
 			"category":"PolarizationOptics"
 		},
+,
 		"Construction": {
 			"type":"string",
 			"description":"The modality in with which this Polarization Optics is constructed",
 			"tier":3,
+			"enum": [
+				"Achromatic",
+				"Zero Order",
+				"Multiple Order",
+				"Other"
+			]
 			"category":"PolarizationOptics"
 		},
+,
 		"Fabrication": {
 			"type":"string",
 			"description":"The way in with which this Polarization Optics is fabricated",
 			"tier":5,
+			"enum": [
+				"Wire Grid",
+				"Film",
+				"Polarizing Beamsplitter",
+				"Polarizing BandPass",
+				"Variable",
+				"Birefringent",
+				"Polymer",
+				"Quarz",
+				"Other"
+			]
 			"category":"PolarizationOptics"
 		},
+,
 		"Retardation": {
 			"type":"string",
 			"description":"Retardation describes the phase shift between the polarization component projected along the fast axis and the component projected along the slow axis",
 			"tier":3,
+			"enum": [
+				"Half Wave",
+				"Quarter Wave",
+				"Full Wave",
+				"Other"
+			]
 			"category":"PolarizationOptics"
 		},
+,
 		"MaterialName": {
 			"type":"string",
 			"description":"This records the chemical composition or the nonproprietary trade designation of the glass",
 			"tier":5,
+			"enum": [
+				"alpha-Barium Borate",
+				"Calcite",
+				"Calcium Fluoride",
+				"N-BK7 (Borosilicate Crown)",
+				"Rutile (TiO2)",
+				"Yttrium Orthovanadate (YVO4)",
+				"Zinc Selenide (ZnSe)",
+				"Other"
+			]
 			"category":"PolarizationOptics"
 		},
+,
 		"GlassCode": {
 			"type":"string",
 			"description":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642",
 			"tier":5,
 			"category":"PolarizationOptics"
 		},
+,
 		"Manufacturer": {
 			"type":"string",
 			"description":"The manufacturer of this component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
+,
 		"Model": {
 			"type":"string",
 			"description":"The model of this component.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SerialNumber": {
 			"type":"string",
 			"description":"The serial number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"LotNumber": {
 			"type":"string",
 			"description":"The lot number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SpecsFile": {
 			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"WavelengthRange": {
 			"type":"object",
 			"description":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
@@ -104,30 +154,109 @@
 					"tier":5,
 					"category":"WavelengthRange"
 				},
+,
 				"CutInUnit": {
 					"type":"string",
 					"description":"NA",
 					"tier":5,
+					"default":"nm",
+					"enum": [
+						"Ym",
+						"Zm",
+						"Em",
+						"Pm",
+						"Tm",
+						"Gm",
+						"Mm",
+						"km",
+						"hm",
+						"dam",
+						"m",
+						"dm",
+						"cm",
+						"mm",
+						"µm",
+						"nm",
+						"pm",
+						"fm",
+						"am",
+						"zm",
+						"ym",
+						"Å",
+						"thou",
+						"li",
+						"in",
+						"ft",
+						"yd",
+						"mi",
+						"ua",
+						"ly",
+						"pc",
+						"pt",
+						"pixel",
+						"reference frame"
+					]
 					"category":"WavelengthRange"
 				},
+,
 				"CutOut": {
 					"type":"string",
 					"description":"CutOut is the wavelength above which the response rate is below 50%.",
 					"tier":5,
 					"category":"WavelengthRange"
 				},
+,
 				"CutOutUnit": {
 					"type":"string",
 					"description":"NA",
 					"tier":5,
+					"default":"nm",
+					"enum": [
+						"Ym",
+						"Zm",
+						"Em",
+						"Pm",
+						"Tm",
+						"Gm",
+						"Mm",
+						"km",
+						"hm",
+						"dam",
+						"m",
+						"dm",
+						"cm",
+						"mm",
+						"µm",
+						"nm",
+						"pm",
+						"fm",
+						"am",
+						"zm",
+						"ym",
+						"Å",
+						"thou",
+						"li",
+						"in",
+						"ft",
+						"yd",
+						"mi",
+						"ua",
+						"ly",
+						"pc",
+						"pt",
+						"pixel",
+						"reference frame"
+					]
 					"category":"WavelengthRange"
 				},
+,
 				"WavelenghtProfile": {
 					"type":"string",
 					"description":"The location of a file containing the wavelenght profile of this component.",
 					"tier":5,
 					"category":"WavelengthRange"
-				}
+				},
+
 			},
 			"required": [
 				"CutIn",

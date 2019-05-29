@@ -17,8 +17,9 @@
 			"description":"A unique identifier for this component.",
 			"tier":5,
 			"category":"Generic",
-			"readonly": true
+			"readonly":true
 		},
+,
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",

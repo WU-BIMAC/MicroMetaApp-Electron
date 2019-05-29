@@ -20,129 +20,254 @@
 			"type":"string",
 			"description":"The type of light guide used in this case.",
 			"tier":5,
+			"enum": [
+				"Fiber optics",
+				"Liquid",
+				"Other"
+			]
 			"category":"LightGuide"
 		},
+,
 		"PeakWavelength": {
 			"type":"string",
 			"description":"The wavelength associated with maximum light intensity transmitted by this light guide",
 			"tier":5,
 			"category":"LightGuide"
 		},
+,
 		"PeakWavelengthUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			]
 			"category":"LightGuide"
 		},
+,
 		"RefractiveIndex": {
 			"type":"string",
 			"description":"The refractive index of the material this light guide is made of",
 			"tier":5,
 			"category":"LightGuide"
 		},
+,
 		"NumericalAperture": {
 			"type":"string",
 			"description":"The numerical aperture of the light guide expressed as a floating point (real) number. Expected range 0.02 - 1.5",
 			"tier":5,
 			"category":"LightGuide"
 		},
+,
 		"AcceptanceAngle": {
 			"type":"string",
 			"description":"The angle within which light beam may be coupled into the bound modes of an optical fiber.",
 			"tier":5,
 			"category":"LightGuide"
 		},
+,
 		"AcceptanceAngleUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"enum": [
+				"deg",
+				"rad",
+				"gon"
+			]
 			"category":"LightGuide"
 		},
+,
 		"Geometry": {
 			"type":"string",
 			"description":"The shape of this LightGuide",
 			"tier":5,
+			"enum": [
+				"Spot Light",
+				"Line Light",
+				"Ring Light",
+				"Backlight",
+				"Diffuse Axial",
+				"Other"
+			]
 			"category":"LightGuide"
 		},
+,
 		"MaterialName": {
 			"type":"string",
 			"description":"This records the chemical composition or the nonproprietary trade designation of the material used for this light guide",
 			"tier":5,
+			"enum": [
+				"Quartz",
+				"Silica",
+				"Borosilicate",
+				"Other"
+			]
 			"category":"LightGuide"
 		},
+,
 		"SingleMode": {
 			"type":"string",
 			"description":"Records whether or not the light guide is single-mode. If not, then the guide is assumend to be multi-modal",
 			"tier":5,
 			"category":"LightGuide"
 		},
+,
 		"WaveguideMode": {
 			"type":"string",
 			"description":"When boundary conditions are imposed by a physical structure, a wave of a particular frequency can be described in terms of a transverse mode (or superposition of such modes). These modes generally follow different propagation constants",
 			"tier":5,
+			"enum": [
+				"Transverse electromagnetic",
+				"Transverse electric",
+				"Transverse magnetic",
+				"Hybrid",
+				"Other"
+			]
 			"category":"LightGuide"
 		},
+,
 		"Diameter": {
 			"type":"string",
 			"description":"The outer diameter of the light guide",
 			"tier":5,
 			"category":"LightGuide"
 		},
+,
 		"DiameterUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			]
 			"category":"LightGuide"
 		},
+,
 		"Name": {
 			"type":"string",
 			"description":"A user defined name for this component.",
 			"tier":4,
 			"category":"Generic"
 		},
+,
 		"ID": {
 			"type":"string",
 			"description":"A unique identifier for this component.",
 			"tier":4,
 			"category":"Generic",
-			"readonly": true
+			"readonly":true
 		},
+,
 		"Transmittance": {
 			"type":"string",
 			"description":"The amount of light this LightSourceCoupling apparatus transmits at a maximum. A fraction, as a value from 0.0 to 1.0",
 			"tier":5,
 			"category":"LightSourceCoupling"
 		},
+,
 		"Manufacturer": {
 			"type":"string",
 			"description":"The manufacturer of this component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
+,
 		"Model": {
 			"type":"string",
 			"description":"The model of this component.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SerialNumber": {
 			"type":"string",
 			"description":"The serial number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"LotNumber": {
 			"type":"string",
 			"description":"The lot number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SpecsFile": {
 			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"CouplingLens": {
 			"type":"string",
 			"description":"This is a reference to a lens positioned at connector between this light source coupling element and the microscope body.",
@@ -168,30 +293,109 @@
 					"tier":5,
 					"category":"WavelengthRange"
 				},
+,
 				"CutInUnit": {
 					"type":"string",
 					"description":"NA",
 					"tier":5,
+					"default":"nm",
+					"enum": [
+						"Ym",
+						"Zm",
+						"Em",
+						"Pm",
+						"Tm",
+						"Gm",
+						"Mm",
+						"km",
+						"hm",
+						"dam",
+						"m",
+						"dm",
+						"cm",
+						"mm",
+						"µm",
+						"nm",
+						"pm",
+						"fm",
+						"am",
+						"zm",
+						"ym",
+						"Å",
+						"thou",
+						"li",
+						"in",
+						"ft",
+						"yd",
+						"mi",
+						"ua",
+						"ly",
+						"pc",
+						"pt",
+						"pixel",
+						"reference frame"
+					]
 					"category":"WavelengthRange"
 				},
+,
 				"CutOut": {
 					"type":"string",
 					"description":"CutOut is the wavelength above which the response rate is below 50%.",
 					"tier":5,
 					"category":"WavelengthRange"
 				},
+,
 				"CutOutUnit": {
 					"type":"string",
 					"description":"NA",
 					"tier":5,
+					"default":"nm",
+					"enum": [
+						"Ym",
+						"Zm",
+						"Em",
+						"Pm",
+						"Tm",
+						"Gm",
+						"Mm",
+						"km",
+						"hm",
+						"dam",
+						"m",
+						"dm",
+						"cm",
+						"mm",
+						"µm",
+						"nm",
+						"pm",
+						"fm",
+						"am",
+						"zm",
+						"ym",
+						"Å",
+						"thou",
+						"li",
+						"in",
+						"ft",
+						"yd",
+						"mi",
+						"ua",
+						"ly",
+						"pc",
+						"pt",
+						"pixel",
+						"reference frame"
+					]
 					"category":"WavelengthRange"
 				},
+,
 				"WavelenghtProfile": {
 					"type":"string",
 					"description":"The location of a file containing the wavelenght profile of this component.",
 					"tier":5,
 					"category":"WavelengthRange"
-				}
+				},
+
 			},
 			"required": [
 				"CutIn",

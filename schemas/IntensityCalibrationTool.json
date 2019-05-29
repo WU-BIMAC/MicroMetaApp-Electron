@@ -19,49 +19,62 @@
 			"tier":3,
 			"category":"Generic"
 		},
+,
 		"ID": {
 			"type":"string",
 			"description":"A unique identifier for this component.",
 			"tier":3,
 			"category":"Generic",
-			"readonly": true
+			"readonly":true
 		},
+,
 		"Type": {
 			"type":"string",
 			"description":"The type of calibration proceudure this tool is intended to perform.",
 			"tier":3,
+			"enum": [
+				"Detector",
+				"Excitation",
+				"Other"
+			]
 			"category":"IntensityCalibrationTool"
 		},
+,
 		"Manufacturer": {
 			"type":"string",
 			"description":"The manufacturer of this component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
+,
 		"Model": {
 			"type":"string",
 			"description":"The model of this component.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SerialNumber": {
 			"type":"string",
 			"description":"The serial number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"LotNumber": {
 			"type":"string",
 			"description":"The lot number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SpecsFile": {
 			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"Description": {
 			"title":"Description",
 			"type":"string",

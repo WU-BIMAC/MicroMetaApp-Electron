@@ -18,117 +18,274 @@
 			"type":"string",
 			"description":"The type of sample holder.",
 			"tier":5,
+			"enum": [
+				"Rigid Stand",
+				"Translational",
+				"Other"
+			]
 			"category":"SampleHolder"
 		},
+,
 		"RotationAngle": {
 			"type":"string",
 			"description":"The angle by which this device is capable of rotating",
 			"tier":5,
 			"category":"SampleHolder"
 		},
+,
 		"RotationAngleUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"enum": [
+				"deg",
+				"rad",
+				"gon"
+			]
 			"category":"SampleHolder"
 		},
+,
 		"Name": {
 			"type":"string",
 			"description":"A user defined name for this component.",
 			"tier":3,
 			"category":"Generic"
 		},
+,
 		"ID": {
 			"type":"string",
 			"description":"A unique identifier for this component.",
 			"tier":3,
 			"category":"Generic",
-			"readonly": true
+			"readonly":true
 		},
+,
 		"MovementAxes": {
 			"type":"string",
 			"description":"The axis along which this device moves.",
 			"tier":5,
+			"default":"Z",
+			"enum": [
+				"X",
+				"Y",
+				"Z",
+				"XY",
+				"XYZ",
+				"Other"
+			]
 			"category":"Stage"
 		},
+,
 		"XTravelRange": {
 			"type":"string",
 			"description":"The X axis range this device is capable of moving in",
 			"tier":5,
 			"category":"Stage"
 		},
+,
 		"XTravelRangeUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"default":"µm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			]
 			"category":"Stage"
 		},
+,
 		"YTravelRange": {
 			"type":"string",
 			"description":"The Y axis range this device is capable of moving in",
 			"tier":5,
 			"category":"Stage"
 		},
+,
 		"YTravelRangeUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"default":"µm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			]
 			"category":"Stage"
 		},
+,
 		"ZTravelRange": {
 			"type":"string",
 			"description":"The Z axis range this device is capable of moving in",
 			"tier":5,
 			"category":"Stage"
 		},
+,
 		"ZTravelRangeUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"default":"µm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			]
 			"category":"Stage"
 		},
+,
 		"MaxVelocity": {
 			"type":"string",
 			"description":"The maximum velocity this device is capable of moving at",
 			"tier":5,
 			"category":"Stage"
 		},
+,
 		"MaxVelocityUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"default":"nm/s",
+			"enum": [
+				"m/s",
+				"mm/s",
+				"µm/s",
+				"nm/s",
+				"Other"
+			]
 			"category":"Stage"
 		},
+,
 		"Manufacturer": {
 			"type":"string",
 			"description":"The manufacturer of this component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
+,
 		"Model": {
 			"type":"string",
 			"description":"The model of this component.",
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SerialNumber": {
 			"type":"string",
 			"description":"The serial number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"LotNumber": {
 			"type":"string",
 			"description":"The lot number of this component",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"SpecsFile": {
 			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
+,
 		"Description": {
 			"title":"Description",
 			"type":"string",
