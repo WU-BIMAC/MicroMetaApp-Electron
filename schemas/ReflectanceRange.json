@@ -1,6 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ReflectanceRange.json",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"ReflectanceRange",
 	"description":"This records the range of wavelengths that are reflected by the mirror.",
@@ -112,7 +113,7 @@
 			"type":"integer",
 			"description":"The tier level of this component.",
 			"tier":3,
-			"category":"Generic",
+			"category":"General",
 			"readonly":true
 		}
 	},

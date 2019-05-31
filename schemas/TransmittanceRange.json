@@ -1,6 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"TransmittanceRange.json",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"TransmittanceRange",
 	"description":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
@@ -118,7 +119,7 @@
 			"type":"integer",
 			"description":"The tier level of this component.",
 			"tier":2,
-			"category":"Generic",
+			"category":"General",
 			"readonly":true
 		}
 	},

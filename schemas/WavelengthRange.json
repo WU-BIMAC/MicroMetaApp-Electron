@@ -1,6 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"WavelengthRange.json",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"WavelengthRange",
 	"description":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
@@ -118,7 +119,7 @@
 			"type":"integer",
 			"description":"The tier level of this component.",
 			"tier":5,
-			"category":"Generic",
+			"category":"General",
 			"readonly":true
 		}
 	},

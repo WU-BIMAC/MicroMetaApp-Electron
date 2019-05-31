@@ -1,6 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AnalogVideo.json",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"AnalogVideo",
 	"description":"A device used to capture analog videos",
@@ -8,7 +9,7 @@
 	"image":"Detector_Camera_AnalogVideo.png",
 	"tier":2,
 	"subCategoriesOrder": [
-		"Generic",
+		"General",
 		"ManufacturerSpec",
 		"Detector",
 		"Camera",
@@ -392,13 +393,13 @@
 			"type":"string",
 			"description":"A user defined name for this component.",
 			"tier":2,
-			"category":"Generic"
+			"category":"General"
 		},
 		"ID": {
 			"type":"string",
 			"description":"A unique identifier for this component.",
 			"tier":2,
-			"category":"Generic",
+			"category":"General",
 			"readonly":true
 		},
 		"Gain": {
@@ -705,13 +706,13 @@
 			"type":"string",
 			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
 			"tier":2,
-			"category":"Generic"
+			"category":"General"
 		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
 			"tier":2,
-			"category":"Generic",
+			"category":"General",
 			"readonly":true
 		}
 	},

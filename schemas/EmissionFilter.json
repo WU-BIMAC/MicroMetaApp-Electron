@@ -1,6 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"EmissionFilter.json",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"EmissionFilter",
 	"description":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to an emission filter. For each fluorescence Image there should be at least one emission filter element specified per Channel.This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
@@ -8,7 +9,7 @@
 	"image":"LightPath_EmissionFilter.png",
 	"tier":2,
 	"subCategoriesOrder": [
-		"Generic",
+		"General",
 		"ManufacturerSpec",
 		"FIlter",
 		"EmissionFilter",
@@ -19,13 +20,13 @@
 			"type":"string",
 			"description":"A user defined name for this component.",
 			"tier":2,
-			"category":"Generic"
+			"category":"General"
 		},
 		"ID": {
 			"type":"string",
 			"description":"A unique identifier for this component.",
 			"tier":2,
-			"category":"Generic",
+			"category":"General",
 			"readonly":true
 		},
 		"Type": {
@@ -218,13 +219,13 @@
 			"type":"string",
 			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
 			"tier":2,
-			"category":"Generic"
+			"category":"General"
 		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
 			"tier":2,
-			"category":"Generic",
+			"category":"General",
 			"readonly":true
 		}
 	},

@@ -1,6 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"GenericDetector.json",
+	"version":"1.05.2",
 	"type":"object",
 	"title":"GenericDetector",
 	"description":"The GenericDetector element is used to represent a detector as a collection of key/value pairs, stored in a Map. The other detector objects should always be used in preference to this if possible.",
@@ -8,7 +9,7 @@
 	"image":"Detector_GenericDetector.png",
 	"tier":2,
 	"subCategoriesOrder": [
-		"Generic",
+		"General",
 		"ManufacturerSpec",
 		"Detector",
 		"GenericDetector",
@@ -20,13 +21,13 @@
 			"type":"string",
 			"description":"A user defined name for this component.",
 			"tier":2,
-			"category":"Generic"
+			"category":"General"
 		},
 		"ID": {
 			"type":"string",
 			"description":"A unique identifier for this component.",
 			"tier":2,
-			"category":"Generic",
+			"category":"General",
 			"readonly":true
 		},
 		"Gain": {
@@ -333,7 +334,7 @@
 			"type":"string",
 			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
 			"tier":2,
-			"category":"Generic"
+			"category":"General"
 		},
 		"Map": {
 			"type":"object",
@@ -346,7 +347,7 @@
 			"type":"integer",
 			"description":"The tier level of this component.",
 			"tier":2,
-			"category":"Generic",
+			"category":"General",
 			"readonly":true
 		}
 	},

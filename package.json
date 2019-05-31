@@ -20,11 +20,12 @@
 		"build": "gulp build-dev && gulp build",
 		"dev": "gulp dev",
 		"dist": "gulp build-dev && build",
-		"dist_32": "build --win --ia32 --dir"
+		"dist_win": "build --win --x64 --ia32",
+		"dist_help": "build --help"
 	},
 	"build": {
 		"appId": "com.4dn.MicroscopyMetadataTool",
-		"asar": false,
+		"asar": true,
 		"files": [
 			"**/*",
 			"build/*.js",
@@ -65,7 +66,7 @@
 			]
 		},
 		"win": {
-			"target": "nsis",
+			"target": "zip",
 			"icon": "build/icon.ico"
 		}
 	},
