@@ -21,7 +21,7 @@
 		"dev": "gulp dev",
 		"dist": "gulp build-dev && build",
 		"dist_win": "build --win --x64 --ia32",
-		"dist_help": "build --help"
+		"dist_mac": "build --mac"
 	},
 	"build": {
 		"appId": "com.4dn.MicroscopyMetadataTool",
