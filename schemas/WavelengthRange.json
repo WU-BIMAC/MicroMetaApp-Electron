@@ -1,15 +1,16 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"WavelengthRange.json",
-	"version":"1.05.2",
+	"version":"1.05.3",
 	"type":"object",
 	"title":"WavelengthRange",
 	"description":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
-	"category":"ChildrenElement",
+	"category":"ChildElement",
+	"image":"ChildElement_WavelengthRange.png",
 	"tier":5,
-	"subCategoriesOrder": [
-		"WavelengthRange"
-	],
+	"subCategoriesOrder": {
+		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used."
+	},
 	"properties": {
 		"CutIn": {
 			"type":"string",

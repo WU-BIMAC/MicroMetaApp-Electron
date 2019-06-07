@@ -1,15 +1,16 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"TransmittanceRange.json",
-	"version":"1.05.2",
+	"version":"1.05.3",
 	"type":"object",
 	"title":"TransmittanceRange",
 	"description":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
-	"category":"ChildrenElement",
+	"category":"ChildElement",
+	"image":"ChildElement_TransmittanceRange.png",
 	"tier":2,
-	"subCategoriesOrder": [
-		"TransmittanceRange"
-	],
+	"subCategoriesOrder": {
+		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
+	},
 	"properties": {
 		"CutIn": {
 			"type":"string",
@@ -111,7 +112,7 @@
 		},
 		"Transmittance": {
 			"type":"string",
-			"description":"The amount of light the filter transmits at a maximum. A fraction, as a value from 0.0 to 1.0.",
+			"description":"The maximum amount of light this optical component is capable of transmitting at the peak wavelenght. It is represented as a fractional value from 0.0 to 1.0.",
 			"tier":3,
 			"category":"TransmittanceRange"
 		},

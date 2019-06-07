@@ -1,23 +1,23 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"SampleHolder.json",
-	"version":"1.05.2",
+	"version":"1.05.3",
 	"type":"object",
 	"title":"SampleHolder",
 	"description":"This element describes an optional sample holder mounted on the microscope stage.",
 	"category":"SampleHolderAndFocusing",
 	"image":"SampleHolderAndFocusing_SampleHolder.png",
 	"tier":3,
-	"subCategoriesOrder": [
-		"General",
-		"ManufacturerSpec",
-		"Stage",
-		"SampleHolder"
-	],
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Stage":"NA",
+		"SampleHolder":"This element describes an optional sample holder mounted on the microscope stage."
+	},
 	"properties": {
 		"Type": {
 			"type":"string",
-			"description":"The type of sample holder.",
+			"description":"The type of this sample holder.",
 			"tier":5,
 			"enum": [
 				"Rigid Stand",
@@ -28,7 +28,7 @@
 		},
 		"RotationAngle": {
 			"type":"string",
-			"description":"The angle by which this device is capable of rotating",
+			"description":"The angle by which this sample holder is capable of rotating.",
 			"tier":5,
 			"category":"SampleHolder"
 		},
@@ -36,6 +36,7 @@
 			"type":"string",
 			"description":"NA",
 			"tier":5,
+			"default":"deg",
 			"enum": [
 				"deg",
 				"rad",
@@ -58,7 +59,7 @@
 		},
 		"MovementAxes": {
 			"type":"string",
-			"description":"The axis along which this device moves.",
+			"description":"The axes or axis along which this device is capable of moving.",
 			"tier":5,
 			"default":"Z",
 			"enum": [
@@ -73,7 +74,7 @@
 		},
 		"XTravelRange": {
 			"type":"string",
-			"description":"The X axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the X axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -122,7 +123,7 @@
 		},
 		"YTravelRange": {
 			"type":"string",
-			"description":"The Y axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the Y axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -171,7 +172,7 @@
 		},
 		"ZTravelRange": {
 			"type":"string",
-			"description":"The Z axis range this device is capable of moving in",
+			"description":"The range this device is capable of moving in along the Z axis.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -220,7 +221,7 @@
 		},
 		"MaxVelocity": {
 			"type":"string",
-			"description":"The maximum velocity this device is capable of moving at",
+			"description":"The maximum velocity at which this device is capable of moving.",
 			"tier":5,
 			"category":"Stage"
 		},
@@ -271,7 +272,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
 			"tier":3,
 			"category":"General"
 		},

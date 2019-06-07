@@ -1,26 +1,26 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Transmitted_LightSource_Filament.json",
-	"version":"1.05.2",
+	"version":"1.05.3",
 	"type":"object",
 	"title":"Filament",
-	"description":"The Filament element is used to describe various kinds of filament bulbs such as Incadescent or Halogen. The Power of the Filament is now stored in the LightSource.",
+	"description":"A Filament lamp is an incandescent light source with a wire filament heated to such a high temperature that it glows with visible light (incandescence).",
 	"category":"Transmitted_LightSource",
 	"image":"Transmitted_LightSource_Filament.png",
 	"tier":1,
-	"subCategoriesOrder": [
-		"General",
-		"ManufacturerSpec",
-		"LightSource",
-		"Filament"
-	],
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"LightSource":"This describes the light source(s) available for this instrument. An instrument may have several light sources of different types (Laser, LightEmittingDiode, Filament, Arc etc.). A typical light-microscope has two light sources, one for transmitted light and one for fluorescence light.      ",
+		"Filament":"A Filament lamp is an incandescent light source with a wire filament heated to such a high temperature that it glows with visible light (incandescence)."
+	},
 	"properties": {
 		"Type": {
 			"type":"string",
-			"description":"The type of filament.",
+			"description":"The type of Filament lamp light source.",
 			"tier":3,
 			"enum": [
-				"Incandescent",
+				"Standard",
 				"Halogen",
 				"Other"
 			],
@@ -34,22 +34,22 @@
 		},
 		"ID": {
 			"type":"string",
-			"description":"A LightSource ID must be specified for each light source, and the individual light sources can be referred to by their LightSource IDs (eg from Channel).",
+			"description":"A unique identifier for this component.",
 			"tier":1,
 			"category":"General",
 			"readonly":true
 		},
-		"NominalPower": {
+		"NominalPowerOutput": {
 			"type":"string",
-			"description":"The nominal power of the light-source",
+			"description":"The average nominal power output of this light-source.",
 			"tier":3,
 			"category":"LightSource"
 		},
-		"NominalPowerUnit": {
+		"NominalPowerOutputUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":3,
-			"default":"mW",
+			"default":"W",
 			"enum": [
 				"YW",
 				"ZW",
@@ -108,7 +108,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
 			"tier":2,
 			"category":"General"
 		},
@@ -124,7 +124,7 @@
 		"Type",
 		"ID",
 		"Name",
-		"NominalPower",
+		"NominalPowerOutput",
 		"Manufacturer",
 		"Model",
 		"SerialNumber",

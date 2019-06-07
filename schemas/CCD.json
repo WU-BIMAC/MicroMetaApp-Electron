@@ -1,22 +1,22 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CCD.json",
-	"version":"1.05.2",
+	"version":"1.05.3",
 	"type":"object",
 	"title":"CCD",
 	"description":"A charged coupled device camera",
 	"category":"Detector.Camera",
 	"image":"Detector_Camera_CCD.png",
 	"tier":2,
-	"subCategoriesOrder": [
-		"General",
-		"ManufacturerSpec",
-		"Detector",
-		"Camera",
-		"CCD",
-		"WavelengthRange",
-		"RelayLens"
-	],
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Detector":"This describes a detector available for this instrument. An instrument may have more than one detector of different types, such as photomultiplier, or camera. The Detector ID can be used as a reference within the Channel element in the Image element. The values stored in Detector represent the fixed values, variable values modified during the acquisition go in DetectorSettings.",
+		"Camera":"This describes a camera device available for this instrument. A camera is device that converts optical brightness into an electrical signal using a CCD(a semiconductor chip, which converts the intensity of light falling onto its surface at different points into a charge) and then reproduces an image of the specimen.  An instrument may have more than one camera of different types, such as EMCCD, intensified EMCCD, CMOS, or analog video.",
+		"CCD":"A charged coupled device camera",
+		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
+		"RelayLens":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body."
+	},
 	"properties": {
 		"Type": {
 			"type":"string",
@@ -716,7 +716,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
 			"tier":2,
 			"category":"General"
 		},

@@ -1,18 +1,18 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Objective.json",
-	"version":"1.05.2",
+	"version":"1.05.3",
 	"type":"object",
 	"title":"Objective",
-	"description":"A description of the microscope's objective lens. Required elements include the lens numerical aperture, and the magnification, both of which a floating point (real) numbers. The values are those that are fixed for a particular objective: either because it has been manufactured to this specification or the value has been measured on this particular objective. Correction: This is the type of correction coating applied to this lens. Immersion: This is the types of immersion medium the lens is designed to work with. It is not the same as 'Medium' in ObjectiveRef (a single type) as here Immersion can have compound values like 'Multi'. LensNA: The numerical aperture of the lens (as a float) NominalMagnification: The specified magnification e.g. x10 CalibratedMagnification: The measured magnification e.g. x10.3 WorkingDistance: WorkingDistance of the lens",
+	"description":"A microscope's objective lens is a compound lens consisting of several simple lenses (elements), usually arranged along a common axis.",
 	"category":"Magnification",
 	"image":"Magnification_Objective.png",
 	"tier":1,
-	"subCategoriesOrder": [
-		"General",
-		"ManufacturerSpec",
-		"Objective"
-	],
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Objective":"A microscope's objective lens is a compound lens consisting of several simple lenses (elements), usually arranged along a common axis."
+	},
 	"properties": {
 		"Name": {
 			"type":"string",
@@ -29,7 +29,7 @@
 		},
 		"Correction": {
 			"type":"string",
-			"description":"The correction applied to the lens.",
+			"description":"The type of optical correction (i.e. chromatict, flatness, etc.) associated with this objective.",
 			"tier":2,
 			"enum": [
 				"Achro",
@@ -62,19 +62,19 @@
 		},
 		"CalibratedMagnification": {
 			"type":"string",
-			"description":"The magnification of the lens as measured by a calibration process- i.e. '59.987' for a 60X lens.",
+			"description":"The magnification of the lens as measured via a calibration process- i.e. '59.987' for a 60X lens.",
 			"tier":5,
 			"category":"Objective"
 		},
 		"LensNA": {
 			"type":"string",
-			"description":"The numerical aperture of the lens expressed as a floating point (real) number. Expected range 0.02 - 1.5.",
+			"description":"The numerical aperture of this objective expressed as a floating point (real) number. Expected range 0.02 - 1.5.",
 			"tier":1,
 			"category":"Objective"
 		},
 		"NominalImmersionMedium": {
 			"type":"string",
-			"description":"The immersion medium the lens is designed for.",
+			"description":"The immersion medium this objective is designed for.",
 			"tier":2,
 			"enum": [
 				"Air",
@@ -101,7 +101,7 @@
 		},
 		"WorkingDistance": {
 			"type":"string",
-			"description":"The working distance of the lens expressed as a floating point (real) number.",
+			"description":"The working distance of this objective, expressed as a floating point (real) number.",
 			"tier":3,
 			"category":"Objective"
 		},
@@ -291,7 +291,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
 			"tier":2,
 			"category":"General"
 		},

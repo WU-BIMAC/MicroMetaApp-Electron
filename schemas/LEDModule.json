@@ -1,19 +1,20 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"LEDModule.json",
-	"version":"1.05.2",
+	"version":"1.05.3",
 	"type":"object",
 	"title":"LEDModule",
 	"description":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used.",
-	"category":"ChildrenElement",
+	"category":"ChildElement",
+	"image":"ChildElement_LEDModule.png",
 	"tier":2,
-	"subCategoriesOrder": [
-		"LEDModule"
-	],
+	"subCategoriesOrder": {
+		"LEDModule":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used."
+	},
 	"properties": {
 		"PeakWavelenght": {
 			"type":"string",
-			"description":"The wavelength at which there is maximal response rate.",
+			"description":"The nominal wavelength at which the amount of light power output is at a maximum.",
 			"tier":2,
 			"category":"LEDModule"
 		},
@@ -60,16 +61,17 @@
 			],
 			"category":"LEDModule"
 		},
-		"LumenPower": {
+		"PeakPower": {
 			"type":"string",
-			"description":"The amount of light this light source generate at maximum expressed in lumen. The lumen is the SI derived unit of luminous flux, a measure of the total quantity of visible light emitted by a source.",
+			"description":"The nominal light power output generated at peak wavelenght.",
 			"tier":3,
 			"category":"LEDModule"
 		},
-		"LumenPowerUnit": {
+		"PeakPowerUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":3,
+			"default":"W",
 			"enum": [
 				"YW",
 				"ZW",
@@ -226,7 +228,7 @@
 	},
 	"required": [
 		"PeakWavelenght",
-		"LumenPower",
+		"PeakPower",
 		"CutIn",
 		"CutOut",
 		"WavelenghtProfile"

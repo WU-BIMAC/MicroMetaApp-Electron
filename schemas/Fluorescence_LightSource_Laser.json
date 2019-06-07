@@ -1,20 +1,20 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Laser.json",
-	"version":"1.05.2",
+	"version":"1.05.3",
 	"type":"object",
 	"title":"Laser",
 	"description":"A Light Amplification by Stimulated Emission of Radiation (LASER) is a device that emits light through a process of optical amplification based on the stimulated emission of electromagnetic radiation.",
 	"category":"Fluorescence_LightSource",
 	"image":"Fluorescence_LightSource_Laser.png",
 	"tier":1,
-	"subCategoriesOrder": [
-		"General",
-		"ManufacturerSpec",
-		"LightSource",
-		"Laser",
-		"Pump"
-	],
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"LightSource":"This describes the light source(s) available for this instrument. An instrument may have several light sources of different types (Laser, LightEmittingDiode, Filament, Arc etc.). A typical light-microscope has two light sources, one for transmitted light and one for fluorescence light.      ",
+		"Laser":"A Light Amplification by Stimulated Emission of Radiation (LASER) is a device that emits light through a process of optical amplification based on the stimulated emission of electromagnetic radiation.",
+		"Pump":"The Pump element is a reference to a LightSource. It is used within the Laser element to specify the light source for the laser's pump (if any)."
+	},
 	"properties": {
 		"Type": {
 			"type":"string",
@@ -77,7 +77,7 @@
 		},
 		"Wavelength": {
 			"type":"string",
-			"description":"The Wavelength of the laser",
+			"description":"The center Wavelength of the light emitted by this laser.",
 			"tier":2,
 			"category":"Laser"
 		},
@@ -126,7 +126,7 @@
 		},
 		"FrequencyMultiplication": {
 			"type":"string",
-			"description":"FrequencyMultiplication that may be specified.",
+			"description":"The optical frequency multiplication that may be specified for this laser.",
 			"tier":5,
 			"category":"Laser"
 		},
@@ -202,22 +202,22 @@
 		},
 		"ID": {
 			"type":"string",
-			"description":"A LightSource ID must be specified for each light source, and the individual light sources can be referred to by their LightSource IDs (eg from Channel).",
+			"description":"A unique identifier for this component.",
 			"tier":1,
 			"category":"General",
 			"readonly":true
 		},
-		"NominalPower": {
+		"NominalPowerOutput": {
 			"type":"string",
-			"description":"The nominal power of the light-source",
+			"description":"The average nominal power output of this light-source.",
 			"tier":3,
 			"category":"LightSource"
 		},
-		"NominalPowerUnit": {
+		"NominalPowerOutputUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":3,
-			"default":"mW",
+			"default":"W",
 			"enum": [
 				"YW",
 				"ZW",
@@ -276,7 +276,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
 			"tier":2,
 			"category":"General"
 		},
@@ -313,7 +313,7 @@
 		"Pulse",
 		"ID",
 		"Name",
-		"NominalPower",
+		"NominalPowerOutput",
 		"Manufacturer",
 		"Model",
 		"SerialNumber",

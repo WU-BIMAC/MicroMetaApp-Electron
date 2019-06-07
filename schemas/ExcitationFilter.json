@@ -1,20 +1,20 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ExcitationFilter.json",
-	"version":"1.05.2",
+	"version":"1.05.3",
 	"type":"object",
 	"title":"ExcitationFilter",
 	"description":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to an excitation filter. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
 	"category":"LightPath",
 	"image":"LightPath_ExcitationFilter.png",
 	"tier":2,
-	"subCategoriesOrder": [
-		"General",
-		"ManufacturerSpec",
-		"FIlter",
-		"ExcitationFilter",
-		"TransmittanceRange"
-	],
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"FIlter":"This describes an optical filter positioned in the light path for one or more channel available for this instrument. An optical filter is a device that selectively transmits light of different wavelengths. An instrument may have several filters of different types, such as an excitation, an emission filter or an additional filter positioned in the light path for different purposes. For each fluorescence Image there should be at least one filter element specified per Channel. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
+		"ExcitationFilter":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to an excitation filter. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
+		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
+	},
 	"properties": {
 		"Name": {
 			"type":"string",
@@ -202,7 +202,7 @@
 					},
 					"Transmittance": {
 						"type":"string",
-						"description":"The amount of light the filter transmits at a maximum. A fraction, as a value from 0.0 to 1.0.",
+						"description":"The maximum amount of light this optical component is capable of transmitting at the peak wavelenght. It is represented as a fractional value from 0.0 to 1.0.",
 						"tier":3,
 						"category":"TransmittanceRange"
 					}
@@ -217,7 +217,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
 			"tier":2,
 			"category":"General"
 		},

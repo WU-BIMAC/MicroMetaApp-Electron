@@ -1,22 +1,22 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"StandardDichroic.json",
-	"version":"1.05.2",
+	"version":"1.05.3",
 	"type":"object",
 	"title":"StandardDichroic",
 	"description":"A Dichroic used in the standard fluorecence Ligh Path.",
 	"category":"LightPath",
 	"image":"LightPath_StandardDichroic.png",
 	"tier":2,
-	"subCategoriesOrder": [
-		"General",
-		"ManufacturerSpec",
-		"Mirror",
-		"Dichroic",
-		"StandardDichroic",
-		"TransmittanceRange",
-		"ReflectanceRange"
-	],
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Mirror":"This describes a mirror positioned in the light path for one or more channel available for this instrument. An instrument may have several mirrors of different types, such as dichroic, beamsplitter or reflector.",
+		"Dichroic":"NA",
+		"StandardDichroic":"A Dichroic used in the standard fluorecence Ligh Path.",
+		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
+		"ReflectanceRange":"This records the range of wavelengths that are reflected by the mirror."
+	},
 	"properties": {
 		"DichroicType": {
 			"type":"string",
@@ -115,7 +115,7 @@
 		},
 		"Reflectance": {
 			"type":"string",
-			"description":"The amount of light the mirror reflects at a maximum. It is represented as a fraction, as a value from 0.0 to 1.0",
+			"description":"The maximum amount of light this Mirror is capable of reflecting. It is represented as a fractional value from 0.0 to 1.0.",
 			"tier":3,
 			"category":"Mirror"
 		},
@@ -275,7 +275,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
 			"tier":2,
 			"category":"General"
 		},
@@ -385,7 +385,7 @@
 					},
 					"Transmittance": {
 						"type":"string",
-						"description":"The amount of light the filter transmits at a maximum. A fraction, as a value from 0.0 to 1.0.",
+						"description":"The maximum amount of light this optical component is capable of transmitting at the peak wavelenght. It is represented as a fractional value from 0.0 to 1.0.",
 						"tier":3,
 						"category":"TransmittanceRange"
 					}

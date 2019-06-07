@@ -1,20 +1,20 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_LightEmittingDiode.json",
-	"version":"1.05.2",
+	"version":"1.05.3",
 	"type":"object",
 	"title":"LightEmittingDiode",
-	"description":"The LightEmittingDiode element is used to describe various kinds of LED lamps",
+	"description":"A Light Emitting Diode (LED) is a semiconductor light source that emits light when current flows through it. Electrons in the semiconductor recombine with electron holes, releasing energy in the form of photons. The color of the light (corresponding to the energy of the photons) is determined by the energy required for electrons to cross the band gap of the semiconductor. White light may be obtained by using multiple semiconductors or a layer of light-emitting phosphor on the semiconductor device.",
 	"category":"Fluorescence_LightSource",
 	"image":"Fluorescence_LightSource_LightEmittingDiode.png",
 	"tier":1,
-	"subCategoriesOrder": [
-		"General",
-		"ManufacturerSpec",
-		"LightSource",
-		"LightEmittingDiode",
-		"LEDModule"
-	],
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"LightSource":"This describes the light source(s) available for this instrument. An instrument may have several light sources of different types (Laser, LightEmittingDiode, Filament, Arc etc.). A typical light-microscope has two light sources, one for transmitted light and one for fluorescence light.      ",
+		"LightEmittingDiode":"A Light Emitting Diode (LED) is a semiconductor light source that emits light when current flows through it. Electrons in the semiconductor recombine with electron holes, releasing energy in the form of photons. The color of the light (corresponding to the energy of the photons) is determined by the energy required for electrons to cross the band gap of the semiconductor. White light may be obtained by using multiple semiconductors or a layer of light-emitting phosphor on the semiconductor device.",
+		"LEDModule":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used."
+	},
 	"properties": {
 		"Type": {
 			"type":"string",
@@ -23,7 +23,7 @@
 			"enum": [
 				"Unmounted",
 				"Mounted",
-				"Collimate",
+				"Collimated",
 				"Other"
 			],
 			"category":"LightEmittingDiode"
@@ -36,22 +36,22 @@
 		},
 		"ID": {
 			"type":"string",
-			"description":"A LightSource ID must be specified for each light source, and the individual light sources can be referred to by their LightSource IDs (eg from Channel).",
+			"description":"A unique identifier for this component.",
 			"tier":1,
 			"category":"General",
 			"readonly":true
 		},
-		"NominalPower": {
+		"NominalPowerOutput": {
 			"type":"string",
-			"description":"The nominal power of the light-source",
+			"description":"The average nominal power output of this light-source.",
 			"tier":3,
 			"category":"LightSource"
 		},
-		"NominalPowerUnit": {
+		"NominalPowerOutputUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":3,
-			"default":"mW",
+			"default":"W",
 			"enum": [
 				"YW",
 				"ZW",
@@ -110,7 +110,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
 			"tier":2,
 			"category":"General"
 		},
@@ -122,7 +122,7 @@
 				"properties": {
 					"PeakWavelenght": {
 						"type":"string",
-						"description":"The wavelength at which there is maximal response rate.",
+						"description":"The nominal wavelength at which the amount of light power output is at a maximum.",
 						"tier":2,
 						"category":"LEDModule"
 					},
@@ -169,16 +169,17 @@
 						],
 						"category":"LEDModule"
 					},
-					"LumenPower": {
+					"PeakPower": {
 						"type":"string",
-						"description":"The amount of light this light source generate at maximum expressed in lumen. The lumen is the SI derived unit of luminous flux, a measure of the total quantity of visible light emitted by a source.",
+						"description":"The nominal light power output generated at peak wavelenght.",
 						"tier":3,
 						"category":"LEDModule"
 					},
-					"LumenPowerUnit": {
+					"PeakPowerUnit": {
 						"type":"string",
 						"description":"NA",
 						"tier":3,
+						"default":"W",
 						"enum": [
 							"YW",
 							"ZW",
@@ -328,7 +329,7 @@
 				},
 				"required": [
 					"PeakWavelenght",
-					"LumenPower",
+					"PeakPower",
 					"CutIn",
 					"CutOut",
 					"WavelenghtProfile"
@@ -347,7 +348,7 @@
 		"Type",
 		"ID",
 		"Name",
-		"NominalPower",
+		"NominalPowerOutput",
 		"Manufacturer",
 		"Model",
 		"SerialNumber",

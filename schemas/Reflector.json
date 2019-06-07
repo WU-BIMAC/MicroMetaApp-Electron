@@ -1,19 +1,19 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Reflector.json",
-	"version":"1.05.2",
+	"version":"1.05.3",
 	"type":"object",
 	"title":"Reflector",
 	"description":"This is a total reflector mirror",
 	"category":"Mirror",
 	"image":"Mirror_Reflector.png",
 	"tier":2,
-	"subCategoriesOrder": [
-		"General",
-		"ManufacturerSpec",
-		"Mirror",
-		"Reflector"
-	],
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"Mirror":"This describes a mirror positioned in the light path for one or more channel available for this instrument. An instrument may have several mirrors of different types, such as dichroic, beamsplitter or reflector.",
+		"Reflector":"This is a total reflector mirror"
+	},
 	"properties": {
 		"Name": {
 			"type":"string",
@@ -30,7 +30,7 @@
 		},
 		"Reflectance": {
 			"type":"string",
-			"description":"The amount of light the mirror reflects at a maximum. It is represented as a fraction, as a value from 0.0 to 1.0",
+			"description":"The maximum amount of light this Mirror is capable of reflecting. It is represented as a fractional value from 0.0 to 1.0.",
 			"tier":3,
 			"category":"Mirror"
 		},
@@ -190,7 +190,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"The AnnotationRef element is a reference to an element derived from the CommentAnnotation element, which consists of a simple comment multi-line annotation.",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
 			"tier":2,
 			"category":"General"
 		},
