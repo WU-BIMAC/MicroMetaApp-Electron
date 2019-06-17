@@ -353,7 +353,8 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		let json = JSON.stringify(microscope);
 		let micName = microscope.Name;
 		let micNameNormalized = micName.replace(/\s+/g, "_").toLowerCase();
-		let fileName = dirPath + `${micNameNormalized}.json`;
+		//let fileName = dirPath + `${micNameNormalized}.json`;
+		let fileName = path.resolve(dirPath, "/" + `${micNameNormalized}.json`);
 		fs.writeFile(fileName, json, function() {
 			complete(micNameNormalized);
 		});
