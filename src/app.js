@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 
-import MicroscopeMetadataTool from "4dn-microscopy-metadata-tool";
+import MicroscopyMetadataTool from "4dn-microscopy-metadata-tool";
 
 const fs = window.require("fs");
 const electron = window.require("electron");
@@ -21,7 +21,7 @@ const microscopeDirectory = "./microscopes/";
 
 window.onload = () => {
 	ReactDOM.render(
-		<MicroscopeMetadataToolComponent />,
+		<MicroscopyMetadataToolComponent />,
 		document.getElementById("root")
 	);
 };
@@ -46,7 +46,7 @@ function readFileAsync(filename) {
 	});
 }
 
-class MicroscopeMetadataToolWorkingDirectoryChooser extends React.PureComponent {
+class MicroscopyMetadataToolWorkingDirectoryChooser extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -180,7 +180,7 @@ class MicroscopeMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 	}
 }
 
-class MicroscopeMetadataToolComponent extends React.PureComponent {
+class MicroscopyMetadataToolComponent extends React.PureComponent {
 	static copyFiles(oldDirectory, newDirectory) {
 		readDirAsync(oldDirectory).then(function(fileNames) {
 			fileNames.forEach(function(fileName) {
@@ -259,8 +259,8 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 		if (!fs.existsSync(newSchemaDirectory)) {
 			fs.mkdirSync(newSchemaDirectory);
 		}
-		MicroscopeMetadataToolComponent.cleanDirectory(newSchemaDirectory);
-		MicroscopeMetadataToolComponent.copyFiles(
+		MicroscopyMetadataToolComponent.cleanDirectory(newSchemaDirectory);
+		MicroscopyMetadataToolComponent.copyFiles(
 			oldSchemaDirectory,
 			newSchemaDirectory
 		);
@@ -276,7 +276,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 		if (!fs.existsSync(newMicroscopeDirectory)) {
 			fs.mkdirSync(newMicroscopeDirectory);
 		}
-		MicroscopeMetadataToolComponent.copyFiles(
+		MicroscopyMetadataToolComponent.copyFiles(
 			oldMicroscopeDirectory,
 			newMicroscopeDirectory
 		);
@@ -395,7 +395,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 		const imagesPath = path.resolve(appPath, "./public/assets/");
 		if (!workingDirectoryConfirmed) {
 			return (
-				<MicroscopeMetadataToolWorkingDirectoryChooser
+				<MicroscopyMetadataToolWorkingDirectoryChooser
 					width={dims.width}
 					height={dims.height}
 					workingDirectory={workingDirectory}
@@ -405,7 +405,7 @@ class MicroscopeMetadataToolComponent extends React.PureComponent {
 			);
 		} else {
 			return (
-				<MicroscopeMetadataTool
+				<MicroscopyMetadataTool
 					width={dims.width}
 					height={dims.height}
 					onLoadSchema={this.onLoadSchema}
