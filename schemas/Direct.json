@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Direct.json",
-	"version":"1.05.3",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"Direct",
 	"description":"A Direct coupling between the light source and the microscope consists either of a direct mount or of an optical light path that directs light across space to the back of the microscope body.",
@@ -10,7 +10,7 @@
 	"tier":4,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
 		"LightSourceCoupling":"This element describes the device(s)/method(s) used to couple the available light source(s) with this microscope body in order to transfer light to the specimen. A typical light-microscope has a light coupling device for each available light source.",
 		"Direct":"A Direct coupling between the light source and the microscope consists either of a direct mount or of an optical light path that directs light across space to the back of the microscope body.",
 		"CouplingLens":"This is a reference to a lens positioned at the connection between this light source coupling element and the microscope body."
@@ -47,7 +47,7 @@
 			"readonly":true
 		},
 		"Transmittance": {
-			"type":"string",
+			"type":"number",
 			"description":"The maximum amount of light this LightSourceCoupling apparatus is capable of transmitting at the peak wavelenght. It is represented as a fractional value from 0.0 to 1.0.",
 			"tier":5,
 			"category":"LightSourceCoupling"
@@ -77,7 +77,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"string",
+			"type":"uri",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"

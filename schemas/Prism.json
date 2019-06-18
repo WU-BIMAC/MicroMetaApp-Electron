@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Prism.json",
-	"version":"1.05.3",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"Prism",
 	"description":"This describes a prism positioned in the light path for one or more channel available for this instrument. A prism is a block of glass or other transparent material with flat, polished surfaces, which can be viewed as an ensamble of different rigidly mounted mirrors, with each face having a permanent orientation with respect to all the others. A prism can be employed to deflect or deviate a light beam, rotate or invert an image, separate polarization states, or disperse light into its component wavelengths. An instrument may have several prisms with different factionality such as,  reflecting, polarizing, and refracting or dispersion prisms. Reflecting prisms are useful for redirecting light beams by total internal reflection. Polarizing prisms are birefringent crystals that divide incident non-polarized light into separate components polarized orthogonally to each other. Refracting prisms can be employed to bend and separate light into its component colors. These prisms are employed to produce polarized light for optical instruments such as microscopes and polarimeters.",
@@ -10,9 +10,9 @@
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
 		"Prism":"This describes a prism positioned in the light path for one or more channel available for this instrument. A prism is a block of glass or other transparent material with flat, polished surfaces, which can be viewed as an ensamble of different rigidly mounted mirrors, with each face having a permanent orientation with respect to all the others. A prism can be employed to deflect or deviate a light beam, rotate or invert an image, separate polarization states, or disperse light into its component wavelengths. An instrument may have several prisms with different factionality such as,  reflecting, polarizing, and refracting or dispersion prisms. Reflecting prisms are useful for redirecting light beams by total internal reflection. Polarizing prisms are birefringent crystals that divide incident non-polarized light into separate components polarized orthogonally to each other. Refracting prisms can be employed to bend and separate light into its component colors. These prisms are employed to produce polarized light for optical instruments such as microscopes and polarimeters.",
-		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used."
+		"WavelengthRange":"This records a range of wavelengths this device is designed for according to the manufacturer. Multiple of this elements may be used."
 	},
 	"properties": {
 		"Name": {
@@ -41,19 +41,19 @@
 			"category":"Prism"
 		},
 		"RefractiveIndex": {
-			"type":"string",
+			"type":"number",
 			"description":"The refractive index of the material this prism is made of, as specified by the manufacturer.",
 			"tier":5,
 			"category":"Prism"
 		},
 		"Reflectance": {
-			"type":"string",
+			"type":"number",
 			"description":"The maximum amount of light this Prism is capable of transmitting at the peak wavelenght. It is represented as a fractional value from 0.0 to 1.0.",
 			"tier":5,
 			"category":"Prism"
 		},
 		"AngleOfIncidence": {
-			"type":"string",
+			"type":"number",
 			"description":"The angle of incidence (AOI) is the angle between a beam of light incident on the prism surface and the line perpendicular to the surface at the point of incidence, called the normal.",
 			"tier":5,
 			"category":"Prism"
@@ -70,7 +70,7 @@
 			"category":"Prism"
 		},
 		"DeviationAngle": {
-			"type":"string",
+			"type":"number",
 			"description":"A beam passing through an object like a prism is deflected twice: once entering, and again when exiting. The sum of these two deflections is called the deviation angle and is measured with respect to the incident ray.",
 			"tier":5,
 			"category":"Prism"
@@ -88,7 +88,7 @@
 		},
 		"Geometry": {
 			"type":"string",
-			"description":"The geometrical shape of this prism",
+			"description":"The geometrical shape of this prism.",
 			"tier":5,
 			"enum": [
 				"Right-Angle",
@@ -104,7 +104,7 @@
 				"Senarmont",
 				"Triangular",
 				"Abbe prism",
-				"Pellin–Broca",
+				"Pellinâ€“Broca",
 				"Grim",
 				"Compound",
 				"Other"
@@ -112,14 +112,14 @@
 			"category":"Prism"
 		},
 		"AbbeNumber": {
-			"type":"string",
+			"type":"number",
 			"description":"The Abbe Number is a measure of the material's dispersion (variation of refractive index versus wavelength), with high values indicating low dispersion",
 			"tier":5,
 			"category":"Prism"
 		},
 		"PrismAngle": {
-			"type":"string",
-			"description":"The angle between two surfaces of a Prism",
+			"type":"number",
+			"description":"The angle between two surfaces of this prism.",
 			"tier":5,
 			"category":"Prism"
 		},
@@ -136,7 +136,7 @@
 		},
 		"MaterialName": {
 			"type":"string",
-			"description":"This records the chemical composition or the nonproprietary trade designation of the glass",
+			"description":"This records the chemical composition or the nonproprietary trade designation of the material this prism is made of.",
 			"tier":5,
 			"enum": [
 				"Calcium Fluoride",
@@ -153,13 +153,13 @@
 		},
 		"GlassCode": {
 			"type":"string",
-			"description":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642",
+			"description":"If available provide the international glass code for the glass this prism is made of. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642.",
 			"tier":5,
 			"category":"Prism"
 		},
 		"Density": {
-			"type":"string",
-			"description":"The density of the material of which the prism is made",
+			"type":"number",
+			"description":"The density of the material of which the prism is made.",
 			"tier":5,
 			"category":"Prism"
 		},
@@ -170,8 +170,8 @@
 			"enum": [
 				"kg/m3",
 				"g/ml",
-				"mg/µg",
-				"µg/ng"
+				"mg/Âµg",
+				"Âµg/ng"
 			],
 			"category":"Prism"
 		},
@@ -200,18 +200,18 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"string",
+			"type":"uri",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
 		"WavelengthRange": {
 			"type":"object",
-			"description":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
+			"description":"This records a range of wavelengths this device is designed for, according to the manufacturer. Multiple of this elements may be used.",
 			"tier":5,
 			"properties": {
 				"CutIn": {
-					"type":"string",
+					"type":"number",
 					"description":"CutIn is the wavelength below which the response rate is below 50%.",
 					"tier":5,
 					"category":"WavelengthRange"
@@ -236,14 +236,14 @@
 						"dm",
 						"cm",
 						"mm",
-						"µm",
+						"Âµm",
 						"nm",
 						"pm",
 						"fm",
 						"am",
 						"zm",
 						"ym",
-						"Å",
+						"Ã…",
 						"thou",
 						"li",
 						"in",
@@ -260,7 +260,7 @@
 					"category":"WavelengthRange"
 				},
 				"CutOut": {
-					"type":"string",
+					"type":"number",
 					"description":"CutOut is the wavelength above which the response rate is below 50%.",
 					"tier":5,
 					"category":"WavelengthRange"
@@ -285,14 +285,14 @@
 						"dm",
 						"cm",
 						"mm",
-						"µm",
+						"Âµm",
 						"nm",
 						"pm",
 						"fm",
 						"am",
 						"zm",
 						"ym",
-						"Å",
+						"Ã…",
 						"thou",
 						"li",
 						"in",
@@ -309,7 +309,7 @@
 					"category":"WavelengthRange"
 				},
 				"WavelenghtProfile": {
-					"type":"string",
+					"type":"uri",
 					"description":"The location of a file containing the wavelenght profile of this component.",
 					"tier":5,
 					"category":"WavelengthRange"

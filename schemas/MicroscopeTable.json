@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"MicroscopeTable.json",
-	"version":"1.05.3",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"MicroscopeTable",
 	"description":"This element describes the table on which this Microscope rests during acquisition.",
@@ -10,7 +10,7 @@
 	"tier":4,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
 		"MicroscopeTable":"This element describes the table on which this Microscope rests during acquisition."
 	},
 	"properties": {
@@ -42,7 +42,7 @@
 			"category":"MicroscopeTable"
 		},
 		"TableWidth": {
-			"type":"string",
+			"type":"number",
 			"description":"The width of this microscope table",
 			"tier":5,
 			"category":"MicroscopeTable"
@@ -67,14 +67,14 @@
 				"dm",
 				"cm",
 				"mm",
-				"µm",
+				"Âµm",
 				"nm",
 				"pm",
 				"fm",
 				"am",
 				"zm",
 				"ym",
-				"Å",
+				"Ã…",
 				"thou",
 				"li",
 				"in",
@@ -91,7 +91,7 @@
 			"category":"MicroscopeTable"
 		},
 		"TableDepth": {
-			"type":"string",
+			"type":"number",
 			"description":"The depth of this microscope table",
 			"tier":5,
 			"category":"MicroscopeTable"
@@ -116,14 +116,14 @@
 				"dm",
 				"cm",
 				"mm",
-				"µm",
+				"Âµm",
 				"nm",
 				"pm",
 				"fm",
 				"am",
 				"zm",
 				"ym",
-				"Å",
+				"Ã…",
 				"thou",
 				"li",
 				"in",
@@ -164,7 +164,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"string",
+			"type":"uri",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"

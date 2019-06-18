@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Microscope.json",
-	"version":"1.05.3",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"Microscope",
 	"description":"This element describes the instrument used to capture the Image. It is primarily a container referring to the microscope's components list, which include the Microscope Body, Microscope Table, LightSource, LightSourceCoupling, SampleHolder, Focusing devices, Objective, Optovar, Filter, Dichroic, AdditionalOptics, Detector and CalibrationTool. The Filter element can be composed either of separate excitation, emission filters and a dichroic mirror or a single filter set. Within the Image itself, a reference is made to this one Filter element. There may be multiple light sources, detectors, objectives and filters etc. in an Instrument. Each of these has their own ID attribute, which can be referred to from Channel. It is understood that the light path configuration can be different for each channel, but cannot be different for each timepoint or each plane of an XYZ stack.",
@@ -9,7 +9,7 @@
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
 		"MicroscopeBody":"A description of the body of this microscope"
 	},
 	"properties": {
@@ -42,7 +42,7 @@
 			"category":"MicroscopeBody"
 		},
 		"EyePieceFieldNumber": {
-			"type":"string",
+			"type":"number",
 			"description":"The Field Number represents the diaphragm size of the microscope eyepiece expressed in mm.",
 			"tier":5,
 			"category":"MicroscopeBody"
@@ -72,7 +72,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"string",
+			"type":"uri",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"

@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Laser.json",
-	"version":"1.05.3",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"Laser",
 	"description":"A Light Amplification by Stimulated Emission of Radiation (LASER) is a device that emits light through a process of optical amplification based on the stimulated emission of electromagnetic radiation.",
@@ -10,10 +10,9 @@
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
 		"LightSource":"This describes the light source(s) available for this instrument. An instrument may have several light sources of different types (Laser, LightEmittingDiode, Filament, Arc etc.). A typical light-microscope has two light sources, one for transmitted light and one for fluorescence light.      ",
-		"Laser":"A Light Amplification by Stimulated Emission of Radiation (LASER) is a device that emits light through a process of optical amplification based on the stimulated emission of electromagnetic radiation.",
-		"Pump":"The Pump element is a reference to a LightSource. It is used within the Laser element to specify the light source for the laser's pump (if any)."
+		"Laser":"A Light Amplification by Stimulated Emission of Radiation (LASER) is a device that emits light through a process of optical amplification based on the stimulated emission of electromagnetic radiation."
 	},
 	"properties": {
 		"Type": {
@@ -22,15 +21,21 @@
 			"tier":5,
 			"enum": [
 				"Gas",
+				"SolidState",
 				"MetalVapor",
 				"LaserDiode",
-				"DiodePumpedSolidState",
+				"SolidStateDiodePumped",
 				"LED",
 				"Dye",
-				"Semiconductor",
 				"FreeElectron",
 				"Other"
 			],
+			"category":"Laser"
+		},
+		"Pump": {
+			"type":"boolean",
+			"description":"Wheter or not this is a pumped laser.",
+			"tier":5,
 			"category":"Laser"
 		},
 		"LaserMedium": {
@@ -38,25 +43,26 @@
 			"description":"The Medium attribute specifies the actual lasing medium for a given laser type.           ",
 			"tier":5,
 			"enum": [
-				"Cu",
 				"Ag",
-				"ArFl",
-				"ArCl",
-				"KrFl",
-				"KrCl",
-				"XeFl",
-				"XeCl",
-				"XeBr",
-				"N",
 				"Ar",
-				"Kr",
-				"Xe",
-				"HeNe",
-				"HeCd",
+				"ArCl",
+				"ArFl",
+				"ArKr",
 				"CO",
 				"CO2",
-				"H2O",
+				"Cu",
 				"HFl",
+				"H2O",
+				"HeCd",
+				"HeNe",
+				"Kr",
+				"KrCl",
+				"KrFl",
+				"N",
+				"Xe",
+				"XeBr",
+				"XeCl",
+				"XeFl",
 				"NdGlass",
 				"NdYAG",
 				"ErGlass",
@@ -76,7 +82,7 @@
 			"category":"Laser"
 		},
 		"Wavelength": {
-			"type":"string",
+			"type":"number",
 			"description":"The center Wavelength of the light emitted by this laser.",
 			"tier":2,
 			"category":"Laser"
@@ -101,14 +107,14 @@
 				"dm",
 				"cm",
 				"mm",
-				"µm",
+				"Âµm",
 				"nm",
 				"pm",
 				"fm",
 				"am",
 				"zm",
 				"ym",
-				"Å",
+				"Ã…",
 				"thou",
 				"li",
 				"in",
@@ -131,7 +137,7 @@
 			"category":"Laser"
 		},
 		"Tuneable": {
-			"type":"string",
+			"type":"boolean",
 			"description":"Whether or not the laser is Tuneable.",
 			"tier":5,
 			"category":"Laser"
@@ -151,13 +157,13 @@
 			"category":"Laser"
 		},
 		"PockelCell": {
-			"type":"string",
+			"type":"boolean",
 			"description":"If true the laser has a PockelCell to rotate the polarization of the beam.",
 			"tier":5,
 			"category":"Laser"
 		},
 		"RepetitionRate": {
-			"type":"string",
+			"type":"number",
 			"description":"The is the rate in Hz at which the laser pulses if the Pulse type is 'Repetitive' hertz[Hz]",
 			"tier":5,
 			"category":"Laser"
@@ -182,7 +188,7 @@
 				"dHz",
 				"cHz",
 				"mHz",
-				"µHz",
+				"ÂµHz",
 				"nHz",
 				"pHz",
 				"fHz",
@@ -208,7 +214,7 @@
 			"readonly":true
 		},
 		"NominalPowerOutput": {
-			"type":"string",
+			"type":"number",
 			"description":"The average nominal power output of this light-source.",
 			"tier":3,
 			"category":"LightSource"
@@ -233,7 +239,7 @@
 				"dW",
 				"cW",
 				"mW",
-				"µW",
+				"ÂµW",
 				"nW",
 				"pW",
 				"fW",
@@ -268,7 +274,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"string",
+			"type":"uri",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -280,23 +286,6 @@
 			"tier":2,
 			"category":"General"
 		},
-		"Pump": {
-			"type":"object",
-			"description":"The Pump element is a reference to a LightSource. It is used within the Laser element to specify the light source for the laser's pump (if any).",
-			"tier":5,
-			"properties": {
-				"ID": {
-					"type":"string",
-					"description":"A unique identifier for this component.",
-					"tier":5,
-					"category":"Pump",
-					"readonly":true
-				}
-			},
-			"required": [
-				"ID"
-			]
-		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
@@ -307,7 +296,7 @@
 	},
 	"required": [
 		"Type",
-		"LaserMedium",
+		"Pump",
 		"Wavelength",
 		"Tuneable",
 		"Pulse",

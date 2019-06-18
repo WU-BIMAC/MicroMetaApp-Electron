@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AdditionalLens.json",
-	"version":"1.05.3",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"AdditionalLens",
 	"description":"Any additional lens poistioned in the light path for a given channel.",
@@ -10,7 +10,7 @@
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
 		"Lens":"This describes a lens positioned in the light path for one or more channel available for this instrument. A lens is a component of glass or transparent plastic material, usually circular in diameter, which has two primary surfaces that are ground and polished in a specific manner designed to produce either a convergence or divergence of light passing through the material. An instrument may have several lenses with different fuctions such as, a coupling lens positioned between the light source and the microscope body, a relay lens positioned at the detector mount, or an additional lens positioned in the light path for various purposes.",
 		"AdditionalLens":"Any additional lens poistioned in the light path for a given channel."
 	},
@@ -81,19 +81,19 @@
 			"category":"Lens"
 		},
 		"RefractiveIndex": {
-			"type":"string",
+			"type":"number",
 			"description":"The refractive index of the material this lens is made of, as specified by the manufacturer.",
 			"tier":5,
 			"category":"Lens"
 		},
 		"AttenuationCoefficient": {
-			"type":"string",
-			"description":"The attenuation coeffieient of this lens. The attenuation coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a lens. The attenuation coefficient is often defined in units of optical density (OD), wherease OD= -log10(T), and T=Transmittance (0?T?1).",
+			"type":"number",
+			"description":"The attenuation coeffieient of this lens. The attenuationÂ coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a lens. The attenuation coefficient is often defined in units of optical density (OD), wherease OD= -log10(T), and T=Transmittance (0â‰¤Tâ‰¤1).",
 			"tier":5,
 			"category":"Lens"
 		},
 		"FocalDistanceToObject": {
-			"type":"string",
+			"type":"number",
 			"description":"The distance between the front principal plane of this lens and the specimen plane.",
 			"tier":5,
 			"category":"Lens"
@@ -117,14 +117,14 @@
 				"dm",
 				"cm",
 				"mm",
-				"µm",
+				"Âµm",
 				"nm",
 				"pm",
 				"fm",
 				"am",
 				"zm",
 				"ym",
-				"Å",
+				"Ã…",
 				"thou",
 				"li",
 				"in",
@@ -141,7 +141,7 @@
 			"category":"Lens"
 		},
 		"FocalDistanceToImage": {
-			"type":"string",
+			"type":"number",
 			"description":"The distance between the rear principal plane of this lens and the image plane.",
 			"tier":5,
 			"category":"Lens"
@@ -165,14 +165,14 @@
 				"dm",
 				"cm",
 				"mm",
-				"µm",
+				"Âµm",
 				"nm",
 				"pm",
 				"fm",
 				"am",
 				"zm",
 				"ym",
-				"Å",
+				"Ã…",
 				"thou",
 				"li",
 				"in",
@@ -189,7 +189,7 @@
 			"category":"Lens"
 		},
 		"FocalLength": {
-			"type":"string",
+			"type":"number",
 			"description":"The distance from the rear principal plane of this lens and its focal plane.",
 			"tier":5,
 			"category":"Lens"
@@ -213,14 +213,14 @@
 				"dm",
 				"cm",
 				"mm",
-				"µm",
+				"Âµm",
 				"nm",
 				"pm",
 				"fm",
 				"am",
 				"zm",
 				"ym",
-				"Å",
+				"Ã…",
 				"thou",
 				"li",
 				"in",
@@ -237,7 +237,7 @@
 			"category":"Lens"
 		},
 		"Diameter": {
-			"type":"string",
+			"type":"number",
 			"description":"The physical diamter of this lens.",
 			"tier":5,
 			"category":"Lens"
@@ -261,14 +261,14 @@
 				"dm",
 				"cm",
 				"mm",
-				"µm",
+				"Âµm",
 				"nm",
 				"pm",
 				"fm",
 				"am",
 				"zm",
 				"ym",
-				"Å",
+				"Ã…",
 				"thou",
 				"li",
 				"in",
@@ -285,13 +285,13 @@
 			"category":"Lens"
 		},
 		"AbbeNumber": {
-			"type":"string",
+			"type":"number",
 			"description":"The Abbe number of this lens. The Abbe Number is a measure of the material's dispersion (variation of refractive index versus wavelength), with high values indicating low dispersion.",
 			"tier":5,
 			"category":"Lens"
 		},
 		"RadiusOfCurvature": {
-			"type":"string",
+			"type":"number",
 			"description":"The radius of curvature of this lens. A spherical lens or mirror surface has a center of curvature located either along or decentered from the system local optical axis. The vertex of the lens surface is located on the local optical axis. The distance from the vertex to the center of curvature is the radius of curvature of the surface.",
 			"tier":5,
 			"category":"Lens"
@@ -315,14 +315,14 @@
 				"dm",
 				"cm",
 				"mm",
-				"µm",
+				"Âµm",
 				"nm",
 				"pm",
 				"fm",
 				"am",
 				"zm",
 				"ym",
-				"Å",
+				"Ã…",
 				"thou",
 				"li",
 				"in",
@@ -340,7 +340,7 @@
 		},
 		"MaterialName": {
 			"type":"string",
-			"description":"This records the chemical composition or the nonproprietary trade designation of the glass this lens is made of.",
+			"description":"This records the chemical composition or the nonproprietary trade designation of the material this lens is made of.",
 			"tier":5,
 			"enum": [
 				"alpha-Barium Borate",
@@ -357,13 +357,13 @@
 			"category":"Lens"
 		},
 		"GlassCode": {
-			"type":"string",
-			"description":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642.",
+			"type":"integer",
+			"description":"If available provide the international glass code for the glass this lens is made of. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642.",
 			"tier":5,
 			"category":"Lens"
 		},
 		"Density": {
-			"type":"string",
+			"type":"number",
 			"description":"The density of the material this lens is made of.",
 			"tier":5,
 			"category":"Lens"
@@ -375,8 +375,8 @@
 			"enum": [
 				"kg/m3",
 				"g/ml",
-				"mg/µg",
-				"µg/ng"
+				"mg/Âµg",
+				"Âµg/ng"
 			],
 			"category":"Lens"
 		},
@@ -405,7 +405,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"string",
+			"type":"uri",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"

@@ -1,18 +1,18 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PolarizationOptics.json",
-	"version":"1.05.3",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"PolarizationOptics",
-	"description":"This is an optical filter that lets light waves of a specific polarization pass through while blocking light waves of other polarizations",
+	"description":"This describes an optical polarization device positioned in the light path for one or more channel available for this instrument. A polarization device is an optical filter that lets light waves of a specific polarization pass through while blocking light waves of other polarizations.",
 	"category":"AdditionalOptics",
 	"image":"AdditionalOptics_PolarizationOptics.png",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"PolarizationOptics":"This is an optical filter that lets light waves of a specific polarization pass through while blocking light waves of other polarizations",
-		"WavelengthRange":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used."
+		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
+		"PolarizationOptics":"This describes an optical polarization device positioned in the light path for one or more channel available for this instrument. A polarization device is an optical filter that lets light waves of a specific polarization pass through while blocking light waves of other polarizations.",
+		"WavelengthRange":"This records a range of wavelengths this device is designed for according to the manufacturer. Multiple of this elements may be used."
 	},
 	"properties": {
 		"Name": {
@@ -30,7 +30,7 @@
 		},
 		"Function": {
 			"type":"string",
-			"description":"This records whether this polarizer optics is used to generate polarized light or to analyze polarized light",
+			"description":"This field records whether this polarizer optics is used to generate or to analyze polarized light.",
 			"tier":2,
 			"enum": [
 				"Polarizer",
@@ -40,7 +40,7 @@
 		},
 		"Construction": {
 			"type":"string",
-			"description":"The modality in with which this Polarization Optics is constructed",
+			"description":"The modality with which this polarization device is constructed.",
 			"tier":3,
 			"enum": [
 				"Achromatic",
@@ -52,7 +52,7 @@
 		},
 		"Fabrication": {
 			"type":"string",
-			"description":"The way in with which this Polarization Optics is fabricated",
+			"description":"The way in with which this polarization device is fabricated.",
 			"tier":5,
 			"enum": [
 				"Wire Grid",
@@ -81,7 +81,7 @@
 		},
 		"MaterialName": {
 			"type":"string",
-			"description":"This records the chemical composition or the nonproprietary trade designation of the glass",
+			"description":"This records the chemical composition or the nonproprietary trade designation of the material this polarization device is made of.",
 			"tier":5,
 			"enum": [
 				"alpha-Barium Borate",
@@ -97,7 +97,7 @@
 		},
 		"GlassCode": {
 			"type":"string",
-			"description":"If available provide the international glass code. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642",
+			"description":"If available provide the international glass code for the glass this polarization device is made of. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642.",
 			"tier":5,
 			"category":"PolarizationOptics"
 		},
@@ -126,18 +126,18 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"string",
+			"type":"uri",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
 		"WavelengthRange": {
 			"type":"object",
-			"description":"This records a range of wavelengths associated with the associated microscope component. Multiple of this elements may be used.",
+			"description":"This records a range of wavelengths this device is designed for, according to the manufacturer. Multiple of this elements may be used.",
 			"tier":5,
 			"properties": {
 				"CutIn": {
-					"type":"string",
+					"type":"number",
 					"description":"CutIn is the wavelength below which the response rate is below 50%.",
 					"tier":5,
 					"category":"WavelengthRange"
@@ -162,14 +162,14 @@
 						"dm",
 						"cm",
 						"mm",
-						"µm",
+						"Âµm",
 						"nm",
 						"pm",
 						"fm",
 						"am",
 						"zm",
 						"ym",
-						"Å",
+						"Ã…",
 						"thou",
 						"li",
 						"in",
@@ -186,7 +186,7 @@
 					"category":"WavelengthRange"
 				},
 				"CutOut": {
-					"type":"string",
+					"type":"number",
 					"description":"CutOut is the wavelength above which the response rate is below 50%.",
 					"tier":5,
 					"category":"WavelengthRange"
@@ -211,14 +211,14 @@
 						"dm",
 						"cm",
 						"mm",
-						"µm",
+						"Âµm",
 						"nm",
 						"pm",
 						"fm",
 						"am",
 						"zm",
 						"ym",
-						"Å",
+						"Ã…",
 						"thou",
 						"li",
 						"in",
@@ -235,7 +235,7 @@
 					"category":"WavelengthRange"
 				},
 				"WavelenghtProfile": {
-					"type":"string",
+					"type":"uri",
 					"description":"The location of a file containing the wavelenght profile of this component.",
 					"tier":5,
 					"category":"WavelengthRange"

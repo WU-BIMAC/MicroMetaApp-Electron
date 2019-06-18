@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Transmitted_LightSource_LightEmittingDiode.json",
-	"version":"1.05.3",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"LightEmittingDiode",
 	"description":"A Light Emitting Diode (LED) is a semiconductor light source that emits light when current flows through it. Electrons in the semiconductor recombine with electron holes, releasing energy in the form of photons. The color of the light (corresponding to the energy of the photons) is determined by the energy required for electrons to cross the band gap of the semiconductor. White light may be obtained by using multiple semiconductors or a layer of light-emitting phosphor on the semiconductor device.",
@@ -10,7 +10,7 @@
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
 		"LightSource":"This describes the light source(s) available for this instrument. An instrument may have several light sources of different types (Laser, LightEmittingDiode, Filament, Arc etc.). A typical light-microscope has two light sources, one for transmitted light and one for fluorescence light.      ",
 		"LightEmittingDiode":"A Light Emitting Diode (LED) is a semiconductor light source that emits light when current flows through it. Electrons in the semiconductor recombine with electron holes, releasing energy in the form of photons. The color of the light (corresponding to the energy of the photons) is determined by the energy required for electrons to cross the band gap of the semiconductor. White light may be obtained by using multiple semiconductors or a layer of light-emitting phosphor on the semiconductor device.",
 		"LEDModule":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used."
@@ -42,7 +42,7 @@
 			"readonly":true
 		},
 		"NominalPowerOutput": {
-			"type":"string",
+			"type":"number",
 			"description":"The average nominal power output of this light-source.",
 			"tier":3,
 			"category":"LightSource"
@@ -67,7 +67,7 @@
 				"dW",
 				"cW",
 				"mW",
-				"µW",
+				"ÂµW",
 				"nW",
 				"pW",
 				"fW",
@@ -102,7 +102,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"string",
+			"type":"uri",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -121,7 +121,7 @@
 			"items": {
 				"properties": {
 					"PeakWavelenght": {
-						"type":"string",
+						"type":"number",
 						"description":"The nominal wavelength at which the amount of light power output is at a maximum.",
 						"tier":2,
 						"category":"LEDModule"
@@ -146,14 +146,14 @@
 							"dm",
 							"cm",
 							"mm",
-							"µm",
+							"Âµm",
 							"nm",
 							"pm",
 							"fm",
 							"am",
 							"zm",
 							"ym",
-							"Å",
+							"Ã…",
 							"thou",
 							"li",
 							"in",
@@ -170,7 +170,7 @@
 						"category":"LEDModule"
 					},
 					"PeakPower": {
-						"type":"string",
+						"type":"number",
 						"description":"The nominal light power output generated at peak wavelenght.",
 						"tier":3,
 						"category":"LEDModule"
@@ -195,7 +195,7 @@
 							"dW",
 							"cW",
 							"mW",
-							"µW",
+							"ÂµW",
 							"nW",
 							"pW",
 							"fW",
@@ -206,7 +206,7 @@
 						"category":"LEDModule"
 					},
 					"ProjectionAngle": {
-						"type":"string",
+						"type":"number",
 						"description":"The angle at which this light source projects light.",
 						"tier":5,
 						"category":"LEDModule"
@@ -223,7 +223,7 @@
 						"category":"LEDModule"
 					},
 					"CutIn": {
-						"type":"string",
+						"type":"number",
 						"description":"CutIn is the wavelength below which the response rate is below 50%.",
 						"tier":3,
 						"category":"LEDModule"
@@ -248,14 +248,14 @@
 							"dm",
 							"cm",
 							"mm",
-							"µm",
+							"Âµm",
 							"nm",
 							"pm",
 							"fm",
 							"am",
 							"zm",
 							"ym",
-							"Å",
+							"Ã…",
 							"thou",
 							"li",
 							"in",
@@ -272,7 +272,7 @@
 						"category":"LEDModule"
 					},
 					"CutOut": {
-						"type":"string",
+						"type":"number",
 						"description":"CutOut is the wavelength above which the response rate is below 50%",
 						"tier":3,
 						"category":"LEDModule"
@@ -297,14 +297,14 @@
 							"dm",
 							"cm",
 							"mm",
-							"µm",
+							"Âµm",
 							"nm",
 							"pm",
 							"fm",
 							"am",
 							"zm",
 							"ym",
-							"Å",
+							"Ã…",
 							"thou",
 							"li",
 							"in",
@@ -321,7 +321,7 @@
 						"category":"LEDModule"
 					},
 					"WavelenghtProfile": {
-						"type":"string",
+						"type":"uri",
 						"description":"The location of a file containing the wavelenght profile of this component.",
 						"tier":5,
 						"category":"LEDModule"

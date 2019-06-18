@@ -1,20 +1,20 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"FilterSet.json",
-	"version":"1.05.3",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"FilterSet",
-	"description":"A filter set is typically composed of one excitation filter, one emission filter and a dichroic. Often they are pre-assebled by the manufacturer and pruchased as a whole",
+	"description":"A filter set is typically composed of one excitation filter, one emission filter and a dichroic. They might either be pre-assebled by the manufacturer and pruchased as a whole or they can be custome assembled on site depending on the needs of the user.",
 	"category":"LightPath",
 	"image":"LightPath_FilterSet.png",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
-		"FilterSet":"A filter set is typically composed of one excitation filter, one emission filter and a dichroic. Often they are pre-assebled by the manufacturer and pruchased as a whole",
-		"ExcitationFilter":"This empty element has a reference (the Filter ID attribute) to the Filters placed in the Excitation light path.",
+		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
+		"FilterSet":"A filter set is typically composed of one excitation filter, one emission filter and a dichroic. They might either be pre-assebled by the manufacturer and pruchased as a whole or they can be custome assembled on site depending on the needs of the user.",
+		"ExcitationFilter":"This refers to an available excitation filter which is part of this filter set.",
 		"StandardDichroic":"NA",
-		"EmissionFilter":"This empty element has a reference (the Filter ID attribute) to the Filters placed in the Emission light path"
+		"EmissionFilter":"This refers to an available emission filter which is part of this filter set."
 	},
 	"properties": {
 		"Name": {
@@ -55,14 +55,14 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"string",
+			"type":"uri",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
 		},
 		"ExcitationFilter": {
 			"type":"string",
-			"description":"This empty element has a reference (the Filter ID attribute) to the Filters placed in the Excitation light path.",
+			"description":"This refers to an available excitation filter, which is part of this filter set.",
 			"tier":2,
 			"category":"ExcitationFilter",
 			"linkTo":"ExcitationFilter"
@@ -76,7 +76,7 @@
 		},
 		"EmissionFilter": {
 			"type":"string",
-			"description":"This empty element has a reference (the Filter ID attribute) to the Filters placed in the Emission light path",
+			"description":"This refers to an available emission filter, which is part of this filter set.",
 			"tier":2,
 			"category":"EmissionFilter",
 			"linkTo":"EmissionFilter"
@@ -103,9 +103,6 @@
 		"Model",
 		"SerialNumber",
 		"SpecsFile",
-		"ExcitationFilter",
-		"StandardDichroic",
-		"EmissionFilter",
 		"Description"
 	]
 }

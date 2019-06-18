@@ -1,162 +1,20 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
-	"ID":"SampleHolder.json",
+	"ID":"ObjectiveTurretFocus.json",
 	"version":"1.06.5",
 	"type":"object",
-	"title":"SampleHolder",
-	"description":"This describes an optional sample holder mounted on the microscope stage.",
-	"category":"SamplePositioning.Stage",
-	"image":"SamplePositioning_Stage_SampleHolder.png",
+	"title":"ObjectiveTurretFocus",
+	"description":"An objective turret positoning device available for this instrument.",
+	"category":"SamplePositioning.Focusing",
+	"image":"SamplePositioning_Focusing_ObjectiveTurretFocus.png",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
 		"SamplePositioning":"This describes a objective lens or stage positioning device available for this instrument. An instrument may have more than one of these devices of different type, such as mechanical stage, piezoelectric stage, objective turret and piezoelectric objective.",
-		"Stage":"This describes a stage x-y positioning device associated with this instrument.",
-		"SampleHolder":"This describes an optional sample holder mounted on the microscope stage."
+		"ObjectiveTurretFocus":"An objective turret positoning device available for this instrument."
 	},
 	"properties": {
-		"Type": {
-			"type":"string",
-			"description":"The type of this sample holder.",
-			"tier":5,
-			"enum": [
-				"Rigid Stand",
-				"Translational",
-				"Other"
-			],
-			"category":"SampleHolder"
-		},
-		"RotationAngle": {
-			"type":"number",
-			"description":"The angle by which this sample holder is capable of rotating.",
-			"tier":5,
-			"category":"SampleHolder"
-		},
-		"RotationAngleUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":5,
-			"default":"deg",
-			"enum": [
-				"deg",
-				"rad",
-				"gon"
-			],
-			"category":"SampleHolder"
-		},
-		"MovementAxes": {
-			"type":"string",
-			"description":"The axes or axis along which this device is capable of moving.",
-			"tier":3,
-			"default":"XY",
-			"enum": [
-				"X",
-				"Y",
-				"XY",
-				"XYZ",
-				"Other"
-			],
-			"category":"Stage"
-		},
-		"XTravelRange": {
-			"type":"number",
-			"description":"The range this device is capable of moving in along the X axis.",
-			"tier":5,
-			"category":"Stage"
-		},
-		"XTravelRangeUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":5,
-			"default":"µm",
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"pixel",
-				"reference frame"
-			],
-			"category":"Stage"
-		},
-		"YTravelRange": {
-			"type":"number",
-			"description":"The range this device is capable of moving in along the Y axis.",
-			"tier":5,
-			"category":"Stage"
-		},
-		"YTravelRangeUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":5,
-			"default":"µm",
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"pixel",
-				"reference frame"
-			],
-			"category":"Stage"
-		},
 		"Name": {
 			"type":"string",
 			"description":"A user defined name for this component.",
@@ -428,9 +286,6 @@
 		}
 	},
 	"required": [
-		"Type",
-		"XTravelRange",
-		"YTravelRange",
 		"ID",
 		"Name",
 		"ZTravelRange",

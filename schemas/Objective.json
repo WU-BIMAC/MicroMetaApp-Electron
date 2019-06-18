@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Objective.json",
-	"version":"1.05.3",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"Objective",
 	"description":"A microscope's objective lens is a compound lens consisting of several simple lenses (elements), usually arranged along a common axis.",
@@ -10,7 +10,7 @@
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This is the base from which many microscope components are extended. E.g Objective, Filter etc. Provides attributes for recording common properties of these components such as Manufacturer name, Model etc. All of which are optional      ",
+		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
 		"Objective":"A microscope's objective lens is a compound lens consisting of several simple lenses (elements), usually arranged along a common axis."
 	},
 	"properties": {
@@ -48,6 +48,8 @@
 				"PlanFluor",
 				"PlanNeofluar",
 				"SuperFluor",
+				"UPlanApo",
+				"UPlanFl",
 				"UV",
 				"VioletCorrected",
 				"Other"
@@ -55,19 +57,19 @@
 			"category":"Objective"
 		},
 		"NominalMagnification": {
-			"type":"string",
+			"type":"number",
 			"description":"The magnification of the lens as specified by the manufacturer - i.e. 60 represents a 60X lens.",
 			"tier":1,
 			"category":"Objective"
 		},
 		"CalibratedMagnification": {
-			"type":"string",
+			"type":"number",
 			"description":"The magnification of the lens as measured via a calibration process- i.e. '59.987' for a 60X lens.",
 			"tier":5,
 			"category":"Objective"
 		},
 		"LensNA": {
-			"type":"string",
+			"type":"number",
 			"description":"The numerical aperture of this objective expressed as a floating point (real) number. Expected range 0.02 - 1.5.",
 			"tier":1,
 			"category":"Objective"
@@ -88,19 +90,19 @@
 			"category":"Objective"
 		},
 		"Infinity": {
-			"type":"string",
+			"type":"boolean",
 			"description":"Records whether or not the objective is infinity corrected.",
 			"tier":3,
 			"category":"Objective"
 		},
 		"CoverslipTickness": {
-			"type":"string",
+			"type":"number",
 			"description":"NA",
 			"tier":2,
 			"category":"Objective"
 		},
 		"WorkingDistance": {
-			"type":"string",
+			"type":"number",
 			"description":"The working distance of this objective, expressed as a floating point (real) number.",
 			"tier":3,
 			"category":"Objective"
@@ -125,14 +127,14 @@
 				"dm",
 				"cm",
 				"mm",
-				"µm",
+				"Âµm",
 				"nm",
 				"pm",
 				"fm",
 				"am",
 				"zm",
 				"ym",
-				"Å",
+				"Ã…",
 				"thou",
 				"li",
 				"in",
@@ -149,19 +151,19 @@
 			"category":"Objective"
 		},
 		"Iris": {
-			"type":"string",
+			"type":"boolean",
 			"description":"Records whether or not the objective was fitted with an Iris.",
 			"tier":4,
 			"category":"Objective"
 		},
 		"ObjectiveFieldNumber": {
-			"type":"string",
+			"type":"number",
 			"description":"The maximal diameter of the viewfield allowed by this objective expressed in mm and measured at the intermediate image plane. NB: The field of view is influenced by the magnification and diameter of the ocular (eyepiece) field diaphragm, but also by the limits imposed by the design of the objective.",
 			"tier":3,
 			"category":"Objective"
 		},
 		"ParfocalizingDistance": {
-			"type":"string",
+			"type":"number",
 			"description":"The distance between the objective lens mounting plane and the specimen.",
 			"tier":5,
 			"category":"Objective"
@@ -186,14 +188,14 @@
 				"dm",
 				"cm",
 				"mm",
-				"µm",
+				"Âµm",
 				"nm",
 				"pm",
 				"fm",
 				"am",
 				"zm",
 				"ym",
-				"Å",
+				"Ã…",
 				"thou",
 				"li",
 				"in",
@@ -210,7 +212,7 @@
 			"category":"Objective"
 		},
 		"BackFocalPlanePosition": {
-			"type":"string",
+			"type":"number",
 			"description":"The position of the back focal plane with respect to the specimen position.",
 			"tier":5,
 			"category":"Objective"
@@ -235,14 +237,14 @@
 				"dm",
 				"cm",
 				"mm",
-				"µm",
+				"Âµm",
 				"nm",
 				"pm",
 				"fm",
 				"am",
 				"zm",
 				"ym",
-				"Å",
+				"Ã…",
 				"thou",
 				"li",
 				"in",
@@ -283,7 +285,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"string",
+			"type":"uri",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
