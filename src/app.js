@@ -341,7 +341,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 			});
 	}
 
-	onWorkingDirectorySave(complete, microscope) {
+	onWorkingDirectorySave(microscope, complete) {
 		const workingDirectory = this.state.workingDirectory;
 		const dirPath = path.resolve(workingDirectory, microscopeDirectory);
 		//let dirPath = null;
@@ -351,6 +351,9 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		// } else {
 		// 	dirPath = workingDirectory + "microscopes/";
 		// }
+		console.log("microscope:");
+		console.log(microscope);
+
 		let json = JSON.stringify(microscope);
 		let micName = microscope.Name;
 		let micNameNormalized = micName.replace(/\s+/g, "_").toLowerCase();
