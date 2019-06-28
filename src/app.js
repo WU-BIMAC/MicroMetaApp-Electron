@@ -326,7 +326,8 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 			.then(function(fileNames) {
 				let absoluteFileNames = [];
 				fileNames.forEach(function(fileName) {
-					absoluteFileNames.push(path.resolve(dirPath, fileName));
+					if (fileName.endsWith(".json"))
+						absoluteFileNames.push(path.resolve(dirPath, fileName));
 				});
 				return Promise.all(absoluteFileNames.map(readFileAsync));
 			})
