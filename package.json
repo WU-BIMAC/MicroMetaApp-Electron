@@ -17,8 +17,9 @@
 		"start": "electron .",
 		"test": "node scripts/test.js",
 		"build-internal": "gulp build-internal",
-		"build": "gulp build-dev && gulp build",
+		"prod": "gulp build",
 		"dev": "gulp dev",
+		"build": "gulp build-dev && gulp build",
 		"dist": "gulp build-dev && build",
 		"dist_win": "build --win --x64 --ia32",
 		"dist_mac": "build --mac"
