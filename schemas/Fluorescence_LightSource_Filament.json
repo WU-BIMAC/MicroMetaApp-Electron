@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"Filament",
 	"description":"A Filament lamp is an incandescent light source with a wire filament heated to such a high temperature that it glows with visible light (incandescence).",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Fluorescence_LightSource",
 	"image":"Fluorescence_LightSource_Filament.png",
 	"tier":1,
@@ -100,7 +101,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"

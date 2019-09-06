@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"Reflector",
 	"description":"This is a total reflection mirror.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Mirror",
 	"image":"Mirror_Reflector.png",
 	"tier":2,
@@ -181,7 +182,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"

@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"CCD",
 	"description":"A charged coupled device camera.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Detector.Camera",
 	"image":"Detector_Camera_CCD.png",
 	"tier":2,
@@ -586,7 +587,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -695,7 +696,7 @@
 					"category":"WavelengthRange"
 				},
 				"WavelenghtProfile": {
-					"type":"uri",
+					"type":"string",
 					"description":"The location of a file containing the wavelenght profile of this component.",
 					"tier":5,
 					"category":"WavelengthRange"

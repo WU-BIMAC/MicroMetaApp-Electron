@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"Objective",
 	"description":"A microscope's objective lens is a compound lens consisting of several simple lenses (elements), usually arranged along a common axis.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Magnification",
 	"image":"Magnification_Objective.png",
 	"tier":1,
@@ -285,7 +286,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"

@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"SampleHolder",
 	"description":"This describes an optional sample holder mounted on the microscope stage.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Stage",
 	"image":"SamplePositioning_Stage_SampleHolder.png",
 	"tier":3,
@@ -407,7 +408,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"

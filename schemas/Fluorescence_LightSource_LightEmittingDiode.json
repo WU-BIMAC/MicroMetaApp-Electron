@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"LightEmittingDiode",
 	"description":"A Light Emitting Diode (LED) is a semiconductor light source that emits light when current flows through it. Electrons in the semiconductor recombine with electron holes, releasing energy in the form of photons. The color of the light (corresponding to the energy of the photons) is determined by the energy required for electrons to cross the band gap of the semiconductor. White light may be obtained by using multiple semiconductors or a layer of light-emitting phosphor on the semiconductor device.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Fluorescence_LightSource",
 	"image":"Fluorescence_LightSource_LightEmittingDiode.png",
 	"tier":1,
@@ -102,7 +103,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
@@ -321,7 +322,7 @@
 						"category":"LEDModule"
 					},
 					"WavelenghtProfile": {
-						"type":"uri",
+						"type":"string",
 						"description":"The location of a file containing the wavelenght profile of this component.",
 						"tier":5,
 						"category":"LEDModule"

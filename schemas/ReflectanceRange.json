@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"ReflectanceRange",
 	"description":"This records the range of wavelengths that are reflected by the mirror.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
 	"image":"ChildElement_ReflectanceRange.png",
 	"tier":3,

@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"ObjectiveTurretFocus",
 	"description":"An objective turret positoning device available for this instrument.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Focusing",
 	"image":"SamplePositioning_Focusing_ObjectiveTurretFocus.png",
 	"tier":3,
@@ -265,7 +266,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"

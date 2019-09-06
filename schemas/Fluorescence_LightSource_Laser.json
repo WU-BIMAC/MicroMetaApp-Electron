@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"Laser",
 	"description":"A Light Amplification by Stimulated Emission of Radiation (LASER) is a device that emits light through a process of optical amplification based on the stimulated emission of electromagnetic radiation.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"Fluorescence_LightSource",
 	"image":"Fluorescence_LightSource_Laser.png",
 	"tier":1,
@@ -274,7 +275,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"

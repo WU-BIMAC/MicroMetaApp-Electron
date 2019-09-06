@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"FilterSet",
 	"description":"A filter set is typically composed of one excitation filter, one emission filter and a dichroic. They might either be pre-assebled by the manufacturer and pruchased as a whole or they can be custome assembled on site depending on the needs of the user.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"LightPath",
 	"image":"LightPath_FilterSet.png",
 	"tier":2,
@@ -55,7 +56,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"

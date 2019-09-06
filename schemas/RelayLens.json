@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"RelayLens",
 	"description":"A lens positioned at the mount connecting a detector to the microscope body.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
 	"image":"AdditionalOptics_RelayLens.png",
 	"tier":3,
@@ -405,7 +406,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"

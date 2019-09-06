@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"WavelengthRange",
 	"description":"This records a range of wavelengths this device is designed for, according to the manufacturer. Multiple of this elements may be used.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
 	"image":"ChildElement_WavelengthRange.png",
 	"tier":5,
@@ -111,7 +112,7 @@
 			"category":"WavelengthRange"
 		},
 		"WavelenghtProfile": {
-			"type":"uri",
+			"type":"string",
 			"description":"The location of a file containing the wavelenght profile of this component.",
 			"tier":5,
 			"category":"WavelengthRange"

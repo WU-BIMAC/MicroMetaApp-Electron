@@ -1,10 +1,11 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Pump.json",
-	"version":"1.05.5",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"Pump",
 	"description":"The Pump element refers to a light source. It is used within the Laser element to specify the light source used as an optional laser pump.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
 	"image":"ChildElement_Pump.png",
 	"tier":5,

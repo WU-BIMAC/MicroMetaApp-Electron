@@ -1,10 +1,11 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AdditionalFilter.json",
-	"version":"1.06.5",
+	"version":"1.07.5",
 	"type":"object",
 	"title":"AdditionalFilter",
 	"description":"An optical filter is a device that selectively transmits light of different wavelengths. This element refers to a filter positioned along the light path in addition to the excitation and the emission filters.This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
 	"image":"AdditionalOptics_AdditionalFilter.png",
 	"tier":2,
@@ -61,7 +62,7 @@
 			"category":"FIlter"
 		},
 		"TransmittanceProfileFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"This contains the location of file in .csv or other suitable formats containing the wavelenght profile of this component.",
 			"tier":5,
 			"category":"FIlter"
@@ -91,7 +92,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"

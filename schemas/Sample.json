@@ -1,0 +1,63 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Sample.json",
+	"version":"1.06.5",
+	"type":"object",
+	"title":"Sample",
+	"description":"A description of the sample that was imaged in this experiment.",
+	"domain":"Experimental",
+	"category":"SamplePreparation",
+	"image":"SamplePreparation_Sample.png",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Sample":"A description of the sample that was imaged in this experiment."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user assigned name for this Sample.",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this Sample.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"MountingMedium": {
+			"type":"string",
+			"description":"The mounting medium the sample is embedded in during acquisition.",
+			"tier":2,
+			"category":"Sample"
+		},
+		"MountingMediumRefractiveIndex": {
+			"type":"number",
+			"description":"The refractive index (RI) of the mounting medium. If possible the RI should be measured. Alternatively, please refer to the nominal RI as provided by the manufacturer.",
+			"tier":3,
+			"category":"Sample"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":2,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Name",
+		"MountingMedium",
+		"MountingMediumRefractiveIndex",
+		"Description"
+	]
+}

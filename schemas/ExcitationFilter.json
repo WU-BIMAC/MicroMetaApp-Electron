@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"ExcitationFilter",
 	"description":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to an excitation filter. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"LightPath",
 	"image":"LightPath_ExcitationFilter.png",
 	"tier":2,
@@ -61,7 +62,7 @@
 			"category":"FIlter"
 		},
 		"TransmittanceProfileFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"This contains the location of file in .csv or other suitable formats containing the wavelenght profile of this component.",
 			"tier":5,
 			"category":"FIlter"
@@ -91,7 +92,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"

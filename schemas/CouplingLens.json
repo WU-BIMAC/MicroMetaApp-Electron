@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"CouplingLens",
 	"description":"A lens positioned at connector between this light source coupling device and the microscope body.",
+	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
 	"image":"AdditionalOptics_CouplingLens.png",
 	"tier":5,
@@ -405,7 +406,7 @@
 			"category":"ManufacturerSpec"
 		},
 		"SpecsFile": {
-			"type":"uri",
+			"type":"string",
 			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
 			"tier":5,
 			"category":"ManufacturerSpec"
