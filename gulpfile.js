@@ -16,30 +16,30 @@ let setDev = done => {
 	done();
 };
 
-function getReactLibraryLinkInfo() {
-	const dependencyName = "4dn-microscopy-metadata-tool";
-	let reactLibPath = path.resolve(__dirname, "node_modules/" + dependencyName);
-	let isLinked = false;
+// function getReactLibraryLinkInfo() {
+// 	const dependencyName = "4dn-microscopy-metadata-tool";
+// 	let reactLibPath = path.resolve(__dirname, "node_modules/" + dependencyName);
+// 	let isLinked = false;
 
-	try {
-		// Get exact path to dir, else leave. Used to avoid needing to webpack dependency itself.
-		for (var i = 0; i < 10; i++) {
-			// Incase multiple links.
-			reactLibPath = fs.readlinkSync(reactLibPath);
-			isLinked = true;
-		}
-	} catch (e) {
-		// ... not linked
-	}
+// 	try {
+// 		// Get exact path to dir, else leave. Used to avoid needing to webpack dependency itself.
+// 		for (var i = 0; i < 10; i++) {
+// 			// Incase multiple links.
+// 			reactLibPath = fs.readlinkSync(reactLibPath);
+// 			isLinked = true;
+// 		}
+// 	} catch (e) {
+// 		// ... not linked
+// 	}
 
-	// eslint-disable-next-line no-console
-	console.log(
-		"`node_modules/" + dependencyName + "` directory is",
-		isLinked ? "sym-linked to `" + reactLibPath + "`." : "NOT sym-linked."
-	);
+// 	// eslint-disable-next-line no-console
+// 	console.log(
+// 		"`node_modules/" + dependencyName + "` directory is",
+// 		isLinked ? "sym-linked to `" + reactLibPath + "`." : "NOT sym-linked."
+// 	);
 
-	return { isLinked, reactLibPath: isLinked ? reactLibPath : null };
-}
+// 	return { isLinked, reactLibPath: isLinked ? reactLibPath : null };
+// }
 
 // function buildLinkedDependency(done) {
 // 	const { isLinked, reactLibPath } = getReactLibraryLinkInfo();
