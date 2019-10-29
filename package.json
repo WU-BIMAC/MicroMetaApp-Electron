@@ -8,9 +8,11 @@
 	},
 	"dependencies": {
 		"4dn-microscopy-metadata-tool": "github:WU-BIMAC/4DNMicroscopyMetadataToolReact#master",
+		"css-loader": "^3.2.0",
 		"react": "^16.8.6",
 		"react-bootstrap": "^1.0.0-beta.12",
-		"react-dom": "^16.8.6"
+		"react-dom": "^16.8.6",
+		"style-loader": "^1.0.0"
 	},
 	"scripts": {
 		"postinstall": "electron-builder install-app-deps",
@@ -21,6 +23,7 @@
 		"dev": "gulp dev",
 		"build": "gulp build-dev && gulp build",
 		"dist": "gulp build-dev && build",
+		"update-mma": "npm uninstall 4dn-microscopy-metadata-tool && npm cache clean --force && npm install 4dn-microscopy-metadata-tool@github:WU-BIMAC/4DNMicroscopyMetadataToolReact#master --save",
 		"dist_win": "build --win --x64 --ia32",
 		"dist_mac": "build --mac"
 	},

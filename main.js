@@ -11,8 +11,8 @@ function createWindow() {
 		webPreferences: {
 			nodeIntegration: true
 		},
-		width: 900,
-		height: 680
+		width: 1100,
+		height: 720
 	});
 	let indexURL = url.format({
 		pathname: path.join(__dirname, "src/index.html"),
