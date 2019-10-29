@@ -8,11 +8,9 @@
 	},
 	"dependencies": {
 		"4dn-microscopy-metadata-tool": "github:WU-BIMAC/4DNMicroscopyMetadataToolReact#master",
-		"css-loader": "^3.2.0",
 		"react": "^16.8.6",
 		"react-bootstrap": "^1.0.0-beta.12",
-		"react-dom": "^16.8.6",
-		"style-loader": "^1.0.0"
+		"react-dom": "^16.8.6"
 	},
 	"scripts": {
 		"postinstall": "electron-builder install-app-deps",
@@ -81,6 +79,8 @@
 		"not op_mini all"
 	],
 	"devDependencies": {
+		"css-loader": "^3.2.0",
+		"style-loader": "^1.0.0",
 		"@babel/core": "^7.4.5",
 		"@babel/preset-env": "^7.4.5",
 		"@babel/preset-react": "^7.0.0",
