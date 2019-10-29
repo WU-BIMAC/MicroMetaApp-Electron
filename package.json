@@ -8,9 +8,9 @@
 	},
 	"dependencies": {
 		"4dn-microscopy-metadata-tool": "github:WU-BIMAC/4DNMicroscopyMetadataToolReact#master",
-		"react": "^16.8.6",
-		"react-bootstrap": "^1.0.0-beta.12",
-		"react-dom": "^16.8.6"
+		"react": "^16.11.0",
+		"react-bootstrap": "^1.0.0-beta.14",
+		"react-dom": "^16.11.0"
 	},
 	"scripts": {
 		"postinstall": "electron-builder install-app-deps",
@@ -79,12 +79,11 @@
 		"not op_mini all"
 	],
 	"devDependencies": {
-		"css-loader": "^3.2.0",
-		"style-loader": "^1.0.0",
-		"@babel/core": "^7.4.5",
-		"@babel/preset-env": "^7.4.5",
-		"@babel/preset-react": "^7.0.0",
+		"@babel/core": "^7.6.4",
+		"@babel/preset-env": "^7.6.3",
+		"@babel/preset-react": "^7.6.3",
 		"babel-loader": "^8.0.6",
+		"css-loader": "^3.2.0",
 		"electron": "^5.0.2",
 		"electron-builder": "^20.41.0",
 		"eslint": "6.5.0",
@@ -93,7 +92,8 @@
 		"fs": "0.0.1-security",
 		"gulp": "^4.0.2",
 		"plugin-error": "^1.0.1",
-		"webpack": "^4.32.2",
+		"style-loader": "^1.0.0",
+		"webpack": "^4.41.2",
 		"webpack-cli": "^3.3.2"
 	},
 	"babel": {
