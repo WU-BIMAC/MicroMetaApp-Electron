@@ -19,8 +19,7 @@
 		"build-internal": "gulp build-internal",
 		"prod": "gulp build",
 		"dev": "gulp dev",
-		"build": "gulp build-dev && gulp build",
-		"dist": "gulp build-dev && build",
+		"build": "gulp build && gulp dev",
 		"update-mma": "npm uninstall 4dn-microscopy-metadata-tool && npm cache clean --force && npm install 4dn-microscopy-metadata-tool@github:WU-BIMAC/4DNMicroscopyMetadataToolReact#master --save",
 		"dist_win": "build --win --x64 --ia32",
 		"dist_mac": "build --mac"

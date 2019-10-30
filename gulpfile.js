@@ -135,7 +135,7 @@ const build = gulp.series(buildInternal, done => {
 
 gulp.task("dev", gulp.series(setDev, buildWebpack, watchWebpack));
 
-gulp.task("build-internal", gulp.series(setProduction, buildWebpack));
+gulp.task("build", gulp.series(setProduction, buildWebpack));
 
 /** @todo */
 // gulp.task("build", build);
