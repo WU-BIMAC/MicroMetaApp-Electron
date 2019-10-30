@@ -15,11 +15,10 @@
 	"scripts": {
 		"postinstall": "electron-builder install-app-deps",
 		"start": "electron .",
-		"test": "node scripts/test.js",
-		"build-internal": "gulp build-internal",
-		"prod": "gulp build",
+		"buildProd": "gulp build-prod",
+		"buildDev": "gulp build-dev",
 		"dev": "gulp dev",
-		"build": "gulp build && gulp dev",
+		"build": "gulp build",
 		"update-mma": "npm uninstall 4dn-microscopy-metadata-tool && npm cache clean --force && npm install 4dn-microscopy-metadata-tool@github:WU-BIMAC/4DNMicroscopyMetadataToolReact#master --save",
 		"dist_win": "build --win --x64 --ia32",
 		"dist_mac": "build --mac"

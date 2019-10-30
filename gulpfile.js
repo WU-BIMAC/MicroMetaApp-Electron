@@ -133,10 +133,12 @@ const build = gulp.series(buildInternal, done => {
 	done();
 });
 
-gulp.task("dev", gulp.series(setDev, buildWebpack, watchWebpack));
+const dev = gulp.series(setDev, buildWebpack, watchWebpack);
+const buildProd = gulp.series(setProduction, buildWebpack);
+const buildDev = gulp.series(setDev, buildWebpack);
+const build = gulp.series(buildProd, buildDev);
 
-gulp.task("build", gulp.series(setProduction, buildWebpack));
-
-/** @todo */
-// gulp.task("build", build);
-gulp.task("build-dev", gulp.series(setDev, buildWebpack));
+gulp.task("dev", dev);
+gulp.task("build-prod", buildProd);
+gulp.task("build-dev", buildDev);
+gulp.task("build", build);
