@@ -127,11 +127,11 @@ const watchWebpack = () => {
 };
 
 // TODO add step in series to build node_modules/4dn-metadata-tool-react/src to node_modules/4dn-metadata-tool-react/dist maybe
-const buildInternal = gulp.series(setProduction, buildWebpack);
-const build = gulp.series(buildInternal, done => {
-	/* todo */
-	done();
-});
+// const buildInternal = gulp.series(setProduction, buildWebpack);
+// const build = gulp.series(buildInternal, done => {
+// 	/* todo */
+// 	done();
+// });
 
 const dev = gulp.series(setDev, buildWebpack, watchWebpack);
 const buildProd = gulp.series(setProduction, buildWebpack);
