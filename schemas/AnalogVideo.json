@@ -7,7 +7,7 @@
 	"description":"A device used to capture analog videos.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Detector.Camera",
-	"image":"Detector_Camera_AnalogVideo.png",
+	"image":"Detector_Camera_AnalogVideo.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

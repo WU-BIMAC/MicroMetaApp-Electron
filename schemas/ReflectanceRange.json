@@ -7,7 +7,7 @@
 	"description":"This records the range of wavelengths that are reflected by the mirror.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
-	"image":"ChildElement_ReflectanceRange.png",
+	"image":"ChildElement_ReflectanceRange.svg",
 	"tier":3,
 	"subCategoriesOrder": {
 		"ReflectanceRange":"This records the range of wavelengths that are reflected by the mirror."

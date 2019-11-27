@@ -7,7 +7,7 @@
 	"description":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
-	"image":"ChildElement_TransmittanceRange.png",
+	"image":"ChildElement_TransmittanceRange.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used."

@@ -7,7 +7,7 @@
 	"description":"A description of the sample that was imaged in this experiment.",
 	"domain":"Experimental",
 	"category":"SamplePreparation",
-	"image":"SamplePreparation_Sample.png",
+	"image":"SamplePreparation_Sample.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

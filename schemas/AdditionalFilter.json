@@ -7,7 +7,7 @@
 	"description":"An optical filter is a device that selectively transmits light of different wavelengths. This element refers to a filter positioned along the light path in addition to the excitation and the emission filters.This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
-	"image":"AdditionalOptics_AdditionalFilter.png",
+	"image":"AdditionalOptics_AdditionalFilter.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

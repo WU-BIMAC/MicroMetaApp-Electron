@@ -7,7 +7,7 @@
 	"description":"A Light Guide coupling between the light source and the microscope generally consists of a casing enclosing a medium capable of transferring light from the illuminator to the back of the microsocpe body.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"LightSourceCoupling",
-	"image":"LightSourceCoupling_LightGuide.png",
+	"image":"LightSourceCoupling_LightGuide.svg",
 	"tier":4,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

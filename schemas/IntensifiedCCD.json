@@ -7,7 +7,7 @@
 	"description":"The type of Intensified CCD camera used.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Detector.Camera",
-	"image":"Detector_Camera_IntensifiedCCD.png",
+	"image":"Detector_Camera_IntensifiedCCD.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

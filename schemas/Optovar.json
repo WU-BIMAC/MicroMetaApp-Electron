@@ -7,7 +7,7 @@
 	"description":"Optovars are magnification changing devices originally developed by Zeiss, which provide additional magnification that can be beneficial when a desired field of view is required for the imaging sensor. Magnification changers are placed before the tube lens within the infinity space of the optical system. Typical magnification increments are: 1.25x, 1.6x, and 2x.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Magnification",
-	"image":"Magnification_Optovar.png",
+	"image":"Magnification_Optovar.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

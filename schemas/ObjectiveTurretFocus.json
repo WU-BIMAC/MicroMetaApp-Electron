@@ -7,7 +7,7 @@
 	"description":"An objective turret positoning device available for this instrument.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Focusing",
-	"image":"SamplePositioning_Focusing_ObjectiveTurretFocus.png",
+	"image":"SamplePositioning_Focusing_ObjectiveTurretFocus.svg",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

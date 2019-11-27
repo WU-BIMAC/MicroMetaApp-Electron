@@ -7,7 +7,7 @@
 	"description":"This describes a mechanical stage positioning device associated with this instrument. This component is not very common but can be found in simple surveying microscopes.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Stage",
-	"image":"SamplePositioning_Stage_MechanicalStage.png",
+	"image":"SamplePositioning_Stage_MechanicalStage.svg",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

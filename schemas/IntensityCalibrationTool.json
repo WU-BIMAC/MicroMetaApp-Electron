@@ -7,7 +7,7 @@
 	"description":"A tool, such as the Meta-Max calibration toold developed by the 4D Nucleome Imaging Standards Working Group, used to perform an intensity calibration procedure.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Calibration",
-	"image":"Calibration_IntensityCalibrationTool.png",
+	"image":"Calibration_IntensityCalibrationTool.svg",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

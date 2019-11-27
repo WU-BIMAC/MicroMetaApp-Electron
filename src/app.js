@@ -399,7 +399,9 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 			workingDirectory,
 			workingDirectoryConfirmed
 		} = this.state;
-		const imagesPath = path.resolve(appPath, "./public/assets/");
+		const imagesPathPNG = path.resolve(appPath, "./public/assets/png");
+		const imagesPathSVG = path.resolve(appPath, "./public/assets/svg");
+		//const imagesPath = path.resolve(appPath, "./public/assets/svg");
 		if (!workingDirectoryConfirmed) {
 			return (
 				<MicroscopyMetadataToolWorkingDirectoryChooser
@@ -418,7 +420,8 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 					onLoadSchema={this.onLoadSchema}
 					onLoadMicroscopes={this.onLoadMicroscopes}
 					onSaveMicroscope={this.onWorkingDirectorySave}
-					imagesPath={imagesPath}
+					imagesPathPNG={imagesPathPNG}
+					imagesPathSVG={imagesPathSVG}
 				/>
 			);
 		}

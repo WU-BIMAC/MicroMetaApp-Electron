@@ -7,7 +7,7 @@
 	"description":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Transmitted_LightSource",
-	"image":"Transmitted_LightSource_GenericExcitationSource.png",
+	"image":"Transmitted_LightSource_GenericExcitationSource.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

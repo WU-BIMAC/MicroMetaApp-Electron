@@ -7,7 +7,7 @@
 	"description":"This is a total reflection mirror.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Mirror",
-	"image":"Mirror_Reflector.png",
+	"image":"Mirror_Reflector.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

@@ -7,7 +7,7 @@
 	"description":"A lens positioned at the mount connecting a detector to the microscope body.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
-	"image":"AdditionalOptics_RelayLens.png",
+	"image":"AdditionalOptics_RelayLens.svg",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

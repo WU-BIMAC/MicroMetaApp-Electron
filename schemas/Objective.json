@@ -7,7 +7,7 @@
 	"description":"A microscope's objective lens is a compound lens consisting of several simple lenses (elements), usually arranged along a common axis.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Magnification",
-	"image":"Magnification_Objective.png",
+	"image":"Magnification_Objective.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

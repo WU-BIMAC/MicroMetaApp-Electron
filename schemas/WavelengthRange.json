@@ -7,7 +7,7 @@
 	"description":"This records a range of wavelengths this device is designed for, according to the manufacturer. Multiple of this elements may be used.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
-	"image":"ChildElement_WavelengthRange.png",
+	"image":"ChildElement_WavelengthRange.svg",
 	"tier":5,
 	"subCategoriesOrder": {
 		"WavelengthRange":"This records a range of wavelengths this device is designed for, according to the manufacturer. Multiple of this elements may be used."

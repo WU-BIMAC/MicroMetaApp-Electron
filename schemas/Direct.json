@@ -7,7 +7,7 @@
 	"description":"A Direct coupling between the light source and the microscope consists either of a direct mount or of an optical light path that directs light across space to the back of the microscope body.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"LightSourceCoupling",
-	"image":"LightSourceCoupling_Direct.png",
+	"image":"LightSourceCoupling_Direct.svg",
 	"tier":4,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

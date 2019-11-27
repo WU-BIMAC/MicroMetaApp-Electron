@@ -7,7 +7,7 @@
 	"description":"A complementary metal-oxide-semiconductor camera.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Detector.Camera",
-	"image":"Detector_Camera_CMOS.png",
+	"image":"Detector_Camera_CMOS.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

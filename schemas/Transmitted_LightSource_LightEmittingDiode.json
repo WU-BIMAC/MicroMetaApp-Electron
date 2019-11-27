@@ -7,7 +7,7 @@
 	"description":"A Light Emitting Diode (LED) is a semiconductor light source that emits light when current flows through it. Electrons in the semiconductor recombine with electron holes, releasing energy in the form of photons. The color of the light (corresponding to the energy of the photons) is determined by the energy required for electrons to cross the band gap of the semiconductor. White light may be obtained by using multiple semiconductors or a layer of light-emitting phosphor on the semiconductor device.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Transmitted_LightSource",
-	"image":"Transmitted_LightSource_LightEmittingDiode.png",
+	"image":"Transmitted_LightSource_LightEmittingDiode.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

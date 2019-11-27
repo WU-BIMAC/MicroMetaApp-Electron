@@ -7,7 +7,7 @@
 	"description":"This element describes one or more optional focus stabilization device(s) available for this instrument.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Focusing",
-	"image":"SamplePositioning_Focusing_AutoFocus.png",
+	"image":"SamplePositioning_Focusing_AutoFocus.svg",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

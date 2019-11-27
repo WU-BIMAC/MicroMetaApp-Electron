@@ -7,7 +7,7 @@
 	"description":"This is a mirror that reflects part of the light, regardless of wavelenght.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Mirror",
-	"image":"Mirror_BeamSplitter.png",
+	"image":"Mirror_BeamSplitter.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

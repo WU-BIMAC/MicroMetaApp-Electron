@@ -7,7 +7,7 @@
 	"description":"An Arc lamp is a lamp that produces light by an electric arc (also called a voltaic arc), which is typically generated between metal electrodes through an inert gas in a glass bulb.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Fluorescence_LightSource",
-	"image":"Fluorescence_LightSource_Arc.png",
+	"image":"Fluorescence_LightSource_Arc.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

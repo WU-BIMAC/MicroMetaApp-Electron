@@ -7,7 +7,7 @@
 	"description":"This describes an optical polarization device positioned in the light path for one or more channel available for this instrument. A polarization device is an optical filter that lets light waves of a specific polarization pass through while blocking light waves of other polarizations.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
-	"image":"AdditionalOptics_PolarizationOptics.png",
+	"image":"AdditionalOptics_PolarizationOptics.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

@@ -7,7 +7,7 @@
 	"description":"An optical filter is a device that selectively transmits light of different wavelengths. This element refers to an emission filter. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"LightPath",
-	"image":"LightPath_EmissionFilter.png",
+	"image":"LightPath_EmissionFilter.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

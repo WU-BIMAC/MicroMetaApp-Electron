@@ -7,7 +7,7 @@
 	"description":"Describes the experiment during which this Image was acquired. The optional Description element may contain free text to further describe the experiment.",
 	"domain":"Experimental",
 	"category":"SamplePreparation",
-	"image":"SamplePreparation_Experiment.png",
+	"image":"SamplePreparation_Experiment.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

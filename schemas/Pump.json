@@ -7,7 +7,7 @@
 	"description":"The Pump element refers to a light source. It is used within the Laser element to specify the light source used as an optional laser pump.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
-	"image":"ChildElement_Pump.png",
+	"image":"ChildElement_Pump.svg",
 	"tier":5,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

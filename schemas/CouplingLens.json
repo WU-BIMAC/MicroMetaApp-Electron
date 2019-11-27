@@ -7,7 +7,7 @@
 	"description":"A lens positioned at connector between this light source coupling device and the microscope body.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
-	"image":"AdditionalOptics_CouplingLens.png",
+	"image":"AdditionalOptics_CouplingLens.svg",
 	"tier":5,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

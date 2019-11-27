@@ -7,7 +7,7 @@
 	"description":"An optional piezoelectric objective positioning device associated with this instrument.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Focusing",
-	"image":"SamplePositioning_Focusing_PiezoElectricObjectiveFocus.png",
+	"image":"SamplePositioning_Focusing_PiezoElectricObjectiveFocus.svg",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

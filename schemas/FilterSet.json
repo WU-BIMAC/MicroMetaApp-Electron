@@ -7,7 +7,7 @@
 	"description":"A filter set is typically composed of one excitation filter, one emission filter and a dichroic. They might either be pre-assebled by the manufacturer and pruchased as a whole or they can be custome assembled on site depending on the needs of the user.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"LightPath",
-	"image":"LightPath_FilterSet.png",
+	"image":"LightPath_FilterSet.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

@@ -7,7 +7,7 @@
 	"description":"This element describes the table on which this Microscope rests during acquisition.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"MicroscopyBasics",
-	"image":"MicroscopyBasics_MicroscopeTable.png",
+	"image":"MicroscopyBasics_MicroscopeTable.svg",
 	"tier":4,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

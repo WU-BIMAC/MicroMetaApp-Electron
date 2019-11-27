@@ -7,7 +7,7 @@
 	"description":"This describes an optional sample holder mounted on the microscope stage.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Stage",
-	"image":"SamplePositioning_Stage_SampleHolder.png",
+	"image":"SamplePositioning_Stage_SampleHolder.svg",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
