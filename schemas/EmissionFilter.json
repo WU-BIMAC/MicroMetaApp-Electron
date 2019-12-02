@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"EmissionFilter.json",
-	"version":"1.06.5",
+	"version":"1.07.7",
 	"type":"object",
 	"title":"EmissionFilter",
 	"description":"An optical filter is a device that selectively transmits light of different wavelengths. This element refers to an emission filter. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
@@ -154,7 +154,7 @@
 					},
 					"CutOut": {
 						"type":"number",
-						"description":"CutOut is the wavelength above which the response rate is below 50%.",
+						"description":"CutOut is the wavelength above which the response rate is below 50%. Leave empty in case this is a longpass filter.",
 						"tier":2,
 						"category":"TransmittanceRange"
 					},
@@ -210,7 +210,6 @@
 				},
 				"required": [
 					"CutIn",
-					"CutOut",
 					"Transmittance"
 				]
 			}
@@ -238,7 +237,6 @@
 		"Model",
 		"SerialNumber",
 		"SpecsFile",
-		"TransmittanceRange",
-		"Description"
+		"TransmittanceRange"
 	]
 }

@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"BeamSplitter.json",
-	"version":"1.06.5",
+	"version":"1.07.7",
 	"type":"object",
 	"title":"BeamSplitter",
 	"description":"This is a mirror that reflects part of the light, regardless of wavelenght.",
@@ -223,7 +223,6 @@
 		"Manufacturer",
 		"Model",
 		"SerialNumber",
-		"SpecsFile",
-		"Description"
+		"SpecsFile"
 	]
 }

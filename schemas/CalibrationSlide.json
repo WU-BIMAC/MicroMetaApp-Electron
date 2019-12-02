@@ -1,0 +1,114 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"CalibrationSlide.json",
+	"version":"1.07.7",
+	"type":"object",
+	"title":"CalibrationSlide",
+	"description":"This element describes a slide used to measure the different optical properties such as magnification, distance, and different kinds of optical distorsions.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"CalibrationProcedure",
+	"image":"CalibrationProcedure_CalibrationSlide.svg",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
+		"OpticalStandard":"The optical standard used in this case. This might be a pre-manufactured slide, such as those produced by Argolight (http://argolight.com/), Geller MicroAnalytical Laboratory (Magnification Reference Standard MRS-4 and others; http://www.gellermicro.com/mag_standards/mrs.html), Zeiss and others. Alternatively, the standard might be a slide containing multi-colored beads of known size and emission characteristics. Finally, slides coated with specific DNA origami patterns are increasingly being used for this purpose as well.",
+		"CalibrationSlide":"This element describes a slide used to measure the different optical properties such as magnification, distance, and different kinds of optical distorsions."
+	},
+	"properties": {
+		"Type": {
+			"type":"string",
+			"description":"The type of calibration slide used in this case. Examples include slides produced by Argolight, Geller MicroAnalytical Laboratory, Zeiss and others.",
+			"tier":3,
+			"enum": [
+				"ARGO-HM",
+				"ARGO-LM",
+				"ARGO-SIM",
+				"Geller-MRS4",
+				"Zeiss universal D=0",
+				"Other"
+			],
+			"category":"CalibrationSlide"
+		},
+		"CalibratedMeasure": {
+			"type":"string",
+			"description":"The optical characteristic this slide is used to calibrate, examples include magnification, distance, optical distorsions and others.",
+			"tier":3,
+			"enum": [
+				"Magnification",
+				"Distance",
+				"Multi",
+				"Distorsion",
+				"Other"
+			],
+			"category":"CalibrationSlide"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The model of this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"string",
+			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":2,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Type",
+		"CalibratedMeasure",
+		"ID",
+		"Name",
+		"Manufacturer",
+		"Model",
+		"SerialNumber",
+		"SpecsFile"
+	]
+}

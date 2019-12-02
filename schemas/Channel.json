@@ -1,0 +1,702 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Channel.json",
+	"version":"1.07.7",
+	"type":"object",
+	"title":"Channel",
+	"description":"Each Image has to have at least one Plane and one Channel. The Channel element stores information about how the each image channel was acquired. The total number of Channel elements for a given Image must equal to SizeC.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Channel",
+	"image":"Channel_Channel.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Channel":"Each Image has to have at least one Plane and one Channel. The Channel element stores information about how the each image channel was acquired. The total number of Channel elements for a given Image must equal to SizeC.",
+		"LightSourceSettings":"This holds the setting applied to a LightSource e as well as a reference to the LightSource (the ID attribute) in question. The ID referes to the LightSource used in this case.",
+		"LightPath":"A description of the light path.",
+		"DetectorSettingsGroup":"This element refers to the Detector used to acquire this image and it holds the settings that were applied to the Detector during this acquisition.",
+		"ExcitationCalibration":"This procedure measures the performance and allows calibration of the wavelength and irradiance of the excitation light.",
+		"FIeldCalibration":"This describes the procedure used to measure the field dependent variations in the pixel-to-pixel sensitivity of the detector and/or by distortions in the optical path."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A name for the channel that is suitable for presentation to the user.          ",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this Channel.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"SamplesPerPixel": {
+			"type":"string",
+			"description":"The number of samples the detector takes to form each pixel value. [units:none] Note: This is not the same as 'Frame Averaging' - see Integration in DetectorSettings.          ",
+			"tier":5,
+			"category":"Channel"
+		},
+		"IlluminationType": {
+			"type":"string",
+			"description":"The method of illumination used to capture the channel.",
+			"tier":2,
+			"enum": [
+				"Transmitted",
+				"Epifluorescence",
+				"Confocal",
+				"TIRF",
+				"Light Sheet",
+				"NonLinear",
+				"Oblique",
+				"Other"
+			],
+			"category":"Channel"
+		},
+		"PinholeSize": {
+			"type":"number",
+			"description":"The optional PinholeSize attribute allows specifying adjustable pin-hole diameters for confocal microscopes.          ",
+			"tier":3,
+			"category":"Channel"
+		},
+		"PinholeSizeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"µm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"Channel"
+		},
+		"AcquisitionMode": {
+			"type":"string",
+			"description":"AcquisitionMode describes the type of microscopy performed for each channel.          ",
+			"tier":1,
+			"enum": [
+				"WideField",
+				"LaserScanningConfocalMicroscopy",
+				"SpinningDiskConfocal",
+				"SlitScanConfocal",
+				"MultiPhotonMicroscopy",
+				"StructuredIllumination",
+				"SingleMoleculeImaging",
+				"TotalInternalReflection",
+				"FluorescenceLifetime",
+				"SpectralImaging",
+				"FluorescenceCorrelationSpectroscopy",
+				"NearFieldScanningOpticalMicroscopy",
+				"SecondHarmonicGenerationImaging",
+				"PALM",
+				"STORM",
+				"STED",
+				"TIRF",
+				"FSM",
+				"LCM",
+				"Other",
+				"BrightField",
+				"SweptFieldConfocal",
+				"SPIM"
+			],
+			"category":"Channel"
+		},
+		"ContrastMethod": {
+			"type":"string",
+			"description":"ContrastMethod describes the technique used to achieve contrast for each channel.          ",
+			"tier":1,
+			"enum": [
+				"Brightfield",
+				"Phase",
+				"DIC",
+				"HoffmanModulation",
+				"ObliqueIllumination",
+				"PolarizedLight",
+				"Darkfield",
+				"Fluorescence",
+				"Other"
+			],
+			"category":"Channel"
+		},
+		"ExcitationWavelength": {
+			"type":"number",
+			"description":"The excitation wavelength used for this channel.          ",
+			"tier":3,
+			"category":"Channel"
+		},
+		"ExcitationWavelengthUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"Channel"
+		},
+		"EmissionWavelength": {
+			"type":"number",
+			"description":"The emission wavelength used for this channel.",
+			"tier":3,
+			"category":"Channel"
+		},
+		"EmissionWavelengthUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"Channel"
+		},
+		"Fluorophore": {
+			"type":"string",
+			"description":"This is the name of the fluorophore used to produce this channel [plain text string].",
+			"tier":2,
+			"category":"Channel"
+		},
+		"NDFilter": {
+			"type":"number",
+			"description":"The NDfilter attribute is used to specify the combined effect of any neutral density filters used. The amount of light the filter transmits at a maximum. A fraction, as a value from 0.0 to 1.0. NOTE: This was formerly described as 'units optical density expressed as a PercentFraction'. This was how the field had been described in the schema from the beginning but all the use of it has been in the opposite direction, i.e. as a amount transmitted, not the amount blocked. This change has been made to make the model reflect this usage.          ",
+			"tier":5,
+			"category":"Channel"
+		},
+		"PockelCellSetting": {
+			"type":"string",
+			"description":"The PockelCellSetting used for this channel. This is the amount the polarization of the beam is rotated by",
+			"tier":5,
+			"category":"Channel"
+		},
+		"Color": {
+			"type":"string",
+			"description":"A color used to render this channel - encoded as RGBA. The default value '-1' is #FFFFFFFF so solid white (it is a signed 32 bit value). NOTE: Prior to the 2012-06 schema the default value was incorrect and produced a transparent red not solid white.          ",
+			"tier":1,
+			"default":"-1",
+			"category":"Channel"
+		},
+		"LightSourceSettings": {
+			"type":"array",
+			"description":"This holds the setting applied to a LightSource e as well as a reference to the LightSource (the ID attribute) in question. The ID referes to the LightSource used in this case.",
+			"tier":3,
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this component.",
+						"tier":3,
+						"category":"LightSourceSettings",
+						"readonly":true
+					},
+					"Wavelength": {
+						"type":"number",
+						"description":"The nominal wavelength of the excitation light utilized in this case.              ",
+						"tier":3,
+						"category":"LightSourceSettings"
+					},
+					"WavelengthUnit": {
+						"type":"string",
+						"description":"The units of the Wavelength of the light source - default:nanometres[nm].",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"LightSourceSettings"
+					},
+					"PowerSettings": {
+						"type":"number",
+						"description":"The light power output settings utilized in this case.",
+						"tier":3,
+						"category":"LightSourceSettings"
+					},
+					"PowerSettingsUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"W",
+						"enum": [
+							"YW",
+							"ZW",
+							"EW",
+							"PW",
+							"TW",
+							"GW",
+							"MW",
+							"kW",
+							"hW",
+							"daW",
+							"W",
+							"dW",
+							"cW",
+							"mW",
+							"µW",
+							"nW",
+							"pW",
+							"fW",
+							"aW",
+							"zW",
+							"yW"
+						],
+						"category":"LightSourceSettings"
+					},
+					"Attenuation": {
+						"type":"number",
+						"description":"The observed attenuation of the excitation light power expressed as a fractional value from 0.0 to 1.0.",
+						"tier":5,
+						"category":"LightSourceSettings"
+					}
+				},
+				"required": [
+					"ID",
+					"Wavelength",
+					"PowerSettings"
+				]
+			}
+		},
+		"LightPath": {
+			"type":"object",
+			"description":"A description of the light path.",
+			"tier":2,
+			"properties": {
+				"ID": {
+					"type":"string",
+					"description":"A unique identifier for this component.",
+					"tier":2,
+					"category":"LightPath",
+					"readonly":true
+				},
+				"Name": {
+					"type":"string",
+					"description":"A user defined name for this component.",
+					"tier":2,
+					"category":"LightPath"
+				}
+			},
+			"required": [
+				"ID",
+				"Name"
+			]
+		},
+		"DetectorSettingsGroup": {
+			"type":"array",
+			"description":"This element refers to the Detector used to acquire this image and it holds the settings that were applied to the Detector during this acquisition.",
+			"tier":1,
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this component.",
+						"tier":3,
+						"category":"DetectorSettingsGroup",
+						"readonly":true
+					},
+					"EffectiveOffset": {
+						"type":"number",
+						"description":"This field reports the actual offset utilized for the acquisition of this image. The offset is an electronic baseline added to the output signal from the sensor to ensure that the displayed signal level is always a positive number of counts.",
+						"tier":3,
+						"category":"DetectorSettingsGroup"
+					},
+					"Integration": {
+						"type":"string",
+						"description":"This is the number of sequential frames that have been averaged to obtain this image, to improve the overall signal-to-noise ratio.",
+						"tier":3,
+						"category":"DetectorSettingsGroup"
+					},
+					"DetectorFieldOfView": {
+						"type":"number",
+						"description":"The detector field of view is the diameter of the field visible by the camera as measured in the specimen plane. It is expressed in mm and it is defined as the detector field number divided by the total effective magnification of the system. In turn the Field Number is defined as the diameter of the view field in mm measured at the intermediate image plane.",
+						"tier":3,
+						"category":"DetectorSettingsGroup"
+					},
+					"DetectorFieldOfViewUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"mm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"DetectorSettingsGroup"
+					}
+				},
+				"required": [
+					"ID",
+					"EffectiveOffset"
+				]
+			}
+		},
+		"ExcitationCalibration": {
+			"type":"array",
+			"description":"This procedure measures the performance and allows calibration of the wavelength and irradiance of the excitation light.",
+			"tier":3,
+			"items": {
+				"properties": {
+					"ObservedExcitationWavelenght": {
+						"type":"number",
+						"description":"Observed peak excitation wavelength.",
+						"tier":3,
+						"category":"ExcitationCalibration"
+					},
+					"ObservedExcitationWavelenghtUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"ExcitationCalibration"
+					},
+					"ObservedExcitationPowerAtObjective": {
+						"type":"number",
+						"description":"The observed excitation light power measured at the back of the objective.",
+						"tier":3,
+						"category":"ExcitationCalibration"
+					},
+					"ObservedExcitationPowerAtObjectiveUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"W",
+						"enum": [
+							"YW",
+							"ZW",
+							"EW",
+							"PW",
+							"TW",
+							"GW",
+							"MW",
+							"kW",
+							"hW",
+							"daW",
+							"W",
+							"dW",
+							"cW",
+							"mW",
+							"µW",
+							"nW",
+							"pW",
+							"fW",
+							"aW",
+							"zW",
+							"yW"
+						],
+						"category":"ExcitationCalibration"
+					},
+					"ObservedExcitationIrradiance": {
+						"type":"number",
+						"description":"Observed mean excitation light irradiance (radiant power per unit area) as measured at the sample plane over the Field of View (FOV). ",
+						"tier":3,
+						"category":"ExcitationCalibration"
+					},
+					"ObservedExcitationIrradianceUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"W",
+						"enum": [
+							"YW",
+							"ZW",
+							"EW",
+							"PW",
+							"TW",
+							"GW",
+							"MW",
+							"kW",
+							"hW",
+							"daW",
+							"W",
+							"dW",
+							"cW",
+							"mW",
+							"µW",
+							"nW",
+							"pW",
+							"fW",
+							"aW",
+							"zW",
+							"yW"
+						],
+						"category":"ExcitationCalibration"
+					},
+					"ObservedExcitationVariance": {
+						"type":"number",
+						"description":"Observed excitation light irradiance (radiant power per unit area) variation over the Field of View (FOV).",
+						"tier":3,
+						"category":"ExcitationCalibration"
+					},
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this component.",
+						"tier":3,
+						"category":"ExcitationCalibration",
+						"readonly":true
+					},
+					"Date": {
+						"type":"string",
+						"description":"The date in which this calibration procedure was performed.",
+						"tier":3,
+						"category":"ExcitationCalibration"
+					}
+				},
+				"required": [
+					"ObservedExcitationWavelenght",
+					"ObservedExcitationPowerAtObjective",
+					"ObservedExcitationIrradiance",
+					"ObservedExcitationVariance",
+					"ID",
+					"Date"
+				]
+			}
+		},
+		"FIeldCalibration": {
+			"type":"array",
+			"description":"This describes the procedure used to measure the field dependent variations in the pixel-to-pixel sensitivity of the detector and/or by distortions in the optical path.",
+			"tier":3,
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this component.",
+						"tier":3,
+						"category":"FIeldCalibration",
+						"readonly":true
+					},
+					"Date": {
+						"type":"string",
+						"description":"The date in which this calibration procedure was performed.",
+						"tier":3,
+						"category":"FIeldCalibration"
+					}
+				},
+				"required": [
+					"ID",
+					"Date"
+				]
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"IlluminationType",
+		"ContrastMethod",
+		"ExcitationWavelength",
+		"EmissionWavelength",
+		"Fluorophore",
+		"LightPath"
+	]
+}

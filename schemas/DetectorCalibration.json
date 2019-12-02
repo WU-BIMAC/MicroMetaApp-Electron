@@ -1,0 +1,68 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"DetectorCalibration.json",
+	"version":"1.07.7",
+	"type":"object",
+	"title":"DetectorCalibration",
+	"description":"This procedure measures the performance of the dectector.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"CalibrationProcedure",
+	"image":"CalibrationProcedure_DetectorCalibration.svg",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"IntensityCalibration":"This describes the procedure(s) that were used for excitation and detector calibration and the resulting calibration results.",
+		"DetectorCalibration":"This procedure measures the performance of the dectector.",
+		"IntensityCalibrationTool":"This element is a reference to the tool if any used to perform this calibratin procdure."
+	},
+	"properties": {
+		"Method": {
+			"type":"string",
+			"description":"This is a description of method used for this calibration procedure.",
+			"tier":3,
+			"category":"DetectorCalibration"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"Date": {
+			"type":"string",
+			"description":"The date in which this calibration procedure was performed.",
+			"tier":3,
+			"category":"IntensityCalibration"
+		},
+		"IntensityCalibrationTool": {
+			"type":"array",
+			"items": {
+				"description":"This element is a reference to the tool, if any, used to perform this calibratin procdure.",
+				"type":"string",
+				"tier":3,
+				"category":"IntensityCalibrationTool",
+				"linkTo":"IntensityCalibrationTool"
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Method",
+		"ID",
+		"Date"
+	]
+}

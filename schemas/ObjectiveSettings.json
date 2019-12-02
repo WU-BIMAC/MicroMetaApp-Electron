@@ -1,0 +1,109 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"ObjectiveSettings.json",
+	"version":"1.07.7",
+	"type":"object",
+	"title":"ObjectiveSettings",
+	"description":"This element refers to the objective used to acquire this image and it holds the settings that were applied to the objective during this acquisition.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_ObjectiveSettings.svg",
+	"tier":2,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Reference":"NA",
+		"Settings":"NA",
+		"ObjectiveSettings":"This element refers to the objective used to acquire this image and it holds the settings that were applied to the objective during this acquisition."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"This is the unique identifier of the objective used in this case.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		},
+		"ActualMagnification": {
+			"type":"number",
+			"description":"The magnification of the lens as measured via a calibration process- i.e. '59.987' for a 60X lens.",
+			"tier":5,
+			"category":"ObjectiveSettings"
+		},
+		"CoverslipThickness": {
+			"type":"number",
+			"description":"The thickness of the coverslip that was used in this instance.",
+			"tier":2,
+			"category":"ObjectiveSettings"
+		},
+		"ImmersionMedium": {
+			"type":"string",
+			"description":"The actual immersion medium that was used for the acquisition of this image.",
+			"tier":2,
+			"enum": [
+				"Air",
+				"Glycerol",
+				"Multi",
+				"Oil",
+				"Water",
+				"WaterDripping",
+				"Other"
+			],
+			"category":"ObjectiveSettings"
+		},
+		"ImmersionRefractiveIndex": {
+			"type":"number",
+			"description":"The nominal refractive index of the immersion medium utilized in this case, as specified by the manufacturer.",
+			"tier":2,
+			"category":"ObjectiveSettings"
+		},
+		"MeasuredRefractiveIndex": {
+			"type":"number",
+			"description":"The temperature dependenent measured Refractive Index of ther immersion medium utilized in this case.",
+			"tier":4,
+			"category":"ObjectiveSettings"
+		},
+		"Temperature": {
+			"type":"number",
+			"description":"The temperature of the objective if different from the ImagingEnvironment/Temperature.",
+			"tier":4,
+			"category":"ObjectiveSettings"
+		},
+		"TemperatureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":4,
+			"default":"°C",
+			"enum": [
+				"°C",
+				"°F",
+				"K",
+				"°R"
+			],
+			"category":"ObjectiveSettings"
+		},
+		"IrisAperture": {
+			"type":"number",
+			"description":"This field records the aperture of the Iris diaphagm, which determines determines the size of the objective rear aperture yielding a variable numerical aperture range between 0.5 and the objective's upper limit.",
+			"tier":3,
+			"category":"ObjectiveSettings"
+		},
+		"CorrectionCollarPosition": {
+			"type":"number",
+			"description":"The Correction Collar is normally an adjustable ring on the objective, whose position can be modified. This field records the position of the collar during the acquisition of this image. Each correction collar has an arbitrary scale on it so the values is unit-less.",
+			"tier":3,
+			"category":"ObjectiveSettings"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"ImmersionMedium",
+		"ImmersionRefractiveIndex"
+	]
+}

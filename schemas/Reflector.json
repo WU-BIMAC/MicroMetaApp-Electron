@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Reflector.json",
-	"version":"1.06.5",
+	"version":"1.07.7",
 	"type":"object",
 	"title":"Reflector",
 	"description":"This is a total reflection mirror.",
@@ -209,7 +209,6 @@
 		"Manufacturer",
 		"Model",
 		"SerialNumber",
-		"SpecsFile",
-		"Description"
+		"SpecsFile"
 	]
 }

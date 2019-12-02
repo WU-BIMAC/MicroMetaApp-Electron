@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"TransmittanceRange.json",
-	"version":"1.06.5",
+	"version":"1.07.7",
 	"type":"object",
 	"title":"TransmittanceRange",
 	"description":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
@@ -64,7 +64,7 @@
 		},
 		"CutOut": {
 			"type":"number",
-			"description":"CutOut is the wavelength above which the response rate is below 50%.",
+			"description":"CutOut is the wavelength above which the response rate is below 50%. Leave empty in case this is a longpass filter.",
 			"tier":2,
 			"category":"TransmittanceRange"
 		},
@@ -127,7 +127,6 @@
 	},
 	"required": [
 		"CutIn",
-		"CutOut",
 		"Transmittance"
 	]
 }

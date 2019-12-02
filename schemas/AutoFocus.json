@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AutoFocus.json",
-	"version":"1.06.5",
+	"version":"1.07.7",
 	"type":"object",
 	"title":"AutoFocus",
 	"description":"This element describes one or more optional focus stabilization device(s) available for this instrument.",
@@ -91,7 +91,6 @@
 		"Manufacturer",
 		"Model",
 		"SerialNumber",
-		"SpecsFile",
-		"Description"
+		"SpecsFile"
 	]
 }

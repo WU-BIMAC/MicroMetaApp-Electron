@@ -1,0 +1,107 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"MicroscopeSettings.json",
+	"version":"1.07.7",
+	"type":"object",
+	"title":"MicroscopeSettings",
+	"description":"This element refers to the microscope used to acquire this image and it holds the settings that were applied to the microscope during this acquisition.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_MicroscopeSettings.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Reference":"NA",
+		"Settings":"NA",
+		"MicroscopeSettings":"This element refers to the microscope used to acquire this image and it holds the settings that were applied to the microscope during this acquisition.",
+		"Optovar":"This empty element refers to the existing Optovar component used in this case.",
+		"Objective":"This empty element refers to the existing Objective component used in this case."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"This is the unique identifier of the microscope used in this case.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"FieldOfView": {
+			"type":"number",
+			"description":"The Field of View defines the area of the specimen that is viewable via the eyepiece. This field caputers the measures size of the Field of View.",
+			"tier":3,
+			"category":"MicroscopeSettings"
+		},
+		"FieldOfViewUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"MicroscopeSettings"
+		},
+		"TotalEffectiveMagnification": {
+			"type":"number",
+			"description":"This is the total effective magnification used in this case. This number can be obtained by multiplying Optovar/Magnification times the Objective/NominalMagnification or even better the Objective/CalibratedMagnification if available.",
+			"tier":1,
+			"category":"MicroscopeSettings"
+		},
+		"Optovar": {
+			"type":"string",
+			"description":"This empty element refers to the existing Optovar component used in this case.",
+			"tier":3,
+			"category":"Optovar",
+			"linkTo":"Optovar"
+		},
+		"Objective": {
+			"type":"string",
+			"description":"This empty element refers to the existing Objective component used in this case.",
+			"tier":3,
+			"category":"Objective",
+			"linkTo":"Objective"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Objective"
+	]
+}

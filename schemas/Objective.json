@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Objective.json",
-	"version":"1.06.5",
+	"version":"1.07.7",
 	"type":"object",
 	"title":"Objective",
 	"description":"A microscope's objective lens is a compound lens consisting of several simple lenses (elements), usually arranged along a common axis.",
@@ -63,12 +63,6 @@
 			"tier":1,
 			"category":"Objective"
 		},
-		"CalibratedMagnification": {
-			"type":"number",
-			"description":"The magnification of the lens as measured via a calibration process- i.e. '59.987' for a 60X lens.",
-			"tier":5,
-			"category":"Objective"
-		},
 		"LensNA": {
 			"type":"number",
 			"description":"The numerical aperture of this objective expressed as a floating point (real) number. Expected range 0.02 - 1.5.",
@@ -94,12 +88,6 @@
 			"type":"boolean",
 			"description":"Records whether or not the objective is infinity corrected.",
 			"tier":3,
-			"category":"Objective"
-		},
-		"CoverslipTickness": {
-			"type":"number",
-			"description":"NA",
-			"tier":2,
 			"category":"Objective"
 		},
 		"WorkingDistance": {
@@ -155,6 +143,23 @@
 			"type":"boolean",
 			"description":"Records whether or not the objective was fitted with an Iris.",
 			"tier":4,
+			"category":"Objective"
+		},
+		"CorrectionCollar": {
+			"type":"boolean",
+			"description":"Records whether or not the objective was fitted with a Correction Collar.",
+			"tier":3,
+			"category":"Objective"
+		},
+		"CorrectionCollarType": {
+			"type":"string",
+			"description":"Records the type of Correction Collar this objective is fitted with.",
+			"tier":3,
+			"enum": [
+				"CoverslipThickness",
+				" ImmersionMedium",
+				"Temperature"
+			],
 			"category":"Objective"
 		},
 		"ObjectiveFieldNumber": {
@@ -314,16 +319,12 @@
 		"LensNA",
 		"NominalImmersionMedium",
 		"Infinity",
-		"CoverslipTickness",
 		"WorkingDistance",
 		"Iris",
-		"ObjectiveFieldNumber",
-		"ParfocalizingDistance",
-		"BackFocalPlanePosition",
+		"CorrectionCollar",
 		"Manufacturer",
 		"Model",
 		"SerialNumber",
-		"SpecsFile",
-		"Description"
+		"SpecsFile"
 	]
 }

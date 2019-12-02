@@ -1,0 +1,108 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"FocalPosition.json",
+	"version":"1.07.7",
+	"type":"object",
+	"title":"FocalPosition",
+	"description":"This element is used to record the Z-axis position of a Plane with respect to the microscope's reference frame.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"SampleConditions",
+	"image":"SampleConditions_FocalPosition.svg",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"FocalPosition":"This element is used to record the Z-axis position of a Plane with respect to the microscope's reference frame.",
+		"SamplePositioning":"NA",
+		"AutoFocus":"NA"
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user assigned name for this Z-axis focal position.",
+			"tier":3,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this Z-axis focal position.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"StagePositionZ": {
+			"type":"number",
+			"description":"The Z-axis focal position of this plane.          ",
+			"tier":3,
+			"category":"FocalPosition"
+		},
+		"StagePositionZUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"reference frame",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"FocalPosition"
+		},
+		"SamplePositioning": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"category":"SamplePositioning",
+			"linkTo":"SamplePositioning"
+		},
+		"AutoFocus": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"category":"AutoFocus",
+			"linkTo":"AutoFocus"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"StagePositionZ"
+	]
+}

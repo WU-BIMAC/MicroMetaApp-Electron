@@ -1,0 +1,77 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"CalibrationMap.json",
+	"version":"1.07.7",
+	"type":"object",
+	"title":"CalibrationMap",
+	"description":"This is a 2D matrix containing values computed as a resulut of the calibration procedure.  This matrix is the same size of the image this calibration refers to.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"CalibrationProcedure",
+	"image":"CalibrationProcedure_CalibrationMap.svg",
+	"tier":3,
+	"subCategoriesOrder": {
+		"CalibrationMap":"This is a 2D matrix containing values computed as a resulut of the calibration procedure.  This matrix is the same size of the image this calibration refers to.",
+		"Row":"NA"
+	},
+	"properties": {
+		"MetricType": {
+			"type":"string",
+			"description":"This field captures the type of metric that was computed as part of the calibratin procedure in this instance.",
+			"tier":3,
+			"enum": [
+				"Gain",
+				"LinearOffset",
+				"DetectionLimit",
+				"LinearRangeMax",
+				"Variance",
+				"Mean",
+				"Other",
+				""
+			],
+			"category":"CalibrationMap"
+		},
+		"IlluminationIntensity": {
+			"type":"number",
+			"description":"This attribute only applies to matrices of type Variance and Mean. It represents the illumination intensity that was used to acquire the images used to contruct this matrix. The value can range from 0 (i.e. dark image) to any intenisty value experssed either as percentage or as absolute power. ",
+			"tier":3,
+			"category":"CalibrationMap"
+		},
+		"NrOfImages": {
+			"type":"string",
+			"description":"This field represents the number of images that were employed to generate this calibration matrix.",
+			"tier":3,
+			"category":"CalibrationMap"
+		},
+		"Row": {
+			"type":"array",
+			"description":"NA",
+			"tier":1,
+			"items": {
+				"properties": {
+					"RowNr": {
+						"type":"string",
+						"description":"NA",
+						"tier":1,
+						"category":"Row"
+					}
+				},
+				"required": [
+					"RowNr"
+				]
+			}
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"MetricType",
+		"IlluminationIntensity",
+		"NrOfImages",
+		"Row"
+	]
+}

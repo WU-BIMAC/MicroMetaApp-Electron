@@ -1,0 +1,240 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"ColoredBeadsSlide.json",
+	"version":"1.07.7",
+	"type":"object",
+	"title":"ColoredBeadsSlide",
+	"description":"This element describes the beads that were used to acquire the image.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"CalibrationProcedure",
+	"image":"CalibrationProcedure_ColoredBeadsSlide.svg",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
+		"OpticalStandard":"The optical standard used in this case. This might be a pre-manufactured slide, such as those produced by Argolight (http://argolight.com/), Geller MicroAnalytical Laboratory (Magnification Reference Standard MRS-4 and others; http://www.gellermicro.com/mag_standards/mrs.html), Zeiss and others. Alternatively, the standard might be a slide containing multi-colored beads of known size and emission characteristics. Finally, slides coated with specific DNA origami patterns are increasingly being used for this purpose as well.",
+		"ColoredBeadsSlide":"This element describes the beads that were used to acquire the image."
+	},
+	"properties": {
+		"BeadSize": {
+			"type":"number",
+			"description":"The size of the colred beads utilized to make this slide.",
+			"tier":3,
+			"category":"ColoredBeadsSlide"
+		},
+		"BeadSizeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"ColoredBeadsSlide"
+		},
+		"BeadConcentration": {
+			"type":"number",
+			"description":"The concentration of the colored beads preparation utilized to make this slide.",
+			"tier":3,
+			"category":"ColoredBeadsSlide"
+		},
+		"BeadConcentrationUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"Units/ml",
+			"enum": [
+				"ng/µl",
+				"µg/µl",
+				"mg/ml",
+				"%(W/V)",
+				"%(V/V)",
+				"Units/ml",
+				"Other"
+			],
+			"category":"ColoredBeadsSlide"
+		},
+		"BeadVolume": {
+			"type":"number",
+			"description":"The volume of the colored beads preparation utilized to prepare this slide.",
+			"tier":3,
+			"category":"ColoredBeadsSlide"
+		},
+		"BeadVolumeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"µl",
+			"enum": [
+				"liter",
+				"ml",
+				"µl",
+				"cm3",
+				"Other"
+			],
+			"category":"ColoredBeadsSlide"
+		},
+		"BeadEmissionWavelenght": {
+			"type":"string",
+			"description":"The wavelenght(s) of the light emitted by these beads.",
+			"tier":1,
+			"category":"ColoredBeadsSlide"
+		},
+		"BeadEmissionWavelenghtUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"pixel",
+				"reference frame"
+			],
+			"category":"ColoredBeadsSlide"
+		},
+		"Type": {
+			"type":"string",
+			"description":"The type of colred beads used in this case.",
+			"tier":3,
+			"enum": [
+				"Single color",
+				"Multi-color",
+				"Other"
+			],
+			"category":"ColoredBeadsSlide"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A user defined name for this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"The manufacturer of this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"The model of this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"SerialNumber": {
+			"type":"string",
+			"description":"The serial number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The lot number of this component",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"SpecsFile": {
+			"type":"string",
+			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
+			"tier":5,
+			"category":"ManufacturerSpec"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":2,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"BeadSize",
+		"BeadConcentration",
+		"BeadEmissionWavelenght",
+		"Type",
+		"ID",
+		"Name",
+		"Manufacturer",
+		"Model",
+		"SerialNumber",
+		"SpecsFile"
+	]
+}

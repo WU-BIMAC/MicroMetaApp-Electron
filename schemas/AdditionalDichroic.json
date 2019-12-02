@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AdditionalDichroic.json",
-	"version":"1.07.5",
+	"version":"1.07.7",
 	"type":"object",
 	"title":"AdditionalDichroic",
 	"description":"This describes an additional dichroic  positioned in the light path for one or more channel available for this instrument.",
@@ -330,7 +330,7 @@
 					},
 					"CutOut": {
 						"type":"number",
-						"description":"CutOut is the wavelength above which the response rate is below 50%.",
+						"description":"CutOut is the wavelength above which the response rate is below 50%. Leave empty in case this is a longpass filter.",
 						"tier":2,
 						"category":"TransmittanceRange"
 					},
@@ -386,7 +386,6 @@
 				},
 				"required": [
 					"CutIn",
-					"CutOut",
 					"Transmittance"
 				]
 			}
@@ -448,7 +447,7 @@
 					},
 					"CutOut": {
 						"type":"number",
-						"description":"CutOut is the wavelength above which the response rate is below 50%.",
+						"description":"CutOut is the wavelength above which the response rate is below 50%. Leave empty in case this is a longpass filter.",
 						"tier":3,
 						"category":"ReflectanceRange"
 					},
@@ -503,8 +502,7 @@
 					}
 				},
 				"required": [
-					"CutIn",
-					"CutOut"
+					"CutIn"
 				]
 			}
 		},
@@ -529,7 +527,6 @@
 		"Model",
 		"SerialNumber",
 		"SpecsFile",
-		"Description",
 		"TransmittanceRange"
 	]
 }

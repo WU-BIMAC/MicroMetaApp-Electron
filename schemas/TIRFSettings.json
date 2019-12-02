@@ -1,0 +1,81 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"TIRFSettings.json",
+	"version":"1.07.7",
+	"type":"object",
+	"title":"TIRFSettings",
+	"description":"Defines the TIRF settings used for this experiment.",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_TIRFSettings.svg",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Reference":"NA",
+		"Settings":"NA",
+		"TIRFSettings":"Defines the TIRF settings used for this experiment."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"ThroughLens": {
+			"type":"boolean",
+			"description":"The TIRF modality used in this case. True=Through the lens TIRF modality. False=TIRF modality in which the laser light is not travelling through the objective lens.",
+			"tier":3,
+			"category":"TIRFSettings"
+		},
+		"TIRFAngle": {
+			"type":"number",
+			"description":"The incidence angle used in this case",
+			"tier":3,
+			"category":"TIRFSettings"
+		},
+		"TIRFAngleUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"enum": [
+				"deg",
+				"rad",
+				"gon"
+			],
+			"category":"TIRFSettings"
+		},
+		"Geometry": {
+			"type":"string",
+			"description":"The TIRF geometry used in this case",
+			"tier":3,
+			"enum": [
+				"Spot",
+				"Ring",
+				"Other"
+			],
+			"category":"TIRFSettings"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"ThroughLens",
+		"TIRFAngle",
+		"Geometry"
+	]
+}

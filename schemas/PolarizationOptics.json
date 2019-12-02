@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PolarizationOptics.json",
-	"version":"1.06.5",
+	"version":"1.07.7",
 	"type":"object",
 	"title":"PolarizationOptics",
 	"description":"This describes an optical polarization device positioned in the light path for one or more channel available for this instrument. A polarization device is an optical filter that lets light waves of a specific polarization pass through while blocking light waves of other polarizations.",
@@ -271,7 +271,6 @@
 		"Model",
 		"SerialNumber",
 		"SpecsFile",
-		"WavelengthRange",
-		"Description"
+		"WavelengthRange"
 	]
 }

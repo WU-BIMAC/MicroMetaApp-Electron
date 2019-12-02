@@ -1,0 +1,173 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"MicrobeamManipulation.json",
+	"version":"1.07.7",
+	"type":"object",
+	"title":"MicrobeamManipulation",
+	"description":"Defines a microbeam operation and the region of the image it was applied to. The LightSourceSettingsRef element is a reference to the LightSourceSettings that were used in this case, including a reference to the light source that was used for this micromanipulation experiment (e.g.  a laser used for photobleaching).",
+	"domain":"ImageAcquisitionSettings",
+	"category":"SampleManipulation",
+	"image":"SampleManipulation_MicrobeamManipulation.svg",
+	"tier":3,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"MicrobeamManipulation":"Defines a microbeam operation and the region of the image it was applied to. The LightSourceSettingsRef element is a reference to the LightSourceSettings that were used in this case, including a reference to the light source that was used for this micromanipulation experiment (e.g.  a laser used for photobleaching).",
+		"LightSourceSettings":"This holds the setting applied to a LightSource e as well as a reference to the LightSource (the ID attribute) in question. The ID referes to the LightSource used in this case."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		},
+		"Type": {
+			"type":"string",
+			"description":"Defines the type of micromanipulation performed.",
+			"tier":3,
+			"enum": [
+				"FRAP",
+				"FLIP",
+				"InverseFRAP",
+				"Photoablation",
+				"Photoactivation",
+				"Uncaging",
+				"OpticalTrapping",
+				"Other"
+			],
+			"category":"MicrobeamManipulation"
+		},
+		"LightSourceSettings": {
+			"type":"array",
+			"description":"This holds the setting applied to a LightSource e as well as a reference to the LightSource (the ID attribute) in question. The ID referes to the LightSource used in this case.",
+			"tier":3,
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this component.",
+						"tier":3,
+						"category":"LightSourceSettings",
+						"readonly":true
+					},
+					"Wavelength": {
+						"type":"number",
+						"description":"The nominal wavelength of the excitation light utilized in this case.              ",
+						"tier":3,
+						"category":"LightSourceSettings"
+					},
+					"WavelengthUnit": {
+						"type":"string",
+						"description":"The units of the Wavelength of the light source - default:nanometres[nm].",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"pixel",
+							"reference frame"
+						],
+						"category":"LightSourceSettings"
+					},
+					"PowerSettings": {
+						"type":"number",
+						"description":"The light power output settings utilized in this case.",
+						"tier":3,
+						"category":"LightSourceSettings"
+					},
+					"PowerSettingsUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"W",
+						"enum": [
+							"YW",
+							"ZW",
+							"EW",
+							"PW",
+							"TW",
+							"GW",
+							"MW",
+							"kW",
+							"hW",
+							"daW",
+							"W",
+							"dW",
+							"cW",
+							"mW",
+							"µW",
+							"nW",
+							"pW",
+							"fW",
+							"aW",
+							"zW",
+							"yW"
+						],
+						"category":"LightSourceSettings"
+					},
+					"Attenuation": {
+						"type":"number",
+						"description":"The observed attenuation of the excitation light power expressed as a fractional value from 0.0 to 1.0.",
+						"tier":5,
+						"category":"LightSourceSettings"
+					}
+				},
+				"required": [
+					"ID",
+					"Wavelength",
+					"PowerSettings"
+				]
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":3,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":3,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Type",
+		"LightSourceSettings"
+	]
+}

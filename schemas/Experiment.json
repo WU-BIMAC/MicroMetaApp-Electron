@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Experiment.json",
-	"version":"1.06.5",
+	"version":"1.07.7",
 	"type":"object",
 	"title":"Experiment",
 	"description":"Describes the experiment during which this Image was acquired. The optional Description element may contain free text to further describe the experiment.",
@@ -12,7 +12,6 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"Experiment":"Describes the experiment during which this Image was acquired. The optional Description element may contain free text to further describe the experiment.",
-		"Experimenter":"This empty element refers to Experimenter that performed this experiment.",
 		"Sample":"A description of the sample that was imaged in this experiment.",
 		"MicrobeamManipulation":"Defines a microbeam operation and the region of the image it was applied to. The LightSourceSettingsRef element is a reference to the LightSourceSettings that were used in this case including a reference to the light source that was used for this micromanipulation experiment (e.g.  a laser used for photobleaching)."
 	},
@@ -81,16 +80,6 @@
 				"Other"
 			],
 			"category":"Experiment"
-		},
-		"Experimenter": {
-			"type":"array",
-			"items": {
-				"description":"This empty element refers to Experimenter that performed this experiment.",
-				"type":"string",
-				"tier":1,
-				"category":"Experimenter",
-				"linkTo":"Experimenter"
-			}
 		},
 		"Sample": {
 			"type":"object",
@@ -185,8 +174,6 @@
 		"Name",
 		"Type",
 		"LabellingMethod",
-		"Experimenter",
-		"Sample",
-		"Description"
+		"Sample"
 	]
 }
