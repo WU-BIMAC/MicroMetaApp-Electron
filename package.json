@@ -1,6 +1,6 @@
 {
 	"name": "4dn-microscopy-metadata-tool-standalone",
-	"version": "0.0.20-1",
+	"version": "0.0.21-1",
 	"private": true,
 	"main": "./main.js",
 	"publishConfig": {

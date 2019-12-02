@@ -153,7 +153,7 @@
 		},
 		"CorrectionCollarType": {
 			"type":"string",
-			"description":"Records the type of Correction Collar this objective is fitted with.",
+			"description":"When using high numerical aperture dry objectives (numerical aperture of 0.8 or greater), cover glass thickness variations of only a few micrometers, immersion medium changes, and temperature changes result in dramatic image degradation due to aberration. To compensate for these errors, the more highly corrected objectives are equipped with a correction collar to allow adjustment of the central lens group position to coincide with fluctuations in cover glass thickness, changes in immersion medium and in temperature. This field records whether or not the objective was fitted with a Correction Collar.",
 			"tier":3,
 			"enum": [
 				"CoverslipThickness",
