@@ -205,7 +205,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 
 	constructor(props) {
 		super(props);
-		window.console.log("Application directory:", appPath);
+		//window.console.log("Application directory:", appPath);
 		this.state = {
 			workingDirectory: path.resolve(appPath),
 			workingDirectoryConfirmed: false,
@@ -282,11 +282,11 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		);
 		this.setState({ workingDirectory: newWorkingDirectory });
 
-		window.console.log(
-			"workingDirectory -- old, new",
-			oldWorkingDirectory,
-			newWorkingDirectory
-		);
+		// window.console.log(
+		// 	"workingDirectory -- old, new",
+		// 	oldWorkingDirectory,
+		// 	newWorkingDirectory
+		// );
 	}
 
 	onLoadSchema(complete) {
@@ -351,16 +351,16 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		// } else {
 		// 	dirPath = workingDirectory + "microscopes/";
 		// }
-		console.log("microscope:");
-		console.log(microscope);
+		// console.log("microscope:");
+		// console.log(microscope);
 
 		let json = JSON.stringify(microscope);
 		let micName = microscope.Name;
 		let micNameNormalized = micName.replace(/\s+/g, "_").toLowerCase();
 		//let fileName = dirPath + `${micNameNormalized}.json`;
 		let fileName = path.resolve(dirPath, `${micNameNormalized}.json`);
-		console.log("dirPath " + dirPath);
-		console.log("fileName " + fileName);
+		// console.log("dirPath " + dirPath);
+		// console.log("fileName " + fileName);
 		fs.writeFile(fileName, json, function() {
 			complete(micNameNormalized);
 		});
@@ -399,8 +399,10 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 			workingDirectory,
 			workingDirectoryConfirmed
 		} = this.state;
-		const imagesPathPNG = path.resolve(appPath, "./public/assets/png");
-		const imagesPathSVG = path.resolve(appPath, "./public/assets/svg");
+		const imagesPathPNG =
+			path.resolve(appPath, "./public/assets/png") + path.sep;
+		const imagesPathSVG =
+			path.resolve(appPath, "./public/assets/svg") + path.sep;
 		//const imagesPath = path.resolve(appPath, "./public/assets/svg");
 		if (!workingDirectoryConfirmed) {
 			return (
