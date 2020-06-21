@@ -4,6 +4,8 @@ import ReactDOM from "react-dom";
 import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Popover from "react-bootstrap/Popover";
 
 import MicroscopyMetadataTool from "4dn-microscopy-metadata-tool";
 
@@ -28,8 +30,8 @@ window.onload = () => {
 
 // make Promise version of fs.readdir()
 function readDirAsync(dirname) {
-	return new Promise(function(resolve, reject) {
-		fs.readdir(dirname, function(err, filenames) {
+	return new Promise(function (resolve, reject) {
+		fs.readdir(dirname, function (err, filenames) {
 			if (err) reject(err);
 			else resolve(filenames);
 		});
@@ -38,8 +40,8 @@ function readDirAsync(dirname) {
 
 // make Promise version of fs.readFile()
 function readFileAsync(filename) {
-	return new Promise(function(resolve, reject) {
-		fs.readFile(filename, function(err, data) {
+	return new Promise(function (resolve, reject) {
+		fs.readFile(filename, function (err, data) {
 			if (err) reject(err);
 			else resolve(data);
 		});
@@ -50,7 +52,7 @@ class MicroscopyMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 	constructor(props) {
 		super(props);
 		this.state = {
-			isPathValid: false
+			isPathValid: false,
 		};
 		this.onClickSelectWorkingDirectory = this.onClickSelectWorkingDirectory.bind(
 			this
@@ -76,7 +78,7 @@ class MicroscopyMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 			mainWindow,
 			{
 				defaultPath: `${value}`,
-				properties: ["openDirectory"]
+				properties: ["openDirectory"],
 			},
 			this.props.handleSelectWorkingDirectory
 		);
@@ -103,7 +105,7 @@ class MicroscopyMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 			width: "200px",
 			height: "50px",
 			padding: "5px",
-			margin: "5px"
+			margin: "5px",
 		};
 		let containerStyle = {
 			display: "flex",
@@ -111,7 +113,7 @@ class MicroscopyMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 			flexFlow: "column",
 			width: this.props.width,
 			height: this.props.height,
-			alignItems: "center"
+			alignItems: "center",
 		};
 		let inputContainerStyle = {
 			display: "flex",
@@ -120,60 +122,109 @@ class MicroscopyMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 			flexWrap: "wrap",
 			alignItems: "center",
 			width: "410px",
-			height: "50px"
+			height: "50px",
 		};
 		let buttonContainerStyle = {
 			display: "flex",
 			justifyContent: "center",
 			flexFlow: "row",
 			flexWrap: "wrap",
-			alignItems: "center"
+			alignItems: "center",
 		};
 		let controlStyle = {
-			height: "50px"
+			height: "50px",
 		};
 		if (!isPathValid) {
 			controlStyle = Object.assign(controlStyle, {
-				background: "red"
+				background: "red",
 			});
 		} else {
 			controlStyle = Object.assign(controlStyle, {
-				background: "green"
+				background: "green",
 			});
 		}
 		return (
 			<div style={containerStyle}>
-				<InputGroup className="mb-3" style={inputContainerStyle}>
-					<FormControl
-						ref={this.inputRef}
-						onChange={this.handleWorkingDirectoryChange}
-						aria-label="workingDirectory"
-						aria-describedby="basic-addon2"
-						size="lg"
-						value={workingDirectory}
-					/>
-					<InputGroup.Append>
-						<InputGroup.Text style={controlStyle}>
-							{isPathValid ? <div>&#10004;</div> : <div>&#10006;</div>}
-						</InputGroup.Text>
-					</InputGroup.Append>
-				</InputGroup>
+				<OverlayTrigger
+					placement={"top"}
+					delay={{ show: 1000, hide: 1000 }}
+					rootClose={true}
+					rootCloseEvent={"mousedown"}
+					overlay={
+						<Popover id="popover-basic">
+							<Popover.Title as="h3">Current working folder</Popover.Title>
+							<Popover.Content>
+								<p>The path to the current working folder.</p>
+							</Popover.Content>
+						</Popover>
+					}
+				>
+					<InputGroup className="mb-3" style={inputContainerStyle}>
+						<FormControl
+							ref={this.inputRef}
+							onChange={this.handleWorkingDirectoryChange}
+							aria-label="workingDirectory"
+							aria-describedby="basic-addon2"
+							size="lg"
+							value={workingDirectory}
+						/>
+						<InputGroup.Append>
+							<InputGroup.Text style={controlStyle}>
+								{isPathValid ? <div>&#10004;</div> : <div>&#10006;</div>}
+							</InputGroup.Text>
+						</InputGroup.Append>
+					</InputGroup>
+				</OverlayTrigger>
 				<div style={buttonContainerStyle}>
-					<Button
-						onClick={this.onClickSelectWorkingDirectory}
-						style={buttonStyle}
-						size="lg"
+					<OverlayTrigger
+						placement={"left"}
+						delay={{ show: 1000, hide: 1000 }}
+						rootClose={true}
+						rootCloseEvent={"mousedown"}
+						overlay={
+							<Popover id="popover-basic">
+								<Popover.Title as="h3">Browse local file-system</Popover.Title>
+								<Popover.Content>
+									<p>
+										Click this button to navigate your file system and select a
+										home folder that will contain your saved Microscope files.
+										This folder will constitute your local Repository.
+									</p>
+								</Popover.Content>
+							</Popover>
+						}
 					>
-						Browse
-					</Button>
-					<Button
-						onClick={this.onClickConfirmWorkingDirectory}
-						style={buttonStyle}
-						size="lg"
-						disabled={!isPathValid}
+						<Button
+							onClick={this.onClickSelectWorkingDirectory}
+							style={buttonStyle}
+							size="lg"
+						>
+							Browse
+						</Button>
+					</OverlayTrigger>
+					<OverlayTrigger
+						placement={"right"}
+						delay={{ show: 1000, hide: 1000 }}
+						rootClose={true}
+						rootCloseEvent={"mousedown"}
+						overlay={
+							<Popover id="popover-basic">
+								<Popover.Title as="h3">Continue</Popover.Title>
+								<Popover.Content>
+									<p>Click Continue to use the current working folder.</p>
+								</Popover.Content>
+							</Popover>
+						}
 					>
-						Confirm
-					</Button>
+						<Button
+							onClick={this.onClickConfirmWorkingDirectory}
+							style={buttonStyle}
+							size="lg"
+							disabled={!isPathValid}
+						>
+							Continue
+						</Button>
+					</OverlayTrigger>
 				</div>
 			</div>
 		);
@@ -182,11 +233,11 @@ class MicroscopyMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 
 class MicroscopyMetadataToolComponent extends React.PureComponent {
 	static copyFiles(oldDirectory, newDirectory) {
-		readDirAsync(oldDirectory).then(function(fileNames) {
-			fileNames.forEach(function(fileName) {
+		readDirAsync(oldDirectory).then(function (fileNames) {
+			fileNames.forEach(function (fileName) {
 				let oldFile = path.resolve(oldDirectory, fileName);
 				let newFile = path.resolve(newDirectory, fileName);
-				fs.copyFile(oldFile, newFile, err => {
+				fs.copyFile(oldFile, newFile, (err) => {
 					if (err) throw err;
 					//console.log(oldFile + " was copied to " + newFile);
 				});
@@ -195,8 +246,8 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 	}
 
 	static cleanDirectory(newSchemaDirectory) {
-		readDirAsync(newSchemaDirectory).then(function(fileNames) {
-			fileNames.forEach(function(fileName) {
+		readDirAsync(newSchemaDirectory).then(function (fileNames) {
+			fileNames.forEach(function (fileName) {
 				let oldFile = path.resolve(newSchemaDirectory, fileName);
 				fs.unlinkSync(oldFile);
 			});
@@ -211,8 +262,8 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 			workingDirectoryConfirmed: false,
 			windowDimensions: {
 				width: window && window.innerWidth,
-				height: window && window.innerHeight
-			}
+				height: window && window.innerHeight,
+			},
 		};
 		this.onLoadSchema = this.onLoadSchema.bind(this);
 		this.onLoadMicroscopes = this.onLoadMicroscopes.bind(this);
@@ -231,7 +282,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 	onWindowResize() {
 		var windowDimensions = {
 			width: window.innerWidth,
-			height: window.innerHeight
+			height: window.innerHeight,
 		};
 		this.setState({ windowDimensions });
 	}
@@ -294,15 +345,15 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		const dirPath = path.resolve(workingDirectory, schemaDirectory);
 		let schema = [];
 		readDirAsync(dirPath)
-			.then(function(fileNames) {
+			.then(function (fileNames) {
 				let absoluteFileNames = [];
-				fileNames.forEach(function(fileName) {
+				fileNames.forEach(function (fileName) {
 					absoluteFileNames.push(path.resolve(dirPath, fileName));
 				});
 				return Promise.all(absoluteFileNames.map(readFileAsync));
 			})
-			.then(function(files) {
-				files.forEach(function(file) {
+			.then(function (files) {
+				files.forEach(function (file) {
 					var fileSchema = JSON.parse(file);
 					//console.log(fileSchema);
 					if (fileSchema !== null) {
@@ -323,16 +374,16 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		const dirPath = path.resolve(workingDirectory, microscopeDirectory);
 		let microscopesDB = {};
 		readDirAsync(dirPath)
-			.then(function(fileNames) {
+			.then(function (fileNames) {
 				let absoluteFileNames = [];
-				fileNames.forEach(function(fileName) {
+				fileNames.forEach(function (fileName) {
 					if (fileName.endsWith(".json"))
 						absoluteFileNames.push(path.resolve(dirPath, fileName));
 				});
 				return Promise.all(absoluteFileNames.map(readFileAsync));
 			})
-			.then(function(files) {
-				files.forEach(function(file) {
+			.then(function (files) {
+				files.forEach(function (file) {
 					var microscope = JSON.parse(file);
 					if (microscope !== null)
 						microscopesDB[microscope.Name + "_" + microscope.ID] = microscope;
@@ -361,7 +412,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		let fileName = path.resolve(dirPath, `${micNameNormalized}.json`);
 		// console.log("dirPath " + dirPath);
 		// console.log("fileName " + fileName);
-		fs.writeFile(fileName, json, function() {
+		fs.writeFile(fileName, json, function () {
 			complete(micNameNormalized);
 		});
 	}
@@ -389,7 +440,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		else newValue = value;
 		this.setState({
 			workingDirectory: newValue,
-			workingDirectoryConfirmed: true
+			workingDirectoryConfirmed: true,
 		});
 	}
 
@@ -397,7 +448,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		const {
 			windowDimensions: dims,
 			workingDirectory,
-			workingDirectoryConfirmed
+			workingDirectoryConfirmed,
 		} = this.state;
 		const imagesPathPNG =
 			path.resolve(appPath, "./public/assets/png") + path.sep;
