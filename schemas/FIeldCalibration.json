@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"FIeldCalibration.json",
-	"version":"1.07.7",
+	"version":"1.07.8",
 	"type":"object",
 	"title":"FIeldCalibration",
 	"description":"This describes the procedure used to measure the field dependent variations in the pixel-to-pixel sensitivity of the detector and/or by distortions in the optical path.",

@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AnalogVideo.json",
-	"version":"1.07.7",
+	"version":"1.07.8",
 	"type":"object",
 	"title":"AnalogVideo",
 	"description":"A device used to capture analog videos.",

@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"StandardDichroic.json",
-	"version":"1.07.7",
+	"version":"1.07.8",
 	"type":"object",
 	"title":"StandardDichroic",
 	"description":"This describes a dichroic  positioned in the standard light path for one or more channel available for this instrument.",

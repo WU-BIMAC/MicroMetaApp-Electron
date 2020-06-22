@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"LightPath.json",
-	"version":"1.07.7",
+	"version":"1.07.8",
 	"type":"object",
 	"title":"LightPath",
 	"description":"A description of the light path.",
@@ -84,28 +84,11 @@
 			}
 		},
 		"AdditionalOptics": {
-			"type":"object",
+			"type":"string",
 			"description":"A description of additional optics placed in this light path.",
 			"tier":2,
-			"properties": {
-				"ID": {
-					"type":"string",
-					"description":"A unique identifier for this component.",
-					"tier":2,
-					"category":"AdditionalOptics",
-					"readonly":true
-				},
-				"Name": {
-					"type":"string",
-					"description":"A user defined name for this component.",
-					"tier":2,
-					"category":"AdditionalOptics"
-				}
-			},
-			"required": [
-				"ID",
-				"Name"
-			]
+			"category":"AdditionalOptics",
+			"contains":"AdditionalOptics"
 		},
 		"Description": {
 			"title":"Description",

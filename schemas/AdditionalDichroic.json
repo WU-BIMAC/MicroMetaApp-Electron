@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AdditionalDichroic.json",
-	"version":"1.07.7",
+	"version":"1.07.8",
 	"type":"object",
 	"title":"AdditionalDichroic",
 	"description":"This describes an additional dichroic  positioned in the light path for one or more channel available for this instrument.",

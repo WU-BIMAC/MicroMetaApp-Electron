@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ImagingEnvironment.json",
-	"version":"1.07.7",
+	"version":"1.07.8",
 	"type":"object",
 	"title":"ImagingEnvironment",
 	"description":"This describes the environment in which the biological sample was kept, during the acquisition of this image.",

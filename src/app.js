@@ -19,6 +19,7 @@ const mainWindow = electron.BrowserWindow;
 
 const toolDirectory = "./MicroscopyMetadataTool/";
 const schemaDirectory = "./schemas/";
+const dimensionsDirectory = "./dimensions/";
 const microscopeDirectory = "./microscopes/";
 
 window.onload = () => {
@@ -267,6 +268,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		};
 		this.onLoadSchema = this.onLoadSchema.bind(this);
 		this.onLoadMicroscopes = this.onLoadMicroscopes.bind(this);
+		this.onLoadDimensions = this.onLoadDimensions.bind(this);
 		this.onWorkingDirectorySave = this.onWorkingDirectorySave.bind(this);
 
 		this.handleSelectWorkingDirectory = this.handleSelectWorkingDirectory.bind(
@@ -303,17 +305,33 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 			oldWorkingDirectory,
 			schemaDirectory
 		);
+		const oldDimensionsDirectory = path.resolve(
+			oldWorkingDirectory,
+			dimensionsDirectory
+		);
 		const newSchemaDirectory = path.resolve(
 			newWorkingDirectory,
 			schemaDirectory
 		);
+		const newDimensionsDirectory = path.resolve(
+			newWorkingDirectory,
+			dimensionsDirectory
+		);
 		if (!fs.existsSync(newSchemaDirectory)) {
 			fs.mkdirSync(newSchemaDirectory);
 		}
+		if (!fs.existsSync(newDimensionsDirectory)) {
+			fs.mkdirSync(newDimensionsDirectory);
+		}
 		MicroscopyMetadataToolComponent.cleanDirectory(newSchemaDirectory);
+		MicroscopyMetadataToolComponent.cleanDirectory(newDimensionsDirectory);
 		MicroscopyMetadataToolComponent.copyFiles(
 			oldSchemaDirectory,
 			newSchemaDirectory
+		);
+		MicroscopyMetadataToolComponent.copyFiles(
+			oldDimensionsDirectory,
+			newDimensionsDirectory
 		);
 
 		const oldMicroscopeDirectory = path.resolve(
@@ -366,6 +384,31 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 				});
 				//console.log(schema);
 				complete(schema);
+			});
+	}
+
+	onLoadDimensions(complete) {
+		const workingDirectory = this.state.workingDirectory;
+		const dirPath = path.resolve(workingDirectory, dimensionsDirectory);
+		let dimensions = {};
+		readDirAsync(dirPath)
+			.then(function (fileNames) {
+				let absoluteFileNames = [];
+				fileNames.forEach(function (fileName) {
+					absoluteFileNames.push(path.resolve(dirPath, fileName));
+				});
+				return Promise.all(absoluteFileNames.map(readFileAsync));
+			})
+			.then(function (files) {
+				files.forEach(function (file) {
+					var fileSchema = JSON.parse(file);
+					//console.log(fileSchema);
+					if (fileSchema !== null) {
+						dimensions = Object.assign(dimensions, fileSchema);
+					}
+				});
+				//console.log(schema);
+				complete(dimensions);
 			});
 	}
 
@@ -471,6 +514,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 					width={dims.width}
 					height={dims.height}
 					onLoadSchema={this.onLoadSchema}
+					onLoadDimensions={this.onLoadDimensions}
 					onLoadMicroscopes={this.onLoadMicroscopes}
 					onSaveMicroscope={this.onWorkingDirectorySave}
 					imagesPathPNG={imagesPathPNG}

@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"MicroscopeSettings.json",
-	"version":"1.07.7",
+	"version":"1.07.8",
 	"type":"object",
 	"title":"MicroscopeSettings",
 	"description":"This element refers to the microscope used to acquire this image and it holds the settings that were applied to the microscope during this acquisition.",

@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CalibrationSlide.json",
-	"version":"1.07.7",
+	"version":"1.07.8",
 	"type":"object",
 	"title":"CalibrationSlide",
 	"description":"This element describes a slide used to measure the different optical properties such as magnification, distance, and different kinds of optical distorsions.",

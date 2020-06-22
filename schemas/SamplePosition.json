@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"SamplePosition.json",
-	"version":"1.07.7",
+	"version":"1.07.8",
 	"type":"object",
 	"title":"SamplePosition",
 	"description":"This is used to specify the location of the sample during the acquisition of this plane, with respect to the microscope's reference frame.",

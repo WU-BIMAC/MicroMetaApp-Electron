@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Objective.json",
-	"version":"1.07.7",
+	"version":"1.07.8",
 	"type":"object",
 	"title":"Objective",
 	"description":"A microscope's objective lens is a compound lens consisting of several simple lenses (elements), usually arranged along a common axis.",
@@ -69,21 +69,6 @@
 			"tier":1,
 			"category":"Objective"
 		},
-		"NominalImmersionMedium": {
-			"type":"string",
-			"description":"The immersion medium this objective is designed for.",
-			"tier":2,
-			"enum": [
-				"Air",
-				"Glycerol",
-				"Multi",
-				"Oil",
-				"Water",
-				"WaterDipping",
-				"Other"
-			],
-			"category":"Objective"
-		},
 		"Infinity": {
 			"type":"boolean",
 			"description":"Records whether or not the objective is infinity corrected.",
@@ -147,13 +132,13 @@
 		},
 		"CorrectionCollar": {
 			"type":"boolean",
-			"description":"Records whether or not the objective was fitted with a Correction Collar.",
+			"description":"When using high numerical aperture dry objectives (numerical aperture of 0.8 or greater), cover glass thickness variations of only a few micrometers, immersion medium changes and temperature changes result in dramatic image degradation due to aberration. To compensate for these errors, the more highly corrected objectives are equipped with a correction collar to allow adjustment of the central lens group position to coincide with fluctuations in cover glass thickness, changes in immersion medium and in temperature. This field records whether or not the objective was fitted with a Correction Collar.",
 			"tier":3,
 			"category":"Objective"
 		},
 		"CorrectionCollarType": {
 			"type":"string",
-			"description":"When using high numerical aperture dry objectives (numerical aperture of 0.8 or greater), cover glass thickness variations of only a few micrometers, immersion medium changes, and temperature changes result in dramatic image degradation due to aberration. To compensate for these errors, the more highly corrected objectives are equipped with a correction collar to allow adjustment of the central lens group position to coincide with fluctuations in cover glass thickness, changes in immersion medium and in temperature. This field records whether or not the objective was fitted with a Correction Collar.",
+			"description":"Records the type of Correction Collar this objective is fitted with.",
 			"tier":3,
 			"enum": [
 				"CoverslipThickness",
@@ -317,7 +302,6 @@
 		"Correction",
 		"NominalMagnification",
 		"LensNA",
-		"NominalImmersionMedium",
 		"Infinity",
 		"WorkingDistance",
 		"Iris",

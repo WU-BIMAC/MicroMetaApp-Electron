@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"OpticalCalibration.json",
-	"version":"1.07.7",
+	"version":"1.07.8",
 	"type":"object",
 	"title":"OpticalCalibration",
 	"description":"This describes the procedure that was used for optical calibration and the resulting calibration measurements.",
@@ -475,64 +475,11 @@
 			}
 		},
 		"OpticalStandardGroup": {
-			"type":"array",
+			"type":"string",
 			"description":"The optical standard used in this case. This might be a pre-manufactured slide, such as those produced by Argolight (http://argolight.com/), Geller MicroAnalytical Laboratory (Magnification Reference Standard MRS-4 and others; http://www.gellermicro.com/mag_standards/mrs.html), Zeiss and others. Alternatively, the standard might be a slide containing multi-colored beads of known size and emission characteristics. Finally, slides coated with specific DNA origami patterns are increasingly being used for this purpose as well.",
 			"tier":1,
-			"items": {
-				"properties": {
-					"ID": {
-						"type":"string",
-						"description":"A unique identifier for this component.",
-						"tier":3,
-						"category":"OpticalStandardGroup",
-						"readonly":true
-					},
-					"Name": {
-						"type":"string",
-						"description":"A user defined name for this component.",
-						"tier":3,
-						"category":"OpticalStandardGroup"
-					},
-					"Manufacturer": {
-						"type":"string",
-						"description":"The manufacturer of this component.",
-						"tier":1,
-						"category":"OpticalStandardGroup"
-					},
-					"Model": {
-						"type":"string",
-						"description":"The model of this component.",
-						"tier":3,
-						"category":"OpticalStandardGroup"
-					},
-					"SerialNumber": {
-						"type":"string",
-						"description":"The serial number of this component",
-						"tier":5,
-						"category":"OpticalStandardGroup"
-					},
-					"LotNumber": {
-						"type":"string",
-						"description":"The lot number of this component",
-						"tier":5,
-						"category":"OpticalStandardGroup"
-					},
-					"SpecsFile": {
-						"type":"string",
-						"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
-						"tier":5,
-						"category":"OpticalStandardGroup"
-					}
-				},
-				"required": [
-					"ID",
-					"Name",
-					"Manufacturer",
-					"Model",
-					"SerialNumber",
-					"SpecsFile"
-				]
-			}
+			"category":"OpticalStandardGroup",
+			"contains":"OpticalStandardGroup"
 		},
 		"OpticalCalibrationReport": {
 			"type":"array",
