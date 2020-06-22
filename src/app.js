@@ -150,7 +150,7 @@ class MicroscopyMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 					placement={"top"}
 					delay={{ show: 1000, hide: 1000 }}
 					rootClose={true}
-					rootCloseEvent={"mousedown"}
+					rootCloseEvent={"mousedown" || "click"}
 					overlay={
 						<Popover id="popover-basic">
 							<Popover.Title as="h3">Current working folder</Popover.Title>
@@ -181,7 +181,7 @@ class MicroscopyMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 						placement={"left"}
 						delay={{ show: 1000, hide: 1000 }}
 						rootClose={true}
-						rootCloseEvent={"mousedown"}
+						rootCloseEvent={"mousedown" || "click"}
 						overlay={
 							<Popover id="popover-basic">
 								<Popover.Title as="h3">Browse local file-system</Popover.Title>
@@ -207,7 +207,7 @@ class MicroscopyMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 						placement={"right"}
 						delay={{ show: 1000, hide: 1000 }}
 						rootClose={true}
-						rootCloseEvent={"mousedown"}
+						rootCloseEvent={"mousedown" || "click"}
 						overlay={
 							<Popover id="popover-basic">
 								<Popover.Title as="h3">Continue</Popover.Title>
