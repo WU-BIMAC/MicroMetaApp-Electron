@@ -325,14 +325,17 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		}
 		MicroscopyMetadataToolComponent.cleanDirectory(newSchemaDirectory);
 		MicroscopyMetadataToolComponent.cleanDirectory(newDimensionsDirectory);
-		MicroscopyMetadataToolComponent.copyFiles(
-			oldSchemaDirectory,
-			newSchemaDirectory
-		);
-		MicroscopyMetadataToolComponent.copyFiles(
-			oldDimensionsDirectory,
-			newDimensionsDirectory
-		);
+		if (fs.existsSync(oldSchemaDirectory))
+			MicroscopyMetadataToolComponent.copyFiles(
+				oldSchemaDirectory,
+				newSchemaDirectory
+			);
+
+		if (fs.existsSync(oldDimensionsDirectory))
+			MicroscopyMetadataToolComponent.copyFiles(
+				oldDimensionsDirectory,
+				newDimensionsDirectory
+			);
 
 		const oldMicroscopeDirectory = path.resolve(
 			oldWorkingDirectory,
@@ -345,10 +348,11 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		if (!fs.existsSync(newMicroscopeDirectory)) {
 			fs.mkdirSync(newMicroscopeDirectory);
 		}
-		MicroscopyMetadataToolComponent.copyFiles(
-			oldMicroscopeDirectory,
-			newMicroscopeDirectory
-		);
+		if (fs.existsSync(oldMicroscopeDirectory))
+			MicroscopyMetadataToolComponent.copyFiles(
+				oldMicroscopeDirectory,
+				newMicroscopeDirectory
+			);
 		this.setState({ workingDirectory: newWorkingDirectory });
 
 		// window.console.log(
