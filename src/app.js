@@ -240,7 +240,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 				let newFile = path.resolve(newDirectory, fileName);
 				fs.copyFile(oldFile, newFile, (err) => {
 					if (err) throw err;
-					//console.log(oldFile + " was copied to " + newFile);
+					//console.log(newFile + " copied");
 				});
 			});
 		});
@@ -251,6 +251,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 			fileNames.forEach(function (fileName) {
 				let oldFile = path.resolve(newSchemaDirectory, fileName);
 				fs.unlinkSync(oldFile);
+				//console.log(oldFile + " eliminated");
 			});
 		});
 	}
@@ -323,7 +324,9 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		if (!fs.existsSync(newDimensionsDirectory)) {
 			fs.mkdirSync(newDimensionsDirectory);
 		}
+		console.log("CleaningFiles from " + newSchemaDirectory);
 		MicroscopyMetadataToolComponent.cleanDirectory(newSchemaDirectory);
+		console.log("CleaningFiles from " + newDimensionsDirectory);
 		MicroscopyMetadataToolComponent.cleanDirectory(newDimensionsDirectory);
 
 		if (fs.existsSync(oldSchemaDirectory)) {
