@@ -233,11 +233,11 @@ class MicroscopyMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 }
 
 class MicroscopyMetadataToolComponent extends React.PureComponent {
-	static copyFiles(oldDirectory, newDirectory) {
-		readDirAsync(oldDirectory).then(function (fileNames) {
+	static copyFiles(oldPath, newPath) {
+		readDirAsync(oldPath).then(function (fileNames) {
 			fileNames.forEach(function (fileName) {
-				let oldFile = path.resolve(oldDirectory, fileName);
-				let newFile = path.resolve(newDirectory, fileName);
+				let oldFile = path.resolve(oldPath, fileName);
+				let newFile = path.resolve(newPath, fileName);
 				fs.copyFile(oldFile, newFile, (err) => {
 					if (err) throw err;
 					//console.log(newFile + " copied");
@@ -246,14 +246,18 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		});
 	}
 
-	static cleanDirectory(newSchemaDirectory) {
-		readDirAsync(newSchemaDirectory).then(function (fileNames) {
-			fileNames.forEach(function (fileName) {
-				let oldFile = path.resolve(newSchemaDirectory, fileName);
-				fs.unlinkSync(oldFile);
-				//console.log(oldFile + " eliminated");
-			});
+	static cleanDirectory(pathToClean) {
+		fs.readdirSync(pathToClean).forEach(function(file, index) {
+			const curPath = path.join(pathToClean, file);
+			fs.unlinkSync(curPath);
 		});
+		// readDirAsync(newSchemaDirectory).then(function (fileNames) {
+		// 	fileNames.forEach(function (fileName) {
+		// 		let oldFile = path.resolve(newSchemaDirectory, fileName);
+		// 		fs.unlinkSync(oldFile);
+		// 		//console.log(oldFile + " eliminated");
+		// 	});
+		// });
 	}
 
 	constructor(props) {
@@ -320,28 +324,14 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		);
 		if (!fs.existsSync(newSchemaDirectory)) {
 			fs.mkdirSync(newSchemaDirectory);
-		} else {
-			fs.rmdir(newSchemaDirectory, { recursive: true }, (err) => {
-				if (err) {
-					throw err;
-				}
-			});
-			fs.mkdirSync(newSchemaDirectory);
-		}
+		} 
 		if (!fs.existsSync(newDimensionsDirectory)) {
 			fs.mkdirSync(newDimensionsDirectory);
-		} else {
-			fs.rmdir(newDimensionsDirectory, { recursive: true }, (err) => {
-				if (err) {
-					throw err;
-				}
-			});
-			fs.mkdirSync(newDimensionsDirectory);
-		}
-		// console.log("CleaningFiles from " + newSchemaDirectory);
-		// MicroscopyMetadataToolComponent.cleanDirectory(newSchemaDirectory);
-		// console.log("CleaningFiles from " + newDimensionsDirectory);
-		// MicroscopyMetadataToolComponent.cleanDirectory(newDimensionsDirectory);
+		} 
+		console.log("CleaningFiles from " + newSchemaDirectory);
+		MicroscopyMetadataToolComponent.cleanDirectory(newSchemaDirectory);
+		console.log("CleaningFiles from " + newDimensionsDirectory);
+		MicroscopyMetadataToolComponent.cleanDirectory(newDimensionsDirectory);
 
 		if (fs.existsSync(oldSchemaDirectory)) {
 			console.log("CopyFiles from " + oldSchemaDirectory);
