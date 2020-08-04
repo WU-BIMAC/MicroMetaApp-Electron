@@ -320,14 +320,28 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		);
 		if (!fs.existsSync(newSchemaDirectory)) {
 			fs.mkdirSync(newSchemaDirectory);
+		} else {
+			fs.rmdir(newSchemaDirectory, { recursive: true }, (err) => {
+				if (err) {
+					throw err;
+				}
+			});
+			fs.mkdirSync(newSchemaDirectory);
 		}
 		if (!fs.existsSync(newDimensionsDirectory)) {
 			fs.mkdirSync(newDimensionsDirectory);
+		} else {
+			fs.rmdir(newDimensionsDirectory, { recursive: true }, (err) => {
+				if (err) {
+					throw err;
+				}
+			});
+			fs.mkdirSync(newDimensionsDirectory);
 		}
-		console.log("CleaningFiles from " + newSchemaDirectory);
-		MicroscopyMetadataToolComponent.cleanDirectory(newSchemaDirectory);
-		console.log("CleaningFiles from " + newDimensionsDirectory);
-		MicroscopyMetadataToolComponent.cleanDirectory(newDimensionsDirectory);
+		// console.log("CleaningFiles from " + newSchemaDirectory);
+		// MicroscopyMetadataToolComponent.cleanDirectory(newSchemaDirectory);
+		// console.log("CleaningFiles from " + newDimensionsDirectory);
+		// MicroscopyMetadataToolComponent.cleanDirectory(newDimensionsDirectory);
 
 		if (fs.existsSync(oldSchemaDirectory)) {
 			console.log("CopyFiles from " + oldSchemaDirectory);
