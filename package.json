@@ -20,9 +20,10 @@
 		"dev": "gulp dev",
 		"build": "gulp build-prod && gulp build-dev",
 		"update-mma": "npm uninstall 4dn-microscopy-metadata-tool && npm cache clean --force && npm install 4dn-microscopy-metadata-tool@github:WU-BIMAC/4DNMicroscopyMetadataToolReact#master --save",
-		"dist_win": "build --win --x64 --ia32",
-		"dist_mac": "build --mac"
+		"dist_win": "electron-builder build --win --x64 --ia32",
+		"dist_mac": "electron-builder build --mac"
 	},
+  
 	"build": {
 		"appId": "com.4dn.MicroscopyMetadataTool",
 		"asar": true,
