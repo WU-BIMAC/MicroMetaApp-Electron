@@ -1,6 +1,6 @@
 {
 	"name": "4dn-microscopy-metadata-tool-standalone",
-	"version": "0.0.27-1",
+	"version": "0.0.28-1",
 	"private": true,
 	"main": "./main.js",
 	"publishConfig": {
@@ -23,7 +23,6 @@
 		"dist_win": "electron-builder build --win --x64 --ia32",
 		"dist_mac": "electron-builder build --mac"
 	},
-  
 	"build": {
 		"appId": "com.4dn.MicroscopyMetadataTool",
 		"asar": true,
