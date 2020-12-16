@@ -1,13 +1,13 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Laser.json",
-	"version":"1.07.8",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"Laser",
 	"description":"A Light Amplification by Stimulated Emission of Radiation (LASER) is a device that emits light through a process of optical amplification based on the stimulated emission of electromagnetic radiation.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Fluorescence_LightSource",
-	"image":"Fluorescence_LightSource_Laser.svg",
+	"image":"Fluorescence_LightSource_Laser.png",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -307,6 +307,7 @@
 		"Manufacturer",
 		"Model",
 		"SerialNumber",
-		"SpecsFile"
+		"SpecsFile",
+		"Description"
 	]
 }

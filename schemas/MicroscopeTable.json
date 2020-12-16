@@ -1,13 +1,13 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"MicroscopeTable.json",
-	"version":"1.07.8",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"MicroscopeTable",
 	"description":"This element describes the table on which this Microscope rests during acquisition.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"MicroscopyBasics",
-	"image":"MicroscopyBasics_MicroscopeTable.svg",
+	"image":"MicroscopyBasics_MicroscopeTable.png",
 	"tier":4,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -192,6 +192,7 @@
 		"Manufacturer",
 		"Model",
 		"SerialNumber",
-		"SpecsFile"
+		"SpecsFile",
+		"Description"
 	]
 }

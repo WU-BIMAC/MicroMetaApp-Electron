@@ -1,13 +1,13 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"LEDModule.json",
-	"version":"1.07.8",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"LEDModule",
 	"description":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
-	"image":"ChildElement_LEDModule.svg",
+	"image":"ChildElement_LEDModule.png",
 	"tier":2,
 	"subCategoriesOrder": {
 		"LEDModule":"A Light Emitting Diode (LED) light source is often composed of multiple modules each with its own wavelenght characteristics. This element describes an individual LED module. Multiple of this elements may be used."

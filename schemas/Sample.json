@@ -1,13 +1,13 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Sample.json",
-	"version":"1.07.8",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"Sample",
 	"description":"A description of the sample that was imaged in this experiment.",
 	"domain":"Experimental",
 	"category":"SamplePreparation",
-	"image":"SamplePreparation_Sample.svg",
+	"image":"SamplePreparation_Sample.png",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -57,6 +57,7 @@
 	"required": [
 		"Name",
 		"MountingMedium",
-		"MountingMediumRefractiveIndex"
+		"MountingMediumRefractiveIndex",
+		"Description"
 	]
 }

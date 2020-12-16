@@ -1,13 +1,13 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"SampleHolder.json",
-	"version":"1.07.8",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"SampleHolder",
 	"description":"This describes an optional sample holder mounted on the microscope stage.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"SamplePositioning.Stage",
-	"image":"SamplePositioning_Stage_SampleHolder.svg",
+	"image":"SamplePositioning_Stage_SampleHolder.png",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -441,6 +441,7 @@
 		"Manufacturer",
 		"Model",
 		"SerialNumber",
-		"SpecsFile"
+		"SpecsFile",
+		"Description"
 	]
 }

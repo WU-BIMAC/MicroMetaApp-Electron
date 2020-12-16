@@ -1,13 +1,13 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Arc.json",
-	"version":"1.07.8",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"Arc",
 	"description":"An Arc lamp is a lamp that produces light by an electric arc (also called a voltaic arc), which is typically generated between metal electrodes through an inert gas in a glass bulb.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"Fluorescence_LightSource",
-	"image":"Fluorescence_LightSource_Arc.svg",
+	"image":"Fluorescence_LightSource_Arc.png",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -130,6 +130,7 @@
 		"Manufacturer",
 		"Model",
 		"SerialNumber",
-		"SpecsFile"
+		"SpecsFile",
+		"Description"
 	]
 }

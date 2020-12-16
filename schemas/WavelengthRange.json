@@ -1,13 +1,13 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"WavelengthRange.json",
-	"version":"1.07.8",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"WavelengthRange",
 	"description":"This records a range of wavelengths this device is designed for, according to the manufacturer. Multiple of this elements may be used.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"ChildElement",
-	"image":"ChildElement_WavelengthRange.svg",
+	"image":"ChildElement_WavelengthRange.png",
 	"tier":5,
 	"subCategoriesOrder": {
 		"WavelengthRange":"This records a range of wavelengths this device is designed for, according to the manufacturer. Multiple of this elements may be used."

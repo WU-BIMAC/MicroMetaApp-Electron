@@ -1,17 +1,18 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Experiment.json",
-	"version":"1.07.8",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"Experiment",
 	"description":"Describes the experiment during which this Image was acquired. The optional Description element may contain free text to further describe the experiment.",
 	"domain":"Experimental",
 	"category":"SamplePreparation",
-	"image":"SamplePreparation_Experiment.svg",
+	"image":"SamplePreparation_Experiment.png",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"Experiment":"Describes the experiment during which this Image was acquired. The optional Description element may contain free text to further describe the experiment.",
+		"Experimenter":"This empty element refers to Experimenter that performed this experiment.",
 		"Sample":"A description of the sample that was imaged in this experiment.",
 		"MicrobeamManipulation":"Defines a microbeam operation and the region of the image it was applied to. The LightSourceSettingsRef element is a reference to the LightSourceSettings that were used in this case including a reference to the light source that was used for this micromanipulation experiment (e.g.  a laser used for photobleaching)."
 	},
@@ -81,19 +82,88 @@
 			],
 			"category":"Experiment"
 		},
+		"Experimenter": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to Experimenter that performed this experiment.",
+				"type":"string",
+				"tier":1,
+				"category":"Experimenter",
+				"linkTo":"Experimenter"
+			}
+		},
 		"Sample": {
-			"type":"string",
+			"type":"object",
 			"description":"A description of the sample that was imaged in this experiment.",
 			"tier":1,
-			"category":"Sample",
-			"contains":"Sample"
+			"properties": {
+				"ID": {
+					"type":"string",
+					"description":"A unique identifier for this Sample.",
+					"tier":1,
+					"category":"Sample",
+					"readonly":true
+				},
+				"Name": {
+					"type":"string",
+					"description":"A user assigned name for this Sample.",
+					"tier":1,
+					"category":"Sample"
+				},
+				"MountingMedium": {
+					"type":"string",
+					"description":"The mounting medium the sample is embedded in during acquisition.",
+					"tier":2,
+					"category":"Sample"
+				},
+				"MountingMediumRefractiveIndex": {
+					"type":"number",
+					"description":"The refractive index (RI) of the mounting medium. If possible the RI should be measured. Alternatively, please refer to the nominal RI as provided by the manufacturer.",
+					"tier":3,
+					"category":"Sample"
+				}
+			},
+			"required": [
+				"Name",
+				"MountingMedium",
+				"MountingMediumRefractiveIndex"
+			]
 		},
 		"MicrobeamManipulation": {
-			"type":"string",
+			"type":"array",
 			"description":"Defines a microbeam operation and the region of the image it was applied to. The LightSourceSettingsRef element is a reference to the LightSourceSettings that were used in this case, including a reference to the light source that was used for this micromanipulation experiment (e.g.  a laser used for photobleaching).",
 			"tier":3,
-			"category":"MicrobeamManipulation",
-			"contains":"MicrobeamManipulation"
+			"items": {
+				"properties": {
+					"ID": {
+						"type":"string",
+						"description":"A unique identifier for this component.",
+						"tier":3,
+						"category":"MicrobeamManipulation",
+						"readonly":true
+					},
+					"Type": {
+						"type":"string",
+						"description":"Defines the type of micromanipulation performed.",
+						"tier":3,
+						"enum": [
+							"FRAP",
+							"FLIP",
+							"InverseFRAP",
+							"Photoablation",
+							"Photoactivation",
+							"Uncaging",
+							"OpticalTrapping",
+							"Other"
+						],
+						"category":"MicrobeamManipulation"
+					}
+				},
+				"required": [
+					"ID",
+					"Type"
+				]
+			}
 		},
 		"Description": {
 			"title":"Description",
@@ -115,6 +185,8 @@
 		"Name",
 		"Type",
 		"LabellingMethod",
-		"Sample"
+		"Experimenter",
+		"Sample",
+		"Description"
 	]
 }

@@ -1,13 +1,13 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"RelayLens.json",
-	"version":"1.07.8",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"RelayLens",
 	"description":"A lens positioned at the mount connecting a detector to the microscope body.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"AdditionalOptics",
-	"image":"AdditionalOptics_RelayLens.svg",
+	"image":"AdditionalOptics_RelayLens.png",
 	"tier":3,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -441,6 +441,7 @@
 		"Manufacturer",
 		"Model",
 		"SerialNumber",
-		"SpecsFile"
+		"SpecsFile",
+		"Description"
 	]
 }

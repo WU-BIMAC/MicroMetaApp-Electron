@@ -1,13 +1,13 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Direct.json",
-	"version":"1.07.8",
+	"version":"1.06.5",
 	"type":"object",
 	"title":"Direct",
 	"description":"A Direct coupling between the light source and the microscope consists either of a direct mount or of an optical light path that directs light across space to the back of the microscope body.",
 	"domain":"MicrosocpeSpecifications",
 	"category":"LightSourceCoupling",
-	"image":"LightSourceCoupling_Direct.svg",
+	"image":"LightSourceCoupling_Direct.png",
 	"tier":4,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
@@ -114,6 +114,7 @@
 		"Manufacturer",
 		"Model",
 		"SerialNumber",
-		"SpecsFile"
+		"SpecsFile",
+		"Description"
 	]
 }
