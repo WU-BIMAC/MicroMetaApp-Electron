@@ -1,27 +1,28 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"LightGuide.json",
-	"version":"1.06.5",
+	"version":"2.00.0",
 	"type":"object",
 	"title":"LightGuide",
-	"description":"A Light Guide coupling between the light source and the microscope generally consists of a casing enclosing a medium capable of transferring light from the illuminator to the back of the microsocpe body.",
-	"domain":"MicrosocpeSpecifications",
+	"description":"A Light Guide coupling between the Light Source and the Microscope Stand generally consists of a casing enclosing a medium (i.e., typically fiber optic) capable of transferring light from the illuminator to the back of the Microscope Stand.",
+	"extension":"Basic",
+	"domain":"MicroscopeHardwareSpecifications",
 	"category":"LightSourceCoupling",
-	"image":"LightSourceCoupling_LightGuide.png",
-	"tier":4,
+	"image":"LightSourceCoupling_LightGuide.svg",
+	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
-		"LightSourceCoupling":"This element describes the device(s)/method(s) used to couple the available light source(s) with this microscope body in order to transfer light to the specimen. A typical light-microscope has a light coupling device for each available light source.",
-		"LightGuide":"A Light Guide coupling between the light source and the microscope generally consists of a casing enclosing a medium capable of transferring light from the illuminator to the back of the microsocpe body.",
-		"CouplingLens":"This is a reference to a lens positioned at the connection between this light source coupling element and the microscope body.",
-		"WavelengthRange":"This records a range of wavelengths this device is designed for according to the manufacturer. Multiple of this elements may be used."
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"LightSourceCoupling":"This element describes the device(s)/method(s) used to couple an available Light Source(s) with this Microscope Stand to transfer light to the specimen. A typical light Microscope has a Light Coupling device for each available Light Source.",
+		"LightGuide":"A Light Guide coupling between the Light Source and the Microscope Stand generally consists of a casing enclosing a medium (i.e., typically fiber optic) capable of transferring light from the illuminator to the back of the Microscope Stand.",
+		"CouplingLens":"This is a reference to a Lens positioned at the connection between this Light Source coupling element and the Microscope Stand.",
+		"WavelengthRange":"This element records a range of Wavelengths this component is designed for according to the Manufacturer. Multiple of this element may be used."
 	},
 	"properties": {
 		"Type": {
 			"type":"string",
-			"description":"The type of light guide used in this case.",
-			"tier":5,
+			"description":"This field records the general category of Light Guide used in this case.",
+			"tier":2,
 			"enum": [
 				"Fiber optics",
 				"Liquid",
@@ -29,77 +30,28 @@
 			],
 			"category":"LightGuide"
 		},
-		"PeakWavelength": {
-			"type":"number",
-			"description":"The wavelength associated with the transmittance peak for this light guide.",
-			"tier":5,
-			"category":"LightGuide"
-		},
-		"PeakWavelengthUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":5,
-			"default":"nm",
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"pixel",
-				"reference frame"
-			],
-			"category":"LightGuide"
-		},
 		"RefractiveIndex": {
 			"type":"number",
-			"description":"The refractive index of the material this light guide is made of.",
-			"tier":5,
+			"description":"This field records the Refractive Index of the material used to construct this Light Guide.",
+			"tier":3,
 			"category":"LightGuide"
 		},
 		"NumericalAperture": {
 			"type":"number",
-			"description":"The numerical aperture of this light guide expressed as a floating point (real) number. Expected range 0.02 - 1.5.",
-			"tier":5,
+			"description":"The Numerical Aperture (NA) of this device expressed as a floating-point (real) number. NA can be calculated from the Angular Aperture (alpha) using the following formula, NA = n(sin alpha), and is a measure of how much of the incident light actually passes through this device. The larger the angular aperture, the more information this device can transmit. Expected range 0.02 - 1.5.",
+			"tier":3,
 			"category":"LightGuide"
 		},
 		"AcceptanceAngle": {
 			"type":"number",
-			"description":"The angle within which the light beam produced by a light source may be coupled with the bound modes of this light guide.",
-			"tier":5,
+			"description":"The angle within which the light beam produced by a Light Source may be coupled with the bound modes of this Light Guide.",
+			"tier":3,
 			"category":"LightGuide"
 		},
 		"AcceptanceAngleUnit": {
 			"type":"string",
 			"description":"NA",
-			"tier":5,
+			"tier":3,
 			"default":"deg",
 			"enum": [
 				"deg",
@@ -110,43 +62,43 @@
 		},
 		"Geometry": {
 			"type":"string",
-			"description":"The shape of this light guide.",
-			"tier":5,
+			"description":"This field records the cross-section shape of this Light Guide.",
+			"tier":3,
 			"enum": [
-				"Spot Light",
-				"Line Light",
-				"Ring Light",
 				"Backlight",
 				"Diffuse Axial",
+				"Line Light",
+				"Ring Light",
+				"Spot Light",
 				"Other"
 			],
 			"category":"LightGuide"
 		},
 		"MaterialName": {
 			"type":"string",
-			"description":"The chemical composition or the non-proprietary trade designation of the material used for this light guide.",
-			"tier":5,
+			"description":"This field records the chemical composition or the non-proprietary trade designation of the material used to construct this Light Guide.",
+			"tier":3,
 			"enum": [
+				"Borosilicate",
 				"Quartz",
 				"Silica",
-				"Borosilicate",
 				"Other"
 			],
 			"category":"LightGuide"
 		},
 		"SingleMode": {
 			"type":"boolean",
-			"description":"Whether or not this light guide is single-mode. If not, then the guide is assumend to be multi-modal.",
-			"tier":5,
+			"description":"This field records whether (True) this Light Guide is single-mode. If not (False), then the guide is assumend to be multi-modal.",
+			"tier":3,
 			"category":"LightGuide"
 		},
 		"WaveguideMode": {
 			"type":"string",
-			"description":"The transverse mode (or superposition of such modes) that are being imposed by this light guide onto the light wave traversing it. These modes generally follow different propagation constants.",
-			"tier":5,
+			"description":"This field records the transverse mode (or superposition of such modes) that are being imposed by this light guide onto the light wave traversing it. These modes generally follow different propagation constants.",
+			"tier":3,
 			"enum": [
-				"Transverse electromagnetic",
 				"Transverse electric",
+				"Transverse electromagnetic",
 				"Transverse magnetic",
 				"Hybrid",
 				"Other"
@@ -155,14 +107,14 @@
 		},
 		"Diameter": {
 			"type":"number",
-			"description":"The outer diameter of this light guide.",
-			"tier":5,
+			"description":"This fields records the outer diameter of this Light Guide.",
+			"tier":3,
 			"category":"LightGuide"
 		},
 		"DiameterUnit": {
 			"type":"string",
 			"description":"NA",
-			"tier":5,
+			"tier":3,
 			"default":"mm",
 			"enum": [
 				"Ym",
@@ -197,64 +149,58 @@
 				"ly",
 				"pc",
 				"pt",
-				"pixel",
+				"Pixel",
 				"reference frame"
 			],
 			"category":"LightGuide"
 		},
 		"Name": {
 			"type":"string",
-			"description":"A user defined name for this component.",
-			"tier":4,
+			"description":"A User-defined Name for this component.",
+			"tier":2,
 			"category":"General"
 		},
 		"ID": {
 			"type":"string",
-			"description":"A unique identifier for this component.",
-			"tier":4,
+			"description":"A Unique Identifier for this component.",
+			"tier":2,
 			"category":"General",
 			"readonly":true
 		},
 		"Transmittance": {
 			"type":"number",
-			"description":"The maximum amount of light this LightSourceCoupling apparatus is capable of transmitting at the peak wavelenght. It is represented as a fractional value from 0.0 to 1.0.",
-			"tier":5,
+			"description":"The maximum amount of light this Light Source Coupling device is capable of transmitting at the Peak Wavelength. It is represented as a fractional value from 0.0 to 1.0.",
+			"tier":3,
 			"category":"LightSourceCoupling"
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"The manufacturer of this component.",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
 		"Model": {
 			"type":"string",
-			"description":"The model of this component.",
-			"tier":3,
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
 			"category":"ManufacturerSpec"
 		},
-		"SerialNumber": {
+		"CatalogNumber": {
 			"type":"string",
-			"description":"The serial number of this component",
-			"tier":5,
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
 			"category":"ManufacturerSpec"
 		},
 		"LotNumber": {
 			"type":"string",
-			"description":"The lot number of this component",
-			"tier":5,
-			"category":"ManufacturerSpec"
-		},
-		"SpecsFile": {
-			"type":"string",
-			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
-			"tier":5,
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
 			"category":"ManufacturerSpec"
 		},
 		"CouplingLens": {
 			"type":"string",
-			"description":"This is a reference to a lens positioned at the connection between this light source coupling element and the microscope body.",
-			"tier":5,
+			"description":"This is a reference to a Lens positioned at the connection between this Light Source coupling element and the Microscope Stand.",
+			"tier":2,
 			"category":"CouplingLens",
 			"linkTo":"CouplingLens"
 		},
@@ -262,147 +208,186 @@
 			"title":"Description",
 			"type":"string",
 			"description":"This is a simple multi-line comment or annotation describing this component.",
-			"tier":4,
+			"tier":1,
 			"category":"General"
 		},
 		"WavelengthRange": {
-			"type":"object",
-			"description":"This records a range of wavelengths this device is designed for, according to the manufacturer. Multiple of this elements may be used.",
-			"tier":5,
-			"properties": {
-				"CutIn": {
-					"type":"number",
-					"description":"CutIn is the wavelength below which the response rate is below 50%.",
-					"tier":5,
-					"category":"WavelengthRange"
+			"type":"array",
+			"description":"This element records a range of Wavelengths this component is designed for, according to the Manufacturer. Multiple of this element may be used.",
+			"tier":2,
+			"items": {
+				"properties": {
+					"PeakWavelength": {
+						"type":"number",
+						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"tier":2,
+						"category":"WavelengthRange"
+					},
+					"PeakWavelengthUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"WavelengthRange"
+					},
+					"CutOn": {
+						"type":"number",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"tier":2,
+						"category":"WavelengthRange"
+					},
+					"CutOnUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"WavelengthRange"
+					},
+					"CutOff": {
+						"type":"number",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"tier":2,
+						"category":"WavelengthRange"
+					},
+					"CutOffUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"WavelengthRange"
+					}
 				},
-				"CutInUnit": {
-					"type":"string",
-					"description":"NA",
-					"tier":5,
-					"default":"nm",
-					"enum": [
-						"Ym",
-						"Zm",
-						"Em",
-						"Pm",
-						"Tm",
-						"Gm",
-						"Mm",
-						"km",
-						"hm",
-						"dam",
-						"m",
-						"dm",
-						"cm",
-						"mm",
-						"µm",
-						"nm",
-						"pm",
-						"fm",
-						"am",
-						"zm",
-						"ym",
-						"Å",
-						"thou",
-						"li",
-						"in",
-						"ft",
-						"yd",
-						"mi",
-						"ua",
-						"ly",
-						"pc",
-						"pt",
-						"pixel",
-						"reference frame"
-					],
-					"category":"WavelengthRange"
-				},
-				"CutOut": {
-					"type":"number",
-					"description":"CutOut is the wavelength above which the response rate is below 50%.",
-					"tier":5,
-					"category":"WavelengthRange"
-				},
-				"CutOutUnit": {
-					"type":"string",
-					"description":"NA",
-					"tier":5,
-					"default":"nm",
-					"enum": [
-						"Ym",
-						"Zm",
-						"Em",
-						"Pm",
-						"Tm",
-						"Gm",
-						"Mm",
-						"km",
-						"hm",
-						"dam",
-						"m",
-						"dm",
-						"cm",
-						"mm",
-						"µm",
-						"nm",
-						"pm",
-						"fm",
-						"am",
-						"zm",
-						"ym",
-						"Å",
-						"thou",
-						"li",
-						"in",
-						"ft",
-						"yd",
-						"mi",
-						"ua",
-						"ly",
-						"pc",
-						"pt",
-						"pixel",
-						"reference frame"
-					],
-					"category":"WavelengthRange"
-				},
-				"WavelenghtProfile": {
-					"type":"string",
-					"description":"The location of a file containing the wavelenght profile of this component.",
-					"tier":5,
-					"category":"WavelengthRange"
-				}
-			},
-			"required": [
-				"CutIn",
-				"CutOut",
-				"WavelenghtProfile"
-			]
+				"required": [
+					"PeakWavelength",
+					"CutOn",
+					"CutOff"
+				]
+			}
 		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
-			"tier":4,
+			"tier":2,
 			"category":"General",
 			"readonly":true
 		}
 	},
 	"required": [
 		"Type",
-		"PeakWavelength",
 		"RefractiveIndex",
 		"NumericalAperture",
-		"AcceptanceAngle",
 		"ID",
-		"Name",
 		"Transmittance",
 		"Manufacturer",
 		"Model",
-		"SerialNumber",
-		"SpecsFile",
-		"Description",
+		"CatalogNumber",
 		"WavelengthRange"
 	]
 }

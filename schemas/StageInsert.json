@@ -1,0 +1,104 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"StageInsert.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"StageInsert",
+	"description":"This element describes an optional Stage Insert mounted on the Stage.",
+	"extension":"Basic",
+	"domain":"MicroscopeHardwareSpecifications",
+	"category":"SamplePositioning.Stage",
+	"image":"SamplePositioning_Stage_StageInsert.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"StageInsert":"This element describes an optional Stage Insert mounted on the Stage."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A User-defined Name for this component.",
+			"tier":2,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"SampleHolderType": {
+			"type":"string",
+			"description":"This field describes the type of Specimen Holder this Stage Insert is designed to hold.",
+			"tier":2,
+			"enum": [
+				"Chambered Coverslip",
+				"Culture Plate",
+				"Microscope Slide",
+				"Multiwell Plate",
+				"Petri Dish",
+				"Other"
+			],
+			"category":"StageInsert"
+		},
+		"TemperatureControlled": {
+			"type":"boolean",
+			"description":"This field records whether this Stage Insert is Temperature Controlled (True), or not (False).",
+			"tier":2,
+			"category":"StageInsert"
+		},
+		"NumberOfSlots": {
+			"type":"string",
+			"description":"This field describes the number of Specimen Holder slots on this Stage Insert.",
+			"tier":2,
+			"category":"StageInsert"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"CatalogNumber": {
+			"type":"string",
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"SampleHolderType",
+		"TemperatureControlled",
+		"Manufacturer",
+		"Model",
+		"CatalogNumber"
+	]
+}

@@ -1,0 +1,531 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"HybridPhotoDetector.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"HybridPhotoDetector",
+	"description":"This element represents a hybrid Photomultiplier and Avalanche Photodiode (APD).",
+	"extension":"Basic",
+	"domain":"MicroscopeHardwareSpecifications",
+	"category":"Detector.PointDetector",
+	"image":"Detector_PointDetector_HybridPhotoDetector.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"Detector":"This element describes a Detector available for this Instrument. An Instrument may have more than one Detector of different types, such as a Photomultiplier, or a Camera. The Detector ID can be used as a reference within the Channel element. The values stored in Detector represent the fixed values, variable values modified during the Acquisition go in DetectorSettings.",
+		"PointDetector":"This element represents any Detector that collects light from a restricted point-like area of an Image. These detectors are typically used in Laser Scanning Confocal Microscopy.",
+		"HybridPhotoDetector":"This element represents a hybrid Photomultiplier and Avalanche Photodiode (APD).",
+		"RelayLens":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body.",
+		"WavelengthRange":"This element records the Range of Wavelengths this device is designed for according to the Manufacturer. Multiple of this element may be used."
+	},
+	"properties": {
+		"Coating": {
+			"type":"string",
+			"description":"This field records the Coating Material used to increase the photoelectric properties of the metallic cathode used in this Detector. The coating releases electrons much more readily than the underlying metal, allowing it to detect the low-energy photons in infrared radiation. The lens transmits the radiation from the object being viewed to a layer of coated glass. The photons strike the metal surface and transfer electrons to its rear side. The freed electrons are then collected to produce the final Image.",
+			"tier":1,
+			"enum": [
+				"Bi-alkali",
+				"Multi-alkali",
+				"Gallium arsenide phosphide",
+				"Gallius arsenide",
+				"Other"
+			],
+			"category":"PointDetector"
+		},
+		"SignalProcessing": {
+			"type":"string",
+			"description":"This field describes the method employed by this device to process the output signal and convert it into a measure of incident light intensity. In Photon Counting mode the system is set in a manner in which each photon hitting the head of the detector gives either no or 1 discrete pulse. This way by counting the pulses one is sure to be counting individual photons. In Analog mode the system is set so the mean value of all signal pulses is used as a measure of intensity.",
+			"tier":1,
+			"enum": [
+				"Analog",
+				"PhotonCounting",
+				"Other"
+			],
+			"category":"PointDetector"
+		},
+		"ResponseTime": {
+			"type":"number",
+			"description":"This field records the Time required for the Detector to respond to an optical input.",
+			"tier":3,
+			"category":"PointDetector"
+		},
+		"ResponseTimeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"enum": [
+				"Ys",
+				"Zs",
+				"Es",
+				"Ps",
+				"Ts",
+				"Gs",
+				"Ms",
+				"ks",
+				"hs",
+				"das",
+				"s",
+				"ds",
+				"cs",
+				"ms",
+				"µs",
+				"ns",
+				"ps",
+				"fs",
+				"as",
+				"zs",
+				"ys",
+				"min",
+				"h",
+				"d"
+			],
+			"category":"PointDetector"
+		},
+		"DeadTime": {
+			"type":"number",
+			"description":"This field records the Time required for the Detector to become responsive again after being hit by a photon.",
+			"tier":3,
+			"category":"PointDetector"
+		},
+		"DeadTimeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"enum": [
+				"Ys",
+				"Zs",
+				"Es",
+				"Ps",
+				"Ts",
+				"Gs",
+				"Ms",
+				"ks",
+				"hs",
+				"das",
+				"s",
+				"ds",
+				"cs",
+				"ms",
+				"µs",
+				"ns",
+				"ps",
+				"fs",
+				"as",
+				"zs",
+				"ys",
+				"min",
+				"h",
+				"d"
+			],
+			"category":"PointDetector"
+		},
+		"RadiantSensitivity": {
+			"type":"number",
+			"description":"This field records the Radiant Sensitivity observed with this Detector at the peak Wavelength",
+			"tier":3,
+			"category":"PointDetector"
+		},
+		"RadiantSensitivityUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"enum": [
+				"YW",
+				"ZW",
+				"EW",
+				"PW",
+				"TW",
+				"GW",
+				"MW",
+				"kW",
+				"hW",
+				"daW",
+				"W",
+				"dW",
+				"cW",
+				"mW",
+				"µW",
+				"nW",
+				"pW",
+				"fW",
+				"aW",
+				"zW",
+				"yW"
+			],
+			"category":"PointDetector"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A User-defined Name for this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"Mount": {
+			"type":"string",
+			"description":"This field records the type of Mount used to connect this detector to the Microscope Stand.",
+			"tier":1,
+			"default":"C-mount",
+			"enum": [
+				"C-mount",
+				"D-SLR adapter",
+				"SLR adapter",
+				"T-mount",
+				"Other"
+			],
+			"category":"Detector"
+		},
+		"MaxBitDepth": {
+			"type":"string",
+			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital (A/D) converter.",
+			"tier":2,
+			"enum": [
+				"bit",
+				"complex",
+				"double",
+				"double-complex",
+				"float",
+				"int8",
+				"int16",
+				"int32",
+				"uint8",
+				"uint16",
+				"uint32",
+				"Other"
+			],
+			"category":"Detector"
+		},
+		"QuantumEfficiency": {
+			"type":"number",
+			"description":"This field records the Quantum Efficiency observed at Peak Wavelength, according to the Manufacturer. Quantum Efficiency is generally defined as is the ratio of incident photons to converted electrons. Typically expressed as a number between 0 and 1.",
+			"tier":2,
+			"category":"Detector"
+		},
+		"ElectronicConversionFactor": {
+			"type":"number",
+			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the digital numbers associated with each Pixel with the actual number of electrons generated by the Detector. It is expressed in e-/Digital Number (DN). Note that DN can also be referred to as Analog-to-Digital-Unit (ADU) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
+			"tier":2,
+			"category":"Detector"
+		},
+		"ReadOutNoise": {
+			"type":"number",
+			"description":"This field captures the Read Out Noise associated with this Detector, as specified by the Manufacturer. Read Out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
+			"tier":2,
+			"category":"Detector"
+		},
+		"ReadNoiseUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"default":"e- rms",
+			"enum": [
+				"A",
+				"e-/Pixel/sec",
+				"e- rms"
+			],
+			"category":"Detector"
+		},
+		"DetectorNoiseModel": {
+			"type":"string",
+			"description":"This field records the Noise Model associated with this Detector.",
+			"tier":2,
+			"enum": [
+				"Gaussian",
+				"Poisson",
+				"Other"
+			],
+			"category":"Detector"
+		},
+		"DarkCurrentRate": {
+			"type":"number",
+			"description":"This field records the Dark Current Rate of this Detector as specified by the Manufacturer. The Dark Current Rate is the median current detected in the absence of light. Generally expressed in e-/Pixel/sec.",
+			"tier":2,
+			"category":"Detector"
+		},
+		"DarkCurrentRateUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"default":"e-/Pixel/sec",
+			"enum": [
+				"A",
+				"e-/Pixel/sec",
+				"e- rms"
+			],
+			"category":"Detector"
+		},
+		"DynamicRange": {
+			"type":"number",
+			"description":"This field records the Dynamic Range of this Detector in deciBel (dB).",
+			"tier":2,
+			"category":"Detector"
+		},
+		"DynamicRangeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"default":"decibel (dB)",
+			"enum": [
+				"bel",
+				"decibel (dB)"
+			],
+			"category":"Detector"
+		},
+		"AmbientOperatingTemperature": {
+			"type":"number",
+			"description":"This field records the Ambient Temperature at which this Detector is designed to operate, according to the Manufacturer.",
+			"tier":3,
+			"category":"Detector"
+		},
+		"AmbientOperatingTemperatureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"°C",
+			"enum": [
+				"°C",
+				"°F",
+				"K",
+				"°R"
+			],
+			"category":"Detector"
+		},
+		"AmbientOperatingHumidity": {
+			"type":"number",
+			"description":"This field records the Ambient Humidity at which this detector is designed to operate, according to the Manufacturer.",
+			"tier":3,
+			"category":"Detector"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"CatalogNumber": {
+			"type":"string",
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"RelayLens": {
+			"type":"string",
+			"description":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body.",
+			"tier":1,
+			"category":"RelayLens",
+			"linkTo":"RelayLens"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"WavelengthRange": {
+			"type":"array",
+			"description":"This element records the Range of Wavelengths this device is designed for, according to the Manufacturer. Multiple of this element may be used.",
+			"tier":2,
+			"items": {
+				"properties": {
+					"PeakWavelength": {
+						"type":"number",
+						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"tier":2,
+						"category":"WavelengthRange"
+					},
+					"PeakWavelengthUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"WavelengthRange"
+					},
+					"CutOn": {
+						"type":"number",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"tier":3,
+						"category":"WavelengthRange"
+					},
+					"CutOnUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"WavelengthRange"
+					},
+					"CutOff": {
+						"type":"number",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"tier":3,
+						"category":"WavelengthRange"
+					},
+					"CutOffUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"WavelengthRange"
+					},
+					"WavelengthProfile": {
+						"type":"string",
+						"description":"The location of a file containing the Wavelength profile of this hardware component.",
+						"tier":3,
+						"category":"WavelengthRange"
+					}
+				},
+				"required": [
+					"CutOn",
+					"CutOff",
+					"WavelengthProfile"
+				]
+			}
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Coating",
+		"ID",
+		"MaxBitDepth",
+		"QuantumEfficiency",
+		"ElectronicConversionFactor",
+		"ReadOutNoise",
+		"DetectorNoiseModel",
+		"DarkCurrentRate",
+		"Manufacturer",
+		"Model",
+		"CatalogNumber"
+	]
+}

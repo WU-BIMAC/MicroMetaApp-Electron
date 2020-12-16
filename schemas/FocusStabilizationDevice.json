@@ -1,0 +1,107 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"FocusStabilizationDevice.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"FocusStabilizationDevice",
+	"description":"This element describes an optional focus stabilization device (also known as, Auto Focus) that may be used for bringing an object automatically into focus for this instrument. Such devices can be controlled either via an imaging software and/or by a hardware device that detects and adjusts the objective or sample positions.",
+	"extension":"Basic",
+	"domain":"MicroscopeHardwareSpecifications",
+	"category":"SamplePositioning.Focusing",
+	"image":"SamplePositioning_Focusing_FocusStabilizationDevice.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"FocusStabilizationDevice":"This element describes an optional focus stabilization device (also known as, Auto Focus) that may be used for bringing an object automatically into focus for this instrument. Such devices can be controlled either via an imaging software and/or by a hardware device that detects and adjusts the objective or sample positions."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A User-defined Name for this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"Mechanism": {
+			"type":"string",
+			"description":"This field refers to the mechanism employed by this Focus Stabilization Device. Software (also referred to as Image) based methods rely on the acquisition of a Z-series of images followed by image analysis to determine the best focal position based primarily on contrast comparisons. Hardware based methods rely on an external light beam (typically infrared) that is reflected off the coverslip and whose reflection is measured to determine and correct the focal offset of the sample.",
+			"tier":1,
+			"enum": [
+				"Hardware based",
+				"Image based",
+				"Other"
+			],
+			"category":"FocusStabilizationDevice"
+		},
+		"Algorithm": {
+			"type":"string",
+			"description":"In case this Focus Stabilization Device is Software Based, this field refers to the name of the Algorithm used to maintain Focus.",
+			"tier":1,
+			"category":"FocusStabilizationDevice"
+		},
+		"TwoStep": {
+			"type":"boolean",
+			"description":"This field records whether this Focus Stabilization Device utilizes a 2-step progressive procedure (True) or not (False).",
+			"tier":1,
+			"category":"FocusStabilizationDevice"
+		},
+		"Wavelength": {
+			"type":"number",
+			"description":"This field refers to the Wavelength of the beam that is relevant for this Focus Stabilization Device. For example this might represent the Wavelength of the beam that is reflected against the Coverglass to obtain a measurement of the focal offset of the sample at a given time during Acquisition.",
+			"tier":1,
+			"category":"FocusStabilizationDevice"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"CatalogNumber": {
+			"type":"string",
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Mechanism",
+		"Manufacturer",
+		"Model",
+		"CatalogNumber"
+	]
+}

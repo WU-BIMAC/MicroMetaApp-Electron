@@ -1,0 +1,103 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"ShutterSettings.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"ShutterSettings",
+	"description":"This element holds the Setting applied to a Shutter used in the Light Path during the acquisition of this Channel as well as a reference (the ID attribute) to the Shutter in question.",
+	"extension":"Basic",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_ShutterSettings.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ShutterSettings":"This element holds the Setting applied to a Shutter used in the Light Path during the acquisition of this Channel as well as a reference (the ID attribute) to the Shutter in question."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"This is the Unique Identifier of the device used in this case.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"OpenDuringZMovement": {
+			"type":"boolean",
+			"description":"This field captures whether this Shutter was open (True) or closed (False) during Z-movement between successive Z-planes in this Image.",
+			"tier":1,
+			"category":"ShutterSettings"
+		},
+		"ApertureDiameter": {
+			"type":"number",
+			"description":"This field records the actual physical Aperture Diameter that was used for this Shutter during the Acquisition of this Channel.",
+			"tier":2,
+			"category":"ShutterSettings"
+		},
+		"ApertureDiameterUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"ShutterSettings"
+		},
+		"Mode": {
+			"type":"string",
+			"description":"This field records the operation mode that was applied to this Shutter during the Acquisition of this Channel. The Fast mode provides the quickest open and close action sequence for which the shutter is capable. The Soft intensity without affecting wavelength is accommodated by a Neutral Density shutter mode (for more details see https://www.microscopyu.com/applications/live-cell-imaging/the-automatic-microscope).",
+			"tier":2,
+			"enum": [
+				"Fast",
+				"Neutral density",
+				"Slow",
+				"Other"
+			],
+			"category":"ShutterSettings"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"OpenDuringZMovement"
+	]
+}

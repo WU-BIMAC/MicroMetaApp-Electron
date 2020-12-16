@@ -1,0 +1,149 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"LightSourceSettings.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"LightSourceSettings",
+	"description":"This element holds the Setting applied to a Light Source used in the Light Path during the acquisition of this Channel as well as a reference to the LightSource (the ID attribute) in question.",
+	"extension":"Core",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_LightSourceSettings.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"LightSourceSettings":"This element holds the Setting applied to a Light Source used in the Light Path during the acquisition of this Channel as well as a reference to the LightSource (the ID attribute) in question."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"Wavelength": {
+			"type":"number",
+			"description":"This field records the nominal Wavelength of the excitation Light utilized in this case.",
+			"tier":1,
+			"category":"LightSourceSettings"
+		},
+		"WavelengthUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"LightSourceSettings"
+		},
+		"IlluminationIntensity": {
+			"type":"number",
+			"description":"This field records the nominal Illumination Intensity (also known as Illumination Power or Power Output) that was set for the Acquisition of this Image or was reported by the Image Acquisition Software.",
+			"tier":1,
+			"category":"LightSourceSettings"
+		},
+		"IlluminationIntensityUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"W",
+			"enum": [
+				"YW",
+				"ZW",
+				"EW",
+				"PW",
+				"TW",
+				"GW",
+				"MW",
+				"kW",
+				"hW",
+				"daW",
+				"W",
+				"dW",
+				"cW",
+				"mW",
+				"µW",
+				"nW",
+				"pW",
+				"fW",
+				"aW",
+				"zW",
+				"yW"
+			],
+			"category":"LightSourceSettings"
+		},
+		"IntensityReportingPosition": {
+			"type":"string",
+			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
+			"tier":2,
+			"enum": [
+				"Back of the Objective",
+				"Back of the Microscope Stand",
+				"Source",
+				"Specimen",
+				"Other"
+			],
+			"category":"LightSourceSettings"
+		},
+		"Attenuation": {
+			"type":"number",
+			"description":"This field records the actual Attenuation of the excitation light power that was applied during the Acquisition of this Channel, expressed as a fractional value from 0.0 to 1.0.",
+			"tier":2,
+			"category":"LightSourceSettings"
+		},
+		"AttenuationMethod": {
+			"type":"string",
+			"description":"This field records the Method that was used to Attenuate the Laser beam during the acquisition of this Image.",
+			"tier":3,
+			"category":"LightSourceSettings"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Wavelength",
+		"IlluminationIntensity",
+		"IntensityReportingPosition"
+	]
+}

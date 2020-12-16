@@ -1,0 +1,718 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"IntensifiedCamera.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"IntensifiedCamera",
+	"description":"This field records an intensified Camera.",
+	"extension":"Basic",
+	"domain":"MicroscopeHardwareSpecifications",
+	"category":"Detector.Camera",
+	"image":"Detector_Camera_IntensifiedCamera.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"Detector":"This element describes a Detector available for this Instrument. An Instrument may have more than one Detector of different types, such as a Photomultiplier, or a Camera. The Detector ID can be used as a reference within the Channel element. The values stored in Detector represent the fixed values, variable values modified during the Acquisition go in DetectorSettings.",
+		"Camera":"This element describes a Camera available for this Instrument. A Camera is a device that converts optical brightness into an electrical signal using a grid of pixel sensor unit cells and then reproduces an image of the specimen. An Instrument may have more than one camera of different types, such as traditional CCD, EMCCD, Intensified EMCCD, sCMOS, or Analog Video.",
+		"IntensifiedCamera":"This field records an intensified Camera.",
+		"RelayLens":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body.",
+		"WavelengthRange":"This element records the Range of Wavelengths this device is designed for according to the Manufacturer. Multiple of this element may be used."
+	},
+	"properties": {
+		"SensorType": {
+			"type":"string",
+			"description":"This field records the Type of Sensor used in this case.",
+			"tier":2,
+			"enum": [
+				"CCD",
+				"CMOS",
+				"Other"
+			],
+			"category":"IntensifiedCamera"
+		},
+		"IntensifierType": {
+			"type":"string",
+			"description":"This field records the Type of Intensifier used for this Camera.",
+			"tier":2,
+			"enum": [
+				"Conventional",
+				"EBCCD",
+				"MicroChannelPlate",
+				"Other"
+			],
+			"category":"IntensifiedCamera"
+		},
+		"RegisterWellCapacity": {
+			"type":"integer",
+			"description":"This field records the maximum amount of charge each read-out register well can hold, measured in electron counts.",
+			"tier":3,
+			"category":"IntensifiedCamera"
+		},
+		"RegisterWellCapacityUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"e-",
+			"enum": [
+				"e-",
+				"Coulomb",
+				"Other"
+			],
+			"category":"IntensifiedCamera"
+		},
+		"ArrayWidth": {
+			"type":"integer",
+			"description":"This field records the Width of this Camera chip or sensor area, expressed in Pixel.",
+			"tier":1,
+			"category":"Camera"
+		},
+		"ArrayHeight": {
+			"type":"integer",
+			"description":"This field records the Height of this Camera chip or sensor area, expressed in Pixel.",
+			"tier":1,
+			"category":"Camera"
+		},
+		"PixelWidth": {
+			"type":"number",
+			"description":"This field records the Physical Width of each Camera Pixel.",
+			"tier":1,
+			"category":"Camera"
+		},
+		"PixelWidthUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"µm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Camera"
+		},
+		"PixelHeight": {
+			"type":"number",
+			"description":"This field records the Physical Height of each Camera Pixel.",
+			"tier":1,
+			"category":"Camera"
+		},
+		"PixelHeightUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"µm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Camera"
+		},
+		"Illumination": {
+			"type":"string",
+			"description":"This field records the type of illumination the Camera chip receives.",
+			"tier":2,
+			"enum": [
+				"Back",
+				"Front",
+				"Other"
+			],
+			"category":"Camera"
+		},
+		"ManufacturerOffet": {
+			"type":"number",
+			"description":"This field reports the Camera Offset when it is pre-set by the Manufacturer. The Offset is an electronic baseline added to the output signal from the sensor to ensure that the displayed signal level is always a positive number of counts.",
+			"tier":2,
+			"category":"Camera"
+		},
+		"Color": {
+			"type":"string",
+			"description":"This field records whether this is a Color Camera and what type it is.",
+			"tier":2,
+			"enum": [
+				"no-color",
+				"3-Sensor",
+				"Bayer",
+				"CYGM",
+				"MultiLayer",
+				"Other"
+			],
+			"category":"Camera"
+		},
+		"PixelWellCapacity": {
+			"type":"integer",
+			"description":"This field records the maximum amount of charge each Pixel Well can hold, measured in electron counts.",
+			"tier":3,
+			"category":"Camera"
+		},
+		"PixelWellCapacityUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"e-",
+			"enum": [
+				"e-",
+				"Coulomb",
+				"Other"
+			],
+			"category":"Camera"
+		},
+		"MaximumFrameRate": {
+			"type":"number",
+			"description":"This field records the maximal rate at which this Camera can acquire a single full-frame.",
+			"tier":3,
+			"category":"Camera"
+		},
+		"MaximumFrameRateUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"fps",
+			"enum": [
+				"YHz",
+				"ZHz",
+				"EHz",
+				"PHz",
+				"THz",
+				"GHz",
+				"MHz",
+				"kHz",
+				"hHz",
+				"daHz",
+				"Hz",
+				"dHz",
+				"cHz",
+				"mHz",
+				"µHz",
+				"nHz",
+				"pHz",
+				"fHz",
+				"aHz",
+				"zHz",
+				"yHz",
+				"fps",
+				"Pixel per second"
+			],
+			"category":"Camera"
+		},
+		"MaximumReadoutRate": {
+			"type":"number",
+			"description":"This field records the maximal Pixel Readout Rate allowed by this Camera.",
+			"tier":3,
+			"category":"Camera"
+		},
+		"MaximumReadoutRateUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"MHz",
+			"enum": [
+				"YHz",
+				"ZHz",
+				"EHz",
+				"PHz",
+				"THz",
+				"GHz",
+				"MHz",
+				"kHz",
+				"hHz",
+				"daHz",
+				"Hz",
+				"dHz",
+				"cHz",
+				"mHz",
+				"µHz",
+				"nHz",
+				"pHz",
+				"fHz",
+				"aHz",
+				"zHz",
+				"yHz",
+				"fps",
+				"Pixel per second"
+			],
+			"category":"Camera"
+		},
+		"VerticalClockSpeed": {
+			"type":"number",
+			"description":"This field records the maximal speed at which each vertical column of pixels in the camera chip can be shifted down and read. ",
+			"tier":3,
+			"category":"Camera"
+		},
+		"VerticalClockSpeedUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"µs",
+			"enum": [
+				"Ys",
+				"Zs",
+				"Es",
+				"Ps",
+				"Ts",
+				"Gs",
+				"Ms",
+				"ks",
+				"hs",
+				"das",
+				"s",
+				"ds",
+				"cs",
+				"ms",
+				"µs",
+				"ns",
+				"ps",
+				"fs",
+				"as",
+				"zs",
+				"ys",
+				"min",
+				"h",
+				"d"
+			],
+			"category":"Camera"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A User-defined Name for this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"Mount": {
+			"type":"string",
+			"description":"This field records the type of Mount used to connect this detector to the Microscope Stand.",
+			"tier":1,
+			"default":"C-mount",
+			"enum": [
+				"C-mount",
+				"D-SLR adapter",
+				"SLR adapter",
+				"T-mount",
+				"Other"
+			],
+			"category":"Detector"
+		},
+		"MaxBitDepth": {
+			"type":"string",
+			"description":"This field records the Maximum Bit Depth provided by the Detector's Analog to Digital (A/D) converter.",
+			"tier":2,
+			"enum": [
+				"bit",
+				"complex",
+				"double",
+				"double-complex",
+				"float",
+				"int8",
+				"int16",
+				"int32",
+				"uint8",
+				"uint16",
+				"uint32",
+				"Other"
+			],
+			"category":"Detector"
+		},
+		"QuantumEfficiency": {
+			"type":"number",
+			"description":"This field records the Quantum Efficiency observed at Peak Wavelength, according to the Manufacturer. Quantum Efficiency is generally defined as is the ratio of incident photons to converted electrons. Typically expressed as a number between 0 and 1.",
+			"tier":2,
+			"category":"Detector"
+		},
+		"ElectronicConversionFactor": {
+			"type":"number",
+			"description":"This field records the Electron-Conversion Factor for this Detector, as specified by the Manufacturer. The Electron Conversion Factor relates the digital numbers associated with each Pixel with the actual number of electrons generated by the Detector. It is expressed in e-/Digital Number (DN). Note that DN can also be referred to as Analog-to-Digital-Unit (ADU) or Binary Number. It is sometimes referred to as Digital Gain or, in case of CCD cameras as CCD Gain.",
+			"tier":2,
+			"category":"Detector"
+		},
+		"ReadOutNoise": {
+			"type":"number",
+			"description":"This field captures the Read Out Noise associated with this Detector, as specified by the Manufacturer. Read Out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
+			"tier":2,
+			"category":"Detector"
+		},
+		"ReadNoiseUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"default":"e- rms",
+			"enum": [
+				"A",
+				"e-/Pixel/sec",
+				"e- rms"
+			],
+			"category":"Detector"
+		},
+		"DetectorNoiseModel": {
+			"type":"string",
+			"description":"This field records the Noise Model associated with this Detector.",
+			"tier":2,
+			"enum": [
+				"Gaussian",
+				"Poisson",
+				"Other"
+			],
+			"category":"Detector"
+		},
+		"DarkCurrentRate": {
+			"type":"number",
+			"description":"This field records the Dark Current Rate of this Detector as specified by the Manufacturer. The Dark Current Rate is the median current detected in the absence of light. Generally expressed in e-/Pixel/sec.",
+			"tier":2,
+			"category":"Detector"
+		},
+		"DarkCurrentRateUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"default":"e-/Pixel/sec",
+			"enum": [
+				"A",
+				"e-/Pixel/sec",
+				"e- rms"
+			],
+			"category":"Detector"
+		},
+		"DynamicRange": {
+			"type":"number",
+			"description":"This field records the Dynamic Range of this Detector in deciBel (dB).",
+			"tier":2,
+			"category":"Detector"
+		},
+		"DynamicRangeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"default":"decibel (dB)",
+			"enum": [
+				"bel",
+				"decibel (dB)"
+			],
+			"category":"Detector"
+		},
+		"AmbientOperatingTemperature": {
+			"type":"number",
+			"description":"This field records the Ambient Temperature at which this Detector is designed to operate, according to the Manufacturer.",
+			"tier":3,
+			"category":"Detector"
+		},
+		"AmbientOperatingTemperatureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"°C",
+			"enum": [
+				"°C",
+				"°F",
+				"K",
+				"°R"
+			],
+			"category":"Detector"
+		},
+		"AmbientOperatingHumidity": {
+			"type":"number",
+			"description":"This field records the Ambient Humidity at which this detector is designed to operate, according to the Manufacturer.",
+			"tier":3,
+			"category":"Detector"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"CatalogNumber": {
+			"type":"string",
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"RelayLens": {
+			"type":"string",
+			"description":"This is a reference to a lens positioned at the mount connecting this detector to the microscope body.",
+			"tier":1,
+			"category":"RelayLens",
+			"linkTo":"RelayLens"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"WavelengthRange": {
+			"type":"array",
+			"description":"This element records the Range of Wavelengths this device is designed for, according to the Manufacturer. Multiple of this element may be used.",
+			"tier":2,
+			"items": {
+				"properties": {
+					"PeakWavelength": {
+						"type":"number",
+						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"tier":2,
+						"category":"WavelengthRange"
+					},
+					"PeakWavelengthUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"WavelengthRange"
+					},
+					"CutOn": {
+						"type":"number",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"tier":3,
+						"category":"WavelengthRange"
+					},
+					"CutOnUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"WavelengthRange"
+					},
+					"CutOff": {
+						"type":"number",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"tier":3,
+						"category":"WavelengthRange"
+					},
+					"CutOffUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"WavelengthRange"
+					},
+					"WavelengthProfile": {
+						"type":"string",
+						"description":"The location of a file containing the Wavelength profile of this hardware component.",
+						"tier":3,
+						"category":"WavelengthRange"
+					}
+				},
+				"required": [
+					"CutOn",
+					"CutOff",
+					"WavelengthProfile"
+				]
+			}
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"SensorType",
+		"IntensifierType",
+		"PixelWidth",
+		"PixelHeight",
+		"Illumination",
+		"PixelWellCapacity",
+		"MaximumFrameRate",
+		"MaximumReadoutRate",
+		"ID",
+		"MaxBitDepth",
+		"QuantumEfficiency",
+		"ElectronicConversionFactor",
+		"ReadOutNoise",
+		"DetectorNoiseModel",
+		"DarkCurrentRate",
+		"Manufacturer",
+		"Model",
+		"CatalogNumber"
+	]
+}

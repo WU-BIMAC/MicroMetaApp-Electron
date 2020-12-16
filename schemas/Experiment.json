@@ -1,20 +1,19 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Experiment.json",
-	"version":"1.06.5",
+	"version":"2.00.0",
 	"type":"object",
 	"title":"Experiment",
-	"description":"Describes the experiment during which this Image was acquired. The optional Description element may contain free text to further describe the experiment.",
+	"description":"This element describes the experiment during which this Image was acquired. The optional Description element may contain free text to further describe the experiment.",
+	"extension":"Core",
 	"domain":"Experimental",
 	"category":"SamplePreparation",
-	"image":"SamplePreparation_Experiment.png",
+	"image":"SamplePreparation_Experiment.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"Experiment":"Describes the experiment during which this Image was acquired. The optional Description element may contain free text to further describe the experiment.",
-		"Experimenter":"This empty element refers to Experimenter that performed this experiment.",
-		"Sample":"A description of the sample that was imaged in this experiment.",
-		"MicrobeamManipulation":"Defines a microbeam operation and the region of the image it was applied to. The LightSourceSettingsRef element is a reference to the LightSourceSettings that were used in this case including a reference to the light source that was used for this micromanipulation experiment (e.g.  a laser used for photobleaching)."
+		"Experiment":"This element describes the experiment during which this Image was acquired. The optional Description element may contain free text to further describe the experiment.",
+		"Experimenter":"This empty element refers to Experimenter that performed this experiment."
 	},
 	"properties": {
 		"Name": {
@@ -30,29 +29,24 @@
 			"category":"General",
 			"readonly":true
 		},
-		"Type": {
+		"Purpose": {
 			"type":"string",
-			"description":"A term to describe the type of imaging experiment performed in this case.",
-			"tier":2,
+			"description":"This field records a term used the general purpose of the imaging experiment performed in this case.",
+			"tier":1,
 			"enum": [
-				"FourDPlus",
 				"Co-localization",
 				"Electrophysiology",
-				"FLIM",
-				"FRAP",
-				"FRET",
+				"Fluorescent Speckle Microscopy (FSM)",
 				"HightThroughputScreen",
-				"IonImaging",
-				"LightSheet",
+				"Histology",
+				"Intensity Quantification",
+				"Laser Capture Microdissection (LCM)",
+				"Localization",
+				"Morphometry",
 				"OpticalTrapping",
 				"PGI-Documentation",
 				"PhotoAblation",
-				"PhotoActivation",
-				"SpectralImaging",
-				"SPIM",
-				"DeterministicSuper-Resolution",
-				"StochasticSuper-Resolution",
-				"StructuredIlluminationMicroscopy",
+				"Single Molecule Imaging (SMI)",
 				"TimeLapse",
 				"Other"
 			],
@@ -60,24 +54,54 @@
 		},
 		"LabellingMethod": {
 			"type":"string",
-			"description":"A term that describes the method used for labelling the molecular component under study in this experiment.",
-			"tier":2,
+			"description":"This field records a term that describes the method used for the Labelling or Visualization of the structures (i.e. molecular components) under study in this Experiment. The use of a sub-class of the 'Visualization Method' (http://purl.obolibrary.org/obo/FBbi_00000031) term from the Biological Imaging Methods Ontology (FBbi; https://www.ebi.ac.uk/ols/ontologies/fbbi) is recommended.",
+			"tier":1,
+			"category":"Experiment"
+		},
+		"LabellingMethodTermAccession": {
+			"type":"string",
+			"description":"This field records the Accession ID for the term used to describe the Visualization Method (also often referred to as Labelling Method). The use of a sub-classes of 'Visualization Method' (http://purl.obolibrary.org/obo/FBbi_00000031) from the Biological Imaging Methods Ontology (FBbi; https://www.ebi.ac.uk/ols/ontologies/fbbi) is recommended.",
+			"tier":1,
+			"category":"Experiment"
+		},
+		"Tag": {
+			"type":"string",
+			"description":"This field describes small molecules, peptides or full proteins that were used as label in this Experiment. The use of a sub-class of the 'Tag' (http://purl.obolibrary.org/obo/MI_0507) term from the Molecular Interactions Controlled Vocabulary (MI; http://purl.obolibrary.org/obo/mi.owl) is recommended.",
+			"tier":1,
+			"category":"Experiment"
+		},
+		"TagTermAccession": {
+			"type":"string",
+			"description":"This records the Accession ID for the term used to describe the Tag used in this Experiment. The use of a sub-class of http://purl.obolibrary.org/obo/MI_0507 is recommended.",
+			"tier":1,
+			"category":"Experiment"
+		},
+		"HystochemistryType": {
+			"type":"string",
+			"description":"This field records a term that describes the general category of Histochemistry staining used in this case.",
+			"tier":1,
 			"enum": [
-				"BiarsenicalDye",
-				"FluorescentProtein",
-				"Immunocytochemistry",
-				"ImmunoFluorescence",
-				"SelfLabellingEnzymeTag",
-				"Aptamer",
-				"BacteriophageDerivedRNATag",
-				"ChemicalModification",
-				"ForcedIntercalation",
-				"MolecularBeacon",
-				"FISH",
-				"SingleMoleculeFISH",
-				"CASFISH",
-				"ChemicalModification",
-				"None",
+				"Acid fuschin",
+				"Alcian blue",
+				"Aniline Blue",
+				"Azan",
+				"Chrome alum/haemotoxylin",
+				"Eosin",
+				"Giemsa",
+				"Histochemistry stains",
+				"Isamin blue/eosin",
+				"Masson's trichrome",
+				"Methyl green",
+				"Methylene blue",
+				"Nissl and methylene blue",
+				"Orange G",
+				"Periodic acid-Schiff reaction (PAS)",
+				"Pyronin G",
+				"Reticulin Stain",
+				"Silver and gold",
+				"Sudan Black and osmium",
+				"Toluidine blue",
+				"van Gieson",
 				"Other"
 			],
 			"category":"Experiment"
@@ -92,84 +116,11 @@
 				"linkTo":"Experimenter"
 			}
 		},
-		"Sample": {
-			"type":"object",
-			"description":"A description of the sample that was imaged in this experiment.",
-			"tier":1,
-			"properties": {
-				"ID": {
-					"type":"string",
-					"description":"A unique identifier for this Sample.",
-					"tier":1,
-					"category":"Sample",
-					"readonly":true
-				},
-				"Name": {
-					"type":"string",
-					"description":"A user assigned name for this Sample.",
-					"tier":1,
-					"category":"Sample"
-				},
-				"MountingMedium": {
-					"type":"string",
-					"description":"The mounting medium the sample is embedded in during acquisition.",
-					"tier":2,
-					"category":"Sample"
-				},
-				"MountingMediumRefractiveIndex": {
-					"type":"number",
-					"description":"The refractive index (RI) of the mounting medium. If possible the RI should be measured. Alternatively, please refer to the nominal RI as provided by the manufacturer.",
-					"tier":3,
-					"category":"Sample"
-				}
-			},
-			"required": [
-				"Name",
-				"MountingMedium",
-				"MountingMediumRefractiveIndex"
-			]
-		},
-		"MicrobeamManipulation": {
-			"type":"array",
-			"description":"Defines a microbeam operation and the region of the image it was applied to. The LightSourceSettingsRef element is a reference to the LightSourceSettings that were used in this case, including a reference to the light source that was used for this micromanipulation experiment (e.g.  a laser used for photobleaching).",
-			"tier":3,
-			"items": {
-				"properties": {
-					"ID": {
-						"type":"string",
-						"description":"A unique identifier for this component.",
-						"tier":3,
-						"category":"MicrobeamManipulation",
-						"readonly":true
-					},
-					"Type": {
-						"type":"string",
-						"description":"Defines the type of micromanipulation performed.",
-						"tier":3,
-						"enum": [
-							"FRAP",
-							"FLIP",
-							"InverseFRAP",
-							"Photoablation",
-							"Photoactivation",
-							"Uncaging",
-							"OpticalTrapping",
-							"Other"
-						],
-						"category":"MicrobeamManipulation"
-					}
-				},
-				"required": [
-					"ID",
-					"Type"
-				]
-			}
-		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This is a simple multi-line comment or annotation describing this component.",
-			"tier":2,
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
 			"category":"General"
 		},
 		"Tier": {
@@ -182,11 +133,8 @@
 	},
 	"required": [
 		"ID",
-		"Name",
-		"Type",
+		"Purpose",
 		"LabellingMethod",
-		"Experimenter",
-		"Sample",
-		"Description"
+		"Experimenter"
 	]
 }

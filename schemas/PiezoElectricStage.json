@@ -1,46 +1,102 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PiezoElectricStage.json",
-	"version":"1.06.5",
+	"version":"2.00.0",
 	"type":"object",
 	"title":"PiezoElectricStage",
-	"description":"This describes an optional piezoelectric stage positioning device associated with this instrument.",
-	"domain":"MicrosocpeSpecifications",
+	"description":"This describes an optional piezoelectric-driven sample nano-positioning device associated with this Instrument. These devices typically achieve higher precision, accuracy and speed with respect to traditional Mechanical Stages.",
+	"extension":"Basic",
+	"domain":"MicroscopeHardwareSpecifications",
 	"category":"SamplePositioning.Stage",
-	"image":"SamplePositioning_Stage_PiezoElectricStage.png",
-	"tier":3,
+	"image":"SamplePositioning_Stage_PiezoElectricStage.svg",
+	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
-		"SamplePositioning":"This describes a objective lens or stage positioning device available for this instrument. An instrument may have more than one of these devices of different type, such as mechanical stage, piezoelectric stage, objective turret and piezoelectric objective.",
-		"Stage":"This describes a stage x-y positioning device associated with this instrument.",
-		"PiezoElectricStage":"This describes an optional piezoelectric stage positioning device associated with this instrument."
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"SamplePositioning":"This element describes a Sample-Optics Positioning device available for this Instrument. An Instrument may have more than one of these devices of different types. For example, a typical setup might include a Mechanical Stage, a Stage Insert, a Turret Objective Focusing, and a Piezoelectric Objective Focusing device.",
+		"Stage":"This element describes a platform positioned at right angle to the optical axis of this Microscope, which is designed to either directly hold a Specimen Holder containing a Sample to be observed, or a Stage Insert, which itself holds the Sample Holder. In many cases, this device is capable of mechanical movements (as in a Mechanical Stage) to allow easy positioning and rotation of the Sample in the X-, Y-, and Z-axes.",
+		"PiezoElectricStage":"This describes an optional piezoelectric-driven sample nano-positioning device associated with this Instrument. These devices typically achieve higher precision, accuracy and speed with respect to traditional Mechanical Stages."
 	},
 	"properties": {
-		"MovementAxes": {
+		"XYMaxVelocity": {
+			"type":"number",
+			"description":"This field describes the maximum XY-axis Velocity at which this Stage is capable of moving.",
+			"tier":1,
+			"category":"Stage"
+		},
+		"XYMaxVelocityUnit": {
 			"type":"string",
-			"description":"The axes or axis along which this device is capable of moving.",
-			"tier":3,
-			"default":"XY",
+			"description":"NA",
+			"tier":1,
+			"default":"nm/s",
 			"enum": [
-				"X",
-				"Y",
-				"XY",
-				"XYZ",
+				"m/s",
+				"mm/s",
+				"µm/s",
+				"nm/s",
 				"Other"
+			],
+			"category":"Stage"
+		},
+		"XYRepetability": {
+			"type":"number",
+			"description":"This field captures the expected Accuracy with which this Stage is capable of returning to a previously visited XY-plane Position, as specified by the Manufacturer. This metric is important for example for Tiling.",
+			"tier":1,
+			"category":"Stage"
+		},
+		"XYRepetabilityUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
 			],
 			"category":"Stage"
 		},
 		"XTravelRange": {
 			"type":"number",
-			"description":"The range this device is capable of moving in along the X axis.",
-			"tier":5,
+			"description":"This field describes the Total Range in the X-axis that this Stage can Travel.",
+			"tier":2,
 			"category":"Stage"
 		},
 		"XTravelRangeUnit": {
 			"type":"string",
 			"description":"NA",
-			"tier":5,
+			"tier":2,
 			"default":"µm",
 			"enum": [
 				"Ym",
@@ -75,21 +131,21 @@
 				"ly",
 				"pc",
 				"pt",
-				"pixel",
+				"Pixel",
 				"reference frame"
 			],
 			"category":"Stage"
 		},
 		"YTravelRange": {
 			"type":"number",
-			"description":"The range this device is capable of moving in along the Y axis.",
-			"tier":5,
+			"description":"This field describes the Total Range in the Y-axis that this Stage can Travel.",
+			"tier":2,
 			"category":"Stage"
 		},
 		"YTravelRangeUnit": {
 			"type":"string",
 			"description":"NA",
-			"tier":5,
+			"tier":2,
 			"default":"µm",
 			"enum": [
 				"Ym",
@@ -124,34 +180,263 @@
 				"ly",
 				"pc",
 				"pt",
-				"pixel",
+				"Pixel",
 				"reference frame"
 			],
 			"category":"Stage"
 		},
+		"XYReproducibility": {
+			"type":"number",
+			"description":"This field captures the expected Precision with which this Stage is capable of maintaining a given XY-plane Position over time during as specified by the Manufacturer. This metric is generally referred to as Reproducibility and it might also be referred to as Lateral Drift. This metric is particularly relevant for Stereology systems and for the calibration of Sample Positioning devices.",
+			"tier":2,
+			"category":"Stage"
+		},
+		"XYReproducibilityUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Stage"
+		},
+		"XYSettlingTime": {
+			"type":"number",
+			"description":"This field describes the expected time it takes for this Stage to stabilize at the target XY-plane position, as specified by the Manufacturer.",
+			"tier":2,
+			"category":"Stage"
+		},
+		"XYSettlingTimeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"default":"ms",
+			"enum": [
+				"Ys",
+				"Zs",
+				"Es",
+				"Ps",
+				"Ts",
+				"Gs",
+				"Ms",
+				"ks",
+				"hs",
+				"das",
+				"s",
+				"ds",
+				"cs",
+				"ms",
+				"µs",
+				"ns",
+				"ps",
+				"fs",
+				"as",
+				"zs",
+				"ys",
+				"min",
+				"h",
+				"d"
+			],
+			"category":"Stage"
+		},
+		"XYResolution": {
+			"type":"number",
+			"description":"This field describes the XY-plane motion Resolution of this Stage as specified by the Manufacturer.",
+			"tier":2,
+			"category":"Stage"
+		},
+		"XYZResolutionUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Stage"
+		},
+		"XYPositionLinearityError": {
+			"type":"number",
+			"description":"This field describes the XY-axis positioning error (typically expressed in % error) associated with this Stage as specified by the Manufacturer.",
+			"tier":2,
+			"category":"Stage"
+		},
 		"Name": {
 			"type":"string",
-			"description":"A user defined name for this component.",
-			"tier":3,
+			"description":"A User-defined Name for this component.",
+			"tier":1,
 			"category":"General"
 		},
 		"ID": {
 			"type":"string",
-			"description":"A unique identifier for this component.",
-			"tier":3,
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
 			"category":"General",
 			"readonly":true
 		},
+		"Encoded": {
+			"type":"string",
+			"description":"This field describes whether this Sample Positioning Device is equipped with a system (i.e., encoder) to monitor movement and provide automatic positional feedback for high-precision operations, and it specifies the type of encoders it has.",
+			"tier":1,
+			"enum": [
+				"None",
+				"Linear",
+				"Rotary",
+				"Other"
+			],
+			"category":"SamplePositioning"
+		},
+		"Motorized": {
+			"type":"boolean",
+			"description":"This field describes whether (True) or not (False) this Sample Positioning Device is fitted with a Motorized component (i.e., ball-screw drives or rack mechanisms, sometimes equipped with precision calibration) to primarily assist in the translational movement of the sample in the X and Y or Z directions. A Motorized Stage is also often referred to as a Scanning Stage.",
+			"tier":1,
+			"category":"SamplePositioning"
+		},
+		"ZMaxVelocity": {
+			"type":"number",
+			"description":"This field describes the maximum Z-axis Velocity at which this Sample Positioning Device is capable of moving.",
+			"tier":1,
+			"category":"SamplePositioning"
+		},
+		"ZMaxVelocityUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"nm/s",
+			"enum": [
+				"m/s",
+				"mm/s",
+				"µm/s",
+				"nm/s",
+				"Other"
+			],
+			"category":"SamplePositioning"
+		},
+		"ZRepetability": {
+			"type":"number",
+			"description":"This field captures the expected Accuracy with which this Sample Positioning Device is capable of returning to a previously visited Z-axis Position, as specified by the Manufacturer. This metric is important for example for Tiling.",
+			"tier":1,
+			"category":"SamplePositioning"
+		},
+		"ZRepetabilityUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"SamplePositioning"
+		},
 		"ZTravelRange": {
 			"type":"number",
-			"description":"The range this device is capable of moving in along the Z axis.",
-			"tier":3,
+			"description":"This field describes the total range in the Z-axis that this Sample Positioning Device can travel.",
+			"tier":1,
 			"category":"SamplePositioning"
 		},
 		"ZTravelRangeUnit": {
 			"type":"string",
 			"description":"NA",
-			"tier":3,
+			"tier":1,
 			"default":"µm",
 			"enum": [
 				"Ym",
@@ -186,22 +471,36 @@
 				"ly",
 				"pc",
 				"pt",
-				"pixel",
+				"Pixel",
 				"reference frame"
 			],
 			"category":"SamplePositioning"
 		},
-		"Resolution": {
-			"type":"number",
-			"description":"The expected motion resolution of this device.",
-			"tier":5,
+		"MovementAxes": {
+			"type":"string",
+			"description":"This field describes the axes or combination of axes along which this Sample Positioning Device is capable of moving.",
+			"tier":2,
+			"enum": [
+				"X",
+				"Y",
+				"Z",
+				"XY",
+				"XYZ",
+				"Θ",
+				"Other"
+			],
 			"category":"SamplePositioning"
 		},
-		"ResolutionUnit": {
+		"BuiltIn": {
+			"type":"boolean",
+			"description":"This field indicates whether this Sample Positioning Device is built into the Microscope Stand (True) or it is removable and interchangeable (False).",
+			"tier":2,
+			"category":"SamplePositioning"
+		},
+		"ZReproducibility": {
 			"type":"string",
-			"description":"NA",
-			"tier":5,
-			"default":"nm",
+			"description":"This field captures the expected Precision with which this this Sample Positioning Device is capable of maintaining a given Z-axis Position over time during as specified by the Manufacturer. This metric is generally referred to as Reproducibility and it might also be referred to as Focal Drift. This metric is particularly relevant for Stereology systems and for the calibration of Sample Positioning devices.",
+			"tier":2,
 			"enum": [
 				"Ym",
 				"Zm",
@@ -235,76 +534,27 @@
 				"ly",
 				"pc",
 				"pt",
-				"pixel",
+				"Pixel",
 				"reference frame"
 			],
 			"category":"SamplePositioning"
 		},
-		"PositionLinearityError": {
+		"ZReproducibilityUnit": {
 			"type":"number",
-			"description":"The expected positioning error associated with this device. Typically expressed as % error.",
-			"tier":5,
+			"description":"NA",
+			"tier":2,
 			"category":"SamplePositioning"
 		},
-		"Repetability": {
+		"ZSettlingTime": {
 			"type":"number",
-			"description":"The expected precision with which this device is capable of returning to a previously visited position.",
-			"tier":4,
+			"description":"This field describes the expected time it takes for this Sample Positioning Device to stabilize at the target Z-axis position, as specified by the Manufacturer.",
+			"tier":2,
 			"category":"SamplePositioning"
 		},
-		"RepetabilityUnit": {
+		"ZSettlingTimeUnit": {
 			"type":"string",
 			"description":"NA",
-			"tier":4,
-			"default":"nm",
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"pixel",
-				"reference frame"
-			],
-			"category":"SamplePositioning"
-		},
-		"SettlingTime": {
-			"type":"number",
-			"description":"The expected time it takes for this device to stabilize at the target position.",
-			"tier":4,
-			"category":"SamplePositioning"
-		},
-		"SettlingTimeUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":4,
+			"tier":2,
 			"default":"ms",
 			"enum": [
 				"Ys",
@@ -334,67 +584,131 @@
 			],
 			"category":"SamplePositioning"
 		},
-		"MaxVelocity": {
+		"ZResolution": {
 			"type":"number",
-			"description":"The maximum velocity at which this device is capable of moving.",
-			"tier":5,
+			"description":"This field describes the Z-axis motion Resolution of this Sample Positioning Device as specified by the Manufacturer.",
+			"tier":2,
 			"category":"SamplePositioning"
 		},
-		"MaxVelocityUnit": {
+		"ZResolutionUnit": {
 			"type":"string",
 			"description":"NA",
-			"tier":5,
-			"default":"nm/s",
+			"tier":2,
+			"default":"nm",
 			"enum": [
-				"m/s",
-				"mm/s",
-				"µm/s",
-				"nm/s",
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"SamplePositioning"
+		},
+		"ZPositionLinearityError": {
+			"type":"number",
+			"description":"This field describes the Z-axis positioning error (typically expressed in % error) associated with this Sample Positioning Device as specified by the Manufacturer.",
+			"tier":2,
+			"category":"SamplePositioning"
+		},
+		"Type": {
+			"type":"string",
+			"description":"This field describes the general category of this Sample Positioning Device.",
+			"tier":3,
+			"enum": [
+				"Centering",
+				"DC Servo Motor",
+				"Gliding",
+				"Levelling",
+				"Linear",
+				"Rigid Stand",
+				"Stepper",
+				"Translational",
 				"Other"
+			],
+			"category":"SamplePositioning"
+		},
+		"RotationAngle": {
+			"type":"number",
+			"description":"The angle by which this Sample Positioning Device is capable of rotating.",
+			"tier":3,
+			"category":"SamplePositioning"
+		},
+		"RotationAngleUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"deg",
+			"enum": [
+				"deg",
+				"rad",
+				"gon"
 			],
 			"category":"SamplePositioning"
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"The manufacturer of this component.",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
 		"Model": {
 			"type":"string",
-			"description":"The model of this component.",
-			"tier":3,
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
 			"category":"ManufacturerSpec"
 		},
-		"SerialNumber": {
+		"CatalogNumber": {
 			"type":"string",
-			"description":"The serial number of this component",
-			"tier":5,
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
 			"category":"ManufacturerSpec"
 		},
 		"LotNumber": {
 			"type":"string",
-			"description":"The lot number of this component",
-			"tier":5,
-			"category":"ManufacturerSpec"
-		},
-		"SpecsFile": {
-			"type":"string",
-			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
-			"tier":5,
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
 			"category":"ManufacturerSpec"
 		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This is a simple multi-line comment or annotation describing this component.",
-			"tier":2,
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
 			"category":"General"
 		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
-			"tier":3,
+			"tier":1,
 			"category":"General",
 			"readonly":true
 		}
@@ -402,16 +716,19 @@
 	"required": [
 		"XTravelRange",
 		"YTravelRange",
+		"XYReproducibility",
+		"XYSettlingTime",
+		"XYResolution",
 		"ID",
-		"Name",
-		"ZTravelRange",
-		"Resolution",
-		"PositionLinearityError",
-		"Repetability",
+		"Encoded",
+		"Motorized",
+		"MovementAxes",
+		"BuiltIn",
+		"ZReproducibility",
+		"ZSettlingTime",
+		"ZResolution",
 		"Manufacturer",
 		"Model",
-		"SerialNumber",
-		"SpecsFile",
-		"Description"
+		"CatalogNumber"
 	]
 }

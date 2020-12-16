@@ -1,0 +1,211 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"CameraSettings.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"CameraSettings",
+	"description":"This element refers to the Camera used to acquire this Channel and it holds the Settings that were applied to the Camera during this Acquisition.",
+	"extension":"Basic",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_CameraSettings.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"DetectorSettings":"This element holds the Setting applied to the Detector used for the Acquisition of this Channel as well as a reference to the Detector (the ID attribute) in question.",
+		"CameraSettings":"This element refers to the Camera used to acquire this Channel and it holds the Settings that were applied to the Camera during this Acquisition."
+	},
+	"properties": {
+		"Binning": {
+			"type":"string",
+			"description":"This field represents the number of adjacent pixels whose electric charge is combined in the resulting Image (e.g. binning = 2x2). Generally, binning increases read-out rates, signal-to-noise ratio, and relative sensitivity, while it reduces the spatial resolution.",
+			"tier":1,
+			"enum": [
+				"1x1",
+				"2x2",
+				"4x4",
+				"8x8",
+				"Other"
+			],
+			"category":"CameraSettings"
+		},
+		"PixelReadOutRate": {
+			"type":"number",
+			"description":"This represents the effective Pixel Readout Rate used for the Acquisition of this Image. This value is defined as the inverse of the time required to digitize a single pixel (also referred to as serial conversion time). Pixel readout rate can be considered similar to a baud rate as it depends on the bytes per second that can be read from the detector and written on disk. Readout rates are usually given in pixels/second (e.g., 500 kilopixels/second).",
+			"tier":1,
+			"category":"CameraSettings"
+		},
+		"PixelReadOutRateUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"Hz",
+			"enum": [
+				"YHz",
+				"ZHz",
+				"EHz",
+				"PHz",
+				"THz",
+				"GHz",
+				"MHz",
+				"kHz",
+				"hHz",
+				"daHz",
+				"Hz",
+				"dHz",
+				"cHz",
+				"mHz",
+				"µHz",
+				"nHz",
+				"pHz",
+				"fHz",
+				"aHz",
+				"zHz",
+				"yHz",
+				"fps",
+				"Pixel per second"
+			],
+			"category":"CameraSettings"
+		},
+		"DigitizerBitDepth": {
+			"type":"string",
+			"description":"If selectable, this field reports the Bit Depth of the Digitizer used for the Acquisition of this Channel.",
+			"tier":1,
+			"enum": [
+				"12bit",
+				"16bit",
+				"Other"
+			],
+			"category":"CameraSettings"
+		},
+		"SensorExposureMode": {
+			"type":"string",
+			"description":"In case of a CMOS Camera and if selectable, this field reports the sensor Exposure modality used for the Acquisition of this Channel. In the Rolling Exposure mode adjacent rows of the array are exposed at slightly different times as the readout 'waves' sweep through each half of the sensor. In the Global Exposure mode (i.e., 'Snapshot' exposure mode) all pixels of the array are exposed simultaneously, thus enabling 'freeze frame' capture of fast moving or fast changing events. In this modality the CMOS Camera behaves like an interline CCD sensor.",
+			"tier":1,
+			"enum": [
+				"Global shutter",
+				"Rolling shutter",
+				"Other"
+			],
+			"category":"CameraSettings"
+		},
+		"Integration": {
+			"type":"string",
+			"description":"This field represents the number of sequential frames that have been averaged to obtain this image, to improve the overall signal-to-noise ratio.",
+			"tier":2,
+			"category":"CameraSettings"
+		},
+		"FrameRate": {
+			"type":"number",
+			"description":"Frame Rate is the inverse of the time needed for the CCD to acquire a single Frame (or Plane) and then completely read that image out. Frame Rate is typically expressed in frames per second (fps). Often, the Frame Rate can be approximately calculated from the total number of pixels and the readout rate, combined with the total exposure time. This field represents the effective Frame Rate used for the Acquisition of this Image.",
+			"tier":3,
+			"category":"CameraSettings"
+		},
+		"FrameRateUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"fps",
+			"enum": [
+				"YHz",
+				"ZHz",
+				"EHz",
+				"PHz",
+				"THz",
+				"GHz",
+				"MHz",
+				"kHz",
+				"hHz",
+				"daHz",
+				"Hz",
+				"dHz",
+				"cHz",
+				"mHz",
+				"µHz",
+				"nHz",
+				"pHz",
+				"fHz",
+				"aHz",
+				"zHz",
+				"yHz",
+				"fps",
+				"Pixel per second"
+			],
+			"category":"CameraSettings"
+		},
+		"OperatingTemperature": {
+			"type":"number",
+			"description":"This field represents the effective temperature the sensor is regulated to during the Acquisition of this image.",
+			"tier":3,
+			"category":"CameraSettings"
+		},
+		"OperatingTemperatureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"°C",
+			"enum": [
+				"°C",
+				"°F",
+				"K",
+				"°R"
+			],
+			"category":"CameraSettings"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"AnalogGain": {
+			"type":"number",
+			"description":"This field reports the Analog Gain (also known as Inherent Gain or simply as Gain) that was applied during the Acquisition of this Image. The Analog Gain is a property Inherent to the Detector and it specifies how many electrons correspond to 1 signal unit (photon) detected. Gain is reported in terms of electrons/ADU (analog-to-digital unit). A gain of 8 means that the Detector digitizes the light signal so that each ADU corresponds to 8 photoelectrons. NOTE: In the case of Point Detectors the value of Analog Gain can be set freely by the user. Conversely, in the case of Cameras, it is common for the Gain to be preset by the Manufacturer to minimize noise. In this case, either the Analog Gain cannot be changed or the user is given the choice of selecting between a few preset Analog Gains values upon Acquisition. Finally, several Cameras might have so-called Automatic Gain Control (AGC or AutoGain) that will automatically adjusts so the full range of the Analog-to-Digital Converter (ADC) is used. Unless you can turn off the AGC, the use of these Cameras are highly discouraged for quantitative work. ",
+			"tier":1,
+			"category":"DetectorSettings"
+		},
+		"AmplificationGain": {
+			"type":"number",
+			"description":"This field reports the Amplification Gain that was applied during the Acquisition of this Image. Amplification Gain in general measures of the ability of a Detector to add energy to the input light signal therefore increasing its power or amplitude. Higher Amplification Gain levels amplify the signal and result in greater brightness, contrast and background signal. Examples include: 1) the Electron Multiplication (EM) gain (as opposed to the inherent Analog Gain) for an EMCCD camera. 2) The Gain introduced by the Micro-Channel Plate in an Intensified CCD or CMOS camera. 3) The amplification of the electron current provided by a Photomultiplier Tube, and measured as the ratio of the input photoelectron current emitted by the photocatode and the current reaching the anode. 4) The signal amplification provided by an Avalache Photo Diode (APD).",
+			"tier":1,
+			"category":"DetectorSettings"
+		},
+		"Offset": {
+			"type":"number",
+			"description":"If available, this field reports the actual Offset that was set for this Detector during the Acquisition of this Channel. Offset is an electronic baseline added to the output signal generated by the sensor to ensure that the resulting signal level always correspond to a positive number of counts. Offset defines the black level setting of the image and it should be adjusted so that the lowest signals are near the detection threshold. NOTE: Please note that most modern Cameras do not have the possibility of setting the Offset.",
+			"tier":2,
+			"category":"DetectorSettings"
+		},
+		"OffsetMode": {
+			"type":"string",
+			"description":"This field describes the way in which the Voltage Offset of the Detector is reported. It typically is expressed as an Arbitrary-units number, a Scaled percent (-100 to 100), or a a Voltage.",
+			"tier":3,
+			"enum": [
+				"Arbitrary units",
+				"Scaled percentage",
+				"Voltage",
+				"Other"
+			],
+			"category":"DetectorSettings"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Binning",
+		"PixelReadOutRate",
+		"DigitizerBitDepth",
+		"SensorExposureMode",
+		"Integration",
+		"FrameRate",
+		"ID",
+		"AnalogGain",
+		"AmplificationGain"
+	]
+}

@@ -1,118 +1,282 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ExcitationFilter.json",
-	"version":"1.06.5",
+	"version":"2.00.0",
 	"type":"object",
 	"title":"ExcitationFilter",
-	"description":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to an excitation filter. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
-	"domain":"MicrosocpeSpecifications",
-	"category":"LightPath",
-	"image":"LightPath_ExcitationFilter.png",
-	"tier":2,
+	"description":"An optical Filter is a device designed to selectively control the Wavelengths, color temperature, vibration direction, and/or intensity of the radiation which it transmits or reflects. This element refers to an Excitation Filter whose purpose is to selectively attenuate the Light that is utilized to Excite the Sample depending on Wavelength. This element can be associated with an optional Filter Holder.",
+	"extension":"Core",
+	"domain":"MicroscopeHardwareSpecifications",
+	"category":"FluorescenceLightPath",
+	"image":"FluorescenceLightPath_ExcitationFilter.svg",
+	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
-		"FIlter":"This describes an optical filter positioned in the light path for one or more channel available for this instrument. An optical filter is a device that selectively transmits light of different wavelengths. An instrument may have several filters of different types, such as an excitation, an emission filter or an additional filter positioned in the light path for different purposes. For each fluorescence Image there should be at least one filter element specified per Channel. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
-		"ExcitationFilter":"An optical filter is a device that selectively transmits light of different wavelengths.This element refers to an excitation filter. This element can be associated with an optional FilterWheel - Note: FilterWheel is not the same as a FilterSet.",
-		"TransmittanceRange":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"Filter":"This element describes an optical Filter positioned in the Light Path for one or more Channels available for this Instrument. An optical Filter is a device designed to selectively control the Wavelengths, color temperature, vibration direction, and/or intensity of the radiation which it transmits or reflects. An Instrument may have several Filters of different types, such as an Excitation, Emission, Neutral Density or an additional Generic Filter positioned in the Light Path for different purposes. For each fluorescence Image there should be at least one Filter element specified per Channel. This element can be associated with an optional Optics Holder, such as a Filter Cube, Filter Turret, Filtr Wheel, or Filter Slider.",
+		"ExcitationFilter":"An optical Filter is a device designed to selectively control the Wavelengths, color temperature, vibration direction, and/or intensity of the radiation which it transmits or reflects. This element refers to an Excitation Filter whose purpose is to selectively attenuate the Light that is utilized to Excite the Sample depending on Wavelength. This element can be associated with an optional Filter Holder.",
+		"TransmittanceRange":"This element records the Range (also known as Band) of Wavelengths that are transmitted by this optical component. It also records the maximum amount of light transmitted. Multiple of these elements can be used."
 	},
 	"properties": {
 		"Name": {
 			"type":"string",
-			"description":"A user defined name for this component.",
-			"tier":2,
+			"description":"A User-defined Name for this component.",
+			"tier":1,
 			"category":"General"
 		},
 		"ID": {
 			"type":"string",
-			"description":"A unique identifier for this component.",
-			"tier":2,
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
 			"category":"General",
 			"readonly":true
 		},
 		"Type": {
 			"type":"string",
-			"description":"The type of filter used in this case.",
-			"tier":3,
-			"default":"BandPass",
+			"description":"This field captures the Type of Filter used in this case.",
+			"tier":1,
 			"enum": [
 				"BandPass",
-				"MultiPass",
+				"BandStop",
 				"LongPass",
+				"MultiPass",
+				"Notch",
 				"ShortPass",
-				"NeutralDensity",
-				"Tuneable",
-				"HeatFilter",
-				"Acousto-optical",
-				"Liquid-crystal",
 				"Other"
 			],
-			"category":"FIlter"
+			"category":"Filter"
 		},
-		"ReflectionCoating": {
+		"CoatingMethod": {
 			"type":"string",
-			"description":"An optical coating is one or more thin layers of material deposited on an optical component such as a lens or mirror, which alters the way in which the optic reflects and transmits light.",
-			"tier":5,
-			"category":"FIlter"
+			"description":"This field records the type of Coating used in this case. An optical coating is one or more thin layers of material deposited on an optical component such as a Lens, Filter or Mirror, which alters the way in which the optic reflects and transmits light.",
+			"tier":1,
+			"enum": [
+				"HardCoated",
+				"SoftCoated",
+				"Other"
+			],
+			"category":"Filter"
 		},
-		"FilterWheel": {
+		"LightPathLocation": {
 			"type":"string",
-			"description":"This can can refer to any arrangement of filters in a filter holder of any shape. It could, for example, be a filter slider.",
+			"description":"This field records the location of this component in the Microscope Light Path. The most common positions are: Infinity Space, Camera Port or Illumination Port.",
+			"tier":1,
+			"enum": [
+				"Infinity space",
+				"Camera Port",
+				"Illumination port",
+				"Other"
+			],
+			"category":"Filter"
+		},
+		"FilterHolderPosition": {
+			"type":"string",
+			"description":"This field records the position of this element in a Filter Holder of any kind, such as a Filter Slider, Turret or Wheel.",
+			"tier":2,
+			"category":"Filter"
+		},
+		"Technology": {
+			"type":"string",
+			"description":"This field records Filtering technology utilized by this optical element. The main types of Filter technology used in fluorescence analysis are Absorption (aka colored) glass, Metallic-coating, Polymer-Based, or Thin-film interference-coating.",
+			"tier":2,
+			"enum": [
+				"Absorption Colored Glass",
+				"Metallic-coating",
+				"Polymer-Based",
+				"Thin-film interference-coating",
+				"Other"
+			],
+			"category":"Filter"
+		},
+		"AttenuationCoefficient": {
+			"type":"number",
+			"description":"This field records the Attenuation Coefficient of this Filter. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"tier":2,
+			"category":"Filter"
+		},
+		"AttenuationMethod": {
+			"type":"string",
+			"description":"This field records the mean by which this optical element achieves out-of-band transmission attenuation.",
 			"tier":3,
-			"category":"FIlter"
+			"enum": [
+				"Absorption",
+				"Reflection",
+				"Rifraction",
+				"Other"
+			],
+			"category":"Filter"
 		},
-		"TransmittanceProfileFile": {
+		"Diameter": {
+			"type":"number",
+			"description":"This field describes the Diameter of this optical element.",
+			"tier":3,
+			"category":"Filter"
+		},
+		"DiameterUnit": {
 			"type":"string",
-			"description":"This contains the location of file in .csv or other suitable formats containing the wavelenght profile of this component.",
-			"tier":5,
-			"category":"FIlter"
+			"description":"NA",
+			"tier":3,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Filter"
+		},
+		"Thickness": {
+			"type":"number",
+			"description":"This field describes the Thickness of this optical element.",
+			"tier":3,
+			"category":"Filter"
+		},
+		"ThicknessUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Filter"
+		},
+		"AngleOfIncidence": {
+			"type":"number",
+			"description":"This field records the optimal angle of incidence (AOI) for this Filter. The AOI is the angle between the optical axis of the incident light and the axis normal to the surface of the mirror. In specular reflection AOI is by definition equal to the Angle Of Reflection (AOR).",
+			"tier":3,
+			"category":"Filter"
+		},
+		"AngleOfIncidenceUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"enum": [
+				"deg",
+				"rad",
+				"gon"
+			],
+			"category":"Filter"
+		},
+		"Polarization": {
+			"type":"string",
+			"description":"This field records the Polarization effect of this optical element. Any thin-film interference coating that is used at non-normal AOI will cause some amount of Polarization, the precise effect varying greatly with Wavelength and with the particular coating design.",
+			"tier":3,
+			"enum": [
+				"Circular",
+				"Elliptical",
+				"Planar",
+				"Other"
+			],
+			"category":"Filter"
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"The manufacturer of this component.",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
 		"Model": {
 			"type":"string",
-			"description":"The model of this component.",
-			"tier":3,
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
 			"category":"ManufacturerSpec"
 		},
-		"SerialNumber": {
+		"CatalogNumber": {
 			"type":"string",
-			"description":"The serial number of this component",
-			"tier":5,
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
 			"category":"ManufacturerSpec"
 		},
 		"LotNumber": {
 			"type":"string",
-			"description":"The lot number of this component",
-			"tier":5,
-			"category":"ManufacturerSpec"
-		},
-		"SpecsFile": {
-			"type":"string",
-			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
-			"tier":5,
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
 			"category":"ManufacturerSpec"
 		},
 		"TransmittanceRange": {
 			"type":"array",
-			"description":"This records the range of wavelengths that are transmitted by the filter. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
-			"tier":2,
+			"description":"This element records the Range (also known as Band) of Wavelengths that are transmitted by this optical component. It also records the maximum amount of light transmitted. Multiple of these elements can be used.",
+			"tier":1,
 			"items": {
 				"properties": {
-					"CutIn": {
+					"Wavelength": {
 						"type":"number",
-						"description":"CutIn is the wavelength below which the response rate is below 50%.",
-						"tier":2,
+						"description":"This field records the key Wavelength] that characterizes this Transmittance Range (also known as Transmission band). In the case of Bandpass, Bandstop, Multipass or Notch Filters, Wavelength often refers to the Central Wavelength of each of the transmission band(s); alternatively, in case of a Longpass or a Shortpass Filters, Wavelength refers to the CutOn Wavelength (i.e., below which there is less than 50% transmittance) or the CutOff Wavelengths (i.e., above which there is less than 50% transmittance) respectively. In the case of Dichroics, Wavelength most commonly refers to the Edge Wavelength which might be either the CutOn or the CutOff Wavelength depending on individual cases.",
+						"tier":1,
 						"category":"TransmittanceRange"
 					},
-					"CutInUnit": {
+					"FWHMBandwidth": {
+						"type":"number",
+						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+						"tier":1,
+						"category":"TransmittanceRange"
+					},
+					"WavelengthUnit": {
 						"type":"string",
 						"description":"NA",
-						"tier":2,
+						"tier":1,
 						"default":"nm",
 						"enum": [
 							"Ym",
@@ -147,98 +311,49 @@
 							"ly",
 							"pc",
 							"pt",
-							"pixel",
-							"reference frame"
-						],
-						"category":"TransmittanceRange"
-					},
-					"CutOut": {
-						"type":"number",
-						"description":"CutOut is the wavelength above which the response rate is below 50%.",
-						"tier":2,
-						"category":"TransmittanceRange"
-					},
-					"CutOutUnit": {
-						"type":"string",
-						"description":"NA",
-						"tier":2,
-						"default":"nm",
-						"enum": [
-							"Ym",
-							"Zm",
-							"Em",
-							"Pm",
-							"Tm",
-							"Gm",
-							"Mm",
-							"km",
-							"hm",
-							"dam",
-							"m",
-							"dm",
-							"cm",
-							"mm",
-							"µm",
-							"nm",
-							"pm",
-							"fm",
-							"am",
-							"zm",
-							"ym",
-							"Å",
-							"thou",
-							"li",
-							"in",
-							"ft",
-							"yd",
-							"mi",
-							"ua",
-							"ly",
-							"pc",
-							"pt",
-							"pixel",
+							"Pixel",
 							"reference frame"
 						],
 						"category":"TransmittanceRange"
 					},
 					"Transmittance": {
 						"type":"number",
-						"description":"The maximum amount of light this optical component is capable of transmitting at the peak wavelenght. It is represented as a fractional value from 0.0 to 1.0.",
-						"tier":3,
+						"description":"This field records the maximum amount of light this optical component is capable of transmitting in this Wavelength Range, at the peak Wavelength. It is represented as a fractional value from 0.0 to 1.0. ",
+						"tier":2,
 						"category":"TransmittanceRange"
 					}
 				},
 				"required": [
-					"CutIn",
-					"CutOut",
-					"Transmittance"
+					"Wavelength",
+					"FWHMBandwidth"
 				]
 			}
 		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This is a simple multi-line comment or annotation describing this component.",
-			"tier":2,
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
 			"category":"General"
 		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
-			"tier":2,
+			"tier":1,
 			"category":"General",
 			"readonly":true
 		}
 	},
 	"required": [
 		"ID",
-		"Name",
-		"TransmittanceProfileFile",
+		"Type",
+		"CoatingMethod",
+		"LightPathLocation",
+		"AttenuationCoefficient",
+		"AttenuationMethod",
 		"Manufacturer",
 		"Model",
-		"SerialNumber",
-		"SpecsFile",
-		"TransmittanceRange",
-		"Description"
+		"CatalogNumber",
+		"TransmittanceRange"
 	]
 }

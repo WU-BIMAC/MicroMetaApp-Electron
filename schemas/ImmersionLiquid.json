@@ -1,0 +1,92 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"ImmersionLiquid.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"ImmersionLiquid",
+	"description":"This element refers to the Immersion Liquid that was used with this Objective during the Acquisition of this Image. According to ISO 10934-1:2002, an Immersion Liquid is a liquid (commonly immersion oil, water, glycerol or any media in which the Specimen is submerged during acquisition in case a Cover Glass is not used) specified as suitable for use in the space between the front of an Objective lens and the Cover Glass or the Object itself (i.e., such as is the case for Dipping Objectives). Refer to ISO 8036-1 for more details on Immersion Oil. Please NOTE: Because the Immersion Liquid is considered in the computing of corrections to be part of the lens, its refractive index and dispersion (or Abbe number) are critical. Also please NOTE: In case a Cover Glass is not used during Acquisition the Immersion Liquid is most often referred to as Dipping Medium. Examples of Dipping Media include, water-based solutions (biological buffers, culture media, other water-based solutions) and organic-based [FocusClear (CLARITY); CUBIC-1, CUBIC-2, CUBIC-R1, CUBIC-R2; 2,2-thiodiethanol (TDE); ethyl cinnamate; Benzyl Benzoate and BB-PEG (PEGASOS); Benzyl Alcohol, Benzyl Benzoate (BABB); dibenzyl ether (DBE); Ethanol].",
+	"extension":"Basic",
+	"domain":"Experimental",
+	"category":"SamplePreparation",
+	"image":"SamplePreparation_ImmersionLiquid.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"ImmersionLiquid":"This element refers to the Immersion Liquid that was used with this Objective during the Acquisition of this Image. According to ISO 10934-1:2002, an Immersion Liquid is a liquid (commonly immersion oil, water, glycerol or any media in which the Specimen is submerged during acquisition in case a Cover Glass is not used) specified as suitable for use in the space between the front of an Objective lens and the Cover Glass or the Object itself (i.e., such as is the case for Dipping Objectives). Refer to ISO 8036-1 for more details on Immersion Oil. Please NOTE: Because the Immersion Liquid is considered in the computing of corrections to be part of the lens, its refractive index and dispersion (or Abbe number) are critical. Also please NOTE: In case a Cover Glass is not used during Acquisition the Immersion Liquid is most often referred to as Dipping Medium. Examples of Dipping Media include, water-based solutions (biological buffers, culture media, other water-based solutions) and organic-based [FocusClear (CLARITY); CUBIC-1, CUBIC-2, CUBIC-R1, CUBIC-R2; 2,2-thiodiethanol (TDE); ethyl cinnamate; Benzyl Benzoate and BB-PEG (PEGASOS); Benzyl Alcohol, Benzyl Benzoate (BABB); dibenzyl ether (DBE); Ethanol]."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"Type": {
+			"type":"string",
+			"description":"This field records the general category to which this Immersion Liquid belongs.",
+			"tier":1,
+			"enum": [
+				"Glycerol",
+				"Multi",
+				"Mineral Oil",
+				"Silicone Oil",
+				"Water",
+				"Other"
+			],
+			"category":"ImmersionLiquid"
+		},
+		"RefractiveIndex": {
+			"type":"number",
+			"description":"This field reocrds the nominal Refractive Index of this Immersion Liquid, as specified by the Manufacturer.",
+			"tier":2,
+			"category":"ImmersionLiquid"
+		},
+		"Viscosity": {
+			"type":"number",
+			"description":"This field records the nominal Viscosity of this Immersion Liquid as specified by the Manufacturer.",
+			"tier":2,
+			"category":"ImmersionLiquid"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"CatalogNumber": {
+			"type":"string",
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Type",
+		"RefractiveIndex",
+		"Manufacturer",
+		"Model",
+		"CatalogNumber"
+	]
+}

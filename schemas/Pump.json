@@ -1,32 +1,28 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Pump.json",
-	"version":"1.06.5",
+	"version":"2.00.0",
 	"type":"object",
 	"title":"Pump",
-	"description":"The Pump element refers to a light source. It is used within the Laser element to specify the light source used as an optional laser pump.",
-	"domain":"MicrosocpeSpecifications",
+	"description":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it.",
+	"extension":"Basic",
+	"domain":"MicroscopeHardwareSpecifications",
 	"category":"ChildElement",
-	"image":"ChildElement_Pump.png",
-	"tier":5,
+	"image":"ChildElement_Pump.svg",
+	"tier":3,
 	"subCategoriesOrder": {
-		"General":"General information about the element",
-		"Pump":"The Pump element refers to a light source. It is used within the Laser element to specify the light source used as an optional laser pump."
+		"Pump":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it."
 	},
 	"properties": {
-		"ID": {
+		"Laser": {
 			"type":"string",
-			"description":"NA",
-			"tier":1,
-			"category":"General",
-			"readonly":true
-		},
-		"Tier": {
-			"type":"integer",
-			"description":"The tier level of this component.",
-			"tier":5,
-			"category":"General",
-			"readonly":true
+			"description":"This empty element refers to an existing Laser component.",
+			"tier":2,
+			"category":"Pump",
+			"linkTo":"Laser"
 		}
-	}
+	},
+	"required": [
+		"Laser"
+	]
 }

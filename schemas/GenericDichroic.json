@@ -1,0 +1,542 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"GenericDichroic.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"GenericDichroic",
+	"description":"A Dichroic Mirror (also often referred to as Dichroic Beamsplitter or simply as Dichroic) is a Mirror that spectrally separate light by transmitting and reflecting light as a function of wavelength. In the context of fluorescence microscopy, they are typically used to reflect the excitation light, but transmit the emitted fluorescence. Dichroic Mirrors can be categorized in different manners. However, the most important criteria for choosing a Dichoric Mirror are the Transmittance and the Reflectance Wavelength ranges. This element describes an additional Generic Dichroic positioned in the Ligth Path for one or more Channel available for this Instrument.",
+	"extension":"Basic",
+	"domain":"MicroscopeHardwareSpecifications",
+	"category":"MirroringDevice",
+	"image":"MirroringDevice_GenericDichroic.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"MirroringDevice":"This element describes a Mirror positioned in the Light Path for one or more Channels available for this Instrument. An Instrument may have several Mirrors of different types, such as Dichroic, Beamsplitter or Reflector. This element can be associated with an optional Optics Holder, such as a Filter Cube, Filter Turret, Filter Wheel, or Filter Slider.",
+		"Dichroic":"A Dichroic Mirror (also often referred to as Dichroic Beamsplitter or simply as Dichroic) is a Mirror that spectrally separate light by transmitting and reflecting light as a function of wavelength. In the context of fluorescence microscopy, they are typically used to reflect the excitation light, but transmit the emitted fluorescence. Dichroic Mirrors can be categorized in different manners. However, the most important criteria for choosing a Dichoric Mirror are the Transmittance and the Reflectance Wavelength ranges.",
+		"GenericDichroic":"A Dichroic Mirror (also often referred to as Dichroic Beamsplitter or simply as Dichroic) is a Mirror that spectrally separate light by transmitting and reflecting light as a function of wavelength. In the context of fluorescence microscopy, they are typically used to reflect the excitation light, but transmit the emitted fluorescence. Dichroic Mirrors can be categorized in different manners. However, the most important criteria for choosing a Dichoric Mirror are the Transmittance and the Reflectance Wavelength ranges. This element describes an additional Generic Dichroic positioned in the Ligth Path for one or more Channel available for this Instrument.",
+		"TransmittanceRange":"This element records the Range (also known as Band) of Wavelengths that are transmitted by this optical component. It also records the maximum amount of light transmitted. Multiple of these elements can be used.",
+		"ReflectanceRange":"This element records the Range (also known as Band) of Wavelengths that are reflected by this optical componewnt. It also records the maximum amount of light reflected. Multiple of these elements can be used."
+	},
+	"properties": {
+		"Type": {
+			"type":"string",
+			"description":"This field captures the Type of Dichroic used in this case.",
+			"tier":1,
+			"enum": [
+				"BandPass",
+				"BandStop",
+				"LongPass",
+				"MultiPass",
+				"Notch",
+				"ShortPass",
+				"Other"
+			],
+			"category":"Dichroic"
+		},
+		"CoatingMethod": {
+			"type":"string",
+			"description":"This field records the type of Coating used in this case. An optical coating is one or more thin layers of material deposited on an optical component such as a Lens, Filter or Mirror, which alters the way in which the optic reflects and transmits light.",
+			"tier":1,
+			"enum": [
+				"HardCoated",
+				"SoftCoated",
+				"Other"
+			],
+			"category":"Dichroic"
+		},
+		"LightPathLocation": {
+			"type":"string",
+			"description":"This field records the location of this component in the Microscope Light Path. The most common positions are: Infinity Space, Camera Port or Illumination Port.",
+			"tier":1,
+			"enum": [
+				"Infinity space",
+				"Camera Port",
+				"Illumination port",
+				"Other"
+			],
+			"category":"Dichroic"
+		},
+		"FilterHolderPosition": {
+			"type":"string",
+			"description":"This field records the position of this element in a Filter Holder of any kind, such as a Filter Slider, Turret or Wheel.",
+			"tier":2,
+			"category":"Dichroic"
+		},
+		"Technology": {
+			"type":"string",
+			"description":"This field records the filtering Technology utilized for this optical element. The main types of technologies used in fluorescence analysis are Absorption (aka colored) glass, Polymer or Thin-film coating.",
+			"tier":2,
+			"enum": [
+				"Absorption Colored Glass",
+				"Metallic-coating",
+				"Polymer-Based",
+				"Thin-film interference-coating",
+				"Other"
+			],
+			"category":"Dichroic"
+		},
+		"AttenuationCoefficient": {
+			"type":"number",
+			"description":"This field records the Attenuation Coefficient of this Dichroic. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"tier":2,
+			"category":"Dichroic"
+		},
+		"AttenuationMethod": {
+			"type":"string",
+			"description":"This field records the mean by which this optical element achieves out-of-band transmission attenuation.",
+			"tier":3,
+			"enum": [
+				"Absorption",
+				"Reflection",
+				"Rifraction",
+				"Other"
+			],
+			"category":"Dichroic"
+		},
+		"Thickness": {
+			"type":"number",
+			"description":"This field describes the Thickness of this optical element.",
+			"tier":3,
+			"category":"Dichroic"
+		},
+		"ThicknessUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Dichroic"
+		},
+		"Polarization": {
+			"type":"string",
+			"description":"This field records the polarization effect of this optical element. Any thin-film interference coating that is used at non-normal angles-of-incidence will cause some amount of polarization, the precise effect varying greatly with wavelength and with the particular coating design.",
+			"tier":3,
+			"enum": [
+				"Circular",
+				"Elliptical",
+				"Planar",
+				"Other"
+			],
+			"category":"Dichroic"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A User-defined Name for this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"MirrorType": {
+			"type":"string",
+			"description":"This field records the general category of this Mirror.",
+			"tier":3,
+			"enum": [
+				"Convex",
+				"Concave",
+				"Planar",
+				"Other"
+			],
+			"category":"MirroringDevice"
+		},
+		"Diameter": {
+			"type":"number",
+			"description":"This field describes the Diameter of this optical element.",
+			"tier":3,
+			"category":"MirroringDevice"
+		},
+		"DiameterUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"MirroringDevice"
+		},
+		"AngleOfIncidence": {
+			"type":"number",
+			"description":"This field records the optimal angle of incidence (AOI) for this Mirror. The AOI is the angle between the optical axis of the incident light and the axis normal to the surface of the Mirror. In specular reflection AOI is by definition equal to the Angle Of Reflection (AOR).",
+			"tier":3,
+			"category":"MirroringDevice"
+		},
+		"AngleOfIncidenceUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"deg",
+			"enum": [
+				"deg"
+			],
+			"category":"MirroringDevice"
+		},
+		"Geometry": {
+			"type":"string",
+			"description":"This field records the geometrical shape of the surface(s) of this Mirror.",
+			"tier":3,
+			"enum": [
+				"Aspherical",
+				"Cylindrical",
+				"Ellipsoidal",
+				"Hyeprboloidal",
+				"Paraboloidal",
+				"Spherical",
+				"Other"
+			],
+			"category":"MirroringDevice"
+		},
+		"RadiusOfCurvature": {
+			"type":"number",
+			"description":"The radius of curvature of this Mirror. A spherical lens or Mirror surface has a center of curvature located either along or decentered from the system local optical axis. The vertex of the lens surface is located on the local optical axis. The distance from the vertex to the center of curvature is the radius of curvature of the surface.",
+			"tier":3,
+			"category":"MirroringDevice"
+		},
+		"RadiusOfCurvatureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"MirroringDevice"
+		},
+		"SubstrateType": {
+			"type":"string",
+			"description":"This field records the type of Substrate that is used for this Mirror. It is typically a ground and polished piece of optical glass.",
+			"tier":3,
+			"category":"MirroringDevice"
+		},
+		"SubstrateMaterial": {
+			"type":"string",
+			"description":"This field records the polarization effect of this optical element. Any thin-film interference Coating that is used at non-normal angles-of-incidence will cause some amount of polarization, the precise effect varying greatly with wavelength and with the particular Coating design.",
+			"tier":3,
+			"enum": [
+				"Calcium Fluoride",
+				"N-BK7 (Borosilicate Crown)",
+				"UV-Grade Fused Silica (UVFS)",
+				"Zerodur (Lithium Aluminum Ailicon Oxide)",
+				"Zinc Selenide (ZnSe)",
+				"Other"
+			],
+			"category":"MirroringDevice"
+		},
+		"GlassCode": {
+			"type":"string",
+			"description":"If available, this field records the international Glass Code of the material that constitutes this Mirror. The Glass Code designation is based on U.S. military standard MIL-G-174, and it consists of a six-digit number specifying the glass according to its Refractive Index nd at the Fraunhofer d- (or D3-) line, and its Abbe Number Vd also taken at that line. The resulting Glass Code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit Glass Code of 517642.",
+			"tier":3,
+			"category":"MirroringDevice"
+		},
+		"OpticsHolderPosition": {
+			"type":"string",
+			"description":"This field records the position of this Mirroring Device in a Optics Holder of any kind, such as a Slider, Turret or Wheel.",
+			"tier":2,
+			"category":"MirroringDevice"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"CatalogNumber": {
+			"type":"string",
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"TransmittanceRange": {
+			"type":"array",
+			"description":"This element records the Range (also known as Band) of Wavelengths that are transmitted by this optical component. It also records the maximum amount of light transmitted. Multiple of these elements can be used.",
+			"tier":1,
+			"items": {
+				"properties": {
+					"Wavelength": {
+						"type":"number",
+						"description":"This field records the key Wavelength] that characterizes this Transmittance Range (also known as Transmission band). In the case of Bandpass, Bandstop, Multipass or Notch Filters, Wavelength often refers to the Central Wavelength of each of the transmission band(s); alternatively, in case of a Longpass or a Shortpass Filters, Wavelength refers to the CutOn Wavelength (i.e., below which there is less than 50% transmittance) or the CutOff Wavelengths (i.e., above which there is less than 50% transmittance) respectively. In the case of Dichroics, Wavelength most commonly refers to the Edge Wavelength which might be either the CutOn or the CutOff Wavelength depending on individual cases.",
+						"tier":1,
+						"category":"TransmittanceRange"
+					},
+					"FWHMBandwidth": {
+						"type":"number",
+						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+						"tier":1,
+						"category":"TransmittanceRange"
+					},
+					"WavelengthUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":1,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"TransmittanceRange"
+					},
+					"Transmittance": {
+						"type":"number",
+						"description":"This field records the maximum amount of light this optical component is capable of transmitting in this Wavelength Range, at the peak Wavelength. It is represented as a fractional value from 0.0 to 1.0. ",
+						"tier":2,
+						"category":"TransmittanceRange"
+					}
+				},
+				"required": [
+					"Wavelength",
+					"FWHMBandwidth"
+				]
+			}
+		},
+		"ReflectanceRange": {
+			"type":"array",
+			"description":"This element records the Range (also known as Band) of Wavelengths that are reflected by this optical componewnt. It also records the maximum amount of light reflected. Multiple of these elements can be used.",
+			"tier":3,
+			"items": {
+				"properties": {
+					"Wavelength": {
+						"type":"number",
+						"description":"This field records the key Wavelength that characterizes this Reflectance Range (also known as Reflection band). In most cases, Wavelength refers to the CutOn Wavelength (i.e., below which there is less than 50% transmittance) but it might also refer to the CutOff wavelength (i.e., above which there is less than 50% transmittance) or the Center Wavelength of the Reflectance Band.",
+						"tier":3,
+						"category":"ReflectanceRange"
+					},
+					"FWHMBandwidth": {
+						"type":"number",
+						"description":"This field records the width of this Reflectance Range (also known as Reflection band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+						"tier":3,
+						"category":"ReflectanceRange"
+					},
+					"WavelengthUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"ReflectanceRange"
+					},
+					"Reflectance": {
+						"type":"number",
+						"description":"This field records the maximum amount of light this optical component is capable of reflecting in this Wavelength Range, at the peak Wavelength. It is represented as a fractional value from 0.0 to 1.0.",
+						"tier":3,
+						"category":"ReflectanceRange"
+					}
+				},
+				"required": [
+					"Wavelength",
+					"FWHMBandwidth"
+				]
+			}
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Type",
+		"CoatingMethod",
+		"LightPathLocation",
+		"AttenuationCoefficient",
+		"AttenuationMethod",
+		"ID",
+		"MirrorType",
+		"Manufacturer",
+		"Model",
+		"CatalogNumber",
+		"TransmittanceRange"
+	]
+}

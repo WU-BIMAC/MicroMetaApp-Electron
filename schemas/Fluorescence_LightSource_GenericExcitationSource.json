@@ -1,113 +1,77 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_GenericExcitationSource.json",
-	"version":"1.06.5",
+	"version":"2.00.0",
 	"type":"object",
 	"title":"GenericExcitationSource",
 	"description":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible.",
-	"domain":"MicrosocpeSpecifications",
+	"extension":"Core",
+	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Fluorescence_LightSource",
-	"image":"Fluorescence_LightSource_GenericExcitationSource.png",
+	"image":"Fluorescence_LightSource_GenericExcitationSource.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
-		"LightSource":"This describes the light source(s) available for this instrument. An instrument may have several light sources of different types (Laser, LightEmittingDiode, Filament, Arc etc.). A typical light-microscope has two light sources, one for transmitted light and one for fluorescence light.      ",
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"LightSource":"This element describes one or more Light Source(s) available for this Instrument. An Instrument may have several Light Sources of different types (Laser, Light Emitting Diode, Filament, Arc etc.). A typical fluorescence Microscope has two Light Sources, one for Transmitted light and one for Fluorescence light.",
 		"GenericExcitationSource":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible."
 	},
 	"properties": {
 		"Name": {
 			"type":"string",
-			"description":"A user defined name for this component.",
+			"description":"A User-defined Name for this component.",
 			"tier":1,
 			"category":"General"
 		},
 		"ID": {
 			"type":"string",
-			"description":"A unique identifier for this component.",
+			"description":"A Unique Identifier for this component.",
 			"tier":1,
 			"category":"General",
 			"readonly":true
 		},
-		"NominalPowerOutput": {
-			"type":"number",
-			"description":"The average nominal power output of this light-source.",
-			"tier":3,
-			"category":"LightSource"
-		},
-		"NominalPowerOutputUnit": {
+		"PowerMode": {
 			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"default":"W",
+			"description":"The statistic used by the Manufacturer to report the nominal Power output.",
+			"tier":2,
 			"enum": [
-				"YW",
-				"ZW",
-				"EW",
-				"PW",
-				"TW",
-				"GW",
-				"MW",
-				"kW",
-				"hW",
-				"daW",
-				"W",
-				"dW",
-				"cW",
-				"mW",
-				"µW",
-				"nW",
-				"pW",
-				"fW",
-				"aW",
-				"zW",
-				"yW"
+				"Average",
+				"Maximum",
+				"Median",
+				"Other"
 			],
 			"category":"LightSource"
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"The manufacturer of this component.",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
 		"Model": {
 			"type":"string",
-			"description":"The model of this component.",
-			"tier":3,
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
 			"category":"ManufacturerSpec"
 		},
-		"SerialNumber": {
+		"CatalogNumber": {
 			"type":"string",
-			"description":"The serial number of this component",
-			"tier":5,
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
 			"category":"ManufacturerSpec"
 		},
 		"LotNumber": {
 			"type":"string",
-			"description":"The lot number of this component",
-			"tier":5,
-			"category":"ManufacturerSpec"
-		},
-		"SpecsFile": {
-			"type":"string",
-			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
-			"tier":5,
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
 			"category":"ManufacturerSpec"
 		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This is a simple multi-line comment or annotation describing this component.",
-			"tier":2,
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
 			"category":"General"
-		},
-		"Map": {
-			"type":"object",
-			"description":"This is a Mapping of key/value pairs used to store customized metadata that describes this element.",
-			"tier":3,
-			"properties": {
-			}
 		},
 		"Tier": {
 			"type":"integer",
@@ -119,13 +83,8 @@
 	},
 	"required": [
 		"ID",
-		"Name",
-		"NominalPowerOutput",
 		"Manufacturer",
 		"Model",
-		"SerialNumber",
-		"SpecsFile",
-		"Description",
-		"Description"
+		"CatalogNumber"
 	]
 }

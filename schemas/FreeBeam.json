@@ -1,0 +1,107 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"FreeBeam.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"FreeBeam",
+	"description":"A Free Beam coupling between the Light Source and the Microscope Stand consists of either a direct mount or an optical path that directs light across free space to the back of the Microscope Stand.",
+	"extension":"Basic",
+	"domain":"MicroscopeHardwareSpecifications",
+	"category":"LightSourceCoupling",
+	"image":"LightSourceCoupling_FreeBeam.svg",
+	"tier":2,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"LightSourceCoupling":"This element describes the device(s)/method(s) used to couple an available Light Source(s) with this Microscope Stand to transfer light to the specimen. A typical light Microscope has a Light Coupling device for each available Light Source.",
+		"FreeBeam":"A Free Beam coupling between the Light Source and the Microscope Stand consists of either a direct mount or an optical path that directs light across free space to the back of the Microscope Stand.",
+		"CouplingLens":"This is a reference to a Lens positioned at the connection between this Light Source coupling element and the Microscope Stand."
+	},
+	"properties": {
+		"DirectMount": {
+			"type":"boolean",
+			"description":"Whether light traveling via this Light Source Coupling device from the Light Source to the Microscope Stand travels via a direct mount attached to the Microscope Stand (True), or across an optical path through the air (False).",
+			"tier":2,
+			"category":"FreeBeam"
+		},
+		"MountType": {
+			"type":"string",
+			"description":"In case the DirectMount field is True, this field records the type of Direct Mount utilized to couple the Light Source to this Microscope Stand.",
+			"tier":3,
+			"category":"FreeBeam"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A User-defined Name for this component.",
+			"tier":2,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		},
+		"Transmittance": {
+			"type":"number",
+			"description":"The maximum amount of light this Light Source Coupling device is capable of transmitting at the Peak Wavelength. It is represented as a fractional value from 0.0 to 1.0.",
+			"tier":3,
+			"category":"LightSourceCoupling"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"CatalogNumber": {
+			"type":"string",
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"CouplingLens": {
+			"type":"string",
+			"description":"This is a reference to a Lens positioned at the connection between this Light Source coupling element and the Microscope Stand.",
+			"tier":2,
+			"category":"CouplingLens",
+			"linkTo":"CouplingLens"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This is a simple multi-line comment or annotation describing this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"DirectMount",
+		"MountType",
+		"ID",
+		"Transmittance",
+		"Manufacturer",
+		"Model",
+		"CatalogNumber"
+	]
+}

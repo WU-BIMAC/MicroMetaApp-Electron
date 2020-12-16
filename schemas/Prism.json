@@ -1,68 +1,101 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Prism.json",
-	"version":"1.06.5",
+	"version":"2.00.0",
 	"type":"object",
 	"title":"Prism",
-	"description":"This describes a prism positioned in the light path for one or more channel available for this instrument. A prism is a block of glass or other transparent material with flat, polished surfaces, which can be viewed as an ensamble of different rigidly mounted mirrors, with each face having a permanent orientation with respect to all the others. A prism can be employed to deflect or deviate a light beam, rotate or invert an image, separate polarization states, or disperse light into its component wavelengths. An instrument may have several prisms with different factionality such as,  reflecting, polarizing, and refracting or dispersion prisms. Reflecting prisms are useful for redirecting light beams by total internal reflection. Polarizing prisms are birefringent crystals that divide incident non-polarized light into separate components polarized orthogonally to each other. Refracting prisms can be employed to bend and separate light into its component colors. These prisms are employed to produce polarized light for optical instruments such as microscopes and polarimeters.",
-	"domain":"MicrosocpeSpecifications",
+	"description":"This element describes a Prism positioned in the Light Path for one or more Channels available for this Instrument. A Prism is a block of glass or other transparent material with at least two intersecting flat, polished surfaces, used to disperse light or deviate it through an angle. A Prism can be viewed as an ensemble of different rigidly mounted Mirrors, with each face having a permanent orientation with respect to others. A Prism can be employed to deflect or deviate a light beam, rotate or invert an Image, separate polarization states, or disperse light into its component Wavelengths. An Instrument may have several Prisms with different functionality such as Polarizing, Reflecting, or Refracting (or Dispersing). Polarizing Prisms are birefringent crystals that divide incident non-polarized light into separate components polarized orthogonally to each other. Reflecting Prisms are useful for redirecting light beams by total internal reflection. Refracting (or Dispersing) Prisms can be employed to bend and separate light into its component colors. This element can be associated with an optional Optics Turret.",
+	"extension":"Basic",
+	"domain":"MicroscopeHardwareSpecifications",
 	"category":"AdditionalOptics",
-	"image":"AdditionalOptics_Prism.png",
-	"tier":2,
+	"image":"AdditionalOptics_Prism.svg",
+	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
-		"Prism":"This describes a prism positioned in the light path for one or more channel available for this instrument. A prism is a block of glass or other transparent material with flat, polished surfaces, which can be viewed as an ensamble of different rigidly mounted mirrors, with each face having a permanent orientation with respect to all the others. A prism can be employed to deflect or deviate a light beam, rotate or invert an image, separate polarization states, or disperse light into its component wavelengths. An instrument may have several prisms with different factionality such as,  reflecting, polarizing, and refracting or dispersion prisms. Reflecting prisms are useful for redirecting light beams by total internal reflection. Polarizing prisms are birefringent crystals that divide incident non-polarized light into separate components polarized orthogonally to each other. Refracting prisms can be employed to bend and separate light into its component colors. These prisms are employed to produce polarized light for optical instruments such as microscopes and polarimeters.",
-		"WavelengthRange":"This records a range of wavelengths this device is designed for according to the manufacturer. Multiple of this elements may be used."
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"Prism":"This element describes a Prism positioned in the Light Path for one or more Channels available for this Instrument. A Prism is a block of glass or other transparent material with at least two intersecting flat, polished surfaces, used to disperse light or deviate it through an angle. A Prism can be viewed as an ensemble of different rigidly mounted Mirrors, with each face having a permanent orientation with respect to others. A Prism can be employed to deflect or deviate a light beam, rotate or invert an Image, separate polarization states, or disperse light into its component Wavelengths. An Instrument may have several Prisms with different functionality such as Polarizing, Reflecting, or Refracting (or Dispersing). Polarizing Prisms are birefringent crystals that divide incident non-polarized light into separate components polarized orthogonally to each other. Reflecting Prisms are useful for redirecting light beams by total internal reflection. Refracting (or Dispersing) Prisms can be employed to bend and separate light into its component colors. This element can be associated with an optional Optics Turret.",
+		"WavelengthRange":"This element records the Range of Wavelengths this device is designed for according to the Manufacturer. Multiple of this element may be used."
 	},
 	"properties": {
 		"Name": {
 			"type":"string",
-			"description":"A user defined name for this component.",
-			"tier":2,
+			"description":"A User-defined Name for this component.",
+			"tier":1,
 			"category":"General"
 		},
 		"ID": {
 			"type":"string",
-			"description":"A unique identifier for this component.",
-			"tier":2,
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
 			"category":"General",
 			"readonly":true
 		},
-		"Type": {
+		"DIC": {
 			"type":"string",
-			"description":"The category to which this prism belongs.",
-			"tier":3,
+			"description":"This field records whether this Prism is used for Differential Interference Contrast (DIC) microscopy and, if so, what DIC-compatible type it is (i.e., deSenarmont, Nomarski or Wollaston).",
+			"tier":1,
 			"enum": [
-				"Reflecting",
+				"deSenarmont",
+				"Nomarski",
+				"Wollarston",
+				"None"
+			],
+			"category":"Prism"
+		},
+		"Function": {
+			"type":"string",
+			"description":"This field records the function of this Prism. Beam-shaping (i.e., Anamorphic) Prism pairs are used for reshaping the profile of a laser beam. For example, the elliptical beam from a laser diode can be transformed into a beam with circular cross-section, by magnifying the elliptical beam in one dimension. They can also be used to convert a circular beam into an elliptical beam. Dispersing prisms can be employed to bend and separate light into its component wavelengths. Polarizing prisms (i.e., Glan–Thompson, Nomarski, Wollaston) are birefringent crystals, which divide incident non-polarized light into separate components polarized orthogonally to each other. Reflecting prisms are useful for redirecting (i.e., flip, invert, rotate, etc.) light beams by total internal reflection or for dividing them into two or more separate beams (i.e., beam-splitting) one.",
+			"tier":2,
+			"enum": [
+				"Beam-shaping",
+				"Deflecting",
 				"Polarizing",
-				"Refracting",
+				"Reflecting",
+				"Refracting (or Disperising)",
 				"Other"
 			],
 			"category":"Prism"
 		},
+		"Condenser": {
+			"type":"boolean",
+			"description":"This field records whether this Prism is within the Condenser (True) or the Objective (False).",
+			"tier":2,
+			"category":"Prism"
+		},
+		"OilObjective": {
+			"type":"boolean",
+			"description":"This field records whether this Prism is designed to work with oil Objectives (True) or not (False).",
+			"tier":2,
+			"category":"Prism"
+		},
+		"Compound": {
+			"type":"boolean",
+			"description":"This field records whether this Prism is a Compound Prism (i.e., a set of multiple triangular prism elements placed in contact, and often cemented together to form a solid assembly; True) or a Simple Prism (False).",
+			"tier":2,
+			"category":"Prism"
+		},
 		"RefractiveIndex": {
 			"type":"number",
-			"description":"The refractive index of the material this prism is made of, as specified by the manufacturer.",
-			"tier":5,
+			"description":"This field records the Refractive Index of the material this Prism is made of, as specified by the Manufacturer.",
+			"tier":3,
 			"category":"Prism"
 		},
 		"Reflectance": {
 			"type":"number",
-			"description":"The maximum amount of light this Prism is capable of transmitting at the peak wavelenght. It is represented as a fractional value from 0.0 to 1.0.",
-			"tier":5,
+			"description":"This field records the maximum amount of light this Prism is capable of transmitting at peak Wavelength. It is represented as a fractional value from 0.0 to 1.0.",
+			"tier":3,
 			"category":"Prism"
 		},
 		"AngleOfIncidence": {
 			"type":"number",
-			"description":"The angle of incidence (AOI) is the angle between a beam of light incident on the prism surface and the line perpendicular to the surface at the point of incidence, called the normal.",
-			"tier":5,
+			"description":"This field records the Angle Of Incidence (AOI) is the angle between a beam of light incident on the Prism surface and the line perpendicular to the surface at the point of incidence, called the normal.",
+			"tier":3,
 			"category":"Prism"
 		},
 		"AngleOfIncidenceUnit": {
 			"type":"string",
 			"description":"NA",
-			"tier":5,
+			"tier":3,
 			"enum": [
 				"deg",
 				"rad",
@@ -72,14 +105,14 @@
 		},
 		"DeviationAngle": {
 			"type":"number",
-			"description":"A beam passing through an object like a prism is deflected twice: once entering, and again when exiting. The sum of these two deflections is called the deviation angle and is measured with respect to the incident ray.",
-			"tier":5,
+			"description":"This field records the Deviation Angle of this Prism. A beam passing through an object like a prism is deflected twice: once entering, and again when exiting. The sum of these two deflections is called the deviation angle and is measured with respect to the incident ray.",
+			"tier":3,
 			"category":"Prism"
 		},
 		"DevianceAngleUnit": {
 			"type":"string",
 			"description":"NA",
-			"tier":5,
+			"tier":3,
 			"enum": [
 				"deg",
 				"rad",
@@ -87,47 +120,48 @@
 			],
 			"category":"Prism"
 		},
-		"Geometry": {
+		"Design": {
 			"type":"string",
-			"description":"The geometrical shape of this prism.",
-			"tier":5,
+			"description":"This field records the shape of the Prism with specific reference to the angles defined by its faces.",
+			"tier":3,
 			"enum": [
-				"Right-Angle",
-				"Porro",
-				"Dove",
-				"Amici",
-				"Penta",
-				"Romboid",
-				"Nicol",
+				"Rhomboid",
+				"Wedge",
+				"Glan-Focault",
+				"Glan-Taylor",
 				"Glan-Thompson",
-				"Wollaston",
+				"Nicol",
+				"Nomarski",
 				"Rochon",
 				"Senarmont",
-				"Triangular",
-				"Abbe prism",
+				"Wollaston",
+				"Abbe-Konig",
+				"Amici-roof",
+				"Dove",
+				"Penta",
+				"Porro",
+				"Porro-Abbe",
+				"Right-Angle",
+				"Schmidt–Pechan",
+				"Abbe",
+				"Amici",
+				"Grism",
 				"Pellin–Broca",
-				"Grim",
-				"Compound",
+				"Triangular",
 				"Other"
 			],
 			"category":"Prism"
 		},
-		"AbbeNumber": {
-			"type":"number",
-			"description":"The Abbe Number is a measure of the material's dispersion (variation of refractive index versus wavelength), with high values indicating low dispersion",
-			"tier":5,
-			"category":"Prism"
-		},
 		"PrismAngle": {
 			"type":"number",
-			"description":"The angle between two surfaces of this prism.",
-			"tier":5,
+			"description":"This field records the Angle between two surfaces of this Prism.",
+			"tier":3,
 			"category":"Prism"
 		},
 		"PrismAngleUnit": {
 			"type":"string",
 			"description":"NA",
-			"tier":5,
+			"tier":3,
 			"enum": [
 				"deg",
 				"rad",
@@ -135,10 +169,16 @@
 			],
 			"category":"Prism"
 		},
+		"AbbeNumber": {
+			"type":"number",
+			"description":"This field records the Abbe number of this Prism. The Abbe Number is a measure of the material's dispersion (variation of Refractive Index versus Wavelength), with high values indicating low dispersion.",
+			"tier":3,
+			"category":"Prism"
+		},
 		"MaterialName": {
 			"type":"string",
-			"description":"This records the chemical composition or the nonproprietary trade designation of the material this prism is made of.",
-			"tier":5,
+			"description":"This field records the chemical composition or the nonproprietary trade designation of the Material this Prism is made of.",
+			"tier":3,
 			"enum": [
 				"Calcium Fluoride",
 				"F2 (Flint)",
@@ -154,20 +194,20 @@
 		},
 		"GlassCode": {
 			"type":"string",
-			"description":"If available provide the international glass code for the glass this prism is made of. This is based on U.S. military standard MIL-G-174, and is a six-digit number specifying the glass according to its refractive index nd at the Fraunhofer d- (or D3-) line, and its Abbe number Vd also taken at that line. The resulting glass code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit glass code of 517642.",
-			"tier":5,
+			"description":"If available, this field records the international Glass Code of the material that constitutes this Prism. The Glass Code designation is based on U.S. military standard MIL-G-174, and it consists of a six-digit number specifying the glass according to its Refractive Index nd at the Fraunhofer d- (or D3-) line, and its Abbe Number Vd also taken at that line. The resulting Glass Code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit Glass Code of 517642.",
+			"tier":3,
 			"category":"Prism"
 		},
 		"Density": {
 			"type":"number",
-			"description":"The density of the material of which the prism is made.",
-			"tier":5,
+			"description":"This field records the Density of the material this Prism is made of.",
+			"tier":3,
 			"category":"Prism"
 		},
 		"DensityUnit": {
 			"type":"string",
 			"description":"NA",
-			"tier":5,
+			"tier":3,
 			"enum": [
 				"kg/m3",
 				"g/ml",
@@ -178,178 +218,222 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"The manufacturer of this component.",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
 		"Model": {
 			"type":"string",
-			"description":"The model of this component.",
-			"tier":3,
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
 			"category":"ManufacturerSpec"
 		},
-		"SerialNumber": {
+		"CatalogNumber": {
 			"type":"string",
-			"description":"The serial number of this component",
-			"tier":5,
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
 			"category":"ManufacturerSpec"
 		},
 		"LotNumber": {
 			"type":"string",
-			"description":"The lot number of this component",
-			"tier":5,
-			"category":"ManufacturerSpec"
-		},
-		"SpecsFile": {
-			"type":"string",
-			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
-			"tier":5,
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
 			"category":"ManufacturerSpec"
 		},
 		"WavelengthRange": {
-			"type":"object",
-			"description":"This records a range of wavelengths this device is designed for, according to the manufacturer. Multiple of this elements may be used.",
-			"tier":5,
-			"properties": {
-				"CutIn": {
-					"type":"number",
-					"description":"CutIn is the wavelength below which the response rate is below 50%.",
-					"tier":5,
-					"category":"WavelengthRange"
+			"type":"array",
+			"description":"This element records the Range of Wavelengths this device is designed for, according to the Manufacturer. Multiple of this element may be used.",
+			"tier":3,
+			"items": {
+				"properties": {
+					"PeakWavelength": {
+						"type":"number",
+						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"tier":3,
+						"category":"WavelengthRange"
+					},
+					"PeakWavelengthUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"WavelengthRange"
+					},
+					"CutOn": {
+						"type":"number",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"tier":3,
+						"category":"WavelengthRange"
+					},
+					"CutOnUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"WavelengthRange"
+					},
+					"CutOff": {
+						"type":"number",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"tier":3,
+						"category":"WavelengthRange"
+					},
+					"CutOffUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":3,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"WavelengthRange"
+					},
+					"WavelengthProfile": {
+						"type":"string",
+						"description":"The location of a file containing the Wavelength profile of this hardware component.",
+						"tier":3,
+						"category":"WavelengthRange"
+					}
 				},
-				"CutInUnit": {
-					"type":"string",
-					"description":"NA",
-					"tier":5,
-					"default":"nm",
-					"enum": [
-						"Ym",
-						"Zm",
-						"Em",
-						"Pm",
-						"Tm",
-						"Gm",
-						"Mm",
-						"km",
-						"hm",
-						"dam",
-						"m",
-						"dm",
-						"cm",
-						"mm",
-						"µm",
-						"nm",
-						"pm",
-						"fm",
-						"am",
-						"zm",
-						"ym",
-						"Å",
-						"thou",
-						"li",
-						"in",
-						"ft",
-						"yd",
-						"mi",
-						"ua",
-						"ly",
-						"pc",
-						"pt",
-						"pixel",
-						"reference frame"
-					],
-					"category":"WavelengthRange"
-				},
-				"CutOut": {
-					"type":"number",
-					"description":"CutOut is the wavelength above which the response rate is below 50%.",
-					"tier":5,
-					"category":"WavelengthRange"
-				},
-				"CutOutUnit": {
-					"type":"string",
-					"description":"NA",
-					"tier":5,
-					"default":"nm",
-					"enum": [
-						"Ym",
-						"Zm",
-						"Em",
-						"Pm",
-						"Tm",
-						"Gm",
-						"Mm",
-						"km",
-						"hm",
-						"dam",
-						"m",
-						"dm",
-						"cm",
-						"mm",
-						"µm",
-						"nm",
-						"pm",
-						"fm",
-						"am",
-						"zm",
-						"ym",
-						"Å",
-						"thou",
-						"li",
-						"in",
-						"ft",
-						"yd",
-						"mi",
-						"ua",
-						"ly",
-						"pc",
-						"pt",
-						"pixel",
-						"reference frame"
-					],
-					"category":"WavelengthRange"
-				},
-				"WavelenghtProfile": {
-					"type":"string",
-					"description":"The location of a file containing the wavelenght profile of this component.",
-					"tier":5,
-					"category":"WavelengthRange"
-				}
-			},
-			"required": [
-				"CutIn",
-				"CutOut",
-				"WavelenghtProfile"
-			]
+				"required": [
+					"CutOn",
+					"CutOff",
+					"WavelengthProfile"
+				]
+			}
 		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This is a simple multi-line comment or annotation describing this component.",
-			"tier":2,
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
 			"category":"General"
 		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
-			"tier":2,
+			"tier":1,
 			"category":"General",
 			"readonly":true
 		}
 	},
 	"required": [
 		"ID",
-		"Name",
-		"Type",
+		"Function",
+		"Condenser",
+		"OilObjective",
 		"RefractiveIndex",
 		"Reflectance",
 		"AngleOfIncidence",
+		"AngleOfIncidenceUnit",
 		"DeviationAngle",
+		"DevianceAngleUnit",
 		"Manufacturer",
 		"Model",
-		"SerialNumber",
-		"SpecsFile",
-		"WavelengthRange",
-		"Description"
+		"CatalogNumber"
 	]
 }

@@ -1,0 +1,84 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"TransmissionWavelengthRangeSettings.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"TransmissionWavelengthRangeSettings",
+	"description":"This element records the range of Transmission Wavelengths that were set for this optical component during the Acquisition of this Image. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
+	"extension":"Basic",
+	"domain":"ImageAcquisitionSettings",
+	"category":"ChildElement",
+	"image":"ChildElement_TransmissionWavelengthRangeSettings.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"WavelengthRangeSettingsType":"NA",
+		"TransmissionWavelengthRangeSettings":"This element records the range of Transmission Wavelengths that were set for this optical component during the Acquisition of this Image. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
+	},
+	"properties": {
+		"Transmittance": {
+			"type":"number",
+			"description":"This field records the maximum amount of light this optical component is capable of transmitting in this Wavelength Range, at the peak Wavelength. It is represented as a fractional value from 0.0 to 1.0.",
+			"tier":2,
+			"category":"TransmissionWavelengthRangeSettings"
+		},
+		"CutOn": {
+			"type":"number",
+			"description":"This field records the Wavelength(s) below which there is less than 50% Transmittance for this optical element.",
+			"tier":1,
+			"category":"TransmissionWavelengthRangeSettings"
+		},
+		"CutOff": {
+			"type":"number",
+			"description":"This field records the Wavelength(s) above which there is less than 50% Transmittance for this optical element.",
+			"tier":1,
+			"category":"TransmissionWavelengthRangeSettings"
+		},
+		"WavelengthUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"TransmissionWavelengthRangeSettings"
+		}
+	},
+	"required": [
+		"CutOn",
+		"CutOff"
+	]
+}

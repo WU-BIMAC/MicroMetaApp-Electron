@@ -1,0 +1,170 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"SamplePositioningSettings.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"SamplePositioningSettings",
+	"description":"This element holds the Setting applied to a Sample Positioning Device used  during the Acquisiton of this experimental Image as well as a reference (the ID attribute) to the Sample Positioning Device in question.",
+	"extension":"Basic",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_SamplePositioningSettings.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"SamplePositioningSettings":"This element holds the Setting applied to a Sample Positioning Device used  during the Acquisiton of this experimental Image as well as a reference (the ID attribute) to the Sample Positioning Device in question."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"This is the Unique Identifier of the Sample Positioning Device used in this case.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"XYVelocitySetting": {
+			"type":"number",
+			"description":"This field describes the XY Velocity that was set for this Sample Positioning Device during the Acquisition of this experimental Image.",
+			"tier":1,
+			"category":"SamplePositioningSettings"
+		},
+		"XYVelocitySettingUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"enum": [
+				"m/s",
+				"mm/s",
+				"µm/s",
+				"nm/s",
+				"Other"
+			],
+			"category":"SamplePositioningSettings"
+		},
+		"ZVelocitySetting": {
+			"type":"number",
+			"description":"This field describes the Z-axis Velocity that was set for this Sample Positioning Device during the Acquisition of this experimental Image.",
+			"tier":1,
+			"category":"SamplePositioningSettings"
+		},
+		"ZVelocitySettingUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"enum": [
+				"m/s",
+				"mm/s",
+				"µm/s",
+				"nm/s",
+				"Other"
+			],
+			"category":"SamplePositioningSettings"
+		},
+		"XYReproducibilitySettings": {
+			"type":"number",
+			"description":"This field describes the XY Precision that was set for this Sample Positioning Device during the Acquisition of this experimental Image. This metric refers to the capacity this Device of maintaining a given XY Position over time as specified by the Manufacturer. This metric is generally referred to as Reproducibility and it might also be referred to as Lateral Drift. This metric is particularly relevant for Stereology systems and for the calibration of Sample Positioning devices.",
+			"tier":1,
+			"category":"SamplePositioningSettings"
+		},
+		"XYReproducibilitySettingsUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"SamplePositioningSettings"
+		},
+		"ZReproducibilitySettings": {
+			"type":"number",
+			"description":"This field describes the Z-Axis Precision that was set for this Sample Positioning Device during the Acquisition of this experimental Image. This metric refers to the capacity this Device of maintaining a given Z-axis Position over time as specified by the Manufacturer. This metric is generally referred to as Reproducibility and it might also be referred to as Focal Drift. This metric is particularly relevant for Stereology systems and for the calibration of Sample Positioning devices.",
+			"tier":1,
+			"category":"SamplePositioningSettings"
+		},
+		"ZReproducibilitySettingsUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"SamplePositioningSettings"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID"
+	]
+}

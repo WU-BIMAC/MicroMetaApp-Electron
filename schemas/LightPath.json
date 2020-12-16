@@ -1,0 +1,137 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"LightPath.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"LightPath",
+	"description":"This element holds a description of the Light Path associated with the Acquisition of this Channel.",
+	"extension":"Core",
+	"domain":"ImageAcquisitionSettings",
+	"category":"LightPath",
+	"image":"LightPath_LightPath.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"LightPath":"This element holds a description of the Light Path associated with the Acquisition of this Channel.",
+		"LightSourceCoupling":"This empty element refers to a LightSourceCoupling component used in this Ligth Path.",
+		"ExcitationFilter":"This field refers to an available Excitation Filter which is part of this Filter Cube.",
+		"StandardDichroic":"This field refers to an available Dichroic Mirror which is part of this Filter Cube.",
+		"EmissionFilter":"This field refers to an available Emission Filter which is part of this Filter Cube.",
+		"AdditionalFilter":"This empty element refers to an additional Generic Filter component placed in this Light Path.",
+		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Device.",
+		"OpticalAssembly":"This empty element refers to an Optical Assembly component placed in this Light Path.",
+		"PolarizationOptics":"This empty element refers to a PolarizationOptics component placed in this light path."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user-defined Name for this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"LightSourceCoupling": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to a LightSourceCoupling component used in this Ligth Path.",
+				"type":"string",
+				"tier":2,
+				"category":"LightSourceCoupling",
+				"linkTo":"LightSourceCoupling"
+			}
+		},
+		"ExcitationFilter": {
+			"type":"array",
+			"items": {
+				"description":"This field refers to an available Excitation Filter, which is part of this Filter Cube.",
+				"type":"string",
+				"tier":1,
+				"category":"ExcitationFilter",
+				"linkTo":"ExcitationFilter"
+			}
+		},
+		"StandardDichroic": {
+			"type":"array",
+			"items": {
+				"description":"This field refers to an available Dichroic Mirror, which is part of this Filter Cube.",
+				"type":"string",
+				"tier":1,
+				"category":"StandardDichroic",
+				"linkTo":"StandardDichroic"
+			}
+		},
+		"EmissionFilter": {
+			"type":"array",
+			"items": {
+				"description":"This field refers to an available Emission Filter, which is part of this Filter Cube.",
+				"type":"string",
+				"tier":1,
+				"category":"EmissionFilter",
+				"linkTo":"EmissionFilter"
+			}
+		},
+		"AdditionalFilter": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to an additional Generic Filter component placed in this Light Path.",
+				"type":"string",
+				"tier":2,
+				"category":"AdditionalFilter",
+				"linkTo":"AdditionalFilter"
+			}
+		},
+		"OpticalAperture": {
+			"type":"array",
+			"items": {
+				"description":"This refers to an available Optical Aperture, which is part of this Optical Device.",
+				"type":"string",
+				"tier":1,
+				"category":"OpticalAperture",
+				"linkTo":"OpticalAperture"
+			}
+		},
+		"OpticalAssembly": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to an Optical Assembly component placed in this Light Path.",
+				"type":"string",
+				"tier":1,
+				"category":"OpticalAssembly",
+				"linkTo":"OpticalAssembly"
+			}
+		},
+		"PolarizationOptics": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to a PolarizationOptics component placed in this light path.",
+				"type":"string",
+				"tier":1,
+				"category":"PolarizationOptics",
+				"linkTo":"PolarizationOptics"
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID"
+	]
+}

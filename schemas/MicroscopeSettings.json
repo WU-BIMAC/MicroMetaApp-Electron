@@ -1,0 +1,114 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"MicroscopeSettings.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"MicroscopeSettings",
+	"description":"This element refers to the Microscope used to acquire this Image and it holds the Settings that were applied to the Microscope during this Acquisition.",
+	"extension":"Basic",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_MicroscopeSettings.svg",
+	"tier":2,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"MicroscopeSettings":"This element refers to the Microscope used to acquire this Image and it holds the Settings that were applied to the Microscope during this Acquisition.",
+		"Objective":"This empty element refers to the existing Objective component used in this case.",
+		"MagnificationChanger":"This empty element refers to the existing Magnification Changer component used in this case.",
+		"MicroscopeTube":"This empty element refers to the existing Microscope Tube component used in this case."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"This is the Unique Identifier of the Microscope used in this case.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		},
+		"TotalEffectiveMagnification": {
+			"type":"number",
+			"description":"This fields records the Total Effective Magnification used in this case. This number can be obtained by multiplying Magnification Changer:Magnification times the Objective:NominalMagnification or even better the Objective:CalibratedMagnification if available.",
+			"tier":2,
+			"category":"MicroscopeSettings"
+		},
+		"FieldOfView": {
+			"type":"number",
+			"description":"The Field of View defines the area of the specimen that is viewable via the eyepiece. This field caputers the measures size of the Field of View.",
+			"tier":3,
+			"category":"MicroscopeSettings"
+		},
+		"FieldOfViewUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"MicroscopeSettings"
+		},
+		"Objective": {
+			"type":"string",
+			"description":"This empty element refers to the existing Objective component used in this case.",
+			"tier":2,
+			"category":"Objective",
+			"linkTo":"Objective"
+		},
+		"MagnificationChanger": {
+			"type":"string",
+			"description":"This empty element refers to the existing Magnification Changer component used in this case.",
+			"tier":2,
+			"category":"MagnificationChanger",
+			"linkTo":"MagnificationChanger"
+		},
+		"MicroscopeTube": {
+			"type":"string",
+			"description":"This empty element refers to the existing Microscope Tube component used in this case.",
+			"tier":3,
+			"category":"MicroscopeTube",
+			"linkTo":"MicroscopeTube"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Objective"
+	]
+}

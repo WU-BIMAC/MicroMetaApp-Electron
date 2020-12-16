@@ -1,0 +1,143 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Channel.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"Channel",
+	"description":"Each Image has to have at least one Plane and one Channel. The Channel element stores information about how the each Image Channel was acquired. The total number of Channel elements for a given Image must equal to SizeC.",
+	"extension":"Core",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Image",
+	"image":"Image_Channel.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"Channel":"Each Image has to have at least one Plane and one Channel. The Channel element stores information about how the each Image Channel was acquired. The total number of Channel elements for a given Image must equal to SizeC."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A Name for this Channel that is suitable for presentation to the user. ",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this Channel.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"ImagingMethod": {
+			"type":"string",
+			"description":"This filed describes the type of Light Microscopy Imaging Method performed in this case. Allowable terms were obtained from the Biological Imaging Methods Ontology (Fbbi; https://www.ebi.ac.uk/ols/ontologies/fbbi) Light Microscopy term (http://purl.obolibrary.org/obo/FBbi_00000345).",
+			"tier":1,
+			"enum": [
+				"FourDPlus",
+				"Coherent Anti-Stokes Raman Scattering (CARS)",
+				"Confocal_Fluorescence_array-raster-scan",
+				"Confocal_Fluorescence_single-spot-raster-scan",
+				"Confocal_Fluorescence_slit-raster-scan",
+				"Confocal_Fluorescence_spinning disk",
+				"Confocal_Fluorescence_swept-field",
+				"Fluorescence Correlation Spectroscopy (FCS)",
+				"Light Sheet Fluorescence Microscopy (LSFM)",
+				"Multi-photon",
+				"Near Field Scanning Optical Microscopy (NSOM)",
+				"Optical coherence tomography (OCT)",
+				"Second-Harmonic Imaging Microscopy (SHIM)",
+				"Spectral Imaging",
+				"Super-Resolution_GSD (Ground State Depletion Scanning)",
+				"Super-Resolution_DOPI (Defocussed Oorientation and Position Imaging)",
+				"Super-Resolution_FIONA (Fluorescence Imaging With One Nanometer Accuracy)",
+				"Super-Resolution_PAINT (Point Accumulation for Imaging In Nanoscale Topography)",
+				"Super-Resolution_PALM (Photoactivation Localization Microscopy)",
+				"Super-Resolution_STORM (Stochastic Optical Reconstruction Microscopy)",
+				"Super-Resolution_STED (Stimulated Emission Depletion)",
+				"Super-Resolution_SIM (Structured Illumination Microscopy)",
+				"Widefield_Fluorescence",
+				"Widefield_Fluorescence_FLIM (Fluorescence Lifetime Imaging)",
+				"Widefield_Fluorescence_FLIP (Fluorescence Loss in Photobleaching)",
+				"Widefield_Fluorescence_FRAP (Fluorescence Recovery After Photobleaching)",
+				"Widefield_Fluorescence_FRET (Förster Resonance Energy Transfer)",
+				"Widefield_Fluorescence_SPIM (Selective or Single Plane Illumination Microscopy)",
+				"Widefield_Fluorescence_TIRF (Total Internal Reflection Fluorescence)",
+				"Other"
+			],
+			"category":"Channel"
+		},
+		"ImagingMethodTermAcession": {
+			"type":"string",
+			"description":"This field records the Accession ID for the term used to describe the Imaging Method. A sub-classes of EFO:0000635 (http://www.ebi.ac.uk/efo/EFO_0000635) is recommended.",
+			"tier":1,
+			"category":"Channel"
+		},
+		"IlluminationType": {
+			"type":"string",
+			"description":"This field records the method of Illumination used to capture the Channel.",
+			"tier":1,
+			"enum": [
+				"Confocal",
+				"Epifluorescence",
+				"Light Sheet",
+				"NonLinear",
+				"Oblique",
+				"TIRF",
+				"Transmitted",
+				"Other"
+			],
+			"category":"Channel"
+		},
+		"ContrastMethod": {
+			"type":"string",
+			"description":"This field describes the technique used to achieve contrast for this Channel.",
+			"tier":1,
+			"enum": [
+				"Brightfield",
+				"Darkfield",
+				"Differential Intensity Contrast (DIC)",
+				"Fluorescence",
+				"HoffmanModulation",
+				"ObliqueIllumination",
+				"PhaseContrast",
+				"PolarizedLight",
+				"Other"
+			],
+			"category":"Channel"
+		},
+		"Color": {
+			"type":"string",
+			"description":"This field records the Color used to render this Channel - encoded as RGBA. The default value is -1 corresponding #FFFFFFFF, so solid white (it is a signed 32 bit value).",
+			"tier":1,
+			"default":"-1",
+			"category":"Channel"
+		},
+		"SamplesPerPixel": {
+			"type":"string",
+			"description":"This field is prevalently used for RGB Images and records the number of samples the detector takes to form each pixel value. [units:none]",
+			"tier":3,
+			"category":"Channel"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"ImagingMethod",
+		"IlluminationType",
+		"ContrastMethod"
+	]
+}

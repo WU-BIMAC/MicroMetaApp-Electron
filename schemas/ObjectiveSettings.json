@@ -1,0 +1,79 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"ObjectiveSettings.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"ObjectiveSettings",
+	"description":"This element holds the Setting applied to the Objective used during the Acquisition of this Image as well as a reference (the ID attribute) to the Objective in question.",
+	"extension":"Core",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_ObjectiveSettings.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ObjectiveSettings":"This element holds the Setting applied to the Objective used during the Acquisition of this Image as well as a reference (the ID attribute) to the Objective in question."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"This is the Unique Identifier of the Objective used in this case.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"CorrectionCollarPosition": {
+			"type":"string",
+			"description":"The Correction Collar typically consists of an adjustable ring on the Objective whose position can be modified. This field records the position of the collar during the Acquisition of this Image. Each correction collar has an arbitrary scale or it might be scale-less and instead have fixed positions with qualitative designations (i.e., Oil, Water in case in which the Objective might be corrected for Immersion Liquid).",
+			"tier":2,
+			"category":"ObjectiveSettings"
+		},
+		"NumericalApertureSetting": {
+			"type":"string",
+			"description":"In case the Numerical Aperture (NA) of this Objective is variable (i.e., as for example in case of Objectives that can be used with or without Cover Glass or Objectives that can be dipped in different media), this field capture the NA setting that was employed for Image Acquisition. NOTE: please note that often NA regulation in these types of Objectives occurs via a rotating collar whose exact position is difficult to measure and reproduce across different Experiments.",
+			"tier":2,
+			"category":"ObjectiveSettings"
+		},
+		"MeasuredRefractiveIndex": {
+			"type":"number",
+			"description":"The field records the Temperature dependent measured Refractive Index of the Immersion Liquid (or Dipping Medium) utilized in this case.",
+			"tier":2,
+			"category":"ObjectiveSettings"
+		},
+		"Temperature": {
+			"type":"number",
+			"description":"This field captures the Temperature of the Objective if different from the ImagingEnvironment/Temperature.",
+			"tier":2,
+			"category":"ObjectiveSettings"
+		},
+		"TemperatureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"default":"°C",
+			"enum": [
+				"°C",
+				"°F",
+				"K",
+				"°R"
+			],
+			"category":"ObjectiveSettings"
+		},
+		"IrisAperture": {
+			"type":"number",
+			"description":"This field records the aperture of the Iris diaphragm, which determines the size of the objective rear aperture yielding a variable numerical aperture range between 0.5 and the objective's upper limit.",
+			"tier":2,
+			"category":"ObjectiveSettings"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID"
+	]
+}

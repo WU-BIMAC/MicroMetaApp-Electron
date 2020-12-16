@@ -1,22 +1,23 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Sample.json",
-	"version":"1.06.5",
+	"version":"2.00.0",
 	"type":"object",
 	"title":"Sample",
-	"description":"A description of the sample that was imaged in this experiment.",
+	"description":"This field captures a description of the sample that was imaged in this experiment.",
+	"extension":"Basic",
 	"domain":"Experimental",
 	"category":"SamplePreparation",
-	"image":"SamplePreparation_Sample.png",
+	"image":"SamplePreparation_Sample.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"Sample":"A description of the sample that was imaged in this experiment."
+		"Sample":"This field captures a description of the sample that was imaged in this experiment."
 	},
 	"properties": {
 		"Name": {
 			"type":"string",
-			"description":"A user assigned name for this Sample.",
+			"description":"A user assigned Name for this Sample.",
 			"tier":1,
 			"category":"General"
 		},
@@ -27,23 +28,92 @@
 			"category":"General",
 			"readonly":true
 		},
-		"MountingMedium": {
-			"type":"string",
-			"description":"The mounting medium the sample is embedded in during acquisition.",
+		"BiologicalOrigin": {
+			"type":"boolean",
+			"description":"This field captures whether (True) or not (False) this Sample is of Biological Origin.",
+			"tier":1,
+			"category":"Sample"
+		},
+		"LiveSample": {
+			"type":"boolean",
+			"description":"This field captures whether (True) or not (False) this Sample was living during Image Acquisition.",
+			"tier":1,
+			"category":"Sample"
+		},
+		"MetrologySample": {
+			"type":"boolean",
+			"description":"This field captures whether (True) or not (False) this is a Metrology Sample (i.e., a Sample that is used specifcially to calibrate and assess the performance of the Instrument utilized for this experimental Image Acquisition.",
 			"tier":2,
 			"category":"Sample"
 		},
-		"MountingMediumRefractiveIndex": {
-			"type":"number",
-			"description":"The refractive index (RI) of the mounting medium. If possible the RI should be measured. Alternatively, please refer to the nominal RI as provided by the manufacturer.",
-			"tier":3,
+		"Organism": {
+			"type":"string",
+			"description":"If this sample is of biological origin, this field records the biological organisn this sample derives from. A biological is a biological entity that consists of one or more cells and is capable of genomic replication (independently or not). The use terms from NCBITaxon (http://purl.obolibrary.org/obo/NCBITaxon_1) is recommended. Note: if the sample is not of biological origin please enter none.",
+			"tier":1,
+			"category":"Sample"
+		},
+		"OrganismTermAccession": {
+			"type":"string",
+			"description":"This field records the Accession ID for the term used to describe the Organism. The use of the NCBITaxon ontology (http://purl.obolibrary.org/obo/NCBITaxon_1) is recommended.",
+			"tier":1,
+			"category":"Sample"
+		},
+		"SampleType": {
+			"type":"string",
+			"description":"This field records a term that describes the general category of this Sample.",
+			"tier":1,
+			"enum": [
+				"WholeOrganism",
+				"Organism part",
+				"Organ",
+				"Tissue",
+				"Cell",
+				"Sub-Cellular structure",
+				"Organoid",
+				" Other"
+			],
+			"category":"Sample"
+		},
+		"OrganismPart": {
+			"type":"string",
+			"description":"If applicable, this field records the part of organism's anatomy or substance arising from an organism from which the biomaterial was derived, excludes cells. E.g. tissue, organ, system, sperm, blood or body location (arm). The use of a sub-class of the 'Organism Part' (http://www.ebi.ac.uk/efo/EFO_0000635) term from the Experimental Factor Ontology (EFO; http://www.ebi.ac.uk/efo/) is recommended.",
+			"tier":1,
+			"category":"Sample"
+		},
+		"OrganismPartTermAccession": {
+			"type":"string",
+			"description":"This field records the Accession ID for the term used to describe the Organism. A sub-classe of the EFO:0000635 (http://www.ebi.ac.uk/efo/EFO_0000635) term from the Experimental Factor Ontology (EFO; http://www.ebi.ac.uk/efo/) is recommended.",
+			"tier":1,
+			"category":"Sample"
+		},
+		"SamplePreparationMethod": {
+			"type":"string",
+			"description":"This field records the method that was used to prepare this sample. The use of a sub-class of the 'Sample Preparation Method' (http://purl.obolibrary.org/obo/FBbi_00000001) term from the Biological Imaging Methods Ontology (FBbi; https://www.ebi.ac.uk/ols/ontologies/fbbi) is recommended. ",
+			"tier":1,
+			"category":"Sample"
+		},
+		"SamplePreparationMethodTermAccession": {
+			"type":"string",
+			"description":"This field records the the Accession ID for the term used to describe method that was used to prepare this sample. A subclass of the Fbbi:00000001 (http://purl.obolibrary.org/obo/FBbi_00000001) term from the Biological Imaging Methods Ontology (FBbi; https://www.ebi.ac.uk/ols/ontologies/fbbi) is recommended.",
+			"tier":1,
+			"category":"Sample"
+		},
+		"FacingTheObjective": {
+			"type":"string",
+			"description":"This field captures whether the CoverGlass, the SampleHolder, or neither (None), faced the Objective during Acquisition of this Image.",
+			"tier":2,
+			"enum": [
+				"SampleHolder",
+				"CoverGlass",
+				"None"
+			],
 			"category":"Sample"
 		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This is a simple multi-line comment or annotation describing this component.",
-			"tier":2,
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
 			"category":"General"
 		},
 		"Tier": {
@@ -55,9 +125,11 @@
 		}
 	},
 	"required": [
+		"ID",
 		"Name",
-		"MountingMedium",
-		"MountingMediumRefractiveIndex",
-		"Description"
+		"BiologicalOrigin",
+		"LiveSample",
+		"MetrologySample",
+		"Organism"
 	]
 }

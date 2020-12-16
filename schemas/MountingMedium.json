@@ -1,0 +1,85 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"MountingMedium.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"MountingMedium",
+	"description":"This element refers to the Mounting Medium that was used during the acquisition of this Image. According to ISO 10934-1:2002, a Mounting Medium is a liquid, synthetic resin or other medium in which this Specimen is placed during Image Acquisition. NOTE For fixed Samples observed by transmitted-light microscopy, this Medium is transparent, colourless and of specified refractive index, enclosed between the slide and the cover glass. For reflected-light microscopy, the mounting medium is normally a resin with which the Sample is impregnated so that a polished section may be made. For live Samples, the Medium is typically the tissue culture growth substrate.",
+	"extension":"Basic",
+	"domain":"Experimental",
+	"category":"SamplePreparation",
+	"image":"SamplePreparation_MountingMedium.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"MountingMedium":"This element refers to the Mounting Medium that was used during the acquisition of this Image. According to ISO 10934-1:2002, a Mounting Medium is a liquid, synthetic resin or other medium in which this Specimen is placed during Image Acquisition. NOTE For fixed Samples observed by transmitted-light microscopy, this Medium is transparent, colourless and of specified refractive index, enclosed between the slide and the cover glass. For reflected-light microscopy, the mounting medium is normally a resin with which the Sample is impregnated so that a polished section may be made. For live Samples, the Medium is typically the tissue culture growth substrate."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"Type": {
+			"type":"string",
+			"description":"This field records the general category to which this Mounting Medium belongs.",
+			"tier":2,
+			"enum": [
+				"Alcohol based",
+				"Glycerol based",
+				"Growth medium",
+				"Impregnating resin",
+				"Other"
+			],
+			"category":"MountingMedium"
+		},
+		"RefractiveIndex": {
+			"type":"number",
+			"description":"This field reocrds the nominal Refractive Index of this Mounting Medium, as specified by the Manufacturer.",
+			"tier":2,
+			"category":"MountingMedium"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"CatalogNumber": {
+			"type":"string",
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Type",
+		"RefractiveIndex",
+		"Manufacturer",
+		"Model",
+		"CatalogNumber"
+	]
+}

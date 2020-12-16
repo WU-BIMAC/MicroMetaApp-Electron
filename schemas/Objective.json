@@ -1,37 +1,54 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Objective.json",
-	"version":"1.06.5",
+	"version":"2.00.0",
 	"type":"object",
 	"title":"Objective",
-	"description":"A microscope's objective lens is a compound lens consisting of several simple lenses (elements), usually arranged along a common axis.",
-	"domain":"MicrosocpeSpecifications",
+	"description":"The Microscope's Objective lens consists of a lens, its mount, and any associated parts. It is the part of the imaging system, which forms a primary image of the object, either alone or in conjunction with a tube lens. The Objective typically consists of a compound lens consisting of along a common axis.",
+	"extension":"Core",
+	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Magnification",
-	"image":"Magnification_Objective.png",
+	"image":"Magnification_Objective.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
-		"Objective":"A microscope's objective lens is a compound lens consisting of several simple lenses (elements), usually arranged along a common axis."
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"Objective":"The Microscope's Objective lens consists of a lens, its mount, and any associated parts. It is the part of the imaging system, which forms a primary image of the object, either alone or in conjunction with a tube lens. The Objective typically consists of a compound lens consisting of along a common axis."
 	},
 	"properties": {
 		"Name": {
 			"type":"string",
-			"description":"A user defined name for this component.",
+			"description":"A User-defined Name for this component.",
 			"tier":1,
 			"category":"General"
 		},
 		"ID": {
 			"type":"string",
-			"description":"A unique identifier for this component.",
+			"description":"A Unique Identifier for this component.",
 			"tier":1,
 			"category":"General",
 			"readonly":true
 		},
+		"ImmersionType": {
+			"type":"string",
+			"description":"According to ISO 10934-1:2002, an Immersion Liquid is a liquid (commonly immersion oil, water or glycerol) specified as suitable for use in the space between the front of an immersion lens and the object NOTE Because the immersion liquid is considered in the computing of corrections to be part of the lens, its refractive index and dispersion (or Abbe number) are critical. Please refer to ISO 8036-1 for more details on Immersion Oil. This field describes the general category of the Immersion Liquid this Objective is designed for, according to the Manufacturer. If the general category is not Air, the actual Immersion Liquid that was used during the Acquisition of a specific Image must be specified in Objective Settings.",
+			"tier":1,
+			"enum": [
+				"Air",
+				"Dipping",
+				"Glycerol",
+				"Multi",
+				"Mineral Oil",
+				"Silicone Oil",
+				"Water",
+				"Other"
+			],
+			"category":"Objective"
+		},
 		"Correction": {
 			"type":"string",
-			"description":"The type of optical correction (i.e. chromatict, flatness, etc.) associated with this objective.",
-			"tier":2,
+			"description":"This field describes the Immersion medium whose use is recommended by the Manufacturer for this Objective.",
+			"tier":1,
 			"enum": [
 				"Achro",
 				"Achromat",
@@ -41,6 +58,7 @@
 				"Fluar",
 				"Fluor",
 				"Fluotar",
+				"Lambda",
 				"Neofluar",
 				"Pl",
 				"Plan",
@@ -57,60 +75,183 @@
 			],
 			"category":"Objective"
 		},
-		"NominalMagnification": {
-			"type":"number",
-			"description":"The magnification of the lens as specified by the manufacturer - i.e. 60 represents a 60X lens.",
-			"tier":1,
-			"category":"Objective"
-		},
-		"CalibratedMagnification": {
-			"type":"number",
-			"description":"The magnification of the lens as measured via a calibration process- i.e. '59.987' for a 60X lens.",
-			"tier":5,
-			"category":"Objective"
-		},
 		"LensNA": {
 			"type":"number",
-			"description":"The numerical aperture of this objective expressed as a floating point (real) number. Expected range 0.02 - 1.5.",
+			"description":"This field captures the nominal Numerical Aperture (NA) of this Objective as specified by the Manufactuer, expressed as a floating-point (real) number (e.g. 1.27 NA). NA is a number that was defined initially by Abbe to characterize Objectives and Condensers. NA can be calculated by the expression n sin alpha, where n is the Refractive Index of the medium between the Lens and the Sample, and alpha is half the Angular Aperture of the Lens. NA is a measure of how much of the illumination that leaves the specimen actually passes through the Lens. The larger the NA, the more information the lens can transmit. Expected range 0.02 - 1.5.",
 			"tier":1,
 			"category":"Objective"
 		},
-		"NominalImmersionMedium": {
+		"Magnification": {
+			"type":"number",
+			"description":"This field captures the Magnification of the Objective as specified by the Manufacturer - i.e., 60 represents a 60X lens.",
+			"tier":1,
+			"category":"Objective"
+		},
+		"LightType": {
 			"type":"string",
-			"description":"The immersion medium this objective is designed for.",
-			"tier":2,
+			"description":"This field specifies whether this Objective is designed for a special Light application (e.g., IR or UV).",
+			"tier":1,
 			"enum": [
-				"Air",
-				"Glycerol",
-				"Multi",
-				"Oil",
-				"Water",
-				"WaterDipping",
+				"Infrared",
+				"Ultraviolet",
+				"Visible"
+			],
+			"category":"Objective"
+		},
+		"DIC": {
+			"type":"boolean",
+			"description":"This field specifies whether (True) the Objective is designed for Differential Interference Contrast (DIC) or not (False). DIC is a contrast modality due to double-beam interference in which two waves that fall on the object Plane or Image Plane are separated laterally by a distance similar to the minimum resolvable distance.",
+			"tier":1,
+			"category":"Objective"
+		},
+		"ContrastModulation": {
+			"type":"string",
+			"description":"This field specifies the presence in this Objective of a contrast modulation device, such as a Phase Ring (Ph1, Ph2, Ph3), a Hoffman modulator, a Varel modulator, or similar.",
+			"tier":1,
+			"enum": [
+				"None",
+				"Ph1",
+				"Ph2",
+				"Ph3",
+				"Hoffman",
+				"VAREL",
 				"Other"
 			],
 			"category":"Objective"
 		},
-		"Infinity": {
+		"InfinityCorrected": {
 			"type":"boolean",
-			"description":"Records whether or not the objective is infinity corrected.",
-			"tier":3,
+			"description":"This field records whether (True) or not (False) this Objective is infinity corrected. An Infinity-corrected Objective is corrected for an infinite sample to primary image distance and needs to be used with a Tube Lens of appropriate focal length to obtains its nominal magnification.",
+			"tier":1,
 			"category":"Objective"
 		},
-		"CoverslipTickness": {
+		"PhaseContrastDesignation": {
+			"type":"string",
+			"description":"If the Objective is designed for Phase, this field specifies the Phase Contrast type designation (see: https://www.microscopyu.com/techniques/phase-contrast/phase-contrast-Microscope-configuration).",
+			"tier":2,
+			"enum": [
+				"Phase",
+				"PHACO",
+				"PC",
+				"PhL",
+				"Ph1",
+				"Ph2",
+				"Ph3",
+				"Ph4",
+				"DL",
+				"DLL",
+				"DM",
+				"ADL",
+				"PL",
+				"PLL",
+				"PM",
+				"PH",
+				"NL",
+				"NM",
+				"BM",
+				"NH"
+			],
+			"category":"Objective"
+		},
+		"CalibratedMagnification": {
 			"type":"number",
-			"description":"NA",
+			"description":"This field captures the Magnification of the Objective as measured via a calibration process- i.e., '59.987' for a 60x lens.",
+			"tier":2,
+			"category":"Objective"
+		},
+		"Iris": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) this Objective is infinity corrected. An Infinity-corrected Objective is corrected for an infinite sample to primary Image distance and needs to be used with a Tube Lens of appropriate focal length to obtains its nominal magnification.",
 			"tier":2,
 			"category":"Objective"
 		},
 		"WorkingDistance": {
 			"type":"number",
-			"description":"The working distance of this objective, expressed as a floating point (real) number.",
-			"tier":3,
+			"description":"This field reports the Working Distance of this Objective under normal operating conditions. The Working Distance is the distance (in air, or in the specified immersion liquid) between the front of an Objective and the surface of the cover glass or of the specimen if uncovered.",
+			"tier":2,
+			"category":"Objective"
+		},
+		"DippingMedium": {
+			"type":"string",
+			"description":"In case the Immersion Type for this Objective is designated as Dipping, this field captures the type of Dipping Medium this Objective is compatible with. Examples include, water-based (biological buffers, culture media, other water-based solutions) organic-based [FocusClear (CLARITY); CUBIC-1, CUBIC-2, CUBIC-R1, CUBIC-R2; 2,2-thiodiethanol (TDE); ethyl cinnamate; Benzyl Benzoate and BB-PEG (PEGASOS); Benzyl Alcohol, Benzyl Benzoate (BABB); dibenzyl ether (DBE); 100% Ethanol].",
+			"tier":2,
+			"enum": [
+				"Water-based",
+				"Organic-based",
+				"Other"
+			],
+			"category":"Objective"
+		},
+		"CorrectionCollar": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) the Objective was fitted with a Correction Collar. When using high NA dry Objectives (NA 0.8 or greater), cover glass thickness variations of only a few micrometers, immersion medium, and temperature changes result in dramatic image degradation due to aberration. To compensate for these errors, the more highly corrected Objectives are equipped with a Correction Collar mechanism, which is provided to adjust the central lens group position to compensate for deviations from correct optical path length due to changes in Cover Glass Thickness, the nature of the Immersion Liquid, different Numerical Apertures, and Temperature.",
+			"tier":2,
+			"category":"Objective"
+		},
+		"CorrectionCollarType": {
+			"type":"string",
+			"description":"This field records the type of Correction Collar with which this Objective is fitted.",
+			"tier":2,
+			"enum": [
+				"Coverglass Thickness",
+				"Immersion Liquid",
+				"Numerical Aperture",
+				"Temperature"
+			],
 			"category":"Objective"
 		},
 		"WorkingDistanceUnit": {
 			"type":"string",
 			"description":"NA",
+			"tier":2,
+			"default":"mm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Objective"
+		},
+		"ImageDistance": {
+			"type":"number",
+			"description":"This field records the distance in air between the rear principal Plane of this Objective and the primary Image Plane.",
+			"tier":3,
+			"category":"Objective"
+		},
+		"ImageDistanceUnit": {
+			"type":"string",
+			"description":"NA",
 			"tier":3,
 			"default":"mm",
 			"enum": [
@@ -146,33 +287,168 @@
 				"ly",
 				"pc",
 				"pt",
-				"pixel",
+				"Pixel",
 				"reference frame"
 			],
 			"category":"Objective"
 		},
-		"Iris": {
-			"type":"boolean",
-			"description":"Records whether or not the objective was fitted with an Iris.",
-			"tier":4,
+		"ObjectDistance": {
+			"type":"number",
+			"description":"This field records the distance in air between the front principal Plane of this Objective and the field Plane in which the object (i.e., specimen) is situated.",
+			"tier":3,
 			"category":"Objective"
 		},
-		"ObjectiveFieldNumber": {
-			"type":"number",
-			"description":"The maximal diameter of the viewfield allowed by this objective expressed in mm and measured at the intermediate image plane. NB: The field of view is influenced by the magnification and diameter of the ocular (eyepiece) field diaphragm, but also by the limits imposed by the design of the objective.",
+		"ObjectDistanceUnit": {
+			"type":"string",
+			"description":"NA",
 			"tier":3,
+			"default":"mm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Objective"
+		},
+		"FrontFocalLength": {
+			"type":"number",
+			"description":"This field records the distance (f) measured along the optical axis from the front principal Plane of this Lens to the front focal Plane (F).",
+			"tier":3,
+			"category":"Objective"
+		},
+		"FrontFocalLengthUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"mm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Objective"
+		},
+		"BackFocalLenght": {
+			"type":"number",
+			"description":"This field records the distance (f') measured along the optical axis from the rear principal Plane of this Lens to the rear focal Plane (F').",
+			"tier":3,
+			"category":"Objective"
+		},
+		"BackFocalLenghtUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"mm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
 			"category":"Objective"
 		},
 		"ParfocalizingDistance": {
 			"type":"number",
-			"description":"The distance between the objective lens mounting plane and the specimen.",
-			"tier":5,
+			"description":"This field records the distance between the mounting Plane of this Objective and the specimen Plane.",
+			"tier":3,
 			"category":"Objective"
 		},
 		"ParfocalizingDistanceUnit": {
 			"type":"string",
 			"description":"NA",
-			"tier":5,
+			"tier":3,
 			"default":"mm",
 			"enum": [
 				"Ym",
@@ -207,95 +483,46 @@
 				"ly",
 				"pc",
 				"pt",
-				"pixel",
+				"Pixel",
 				"reference frame"
 			],
 			"category":"Objective"
 		},
-		"BackFocalPlanePosition": {
+		"ObjectiveViewField": {
 			"type":"number",
-			"description":"The position of the back focal plane with respect to the specimen position.",
-			"tier":5,
-			"category":"Objective"
-		},
-		"BackFocalPlanePositionUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":5,
-			"default":"mm",
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"pixel",
-				"reference frame"
-			],
+			"description":"This field records the maximal diameter of the view field allowed by this Objective, expressed in mm, and measured at the intermediate Image Plane. NB: The field of view is influenced by the magnification and diameter of the ocular (eyepiece) field diaphragm, but also by the limits imposed by the design of the Objective.",
+			"tier":3,
 			"category":"Objective"
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"The manufacturer of this component.",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
 		"Model": {
 			"type":"string",
-			"description":"The model of this component.",
-			"tier":3,
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
 			"category":"ManufacturerSpec"
 		},
-		"SerialNumber": {
+		"CatalogNumber": {
 			"type":"string",
-			"description":"The serial number of this component",
-			"tier":5,
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
 			"category":"ManufacturerSpec"
 		},
 		"LotNumber": {
 			"type":"string",
-			"description":"The lot number of this component",
-			"tier":5,
-			"category":"ManufacturerSpec"
-		},
-		"SpecsFile": {
-			"type":"string",
-			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
-			"tier":5,
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
 			"category":"ManufacturerSpec"
 		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This is a simple multi-line comment or annotation describing this component.",
-			"tier":2,
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
 			"category":"General"
 		},
 		"Tier": {
@@ -308,22 +535,19 @@
 	},
 	"required": [
 		"ID",
-		"Name",
+		"ImmersionType",
 		"Correction",
-		"NominalMagnification",
 		"LensNA",
-		"NominalImmersionMedium",
-		"Infinity",
-		"CoverslipTickness",
-		"WorkingDistance",
+		"Magnification",
+		"LightType",
+		"DIC",
+		"ContrastModulation",
+		"InfinityCorrected",
 		"Iris",
-		"ObjectiveFieldNumber",
-		"ParfocalizingDistance",
-		"BackFocalPlanePosition",
+		"WorkingDistance",
+		"CorrectionCollar",
 		"Manufacturer",
 		"Model",
-		"SerialNumber",
-		"SpecsFile",
-		"Description"
+		"CatalogNumber"
 	]
 }

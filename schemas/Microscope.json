@@ -1,81 +1,28 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Microscope.json",
-	"version":"1.06.5",
+	"version":"2.00.0",
 	"type":"object",
 	"title":"Microscope",
-	"description":"This element describes the instrument used to capture the Image. It is primarily a container referring to the microscope's components list, which include the Microscope Body, Microscope Table, LightSource, LightSourceCoupling, SampleHolder, Focusing devices, Objective, Optovar, Filter, Dichroic, AdditionalOptics, Detector and CalibrationTool. The Filter element can be composed either of separate excitation, emission filters and a dichroic mirror or a single filter set. Within the Image itself, a reference is made to this one Filter element. There may be multiple light sources, detectors, objectives and filters etc. in an Instrument. Each of these has their own ID attribute, which can be referred to from Channel. It is understood that the light path configuration can be different for each channel, but cannot be different for each timepoint or each plane of an XYZ stack.",
-	"image":"Microscope_default.png",
+	"description":"This element describes the Instrument used to capture the Image. It is primarily a container referring to the list of hardware components included in a given Microscope. The list consists of the Microscope Stand, Microscope Table, Light Source, Light Source Coupling, Sample Holder, Focusing, Objective, Filter, Dichroic, Additional Lens (including a commonly used Magnification Changer, also known as Optovar), Additional Mirroring Device, Polarization Optics, Prism, Optical Aperture, Optical Device, Detector and Calibration Tool. The Filter element can be either composed of separate Excitation, Emission filters, and Dichroic mirrors or a single Filter Set. An Instrument might have multiple Light Sources, Detectors, Objectives, and Filters, etc. Each of these has its own ID attribute, which can be referred to from the Image, Plane or more commonly Channel elements associated with a given Image Acquisition session. It is understood that the Light Path configuration can be different for each Channel, but cannot be different for each timepoint or each Plane of an XYZ stack.",
+	"image":"Image",
 	"tier":1,
 	"subCategoriesOrder": {
-		"General":"General information about the element",
-		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
-		"MicroscopeBody":"A description of the body of this microscope"
+		"General":"General information about the element"
 	},
 	"properties": {
 		"Name": {
 			"type":"string",
-			"description":"A user defined name for this component.",
+			"description":"A User-defined Name for this component.",
 			"tier":1,
 			"category":"General"
 		},
 		"ID": {
 			"type":"string",
-			"description":"A unique identifier for this component.",
+			"description":"A Unique Identifier for this component.",
 			"tier":1,
 			"category":"General",
 			"readonly":true
-		},
-		"Type": {
-			"type":"string",
-			"description":"The type of this microscope.",
-			"tier":1,
-			"enum": [
-				"Upright",
-				"Inverted",
-				"Custom Made",
-				"Dissection",
-				"Electrophysiology",
-				"Stereomicroscope",
-				"Other"
-			],
-			"category":"MicroscopeBody"
-		},
-		"EyePieceFieldNumber": {
-			"type":"number",
-			"description":"The Field Number represents the diaphragm size of the microscope eyepiece expressed in mm.",
-			"tier":5,
-			"category":"MicroscopeBody"
-		},
-		"Manufacturer": {
-			"type":"string",
-			"description":"The manufacturer of this component.",
-			"tier":1,
-			"category":"ManufacturerSpec"
-		},
-		"Model": {
-			"type":"string",
-			"description":"The model of this component.",
-			"tier":3,
-			"category":"ManufacturerSpec"
-		},
-		"SerialNumber": {
-			"type":"string",
-			"description":"The serial number of this component",
-			"tier":5,
-			"category":"ManufacturerSpec"
-		},
-		"LotNumber": {
-			"type":"string",
-			"description":"The lot number of this component",
-			"tier":5,
-			"category":"ManufacturerSpec"
-		},
-		"SpecsFile": {
-			"type":"string",
-			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
-			"tier":5,
-			"category":"ManufacturerSpec"
 		},
 		"Tier": {
 			"type":"integer",
@@ -87,11 +34,6 @@
 	},
 	"required": [
 		"ID",
-		"Name",
-		"Type",
-		"Manufacturer",
-		"Model",
-		"SerialNumber",
-		"SpecsFile"
+		"Name"
 	]
 }

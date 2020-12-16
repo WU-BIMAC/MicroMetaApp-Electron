@@ -1,0 +1,184 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"GenericOpticalApertureSettings.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"GenericOpticalApertureSettings",
+	"description":"This element holds the Setting applied to a Generic Optical Aperture used during the Acquisition of this Channel as well as a reference (the ID attribute) to the Optical Aperture in question.",
+	"extension":"Basic",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_GenericOpticalApertureSettings.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"OpticalApertureSettings":"This element refers to the Optical Aperture device used to acquire this image and it holds the settings that were applied to it during this Acquisition.",
+		"GenericOpticalApertureSettings":"This element holds the Setting applied to a Generic Optical Aperture used during the Acquisition of this Channel as well as a reference (the ID attribute) to the Optical Aperture in question.",
+		"TransmissionWavelengthRangeSettings":"This element records the range of Transmission Wavelengths that were set for this optical component during the Acquisition of this Image. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
+		"ReflectionWavelengthRangeSettings":"This element records the range of Reflection Wavelengths that were set for this optical component during the Acquisition of this Image. It also records the maximum amount of light transmitted. Multiple of this elements can be used."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"This is the Unique Identifier of the device used in this case.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"TransmissionWavelengthRangeSettings": {
+			"type":"array",
+			"description":"This element records the range of Transmission Wavelengths that were set for this optical component during the Acquisition of this Image. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
+			"tier":1,
+			"items": {
+				"properties": {
+					"Transmittance": {
+						"type":"number",
+						"description":"This field records the maximum amount of light this optical component is capable of transmitting in this Wavelength Range, at the peak Wavelength. It is represented as a fractional value from 0.0 to 1.0.",
+						"tier":2,
+						"category":"TransmissionWavelengthRangeSettings"
+					},
+					"CutOn": {
+						"type":"number",
+						"description":"This field records the Wavelength(s) below which there is less than 50% Transmittance for this optical element.",
+						"tier":1,
+						"category":"TransmissionWavelengthRangeSettings"
+					},
+					"CutOff": {
+						"type":"number",
+						"description":"This field records the Wavelength(s) above which there is less than 50% Transmittance for this optical element.",
+						"tier":1,
+						"category":"TransmissionWavelengthRangeSettings"
+					},
+					"WavelengthUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":1,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"TransmissionWavelengthRangeSettings"
+					}
+				},
+				"required": [
+					"CutOn",
+					"CutOff"
+				]
+			}
+		},
+		"ReflectionWavelengthRangeSettings": {
+			"type":"array",
+			"description":"This element records the range of Reflection Wavelengths that were set for this optical component during the Acquisition of this Image. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",
+			"tier":3,
+			"items": {
+				"properties": {
+					"Reflectance": {
+						"type":"number",
+						"description":"This field records the maximum amount of light this optical component is capable of reflecting in this Wavelength Range, at the peak Wavelength. It is represented as a fractional value from 0.0 to 1.0.",
+						"tier":3,
+						"category":"ReflectionWavelengthRangeSettings"
+					},
+					"CutOn": {
+						"type":"number",
+						"description":"This field records the Wavelength(s) below which there is less than 50% Transmittance for this optical element.",
+						"tier":1,
+						"category":"ReflectionWavelengthRangeSettings"
+					},
+					"CutOff": {
+						"type":"number",
+						"description":"This field records the Wavelength(s) above which there is less than 50% Transmittance for this optical element.",
+						"tier":1,
+						"category":"ReflectionWavelengthRangeSettings"
+					},
+					"WavelengthUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":1,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"ReflectionWavelengthRangeSettings"
+					}
+				},
+				"required": [
+					"CutOn",
+					"CutOff"
+				]
+			}
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	}
+}

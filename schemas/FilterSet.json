@@ -1,109 +1,73 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"FilterSet.json",
-	"version":"1.06.5",
+	"version":"2.00.0",
 	"type":"object",
 	"title":"FilterSet",
-	"description":"A filter set is typically composed of one excitation filter, one emission filter and a dichroic. They might either be pre-assebled by the manufacturer and pruchased as a whole or they can be custome assembled on site depending on the needs of the user.",
-	"domain":"MicrosocpeSpecifications",
+	"description":"This element represents a FilterSet that was used for the acquisition of this Channel. A Filter Set is typically composed of one Excitation Filter, one Emission Filter and a Dichroic. They might either be pre-assembled by the Manufacturer and purchased as a whole or they can be custom assembled on site depending on the needs of the user.",
+	"extension":"Core",
+	"domain":"ImageAcquisitionSettings",
 	"category":"LightPath",
-	"image":"LightPath_FilterSet.png",
-	"tier":2,
+	"image":"LightPath_FilterSet.svg",
+	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This describes the manufacturer specifications for this component (i.e., manufacturer name, model designation and serial number).",
-		"FilterSet":"A filter set is typically composed of one excitation filter, one emission filter and a dichroic. They might either be pre-assebled by the manufacturer and pruchased as a whole or they can be custome assembled on site depending on the needs of the user.",
-		"ExcitationFilter":"This refers to an available excitation filter which is part of this filter set.",
-		"StandardDichroic":"NA",
-		"EmissionFilter":"This refers to an available emission filter which is part of this filter set."
+		"FilterSet":"This element represents a FilterSet that was used for the acquisition of this Channel. A Filter Set is typically composed of one Excitation Filter, one Emission Filter and a Dichroic. They might either be pre-assembled by the Manufacturer and purchased as a whole or they can be custom assembled on site depending on the needs of the user.",
+		"ExcitationFilter":"This field refers to an available Excitation Filter which is part of this Filter Cube.",
+		"StandardDichroic":"This field refers to an available Dichroic Mirror which is part of this Filter Cube.",
+		"EmissionFilter":"This field refers to an available Emission Filter which is part of this Filter Cube."
 	},
 	"properties": {
 		"Name": {
 			"type":"string",
-			"description":"A user defined name for this component.",
-			"tier":2,
+			"description":"A user-defined Name for this component.",
+			"tier":1,
 			"category":"General"
 		},
 		"ID": {
 			"type":"string",
-			"description":"A unique identifier for this component.",
-			"tier":2,
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
 			"category":"General",
 			"readonly":true
 		},
-		"Manufacturer": {
-			"type":"string",
-			"description":"The manufacturer of this component.",
-			"tier":1,
-			"category":"ManufacturerSpec"
-		},
-		"Model": {
-			"type":"string",
-			"description":"The model of this component.",
-			"tier":3,
-			"category":"ManufacturerSpec"
-		},
-		"SerialNumber": {
-			"type":"string",
-			"description":"The serial number of this component",
-			"tier":5,
-			"category":"ManufacturerSpec"
-		},
-		"LotNumber": {
-			"type":"string",
-			"description":"The lot number of this component",
-			"tier":5,
-			"category":"ManufacturerSpec"
-		},
-		"SpecsFile": {
-			"type":"string",
-			"description":"Provide the location of a PDF file with the specifications for the component as provided by the manufacturer.",
-			"tier":5,
-			"category":"ManufacturerSpec"
-		},
 		"ExcitationFilter": {
 			"type":"string",
-			"description":"This refers to an available excitation filter, which is part of this filter set.",
-			"tier":2,
+			"description":"This field refers to an available Excitation Filter, which is part of this Filter Cube.",
+			"tier":1,
 			"category":"ExcitationFilter",
 			"linkTo":"ExcitationFilter"
 		},
 		"StandardDichroic": {
 			"type":"string",
-			"description":"NA",
+			"description":"This field refers to an available Dichroic Mirror, which is part of this Filter Cube.",
 			"tier":1,
 			"category":"StandardDichroic",
 			"linkTo":"StandardDichroic"
 		},
 		"EmissionFilter": {
 			"type":"string",
-			"description":"This refers to an available emission filter, which is part of this filter set.",
-			"tier":2,
+			"description":"This field refers to an available Emission Filter, which is part of this Filter Cube.",
+			"tier":1,
 			"category":"EmissionFilter",
 			"linkTo":"EmissionFilter"
 		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This is a simple multi-line comment or annotation describing this component.",
-			"tier":2,
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
 			"category":"General"
 		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
-			"tier":2,
+			"tier":1,
 			"category":"General",
 			"readonly":true
 		}
 	},
 	"required": [
-		"ID",
-		"Name",
-		"Manufacturer",
-		"Model",
-		"SerialNumber",
-		"SpecsFile",
-		"Description"
+		"ID"
 	]
 }

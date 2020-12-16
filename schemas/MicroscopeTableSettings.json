@@ -1,0 +1,43 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"MicroscopeTableSettings.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"MicroscopeTableSettings",
+	"description":"This element refers to the MicroscopeTable used to support the Microscope used to acquire this Image and holds the settings that were applied to the Microscope during this Acquisition.",
+	"extension":"Basic",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_MicroscopeTableSettings.svg",
+	"tier":2,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"MicroscopeTableSettings":"This element refers to the MicroscopeTable used to support the Microscope used to acquire this Image and holds the settings that were applied to the Microscope during this Acquisition."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"This is the Unique Identifier of the Microscope Table used in this case.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		},
+		"Floating": {
+			"type":"boolean",
+			"description":"This field recods whether the Microscope Table was Floating (True) or not (False) during the acquistion of this Image.",
+			"tier":2,
+			"category":"MicroscopeTableSettings"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Floating"
+	]
+}

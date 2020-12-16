@@ -1,0 +1,257 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"ReflectingMirror.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"ReflectingMirror",
+	"description":"This element describes a total reflection Mirror.",
+	"extension":"Basic",
+	"domain":"MicroscopeHardwareSpecifications",
+	"category":"MirroringDevice",
+	"image":"MirroringDevice_ReflectingMirror.svg",
+	"tier":2,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"MirroringDevice":"This element describes a Mirror positioned in the Light Path for one or more Channels available for this Instrument. An Instrument may have several Mirrors of different types, such as Dichroic, Beamsplitter or Reflector. This element can be associated with an optional Optics Holder, such as a Filter Cube, Filter Turret, Filter Wheel, or Filter Slider.",
+		"ReflectingMirror":"This element describes a total reflection Mirror."
+	},
+	"properties": {
+		"Reflectance": {
+			"type":"number",
+			"description":"The field records the maximum amount of light this Mirror is capable of reflecting at the peak Wavelength. It is represented as a fractional value from 0.0 to 1.0.",
+			"tier":2,
+			"category":"ReflectingMirror"
+		},
+		"Name": {
+			"type":"string",
+			"description":"A User-defined Name for this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"MirrorType": {
+			"type":"string",
+			"description":"This field records the general category of this Mirror.",
+			"tier":3,
+			"enum": [
+				"Convex",
+				"Concave",
+				"Planar",
+				"Other"
+			],
+			"category":"MirroringDevice"
+		},
+		"Diameter": {
+			"type":"number",
+			"description":"This field describes the Diameter of this optical element.",
+			"tier":3,
+			"category":"MirroringDevice"
+		},
+		"DiameterUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"MirroringDevice"
+		},
+		"AngleOfIncidence": {
+			"type":"number",
+			"description":"This field records the optimal angle of incidence (AOI) for this Mirror. The AOI is the angle between the optical axis of the incident light and the axis normal to the surface of the Mirror. In specular reflection AOI is by definition equal to the Angle Of Reflection (AOR).",
+			"tier":3,
+			"category":"MirroringDevice"
+		},
+		"AngleOfIncidenceUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"deg",
+			"enum": [
+				"deg"
+			],
+			"category":"MirroringDevice"
+		},
+		"Geometry": {
+			"type":"string",
+			"description":"This field records the geometrical shape of the surface(s) of this Mirror.",
+			"tier":3,
+			"enum": [
+				"Aspherical",
+				"Cylindrical",
+				"Ellipsoidal",
+				"Hyeprboloidal",
+				"Paraboloidal",
+				"Spherical",
+				"Other"
+			],
+			"category":"MirroringDevice"
+		},
+		"RadiusOfCurvature": {
+			"type":"number",
+			"description":"The radius of curvature of this Mirror. A spherical lens or Mirror surface has a center of curvature located either along or decentered from the system local optical axis. The vertex of the lens surface is located on the local optical axis. The distance from the vertex to the center of curvature is the radius of curvature of the surface.",
+			"tier":3,
+			"category":"MirroringDevice"
+		},
+		"RadiusOfCurvatureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"MirroringDevice"
+		},
+		"SubstrateType": {
+			"type":"string",
+			"description":"This field records the type of Substrate that is used for this Mirror. It is typically a ground and polished piece of optical glass.",
+			"tier":3,
+			"category":"MirroringDevice"
+		},
+		"SubstrateMaterial": {
+			"type":"string",
+			"description":"This field records the polarization effect of this optical element. Any thin-film interference Coating that is used at non-normal angles-of-incidence will cause some amount of polarization, the precise effect varying greatly with wavelength and with the particular Coating design.",
+			"tier":3,
+			"enum": [
+				"Calcium Fluoride",
+				"N-BK7 (Borosilicate Crown)",
+				"UV-Grade Fused Silica (UVFS)",
+				"Zerodur (Lithium Aluminum Ailicon Oxide)",
+				"Zinc Selenide (ZnSe)",
+				"Other"
+			],
+			"category":"MirroringDevice"
+		},
+		"GlassCode": {
+			"type":"string",
+			"description":"If available, this field records the international Glass Code of the material that constitutes this Mirror. The Glass Code designation is based on U.S. military standard MIL-G-174, and it consists of a six-digit number specifying the glass according to its Refractive Index nd at the Fraunhofer d- (or D3-) line, and its Abbe Number Vd also taken at that line. The resulting Glass Code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit Glass Code of 517642.",
+			"tier":3,
+			"category":"MirroringDevice"
+		},
+		"OpticsHolderPosition": {
+			"type":"string",
+			"description":"This field records the position of this Mirroring Device in a Optics Holder of any kind, such as a Slider, Turret or Wheel.",
+			"tier":2,
+			"category":"MirroringDevice"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"CatalogNumber": {
+			"type":"string",
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":2,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"Reflectance",
+		"ID",
+		"MirrorType",
+		"Manufacturer",
+		"Model",
+		"CatalogNumber"
+	]
+}

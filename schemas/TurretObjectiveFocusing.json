@@ -1,0 +1,420 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"TurretObjectiveFocusing.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"TurretObjectiveFocusing",
+	"description":"A Focusing mechanism is used to obtain maximum sharpness in an Image by changing the distance between a Sample and the optical system forming the Image. In most cases, a Z-axis Focusing mechanism moves the Objective along the optical axis. This element describes a Focusing Device associated with a rotating Objective Turret associated with this Instrument. This type of device is often operated using a rack and pinion mechanism.",
+	"extension":"Basic",
+	"domain":"MicroscopeHardwareSpecifications",
+	"category":"SamplePositioning.Focusing",
+	"image":"SamplePositioning_Focusing_TurretObjectiveFocusing.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"SamplePositioning":"This element describes a Sample-Optics Positioning device available for this Instrument. An Instrument may have more than one of these devices of different types. For example, a typical setup might include a Mechanical Stage, a Stage Insert, a Turret Objective Focusing, and a Piezoelectric Objective Focusing device.",
+		"FocusingDevice":"A Focusing mechanism is used to obtain maximum sharpness in an Image by changing the distance between a Sample and the optical system forming the Image. In this case, a Z-axis Focusing mechanism moves the Objective along the optical axis.",
+		"TurretObjectiveFocusing":"A Focusing mechanism is used to obtain maximum sharpness in an Image by changing the distance between a Sample and the optical system forming the Image. In most cases, a Z-axis Focusing mechanism moves the Objective along the optical axis. This element describes a Focusing Device associated with a rotating Objective Turret associated with this Instrument. This type of device is often operated using a rack and pinion mechanism."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A User-defined Name for this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"Encoded": {
+			"type":"string",
+			"description":"This field describes whether this Sample Positioning Device is equipped with a system (i.e., encoder) to monitor movement and provide automatic positional feedback for high-precision operations, and it specifies the type of encoders it has.",
+			"tier":1,
+			"enum": [
+				"None",
+				"Linear",
+				"Rotary",
+				"Other"
+			],
+			"category":"SamplePositioning"
+		},
+		"Motorized": {
+			"type":"boolean",
+			"description":"This field describes whether (True) or not (False) this Sample Positioning Device is fitted with a Motorized component (i.e., ball-screw drives or rack mechanisms, sometimes equipped with precision calibration) to primarily assist in the translational movement of the sample in the X and Y or Z directions. A Motorized Stage is also often referred to as a Scanning Stage.",
+			"tier":1,
+			"category":"SamplePositioning"
+		},
+		"ZMaxVelocity": {
+			"type":"number",
+			"description":"This field describes the maximum Z-axis Velocity at which this Sample Positioning Device is capable of moving.",
+			"tier":1,
+			"category":"SamplePositioning"
+		},
+		"ZMaxVelocityUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"nm/s",
+			"enum": [
+				"m/s",
+				"mm/s",
+				"µm/s",
+				"nm/s",
+				"Other"
+			],
+			"category":"SamplePositioning"
+		},
+		"ZRepetability": {
+			"type":"number",
+			"description":"This field captures the expected Accuracy with which this Sample Positioning Device is capable of returning to a previously visited Z-axis Position, as specified by the Manufacturer. This metric is important for example for Tiling.",
+			"tier":1,
+			"category":"SamplePositioning"
+		},
+		"ZRepetabilityUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"SamplePositioning"
+		},
+		"ZTravelRange": {
+			"type":"number",
+			"description":"This field describes the total range in the Z-axis that this Sample Positioning Device can travel.",
+			"tier":1,
+			"category":"SamplePositioning"
+		},
+		"ZTravelRangeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"µm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"SamplePositioning"
+		},
+		"MovementAxes": {
+			"type":"string",
+			"description":"This field describes the axes or combination of axes along which this Sample Positioning Device is capable of moving.",
+			"tier":2,
+			"enum": [
+				"X",
+				"Y",
+				"Z",
+				"XY",
+				"XYZ",
+				"Θ",
+				"Other"
+			],
+			"category":"SamplePositioning"
+		},
+		"BuiltIn": {
+			"type":"boolean",
+			"description":"This field indicates whether this Sample Positioning Device is built into the Microscope Stand (True) or it is removable and interchangeable (False).",
+			"tier":2,
+			"category":"SamplePositioning"
+		},
+		"ZReproducibility": {
+			"type":"string",
+			"description":"This field captures the expected Precision with which this this Sample Positioning Device is capable of maintaining a given Z-axis Position over time during as specified by the Manufacturer. This metric is generally referred to as Reproducibility and it might also be referred to as Focal Drift. This metric is particularly relevant for Stereology systems and for the calibration of Sample Positioning devices.",
+			"tier":2,
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"SamplePositioning"
+		},
+		"ZReproducibilityUnit": {
+			"type":"number",
+			"description":"NA",
+			"tier":2,
+			"category":"SamplePositioning"
+		},
+		"ZSettlingTime": {
+			"type":"number",
+			"description":"This field describes the expected time it takes for this Sample Positioning Device to stabilize at the target Z-axis position, as specified by the Manufacturer.",
+			"tier":2,
+			"category":"SamplePositioning"
+		},
+		"ZSettlingTimeUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"default":"ms",
+			"enum": [
+				"Ys",
+				"Zs",
+				"Es",
+				"Ps",
+				"Ts",
+				"Gs",
+				"Ms",
+				"ks",
+				"hs",
+				"das",
+				"s",
+				"ds",
+				"cs",
+				"ms",
+				"µs",
+				"ns",
+				"ps",
+				"fs",
+				"as",
+				"zs",
+				"ys",
+				"min",
+				"h",
+				"d"
+			],
+			"category":"SamplePositioning"
+		},
+		"ZResolution": {
+			"type":"number",
+			"description":"This field describes the Z-axis motion Resolution of this Sample Positioning Device as specified by the Manufacturer.",
+			"tier":2,
+			"category":"SamplePositioning"
+		},
+		"ZResolutionUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":2,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"SamplePositioning"
+		},
+		"ZPositionLinearityError": {
+			"type":"number",
+			"description":"This field describes the Z-axis positioning error (typically expressed in % error) associated with this Sample Positioning Device as specified by the Manufacturer.",
+			"tier":2,
+			"category":"SamplePositioning"
+		},
+		"Type": {
+			"type":"string",
+			"description":"This field describes the general category of this Sample Positioning Device.",
+			"tier":3,
+			"enum": [
+				"Centering",
+				"DC Servo Motor",
+				"Gliding",
+				"Levelling",
+				"Linear",
+				"Rigid Stand",
+				"Stepper",
+				"Translational",
+				"Other"
+			],
+			"category":"SamplePositioning"
+		},
+		"RotationAngle": {
+			"type":"number",
+			"description":"The angle by which this Sample Positioning Device is capable of rotating.",
+			"tier":3,
+			"category":"SamplePositioning"
+		},
+		"RotationAngleUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"deg",
+			"enum": [
+				"deg",
+				"rad",
+				"gon"
+			],
+			"category":"SamplePositioning"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"CatalogNumber": {
+			"type":"string",
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Encoded",
+		"Motorized",
+		"MovementAxes",
+		"BuiltIn",
+		"ZReproducibility",
+		"ZSettlingTime",
+		"ZResolution",
+		"Manufacturer",
+		"Model",
+		"CatalogNumber"
+	]
+}

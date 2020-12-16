@@ -1,0 +1,221 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"EnvironmentalControlDevice.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"EnvironmentalControlDevice",
+	"description":"This element describes an Environmental Control Device available for this Instrument.",
+	"extension":"Basic",
+	"domain":"MicroscopeHardwareSpecifications",
+	"category":"MicroscopyEssentials",
+	"image":"MicroscopyEssentials_EnvironmentalControlDevice.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"EnvironmentalControlDevice":"This element describes an Environmental Control Device available for this Instrument."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A User-defined Name for this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"Type": {
+			"type":"string",
+			"description":"This field captures the general category of this Environmental Control Device.",
+			"tier":1,
+			"enum": [
+				"Cage-incubator enclosure",
+				"Objective heather",
+				"Stage-top chamber",
+				"Other"
+			],
+			"category":"EnvironmentalControlDevice"
+		},
+		"HumidityControl": {
+			"type":"string",
+			"description":"This field captures whether this Environmental Control Device provides Humidity control and what type of control it provides. If no Humidity control is provided please enter None.",
+			"tier":1,
+			"enum": [
+				"None",
+				"Active",
+				"Passive",
+				"Mineral oil",
+				"Water-bath",
+				"Other"
+			],
+			"category":"EnvironmentalControlDevice"
+		},
+		"CO2Control": {
+			"type":"string",
+			"description":"This field captures whether this Environmental Control Device provides CO2 control and what type of control it provides. If no CO2 control is provided please enter None.",
+			"tier":2,
+			"enum": [
+				"None",
+				"Gas mixer",
+				"Pre-mixed",
+				"Other"
+			],
+			"category":"EnvironmentalControlDevice"
+		},
+		"O2Control": {
+			"type":"boolean",
+			"description":"This field captures whether (True) or not (False) this Environmental Control Device provides vibration control.",
+			"tier":2,
+			"category":"EnvironmentalControlDevice"
+		},
+		"VibrationControl": {
+			"type":"boolean",
+			"description":"This field captures whether (True) or not (False) this Environmental Control Device provides O2 control.",
+			"tier":2,
+			"category":"EnvironmentalControlDevice"
+		},
+		"StandCompatibility": {
+			"type":"string",
+			"description":"This field captures what Microscope Stand type this Environmental Control Chamber is compatible with.",
+			"tier":2,
+			"enum": [
+				"Inverted",
+				"Upright",
+				"Other"
+			],
+			"category":"EnvironmentalControlDevice"
+		},
+		"Perfusion": {
+			"type":"boolean",
+			"description":"This field caputers whether (True) or not (False) this Environmental Control Device supports sample Perfusion.",
+			"tier":2,
+			"category":"EnvironmentalControlDevice"
+		},
+		"LidMaterial": {
+			"type":"string",
+			"description":"In case this Environmental Control Device consists of a Sample Holder Chamber, this field captures the Material that constitutes the Lid of the Chamber.",
+			"tier":2,
+			"category":"EnvironmentalControlDevice"
+		},
+		"MaxTemperature": {
+			"type":"number",
+			"description":"This field captures the Maximum Temperature that can be stably maintained by this Environmental Control Device.",
+			"tier":3,
+			"category":"EnvironmentalControlDevice"
+		},
+		"MaxTemperatureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"°C",
+			"enum": [
+				"°C",
+				"°F",
+				"K",
+				"°R"
+			],
+			"category":"EnvironmentalControlDevice"
+		},
+		"MinTemberature": {
+			"type":"number",
+			"description":"This field captures the Minimum Temperature that can be stably maintained by this Environmental Control Device.",
+			"tier":3,
+			"category":"EnvironmentalControlDevice"
+		},
+		"MinTemperatureUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"°C",
+			"enum": [
+				"°C",
+				"°F",
+				"K",
+				"°R"
+			],
+			"category":"EnvironmentalControlDevice"
+		},
+		"TemperatureAccuracy": {
+			"type":"number",
+			"description":"This field captures the Temperature control Accuracy provided by this Environmental Control Device.",
+			"tier":3,
+			"category":"EnvironmentalControlDevice"
+		},
+		"TemperatureAccuracyUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"°C",
+			"enum": [
+				"°C",
+				"°F",
+				"K",
+				"°R"
+			],
+			"category":"EnvironmentalControlDevice"
+		},
+		"TTL": {
+			"type":"boolean",
+			"description":"This field captures whether (True) or not (False) this Environmental Control Device can be controlled by a TTL signal.",
+			"tier":3,
+			"category":"EnvironmentalControlDevice"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"CatalogNumber": {
+			"type":"string",
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Type",
+		"HumidityControl",
+		"CO2Control",
+		"O2Control",
+		"StandCompatibility",
+		"Perfusion",
+		"MaxTemperature",
+		"MinTemberature",
+		"Manufacturer",
+		"Model",
+		"CatalogNumber"
+	]
+}

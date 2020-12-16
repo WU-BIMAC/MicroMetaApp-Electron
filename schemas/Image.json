@@ -1,0 +1,147 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Image.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"Image",
+	"description":"This element describes the actual Image that was acquired and its meta-data. The elements that are references (ending in Ref or Settings) refer to elements defined outside of the Image element. Ref elements are simple links, while Settings elements are links with additional values. If any of the required Image attributes or elements are missing, its guaranteed to be an invalid document.",
+	"extension":"Core",
+	"domain":"ImageAcquisitionSettingsSettings",
+	"category":"Image",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"General":"General information about the element",
+		"Image":"This element describes the actual Image that was acquired and its meta-data. The elements that are references (ending in Ref or Settings) refer to elements defined outside of the Image element. Ref elements are simple links, while Settings elements are links with additional values. If any of the required Image attributes or elements are missing, its guaranteed to be an invalid document.",
+		"Experimenter":"This empty element refers to Experimenter that performed this experiment.",
+		"Sample":"This empty element refers to the Sample that was imaged in this Image Acquisition.",
+		"ExperimenterGroup":"This empty element refers to the ExperimenterGroup that owns this Image. ",
+		"ROI":"NA",
+		"StageInsert":"This empty element refers to the optional Stage Insert device that was used for the Acquisition of this Image.",
+		"FocusStabilization":" This empty element refers to the optional Focus Stabilization Device that was used for the Acquisition of the experimental Image this Mechanical Calibration procedure refers to.",
+		"AcquisitionSoftware":"This empty element refers to the Software that was used to drive the Microscope during the Image Acquisition."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"A user assigned name for this Image.",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A unique identifier for this Image.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"IntrumentName": {
+			"title":"IntrumentName",
+			"type":"string",
+			"description":"Name of the instrument",
+			"tier":1,
+			"category":"Instrument",
+			"readonly":true
+		},
+		"IntrumentID": {
+			"title":"IntrumentID",
+			"type":"string",
+			"description":"ID of the instrument",
+			"tier":1,
+			"category":"Instrument",
+			"readonly":true
+		},
+		"Experimenter": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to Experimenter that performed this experiment.",
+				"type":"string",
+				"tier":1,
+				"category":"Experimenter",
+				"linkTo":"Experimenter"
+			}
+		},
+		"Sample": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to the Sample that was imaged in this Image Acquisition.",
+				"type":"string",
+				"tier":1,
+				"category":"Sample",
+				"linkTo":"Sample"
+			}
+		},
+		"ExperimenterGroup": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to the ExperimenterGroup that owns this Image. ",
+				"type":"string",
+				"tier":1,
+				"category":"ExperimenterGroup",
+				"linkTo":"ExperimenterGroup"
+			}
+		},
+		"ROI": {
+			"type":"array",
+			"items": {
+				"description":"NA",
+				"type":"string",
+				"tier":1,
+				"category":"ROI",
+				"linkTo":"ROI"
+			}
+		},
+		"StageInsert": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to the optional Stage Insert device that was used for the Acquisition of this Image.",
+				"type":"string",
+				"tier":2,
+				"category":"StageInsert",
+				"linkTo":"StageInsert"
+			}
+		},
+		"FocusStabilization": {
+			"type":"array",
+			"items": {
+				"description":" This empty element refers to the optional Focus Stabilization Device that was used for the Acquisition of the experimental Image this Mechanical Calibration procedure refers to.",
+				"type":"string",
+				"tier":2,
+				"category":"FocusStabilization",
+				"linkTo":"FocusStabilization"
+			}
+		},
+		"AcquisitionSoftware": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to the Software that was used to drive the Microscope during the Image Acquisition.",
+				"type":"string",
+				"tier":1,
+				"category":"AcquisitionSoftware",
+				"linkTo":"AcquisitionSoftware"
+			}
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
+			"category":"General"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of the microscope.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"IntrumentName",
+		"IntrumentName",
+		"Sample",
+		"AcquisitionSoftware"
+	]
+}

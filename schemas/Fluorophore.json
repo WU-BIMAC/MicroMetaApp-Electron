@@ -1,0 +1,228 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"Fluorophore.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"Fluorophore",
+	"description":"This element describes the Fluorophore whose Emission is used to produce this Channel. [plain text string].",
+	"extension":"Basic",
+	"domain":"Experimental",
+	"category":"SamplePreparation",
+	"image":"SamplePreparation_Fluorophore.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
+		"Fluorophore":"This element describes the Fluorophore whose Emission is used to produce this Channel. [plain text string]."
+	},
+	"properties": {
+		"Name": {
+			"type":"string",
+			"description":"This field records a descriptive term that designates this Fluorophore as specified by the Manufacturer. For example, it might be the name of a specific Fluorescence Protein variant, or the name used by the Manufactuer for an organic dye.",
+			"tier":1,
+			"category":"General"
+		},
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"Type": {
+			"type":"string",
+			"description":"This field records a term that describes the general category of the Fluorescent Label used in this case.",
+			"tier":1,
+			"enum": [
+				"Nucleic Acid_Aptamer motif",
+				"Nucleic Acid_Bacteriophage-derived RNA tag",
+				"Nucleic Acid_Chemical Modification",
+				"Nucleic Acid_dCad9",
+				"Nucleic Acid_Forced Intercalation",
+				"Nucleic Acid_Molecular Beacon",
+				"Protein_BiarsenicalDye",
+				"Protein_Biological fluorophore",
+				"Protein_Fluorescent protein",
+				"Protein_Immunological probe",
+				"Protein_Organic dyes",
+				"Protein_Self-Labelling EnzymeTag",
+				"Quantum Dots",
+				"None",
+				"Other"
+			],
+			"category":"Fluorophore"
+		},
+		"ExcitationWavelength": {
+			"type":"number",
+			"description":"This field records the Excitation Wavelength used for this Channel.",
+			"tier":1,
+			"category":"Fluorophore"
+		},
+		"ExcitationWavelengthUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Fluorophore"
+		},
+		"EmissionWavelength": {
+			"type":"number",
+			"description":"This field records the Emission Wavelength used for this Channel.",
+			"tier":1,
+			"category":"Fluorophore"
+		},
+		"EmissionWavelengthUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"default":"nm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Fluorophore"
+		},
+		"Concentration": {
+			"type":"number",
+			"description":"This field records the Concentration of this Fluorophore that was used to stain the Sample and was imaged in this Channel.",
+			"tier":1,
+			"category":"Fluorophore"
+		},
+		"FBBaseID": {
+			"type":"string",
+			"description":"In case the Fluorophore is a Fluorescent Protein, this field records its FPBaseID (FPBase.org).",
+			"tier":1,
+			"category":"Fluorophore"
+		},
+		"ConcentrationUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":1,
+			"enum": [
+				"ng/µl",
+				"µg/µl",
+				"mg/ml",
+				"%(W/V)",
+				"%(V/V)",
+				"Units/ml",
+				"Other"
+			],
+			"category":"Fluorophore"
+		},
+		"PrimaryPublicationID": {
+			"type":"string",
+			"description":"This field captures the a Unique Identifier for the Primary Publication describing this Fluorescent Label. Examples include, Digital Object Identifier (DOI), PubMed Central Identifier (PMCID), ArXiv.org ID etc.",
+			"tier":2,
+			"category":"Fluorophore"
+		},
+		"Manufacturer": {
+			"type":"string",
+			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"Model": {
+			"type":"string",
+			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"CatalogNumber": {
+			"type":"string",
+			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
+			"tier":1,
+			"category":"ManufacturerSpec"
+		},
+		"LotNumber": {
+			"type":"string",
+			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Name",
+		"Type",
+		"ExcitationWavelength",
+		"EmissionWavelength",
+		"Manufacturer",
+		"Model",
+		"CatalogNumber"
+	]
+}

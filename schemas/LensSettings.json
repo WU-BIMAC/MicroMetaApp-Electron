@@ -1,0 +1,43 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"LensSettings.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"LensSettings",
+	"description":"This element holds the Setting applied to a Lens used in the Light Path during the acquisition of this Channel as well as a reference (the ID attribute) to the Lens in question.",
+	"extension":"Basic",
+	"domain":"ImageAcquisitionSettings",
+	"category":"Settings",
+	"image":"Settings_LensSettings.svg",
+	"tier":1,
+	"subCategoriesOrder": {
+		"General":"General information about the element",
+		"LensSettings":"This element holds the Setting applied to a Lens used in the Light Path during the acquisition of this Channel as well as a reference (the ID attribute) to the Lens in question."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"This is the Unique Identifier of the device used in this case.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
+		"Function": {
+			"type":"string",
+			"description":"This field records the purpose for which this Additinal Lens was used during the Acquisition of this Channel.",
+			"tier":2,
+			"category":"LensSettings"
+		},
+		"Tier": {
+			"type":"integer",
+			"description":"The tier level of this component.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		}
+	},
+	"required": [
+		"ID",
+		"Function"
+	]
+}

@@ -1,0 +1,48 @@
+{
+	"$schema":"http://json-schema.org/draft-07/schema",
+	"ID":"TransmittanceProfileFile.json",
+	"version":"2.00.0",
+	"type":"object",
+	"title":"TransmittanceProfileFile",
+	"description":"This element represents a file in .csv or other suitable formats containing the Transmittance profile of this optical component.",
+	"extension":"Basic",
+	"domain":"MicroscopeHardwareSpecifications",
+	"category":"ChildElement",
+	"image":"ChildElement_TransmittanceProfileFile.svg",
+	"tier":3,
+	"subCategoriesOrder": {
+		"TransmittanceProfileFile":"This element represents a file in .csv or other suitable formats containing the Transmittance profile of this optical component."
+	},
+	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"A Unique Identifier for this element.",
+			"tier":3,
+			"category":"TransmittanceProfileFile",
+			"readonly":true
+		},
+		"Namespace": {
+			"type":"string",
+			"description":"We recommend the inclusion of a namespace for annotations you define. If it is absent then we assume the annotation is to use our (OME's) default interpretation for this type.",
+			"tier":3,
+			"category":"TransmittanceProfileFile"
+		},
+		"Annotator": {
+			"type":"string",
+			"description":"The Annotator is the person who attached this annotation.e.g. If UserA annotates something with TagB, owned by UserB, UserA is still the Annotator.",
+			"tier":3,
+			"category":"TransmittanceProfileFile"
+		},
+		"Description": {
+			"title":"Description",
+			"type":"string",
+			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"tier":1,
+			"category":"TransmittanceProfileFile"
+		}
+	},
+	"required": [
+		"ID",
+		"Namespace"
+	]
+}
