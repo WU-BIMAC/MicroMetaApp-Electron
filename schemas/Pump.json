@@ -14,15 +14,15 @@
 		"Pump":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it."
 	},
 	"properties": {
-		"Laser": {
+		"ID": {
 			"type":"string",
-			"description":"This empty element refers to an existing Laser component.",
-			"tier":2,
+			"description":"A Unique Identifier for this component.",
+			"tier":1,
 			"category":"Pump",
-			"linkTo":"Laser"
+			"readonly":true
 		}
 	},
 	"required": [
-		"Laser"
+		"ID"
 	]
 }

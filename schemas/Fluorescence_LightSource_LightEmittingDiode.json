@@ -57,7 +57,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -155,6 +155,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":2,
+						"default":"nm",
 						"enum": [
 							"Ym",
 							"Zm",
@@ -314,6 +315,8 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"LEDModule"
+		"LEDModule",
+		"Tier",
+		"Tier"
 	]
 }

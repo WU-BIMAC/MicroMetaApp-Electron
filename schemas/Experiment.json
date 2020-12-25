@@ -135,6 +135,7 @@
 		"ID",
 		"Purpose",
 		"LabellingMethod",
-		"Experimenter"
+		"Experimenter",
+		"Tier"
 	]
 }

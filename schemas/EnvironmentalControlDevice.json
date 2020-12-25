@@ -4,7 +4,7 @@
 	"version":"2.00.0",
 	"type":"object",
 	"title":"EnvironmentalControlDevice",
-	"description":"This element describes an Environmental Control Device available for this Instrument.",
+	"description":"This element describes an Environmental Control Device available for this Instrument to maintain a controlled Imaging Environment during Imaging Environment.",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"MicroscopyEssentials",
@@ -13,7 +13,7 @@
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
-		"EnvironmentalControlDevice":"This element describes an Environmental Control Device available for this Instrument."
+		"EnvironmentalControlDevice":"This element describes an Environmental Control Device available for this Instrument to maintain a controlled Imaging Environment during Imaging Environment."
 	},
 	"properties": {
 		"Name": {
@@ -29,11 +29,12 @@
 			"category":"General",
 			"readonly":true
 		},
-		"Type": {
+		"TemperatureControl": {
 			"type":"string",
-			"description":"This field captures the general category of this Environmental Control Device.",
+			"description":"This field captures whether this Environmental Control Device provides Temperature control and what type of control it provides. If no Temperature control is provided please enter 'None'.",
 			"tier":1,
 			"enum": [
+				"None",
 				"Cage-incubator enclosure",
 				"Objective heather",
 				"Stage-top chamber",
@@ -167,7 +168,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -206,7 +207,7 @@
 	},
 	"required": [
 		"ID",
-		"Type",
+		"TemperatureControl",
 		"HumidityControl",
 		"CO2Control",
 		"O2Control",
@@ -216,6 +217,7 @@
 		"MinTemberature",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

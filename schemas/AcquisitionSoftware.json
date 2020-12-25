@@ -12,7 +12,6 @@
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"AcquisitionSoftware":"This element represents a commercial, or open-source Software, script, macro, plugin or module utilized for driving this Instrument during Image Acquisition.",
 		"SoftwareModule":"This empty element refers to any existing Software Module that was used in association with this Instrument."
 	},
@@ -36,9 +35,9 @@
 			"tier":1,
 			"category":"AcquisitionSoftware"
 		},
-		"Author": {
+		"Developer": {
 			"type":"string",
-			"description":"This field records the developer of this Software. This could be the Manufacturer if this is a commercial proprietary sofware or the Author(s) if this is an open-source software.",
+			"description":"This field records the Developer(s) of this Software. In case this is a non-commercial, open-source Software, this refers to the name of the individual or consortium who developed the Software. In the case of a commercial Software, this might refer to the Commercial entity but it can also be used to refer to the individual developer, if knonw.",
 			"tier":1,
 			"category":"AcquisitionSoftware"
 		},
@@ -90,30 +89,6 @@
 			"tier":3,
 			"category":"AcquisitionSoftware"
 		},
-		"Manufacturer": {
-			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
-			"tier":1,
-			"category":"ManufacturerSpec"
-		},
-		"Model": {
-			"type":"string",
-			"description":"This field refers to the Model name or any other designation the Manufacturer uses for this component.",
-			"tier":1,
-			"category":"ManufacturerSpec"
-		},
-		"CatalogNumber": {
-			"type":"string",
-			"description":"This field records the Catalog, Part or Serial Number used by the Manufacturer to uniquely identify this component.",
-			"tier":1,
-			"category":"ManufacturerSpec"
-		},
-		"LotNumber": {
-			"type":"string",
-			"description":"The Lot Number used by the Manufacturer to refer to a specific production batch or lot for this component.",
-			"tier":3,
-			"category":"ManufacturerSpec"
-		},
 		"SoftwareModule": {
 			"type":"array",
 			"items": {
@@ -143,10 +118,8 @@
 		"ID",
 		"Name",
 		"Version",
-		"Author",
+		"Developer",
 		"WebsiteURL",
-		"Manufacturer",
-		"Model",
-		"CatalogNumber"
+		"Tier"
 	]
 }

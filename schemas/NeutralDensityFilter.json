@@ -105,22 +105,22 @@
 			],
 			"category":"Filter"
 		},
-		"AttenuationCoefficient": {
-			"type":"number",
-			"description":"This field records the Attenuation Coefficient of this Filter. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
-			"tier":2,
-			"category":"Filter"
-		},
 		"AttenuationMethod": {
 			"type":"string",
 			"description":"This field records the mean by which this optical element achieves out-of-band transmission attenuation.",
-			"tier":3,
+			"tier":2,
 			"enum": [
 				"Absorption",
 				"Reflection",
 				"Rifraction",
 				"Other"
 			],
+			"category":"Filter"
+		},
+		"AttenuationCoefficient": {
+			"type":"number",
+			"description":"This field records the Attenuation Coefficient (AC) of this optical element. The AC (aka blocking coefficient) is a material property that characterizes the degree to which light is being blocked (i.e., scattered or absorbed) by it. AC is used as a measure of the out-of-band blocking of an optical Lens, Filter, Dichroic mirror over an extended range of the spectrum. AC is often reported in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"tier":3,
 			"category":"Filter"
 		},
 		"Diameter": {
@@ -250,7 +250,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -368,11 +368,12 @@
 		"Type",
 		"CoatingMethod",
 		"LightPathLocation",
-		"AttenuationCoefficient",
 		"AttenuationMethod",
+		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"TransmittanceRange"
+		"TransmittanceRange",
+		"Tier"
 	]
 }

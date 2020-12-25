@@ -340,6 +340,7 @@
 		"TheC",
 		"Timestamp",
 		"ExposureTime",
-		"PixelDwellTime"
+		"PixelDwellTime",
+		"Tier"
 	]
 }

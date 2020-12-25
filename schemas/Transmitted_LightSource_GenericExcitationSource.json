@@ -14,7 +14,8 @@
 		"General":"General information about the element",
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"LightSource":"This element describes one or more Light Source(s) available for this Instrument. An Instrument may have several Light Sources of different types (Laser, Light Emitting Diode, Filament, Arc etc.). A typical fluorescence Microscope has two Light Sources, one for Transmitted light and one for Fluorescence light.",
-		"GenericExcitationSource":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible."
+		"GenericExcitationSource":"The GenericExcitationSource element is used to represent a light source as a collection of key/value pairs, stored in a Map. One of the other light source elements should always be used in preference to this if possible.",
+		"IlluminationWavelengthRange":"This element records a range of Wavelengths at which this Light Source emits according to the Manufacturer. Multiple of this element may be used."
 	},
 	"properties": {
 		"Name": {
@@ -44,7 +45,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -73,6 +74,204 @@
 			"tier":1,
 			"category":"General"
 		},
+		"IlluminationWavelengthRange": {
+			"type":"array",
+			"description":"This element records a range of Wavelengths at which this Light Source emits, according to the Manufacturer. Multiple of this element may be used.",
+			"tier":1,
+			"items": {
+				"properties": {
+					"IlluminationPower": {
+						"type":"number",
+						"description":"This field records the nominal Power output emitted at Peak Wavelength by this Light Source as advertised by the Manufacturer.",
+						"tier":1,
+						"category":"IlluminationWavelengthRange"
+					},
+					"IlluminationPowerUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":1,
+						"default":"W",
+						"enum": [
+							"YW",
+							"ZW",
+							"EW",
+							"PW",
+							"TW",
+							"GW",
+							"MW",
+							"kW",
+							"hW",
+							"daW",
+							"W",
+							"dW",
+							"cW",
+							"mW",
+							"µW",
+							"nW",
+							"pW",
+							"fW",
+							"aW",
+							"zW",
+							"yW"
+						],
+						"category":"IlluminationWavelengthRange"
+					},
+					"PeakWavelength": {
+						"type":"number",
+						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"tier":2,
+						"category":"IlluminationWavelengthRange"
+					},
+					"PeakWavelengthUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"IlluminationWavelengthRange"
+					},
+					"CutOn": {
+						"type":"number",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"tier":2,
+						"category":"IlluminationWavelengthRange"
+					},
+					"CutOnUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"IlluminationWavelengthRange"
+					},
+					"CutOff": {
+						"type":"number",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"tier":2,
+						"category":"IlluminationWavelengthRange"
+					},
+					"CutOffUnit": {
+						"type":"string",
+						"description":"NA",
+						"tier":2,
+						"default":"nm",
+						"enum": [
+							"Ym",
+							"Zm",
+							"Em",
+							"Pm",
+							"Tm",
+							"Gm",
+							"Mm",
+							"km",
+							"hm",
+							"dam",
+							"m",
+							"dm",
+							"cm",
+							"mm",
+							"µm",
+							"nm",
+							"pm",
+							"fm",
+							"am",
+							"zm",
+							"ym",
+							"Å",
+							"thou",
+							"li",
+							"in",
+							"ft",
+							"yd",
+							"mi",
+							"ua",
+							"ly",
+							"pc",
+							"pt",
+							"Pixel",
+							"reference frame"
+						],
+						"category":"IlluminationWavelengthRange"
+					}
+				},
+				"required": [
+					"IlluminationPower",
+					"PeakWavelength",
+					"CutOn",
+					"CutOff"
+				]
+			}
+		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
@@ -85,6 +284,7 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

@@ -42,15 +42,15 @@
 			"tier":1,
 			"category":"Lens"
 		},
-		"Infinity": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
-			"tier":2,
-			"category":"Lens"
-		},
 		"RefractiveIndex": {
 			"type":"number",
 			"description":"This field records the Refractive Index of the material this Lens is made of, as specified by the Manufacturer. The Refractive Index is the ratio of the speed of light (more precisely, the phase velocity) in a vacuum versus that in a given medium.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"Infinity": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
 			"tier":2,
 			"category":"Lens"
 		},
@@ -65,6 +65,54 @@
 			"description":"This field reports the Working Distance of this Lens under normal operating conditions. The Working Distance is the distance (in air, or in the specified immersion liquid) between the front of an Objective and the surface of the cover glass or of the specimen if uncovered.",
 			"tier":2,
 			"default":"mm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
+			"category":"Lens"
+		},
+		"Diameter": {
+			"type":"number",
+			"description":"This field records the physical diameter of this Lens.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"DiameterUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
 			"enum": [
 				"Ym",
 				"Zm",
@@ -146,7 +194,7 @@
 		},
 		"AttenuationCoefficient": {
 			"type":"number",
-			"description":"This field records the Attenuation Coefficient of this Lens. The Attenuation Coefficient (aka blocking coefficient) is a material property that characterizes the degree of transparency of a Lens. The Attenuation Coefficient is often defined in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
+			"description":"This field records the Attenuation Coefficient (AC) of this optical element. The AC (aka blocking coefficient) is a material property that characterizes the degree to which light is being blocked (i.e., scattered or absorbed) by it. AC is used as a measure of the out-of-band blocking of an optical Lens, Filter, Dichroic mirror over an extended range of the spectrum. AC is often reported in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
 			"tier":3,
 			"category":"Lens"
 		},
@@ -346,54 +394,6 @@
 			],
 			"category":"Lens"
 		},
-		"Diameter": {
-			"type":"number",
-			"description":"This field records the physical diameter of this Lens.",
-			"tier":3,
-			"category":"Lens"
-		},
-		"DiameterUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"Lens"
-		},
 		"AbbeNumber": {
 			"type":"number",
 			"description":"This field records the Abbe number of this Lens. The Abbe Number is a measure of the material's dispersion (variation of Refractive Index versus Wavelength), with high values indicating low dispersion.",
@@ -498,7 +498,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -538,16 +538,15 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"LensNA",
-		"Infinity",
 		"RefractiveIndex",
-		"WorkingDistance",
+		"Diameter",
 		"Type",
 		"Composite",
 		"Geometry",
 		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

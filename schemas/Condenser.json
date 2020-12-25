@@ -15,12 +15,12 @@
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"OpticalAssembly":"This is a device that might include one or more Lenses, other Optics and Optics Holders. Optical Devices might be custom built or they might also be available as pre-assembled units. Such devices might be embedded within the Microscope Stand or exist as independent units. Examples include the Condenser and the Microscope Tube.",
 		"Condenser":"Condensers are Lens Systems located above the Light Source and under the sample in an Upright Microscope, and above the stage and below the Light Source in an Inverted Microscope. They act to gather light from the Light Source and concentrate it into a cone of light that illuminates the specimen. They typically include a Turret system and Diaphragms. The aperture and angle of the light cone must be adjusted (via the size of the Diaphragm) for each different Objective.",
-		"Lens":"This refers to an available Lens which is part of this Optical Device.",
-		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Device.",
-		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Device.",
-		"Prism":"This empty element refers to a Prism compoent available for this Instrument and which is placed in the Light Path for this Image Acquisition.",
-		"Filter":"This refers to an available Filter which is part of this Optical Device.",
-		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Device."
+		"Filter":"This refers to an available Filter which is part of this Optical Assembly.",
+		"Lens":"This refers to an available Lens which is part of this Optical Assembly.",
+		"MirroringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
+		"Aperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
+		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Assembly.",
+		"Prism":"This refers to an available Prism which is part of this Optical Assembly."
 	},
 	"properties": {
 		"Correction": {
@@ -69,7 +69,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -91,30 +91,50 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"Filter": {
+			"type":"array",
+			"items": {
+				"description":"This refers to an available Filter, which is part of this Optical Assembly.",
+				"type":"string",
+				"tier":2,
+				"category":"Filter",
+				"linkTo":"Filter"
+			}
+		},
 		"Lens": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Lens, which is part of this Optical Device.",
+				"description":"This refers to an available Lens, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"Lens",
 				"linkTo":"Lens"
 			}
 		},
-		"OpticalAperture": {
+		"MirroringDevice": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Optical Aperture, which is part of this Optical Device.",
+				"description":"This refers to an available Mirroring Device, which is part of this Optical Assembly.",
+				"type":"string",
+				"tier":2,
+				"category":"MirroringDevice",
+				"linkTo":"MirroringDevice"
+			}
+		},
+		"Aperture": {
+			"type":"array",
+			"items": {
+				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
-				"category":"OpticalAperture",
-				"linkTo":"OpticalAperture"
+				"category":"Aperture",
+				"linkTo":"Aperture"
 			}
 		},
 		"PolarizationOptics": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Polarization Optics, which is part of this Optical Device.",
+				"description":"This refers to an available Polarization Optics, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"PolarizationOptics",
@@ -124,31 +144,11 @@
 		"Prism": {
 			"type":"array",
 			"items": {
-				"description":"This empty element refers to a Prism compoent available for this Instrument and, which is placed in the Light Path for this Image Acquisition.",
+				"description":"This refers to an available Prism, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"Prism",
 				"linkTo":"Prism"
-			}
-		},
-		"Filter": {
-			"type":"array",
-			"items": {
-				"description":"This refers to an available Filter, which is part of this Optical Device.",
-				"type":"string",
-				"tier":2,
-				"category":"Filter",
-				"linkTo":"Filter"
-			}
-		},
-		"MirrorringDevice": {
-			"type":"array",
-			"items": {
-				"description":"This refers to an available Mirroring Device, which is part of this Optical Device.",
-				"type":"string",
-				"tier":2,
-				"category":"MirrorringDevice",
-				"linkTo":"MirrorringDevice"
 			}
 		},
 		"Description": {
@@ -171,6 +171,7 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

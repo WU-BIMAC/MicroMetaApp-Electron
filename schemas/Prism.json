@@ -96,6 +96,7 @@
 			"type":"string",
 			"description":"NA",
 			"tier":3,
+			"default":"deg",
 			"enum": [
 				"deg",
 				"rad",
@@ -113,6 +114,25 @@
 			"type":"string",
 			"description":"NA",
 			"tier":3,
+			"default":"deg",
+			"enum": [
+				"deg",
+				"rad",
+				"gon"
+			],
+			"category":"Prism"
+		},
+		"PrismAngle": {
+			"type":"number",
+			"description":"This field records the Angle between two surfaces of this Prism.",
+			"tier":3,
+			"category":"Prism"
+		},
+		"PrismAngleUnit": {
+			"type":"string",
+			"description":"NA",
+			"tier":3,
+			"default":"deg",
 			"enum": [
 				"deg",
 				"rad",
@@ -149,23 +169,6 @@
 				"Pellin–Broca",
 				"Triangular",
 				"Other"
-			],
-			"category":"Prism"
-		},
-		"PrismAngle": {
-			"type":"number",
-			"description":"This field records the Angle between two surfaces of this Prism.",
-			"tier":3,
-			"category":"Prism"
-		},
-		"PrismAngleUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"enum": [
-				"deg",
-				"rad",
-				"gon"
 			],
 			"category":"Prism"
 		},
@@ -218,7 +221,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -428,12 +431,9 @@
 		"OilObjective",
 		"RefractiveIndex",
 		"Reflectance",
-		"AngleOfIncidence",
-		"AngleOfIncidenceUnit",
-		"DeviationAngle",
-		"DevianceAngleUnit",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

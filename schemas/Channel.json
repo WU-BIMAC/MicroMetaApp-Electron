@@ -138,6 +138,7 @@
 		"Name",
 		"ImagingMethod",
 		"IlluminationType",
-		"ContrastMethod"
+		"ContrastMethod",
+		"Tier"
 	]
 }

@@ -11,9 +11,17 @@
 	"image":"SampleConditions_ImagingEnvironment.svg",
 	"tier":1,
 	"subCategoriesOrder": {
+		"General":"General information about the element",
 		"ImagingEnvironment":"This element describes the environment in which the biological sample was maintained during the Acquisition of this Image."
 	},
 	"properties": {
+		"ID": {
+			"type":"string",
+			"description":"This is the Unique Identifier of the Environmental Control Device used in this case.",
+			"tier":1,
+			"category":"General",
+			"readonly":true
+		},
 		"Temperature": {
 			"type":"number",
 			"description":"The field records the Temperature the Acquisition of this Image was performed at.",
@@ -88,7 +96,7 @@
 		},
 		"CO2Percent": {
 			"type":"number",
-			"description":"This field records the Carbon Dioxide concentration around the sample [units:none] during the Acquisition of this Image. Expressed as a percentage fraction as a value from 0.0 to 1.0.",
+			"description":"This field records the Carbon Dioxide concentration (expressed as a % value) around the sample during Acquisition.",
 			"tier":1,
 			"category":"ImagingEnvironment"
 		},
@@ -109,6 +117,7 @@
 	"required": [
 		"Temperature",
 		"Humidity",
-		"CO2Percent"
+		"CO2Percent",
+		"Tier"
 	]
 }

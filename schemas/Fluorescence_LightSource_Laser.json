@@ -248,7 +248,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -329,6 +329,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":2,
+						"default":"nm",
 						"enum": [
 							"Ym",
 							"Zm",
@@ -475,18 +476,11 @@
 			}
 		},
 		"Pump": {
-			"type":"object",
+			"type":"string",
 			"description":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it.",
 			"tier":3,
-			"properties": {
-				"Laser": {
-					"type":"string",
-					"description":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it.",
-					"tier":3,
-					"category":"Pump",
-					"linkTo":"Laser"
-				}
-			}
+			"category":"Pump",
+			"linkTo":"Fluorescence_LightSource_Laser"
 		},
 		"Tier": {
 			"type":"integer",
@@ -497,6 +491,9 @@
 		}
 	},
 	"required": [
+		"Tuneable",
+		"ModulationMechanism",
+		"Pulse",
 		"IsPumped",
 		"IsPump",
 		"RepetitionRate",
@@ -507,6 +504,6 @@
 		"Model",
 		"CatalogNumber",
 		"IlluminationWavelengthRange",
-		"Laser"
+		"Tier"
 	]
 }

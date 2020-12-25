@@ -206,6 +206,7 @@
 		"FrameRate",
 		"ID",
 		"AnalogGain",
-		"AmplificationGain"
+		"AmplificationGain",
+		"Tier"
 	]
 }

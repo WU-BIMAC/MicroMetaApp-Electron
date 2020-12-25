@@ -29,20 +29,16 @@
 			"category":"General",
 			"readonly":true
 		},
-		"ImmersionType": {
-			"type":"string",
-			"description":"According to ISO 10934-1:2002, an Immersion Liquid is a liquid (commonly immersion oil, water or glycerol) specified as suitable for use in the space between the front of an immersion lens and the object NOTE Because the immersion liquid is considered in the computing of corrections to be part of the lens, its refractive index and dispersion (or Abbe number) are critical. Please refer to ISO 8036-1 for more details on Immersion Oil. This field describes the general category of the Immersion Liquid this Objective is designed for, according to the Manufacturer. If the general category is not Air, the actual Immersion Liquid that was used during the Acquisition of a specific Image must be specified in Objective Settings.",
+		"LensNA": {
+			"type":"number",
+			"description":"This field captures the nominal Numerical Aperture (NA) of this Objective as specified by the Manufactuer, expressed as a floating-point (real) number (e.g. 1.27 NA). NA is a number that was defined initially by Abbe to characterize Objectives and Condensers. NA can be calculated by the expression n sin alpha, where n is the Refractive Index of the medium between the Lens and the Sample, and alpha is half the Angular Aperture of the Lens. NA is a measure of how much of the illumination that leaves the specimen actually passes through the Lens. The larger the NA, the more information the lens can transmit. Expected range 0.02 - 1.5.",
 			"tier":1,
-			"enum": [
-				"Air",
-				"Dipping",
-				"Glycerol",
-				"Multi",
-				"Mineral Oil",
-				"Silicone Oil",
-				"Water",
-				"Other"
-			],
+			"category":"Objective"
+		},
+		"Magnification": {
+			"type":"number",
+			"description":"This field captures the Magnification of the Objective as specified by the Manufacturer - i.e., 60 represents a 60X lens.",
+			"tier":1,
 			"category":"Objective"
 		},
 		"Correction": {
@@ -75,35 +71,6 @@
 			],
 			"category":"Objective"
 		},
-		"LensNA": {
-			"type":"number",
-			"description":"This field captures the nominal Numerical Aperture (NA) of this Objective as specified by the Manufactuer, expressed as a floating-point (real) number (e.g. 1.27 NA). NA is a number that was defined initially by Abbe to characterize Objectives and Condensers. NA can be calculated by the expression n sin alpha, where n is the Refractive Index of the medium between the Lens and the Sample, and alpha is half the Angular Aperture of the Lens. NA is a measure of how much of the illumination that leaves the specimen actually passes through the Lens. The larger the NA, the more information the lens can transmit. Expected range 0.02 - 1.5.",
-			"tier":1,
-			"category":"Objective"
-		},
-		"Magnification": {
-			"type":"number",
-			"description":"This field captures the Magnification of the Objective as specified by the Manufacturer - i.e., 60 represents a 60X lens.",
-			"tier":1,
-			"category":"Objective"
-		},
-		"LightType": {
-			"type":"string",
-			"description":"This field specifies whether this Objective is designed for a special Light application (e.g., IR or UV).",
-			"tier":1,
-			"enum": [
-				"Infrared",
-				"Ultraviolet",
-				"Visible"
-			],
-			"category":"Objective"
-		},
-		"DIC": {
-			"type":"boolean",
-			"description":"This field specifies whether (True) the Objective is designed for Differential Interference Contrast (DIC) or not (False). DIC is a contrast modality due to double-beam interference in which two waves that fall on the object Plane or Image Plane are separated laterally by a distance similar to the minimum resolvable distance.",
-			"tier":1,
-			"category":"Objective"
-		},
 		"ContrastModulation": {
 			"type":"string",
 			"description":"This field specifies the presence in this Objective of a contrast modulation device, such as a Phase Ring (Ph1, Ph2, Ph3), a Hoffman modulator, a Varel modulator, or similar.",
@@ -119,44 +86,44 @@
 			],
 			"category":"Objective"
 		},
+		"DIC": {
+			"type":"boolean",
+			"description":"This field specifies whether (True) the Objective is designed for Differential Interference Contrast (DIC) or not (False). DIC is a contrast modality due to double-beam interference in which two waves that fall on the object Plane or Image Plane are separated laterally by a distance similar to the minimum resolvable distance.",
+			"tier":1,
+			"category":"Objective"
+		},
+		"LightType": {
+			"type":"string",
+			"description":"This field specifies whether this Objective is designed for a special Light application (e.g., IR or UV).",
+			"tier":1,
+			"default":"Visible",
+			"enum": [
+				"Infrared",
+				"Ultraviolet",
+				"Visible"
+			],
+			"category":"Objective"
+		},
+		"ImmersionType": {
+			"type":"string",
+			"description":"According to ISO 10934-1:2002, an Immersion Liquid is a liquid (commonly immersion oil, water or glycerol) specified as suitable for use in the space between the front of an immersion lens and the object NOTE Because the immersion liquid is considered in the computing of corrections to be part of the lens, its refractive index and dispersion (or Abbe number) are critical. Please refer to ISO 8036-1 for more details on Immersion Oil. This field describes the general category of the Immersion Liquid this Objective is designed for, according to the Manufacturer. If the general category is not Air, the actual Immersion Liquid that was used during the Acquisition of a specific Image must be specified in Objective Settings.",
+			"tier":1,
+			"enum": [
+				"Air",
+				"Dipping",
+				"Glycerol",
+				"Multi",
+				"Mineral Oil",
+				"Silicone Oil",
+				"Water",
+				"Other"
+			],
+			"category":"Objective"
+		},
 		"InfinityCorrected": {
 			"type":"boolean",
 			"description":"This field records whether (True) or not (False) this Objective is infinity corrected. An Infinity-corrected Objective is corrected for an infinite sample to primary image distance and needs to be used with a Tube Lens of appropriate focal length to obtains its nominal magnification.",
 			"tier":1,
-			"category":"Objective"
-		},
-		"PhaseContrastDesignation": {
-			"type":"string",
-			"description":"If the Objective is designed for Phase, this field specifies the Phase Contrast type designation (see: https://www.microscopyu.com/techniques/phase-contrast/phase-contrast-Microscope-configuration).",
-			"tier":2,
-			"enum": [
-				"Phase",
-				"PHACO",
-				"PC",
-				"PhL",
-				"Ph1",
-				"Ph2",
-				"Ph3",
-				"Ph4",
-				"DL",
-				"DLL",
-				"DM",
-				"ADL",
-				"PL",
-				"PLL",
-				"PM",
-				"PH",
-				"NL",
-				"NM",
-				"BM",
-				"NH"
-			],
-			"category":"Objective"
-		},
-		"CalibratedMagnification": {
-			"type":"number",
-			"description":"This field captures the Magnification of the Objective as measured via a calibration process- i.e., '59.987' for a 60x lens.",
-			"tier":2,
 			"category":"Objective"
 		},
 		"Iris": {
@@ -169,35 +136,6 @@
 			"type":"number",
 			"description":"This field reports the Working Distance of this Objective under normal operating conditions. The Working Distance is the distance (in air, or in the specified immersion liquid) between the front of an Objective and the surface of the cover glass or of the specimen if uncovered.",
 			"tier":2,
-			"category":"Objective"
-		},
-		"DippingMedium": {
-			"type":"string",
-			"description":"In case the Immersion Type for this Objective is designated as Dipping, this field captures the type of Dipping Medium this Objective is compatible with. Examples include, water-based (biological buffers, culture media, other water-based solutions) organic-based [FocusClear (CLARITY); CUBIC-1, CUBIC-2, CUBIC-R1, CUBIC-R2; 2,2-thiodiethanol (TDE); ethyl cinnamate; Benzyl Benzoate and BB-PEG (PEGASOS); Benzyl Alcohol, Benzyl Benzoate (BABB); dibenzyl ether (DBE); 100% Ethanol].",
-			"tier":2,
-			"enum": [
-				"Water-based",
-				"Organic-based",
-				"Other"
-			],
-			"category":"Objective"
-		},
-		"CorrectionCollar": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) the Objective was fitted with a Correction Collar. When using high NA dry Objectives (NA 0.8 or greater), cover glass thickness variations of only a few micrometers, immersion medium, and temperature changes result in dramatic image degradation due to aberration. To compensate for these errors, the more highly corrected Objectives are equipped with a Correction Collar mechanism, which is provided to adjust the central lens group position to compensate for deviations from correct optical path length due to changes in Cover Glass Thickness, the nature of the Immersion Liquid, different Numerical Apertures, and Temperature.",
-			"tier":2,
-			"category":"Objective"
-		},
-		"CorrectionCollarType": {
-			"type":"string",
-			"description":"This field records the type of Correction Collar with which this Objective is fitted.",
-			"tier":2,
-			"enum": [
-				"Coverglass Thickness",
-				"Immersion Liquid",
-				"Numerical Aperture",
-				"Temperature"
-			],
 			"category":"Objective"
 		},
 		"WorkingDistanceUnit": {
@@ -243,9 +181,78 @@
 			],
 			"category":"Objective"
 		},
+		"CorrectionCollar": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) the Objective was fitted with a Correction Collar. When using high NA dry Objectives (NA 0.8 or greater), cover glass thickness variations of only a few micrometers, immersion medium, and temperature changes result in dramatic image degradation due to aberration. To compensate for these errors, the more highly corrected Objectives are equipped with a Correction Collar mechanism, which is provided to adjust the central lens group position to compensate for deviations from correct optical path length due to changes in Cover Glass Thickness, the nature of the Immersion Liquid, different Numerical Apertures, and Temperature.",
+			"tier":2,
+			"category":"Objective"
+		},
+		"CorrectionCollarType": {
+			"type":"string",
+			"description":"This field records the type of Correction Collar with which this Objective is fitted.",
+			"tier":2,
+			"enum": [
+				"Coverglass Thickness",
+				"Immersion Liquid",
+				"Numerical Aperture",
+				"Temperature"
+			],
+			"category":"Objective"
+		},
+		"PhaseContrastDesignation": {
+			"type":"string",
+			"description":"If the Objective is designed for Phase, this field specifies the Phase Contrast type designation (see: https://www.microscopyu.com/techniques/phase-contrast/phase-contrast-Microscope-configuration).",
+			"tier":2,
+			"enum": [
+				"Phase",
+				"PHACO",
+				"PC",
+				"PhL",
+				"Ph1",
+				"Ph2",
+				"Ph3",
+				"Ph4",
+				"DL",
+				"DLL",
+				"DM",
+				"ADL",
+				"PL",
+				"PLL",
+				"PM",
+				"PH",
+				"NL",
+				"NM",
+				"BM",
+				"NH"
+			],
+			"category":"Objective"
+		},
+		"DippingMedium": {
+			"type":"string",
+			"description":"In case the Immersion Type for this Objective is designated as Dipping, this field captures the type of Dipping Medium this Objective is compatible with. Examples include, water-based (biological buffers, culture media, other water-based solutions) organic-based [FocusClear (CLARITY); CUBIC-1, CUBIC-2, CUBIC-R1, CUBIC-R2; 2,2-thiodiethanol (TDE); ethyl cinnamate; Benzyl Benzoate and BB-PEG (PEGASOS); Benzyl Alcohol, Benzyl Benzoate (BABB); dibenzyl ether (DBE); 100% Ethanol].",
+			"tier":2,
+			"enum": [
+				"Water-based",
+				"Organic-based",
+				"Other"
+			],
+			"category":"Objective"
+		},
+		"CalibratedMagnification": {
+			"type":"number",
+			"description":"This field captures the Magnification of the Objective as measured via a calibration process- i.e., '59.987' for a 60x lens.",
+			"tier":2,
+			"category":"Objective"
+		},
 		"ImageDistance": {
 			"type":"number",
 			"description":"This field records the distance in air between the rear principal Plane of this Objective and the primary Image Plane.",
+			"tier":3,
+			"category":"Objective"
+		},
+		"ObjectiveViewField": {
+			"type":"number",
+			"description":"This field records the maximal diameter of the view field allowed by this Objective, expressed in mm, and measured at the intermediate Image Plane. NB: The field of view is influenced by the magnification and diameter of the ocular (eyepiece) field diaphragm, but also by the limits imposed by the design of the Objective.",
 			"tier":3,
 			"category":"Objective"
 		},
@@ -488,15 +495,9 @@
 			],
 			"category":"Objective"
 		},
-		"ObjectiveViewField": {
-			"type":"number",
-			"description":"This field records the maximal diameter of the view field allowed by this Objective, expressed in mm, and measured at the intermediate Image Plane. NB: The field of view is influenced by the magnification and diameter of the ocular (eyepiece) field diaphragm, but also by the limits imposed by the design of the Objective.",
-			"tier":3,
-			"category":"Objective"
-		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -535,19 +536,19 @@
 	},
 	"required": [
 		"ID",
-		"ImmersionType",
-		"Correction",
 		"LensNA",
 		"Magnification",
-		"LightType",
-		"DIC",
+		"Correction",
 		"ContrastModulation",
+		"DIC",
+		"ImmersionType",
 		"InfinityCorrected",
 		"Iris",
 		"WorkingDistance",
 		"CorrectionCollar",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

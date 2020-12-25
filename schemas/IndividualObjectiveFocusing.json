@@ -195,8 +195,14 @@
 			"category":"SamplePositioning"
 		},
 		"ZReproducibility": {
-			"type":"string",
+			"type":"number",
 			"description":"This field captures the expected Precision with which this this Sample Positioning Device is capable of maintaining a given Z-axis Position over time during as specified by the Manufacturer. This metric is generally referred to as Reproducibility and it might also be referred to as Focal Drift. This metric is particularly relevant for Stereology systems and for the calibration of Sample Positioning devices.",
+			"tier":2,
+			"category":"SamplePositioning"
+		},
+		"ZReproducibilityUnit": {
+			"type":"string",
+			"description":"NA",
 			"tier":2,
 			"enum": [
 				"Ym",
@@ -234,12 +240,6 @@
 				"Pixel",
 				"reference frame"
 			],
-			"category":"SamplePositioning"
-		},
-		"ZReproducibilityUnit": {
-			"type":"number",
-			"description":"NA",
-			"tier":2,
 			"category":"SamplePositioning"
 		},
 		"ZSettlingTime": {
@@ -373,7 +373,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -415,13 +415,12 @@
 		"ID",
 		"Encoded",
 		"Motorized",
+		"ZRepetability",
 		"MovementAxes",
 		"BuiltIn",
-		"ZReproducibility",
-		"ZSettlingTime",
-		"ZResolution",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

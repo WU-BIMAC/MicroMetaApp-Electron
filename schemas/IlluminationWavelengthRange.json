@@ -60,6 +60,7 @@
 			"type":"string",
 			"description":"NA",
 			"tier":2,
+			"default":"nm",
 			"enum": [
 				"Ym",
 				"Zm",

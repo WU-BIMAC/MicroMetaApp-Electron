@@ -15,11 +15,12 @@
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"OpticsHolder":"This element represents a Holder for Filters, Dichroic and other Optical Element that is associated with this Instrument. These Holders come in different arrangements such as Cubes, Sliders, Turrets, and Wheels. While some of these Holders, such as Filter Cubes, might be pre-assebled by the Manufacturer and pruchased as a whole, in the majority of cases they are assembled on site depending on the needs of the user.",
 		"OpticsTurret":"This element represents a circular holder for multiple optical elements.",
-		"Lens":"This refers to an available Lens which is part of this Optical Device.",
-		"MirrorringDevice":"This refers to an available Mirroring Device which is part of this Optical Device.",
-		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Device.",
-		"Prism":"This empty element refers to a Prism compoent available for this Instrument and which is placed in the Light Path for this Image Acquisition.",
-		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Device."
+		"Lens":"This refers to an available Lens which is part of this Optical Assembly.",
+		"MirroringDevice":"This refers to an available Mirroring Device which is part of this Optical Assembly.",
+		"Aperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
+		"Filter":"This empty element refers to any Generic or Neutral Density Filter component placed in this Light Path.",
+		"Prism":"This refers to an available Prism which is part of this Optical Assembly.",
+		"PolarizationOptics":"This refers to an available Polarization Optics which is part of this Optical Assembly."
 	},
 	"properties": {
 		"Name": {
@@ -88,7 +89,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -120,37 +121,47 @@
 		"Lens": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Lens, which is part of this Optical Device.",
+				"description":"This refers to an available Lens, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"Lens",
 				"linkTo":"Lens"
 			}
 		},
-		"MirrorringDevice": {
+		"MirroringDevice": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Mirroring Device, which is part of this Optical Device.",
+				"description":"This refers to an available Mirroring Device, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":2,
-				"category":"MirrorringDevice",
-				"linkTo":"MirrorringDevice"
+				"category":"MirroringDevice",
+				"linkTo":"MirroringDevice"
 			}
 		},
-		"OpticalAperture": {
+		"Aperture": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Optical Aperture, which is part of this Optical Device.",
+				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
-				"category":"OpticalAperture",
-				"linkTo":"OpticalAperture"
+				"category":"Aperture",
+				"linkTo":"Aperture"
+			}
+		},
+		"Filter": {
+			"type":"array",
+			"items": {
+				"description":"This empty element refers to any Generic or Neutral Density Filter component placed in this Light Path.",
+				"type":"string",
+				"tier":2,
+				"category":"Filter",
+				"linkTo":"Filter"
 			}
 		},
 		"Prism": {
 			"type":"array",
 			"items": {
-				"description":"This empty element refers to a Prism compoent available for this Instrument and, which is placed in the Light Path for this Image Acquisition.",
+				"description":"This refers to an available Prism, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"Prism",
@@ -160,7 +171,7 @@
 		"PolarizationOptics": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Polarization Optics, which is part of this Optical Device.",
+				"description":"This refers to an available Polarization Optics, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
 				"category":"PolarizationOptics",
@@ -179,6 +190,7 @@
 		"ID",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

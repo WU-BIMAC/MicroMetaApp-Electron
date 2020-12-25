@@ -142,6 +142,7 @@
 		"IntrumentName",
 		"IntrumentName",
 		"Sample",
-		"AcquisitionSoftware"
+		"AcquisitionSoftware",
+		"Tier"
 	]
 }

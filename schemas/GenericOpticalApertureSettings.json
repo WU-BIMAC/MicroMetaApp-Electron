@@ -180,5 +180,8 @@
 			"category":"General",
 			"readonly":true
 		}
-	}
+	},
+	"required": [
+		"Tier"
+	]
 }

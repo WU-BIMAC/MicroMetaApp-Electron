@@ -47,6 +47,12 @@
 			"tier":2,
 			"category":"PolarizationOptics"
 		},
+		"DIC": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) this PolarizationOptics is used for Differential Interference Contrast (DIC) microscopy.",
+			"tier":2,
+			"category":"PolarizationOptics"
+		},
 		"BeamSplitter": {
 			"type":"boolean",
 			"description":"This field records whether (True) or not (False) this is PolarizationOptics has a beam splitter function.",
@@ -56,12 +62,6 @@
 		"FaradayIsolator": {
 			"type":"boolean",
 			"description":"This field records whether (True) or not (False) this PolarizationOptics is a Fraday Isolator. A Faraday Isolator is an optical component which allows light to pass through in only ONE direction and therefore protects laser systems against back reflection. It uses the Faraday magneto-optical effect to turn the polarization of light between various polarizers.",
-			"tier":2,
-			"category":"PolarizationOptics"
-		},
-		"DIC": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) this PolarizationOptics is used for Differential Interference Contrast (DIC) microscopy.",
 			"tier":2,
 			"category":"PolarizationOptics"
 		},
@@ -130,7 +130,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -335,8 +335,12 @@
 	},
 	"required": [
 		"ID",
+		"Function",
+		"CrossPolarizer",
+		"DIC",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

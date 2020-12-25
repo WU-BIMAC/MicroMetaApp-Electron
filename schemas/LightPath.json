@@ -17,8 +17,8 @@
 		"ExcitationFilter":"This field refers to an available Excitation Filter which is part of this Filter Cube.",
 		"StandardDichroic":"This field refers to an available Dichroic Mirror which is part of this Filter Cube.",
 		"EmissionFilter":"This field refers to an available Emission Filter which is part of this Filter Cube.",
-		"AdditionalFilter":"This empty element refers to an additional Generic Filter component placed in this Light Path.",
-		"OpticalAperture":"This refers to an available Optical Aperture which is part of this Optical Device.",
+		"GenericFilter":"This empty element refers to any additional Generic Filter component placed in this Light Path.",
+		"Aperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
 		"OpticalAssembly":"This empty element refers to an Optical Assembly component placed in this Light Path.",
 		"PolarizationOptics":"This empty element refers to a PolarizationOptics component placed in this light path."
 	},
@@ -76,24 +76,24 @@
 				"linkTo":"EmissionFilter"
 			}
 		},
-		"AdditionalFilter": {
+		"GenericFilter": {
 			"type":"array",
 			"items": {
-				"description":"This empty element refers to an additional Generic Filter component placed in this Light Path.",
+				"description":"This empty element refers to any additional Generic Filter component placed in this Light Path.",
 				"type":"string",
 				"tier":2,
-				"category":"AdditionalFilter",
-				"linkTo":"AdditionalFilter"
+				"category":"GenericFilter",
+				"linkTo":"GenericFilter"
 			}
 		},
-		"OpticalAperture": {
+		"Aperture": {
 			"type":"array",
 			"items": {
-				"description":"This refers to an available Optical Aperture, which is part of this Optical Device.",
+				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
 				"type":"string",
 				"tier":1,
-				"category":"OpticalAperture",
-				"linkTo":"OpticalAperture"
+				"category":"Aperture",
+				"linkTo":"Aperture"
 			}
 		},
 		"OpticalAssembly": {
@@ -132,6 +132,7 @@
 		}
 	},
 	"required": [
-		"ID"
+		"ID",
+		"Tier"
 	]
 }

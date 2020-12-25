@@ -35,6 +35,8 @@
 			"tier":1,
 			"enum": [
 				"Compound",
+				"Custom made",
+				"Dissection",
 				"Electrophysiology",
 				"Light sheet",
 				"Stereomicroscope",
@@ -61,7 +63,7 @@
 		},
 		"Manufacturer": {
 			"type":"string",
-			"description":"This field refers to the company, research group or individual who manufactured this hardware component.",
+			"description":"This field refers to the company, research group or individual who built or manufactured this hardware component.",
 			"tier":1,
 			"category":"ManufacturerSpec"
 		},
@@ -100,8 +102,10 @@
 	},
 	"required": [
 		"ID",
+		"Type",
 		"Manufacturer",
 		"Model",
-		"CatalogNumber"
+		"CatalogNumber",
+		"Tier"
 	]
 }

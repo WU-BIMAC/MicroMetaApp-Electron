@@ -34,16 +34,26 @@
 			"tier":1,
 			"category":"Sample"
 		},
+		"SampleType": {
+			"type":"string",
+			"description":"If of Biological Origin, this field records a term that describes the general category of this Sample.",
+			"tier":1,
+			"enum": [
+				"WholeOrganism",
+				"Organism part",
+				"Organ",
+				"Tissue",
+				"Cell",
+				"Sub-Cellular structure",
+				"Organoid",
+				" Other"
+			],
+			"category":"Sample"
+		},
 		"LiveSample": {
 			"type":"boolean",
 			"description":"This field captures whether (True) or not (False) this Sample was living during Image Acquisition.",
 			"tier":1,
-			"category":"Sample"
-		},
-		"MetrologySample": {
-			"type":"boolean",
-			"description":"This field captures whether (True) or not (False) this is a Metrology Sample (i.e., a Sample that is used specifcially to calibrate and assess the performance of the Instrument utilized for this experimental Image Acquisition.",
-			"tier":2,
 			"category":"Sample"
 		},
 		"Organism": {
@@ -56,22 +66,6 @@
 			"type":"string",
 			"description":"This field records the Accession ID for the term used to describe the Organism. The use of the NCBITaxon ontology (http://purl.obolibrary.org/obo/NCBITaxon_1) is recommended.",
 			"tier":1,
-			"category":"Sample"
-		},
-		"SampleType": {
-			"type":"string",
-			"description":"This field records a term that describes the general category of this Sample.",
-			"tier":1,
-			"enum": [
-				"WholeOrganism",
-				"Organism part",
-				"Organ",
-				"Tissue",
-				"Cell",
-				"Sub-Cellular structure",
-				"Organoid",
-				" Other"
-			],
 			"category":"Sample"
 		},
 		"OrganismPart": {
@@ -96,6 +90,12 @@
 			"type":"string",
 			"description":"This field records the the Accession ID for the term used to describe method that was used to prepare this sample. A subclass of the Fbbi:00000001 (http://purl.obolibrary.org/obo/FBbi_00000001) term from the Biological Imaging Methods Ontology (FBbi; https://www.ebi.ac.uk/ols/ontologies/fbbi) is recommended.",
 			"tier":1,
+			"category":"Sample"
+		},
+		"MetrologySample": {
+			"type":"boolean",
+			"description":"This field captures whether (True) or not (False) this is a Metrology Sample (i.e., a Sample that is used specifcially to calibrate and assess the performance of the Instrument utilized for this experimental Image Acquisition.",
+			"tier":2,
 			"category":"Sample"
 		},
 		"FacingTheObjective": {
@@ -128,8 +128,10 @@
 		"ID",
 		"Name",
 		"BiologicalOrigin",
+		"SampleType",
 		"LiveSample",
+		"Organism",
 		"MetrologySample",
-		"Organism"
+		"Tier"
 	]
 }

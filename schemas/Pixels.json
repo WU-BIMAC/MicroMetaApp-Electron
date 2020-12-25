@@ -310,6 +310,7 @@
 		"PhysicalSizeY",
 		"PhysicalSizeZ",
 		"TimeIncrement",
-		"PixelType"
+		"PixelType",
+		"Tier"
 	]
 }

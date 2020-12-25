@@ -194,6 +194,7 @@
 		}
 	},
 	"required": [
-		"ID"
+		"ID",
+		"Tier"
 	]
 }
