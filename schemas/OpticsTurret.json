@@ -111,6 +111,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",

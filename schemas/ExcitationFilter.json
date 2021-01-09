@@ -255,6 +255,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"SpecsFile": {
+			"title":"SpecsFile",
+			"type":"string",
+			"description":"This element refers to a PDF file that contains the specifications for this hardware component as provided by the Manufacturer.",
+			"tier":3,
+			"category":"ManufacturerSpec"
+		},
 		"TransmittanceRange": {
 			"type":"array",
 			"description":"This element records the Range (also known as Band) of Wavelengths that are transmitted by this optical component. It also records the maximum amount of light transmitted. Multiple of these elements can be used.",
