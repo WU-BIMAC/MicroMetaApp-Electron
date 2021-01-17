@@ -220,7 +220,7 @@
 				}
 			]
 		},
-		"Magnification.MagnificationChanger":{
+		"Lens.MagnificationChanger":{
 			"OpticalAssembly.MicroscopeTube":{
 				"x":-106.0527,
 				"y":0,
@@ -1100,7 +1100,17 @@
 				"y":3.3752,
 				"w":33.2588,
 				"h":60.7821 
-			},
+			}
+		},
+		"AdditionalOptics.Prism":{
+			"OpticalAssembly.MicroscopeTube":{
+				"x":51.2263,
+				"y":0,
+				"w":77.0372,
+				"h":55.3705 
+			}
+		},
+		"AdditionalOptics":{
 			"OpticsHolder.OpticsTurret":[
 				{
 					"x":-88.1521,
@@ -1139,14 +1149,6 @@
 					"h":60.7821
 				}
 			]
-		},
-		"AdditionalOptics.Prism":{
-			"OpticalAssembly.MicroscopeTube":{
-				"x":51.2263,
-				"y":0,
-				"w":77.0372,
-				"h":55.3705 
-			}
 		},
 		"Detector":{
 			"General":{

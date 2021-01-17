@@ -360,6 +360,8 @@
 			"default":"deg",
 			"enum": [
 				"deg",
+				"µrad",
+				"mrad",
 				"rad",
 				"gon"
 			],

@@ -4,7 +4,7 @@
 	"version":"2.00.0",
 	"type":"object",
 	"title":"FilterCube",
-	"description":"This element represents a Filter Cube containing the filters and mirror used in epi-fluorescence microscopy to separate fluorescence excitation and emission light. A Filter Cube is typically composed of one Excitation, one Emission, and one Dichroic Filter. It might be pre-assebled by the Manufacturer and pruchased as a whole or it might be custom assembled on site depending on the needs of the user.",
+	"description":"A Filter Cube is a removable cube-shaped unit that containing the filters and mirror used in epi-fluorescence microscopy to separate fluorescence excitation and emission light. It usually holds a matched set of fluorescence filters, which might include an Excitation filter and Emission filter but always includes a Dichroic mirror. A Filter Cube might be pre-assebled by the Manufacturer and pruchased as a whole or it might be custom assembled on site depending on the needs of the user.",
 	"extension":"Core",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"FluorescenceLightPath",
@@ -14,7 +14,7 @@
 		"General":"General information about the element",
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
 		"OpticsHolder":"This element represents a Holder for Filters, Dichroic and other Optical Element that is associated with this Instrument. These Holders come in different arrangements such as Cubes, Sliders, Turrets, and Wheels. While some of these Holders, such as Filter Cubes, might be pre-assebled by the Manufacturer and pruchased as a whole, in the majority of cases they are assembled on site depending on the needs of the user.",
-		"FilterCube":"This element represents a Filter Cube containing the filters and mirror used in epi-fluorescence microscopy to separate fluorescence excitation and emission light. A Filter Cube is typically composed of one Excitation, one Emission, and one Dichroic Filter. It might be pre-assebled by the Manufacturer and pruchased as a whole or it might be custom assembled on site depending on the needs of the user.",
+		"FilterCube":"A Filter Cube is a removable cube-shaped unit that containing the filters and mirror used in epi-fluorescence microscopy to separate fluorescence excitation and emission light. It usually holds a matched set of fluorescence filters, which might include an Excitation filter and Emission filter but always includes a Dichroic mirror. A Filter Cube might be pre-assebled by the Manufacturer and pruchased as a whole or it might be custom assembled on site depending on the needs of the user.",
 		"ExcitationFilter":"This field refers to an available Excitation Filter which is part of this Filter Cube.",
 		"StandardDichroic":"This field refers to an available Dichroic Mirror which is part of this Filter Cube.",
 		"EmissionFilter":"This field refers to an available Emission Filter which is part of this Filter Cube."

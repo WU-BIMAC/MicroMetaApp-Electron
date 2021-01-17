@@ -111,6 +111,8 @@
 						"tier":3,
 						"enum": [
 							"deg",
+							"µrad",
+							"mrad",
 							"rad",
 							"gon"
 						],
