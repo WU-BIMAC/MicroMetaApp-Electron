@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"MicroscopeSettings",
 	"description":"This element refers to the Microscope used to acquire this Image and it holds the Settings that were applied to the Microscope during this Acquisition.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"ImageAcquisitionSettings",
 	"category":"Settings",

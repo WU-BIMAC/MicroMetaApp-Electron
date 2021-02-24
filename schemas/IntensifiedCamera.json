@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"IntensifiedCamera",
 	"description":"This field records an intensified Camera.",
+	"modelSettings":"CameraSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Detector.Camera",
@@ -396,7 +397,7 @@
 		},
 		"ReadOutNoise": {
 			"type":"number",
-			"description":"This field captures the Read Out Noise associated with this Detector, as specified by the Manufacturer. Read Out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
+			"description":"This field captures the Read-out Noise associated with this Detector, as specified by the Manufacturer. Read-out Noise is a constant amount of noise and it includes thermal noise build-up and clock induced charge added by the CCD chip, the readout amplifier and surrounding electronics. It is generally expressed in photo-electrons (i.e., e- root-mean-square).",
 			"tier":2,
 			"category":"Detector"
 		},
@@ -524,7 +525,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

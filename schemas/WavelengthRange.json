@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"WavelengthRange",
 	"description":"This element records a range of Wavelengths this component is designed for, according to the Manufacturer. Multiple of this element may be used.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"ChildElement",
@@ -65,7 +66,7 @@
 		},
 		"CutOn": {
 			"type":"number",
-			"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+			"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 			"tier":2,
 			"category":"WavelengthRange"
 		},
@@ -114,7 +115,7 @@
 		},
 		"CutOff": {
 			"type":"number",
-			"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+			"description":"CutOff is the Wavelength above which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 			"tier":2,
 			"category":"WavelengthRange"
 		},

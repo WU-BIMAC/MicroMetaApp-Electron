@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"MirroringDeviceSettings",
 	"description":"This element holds the Setting applied to a Mirror used in the Light Path during the acquisition of this Channel as well as a reference (the ID attribute) to the Mirror in question.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"ImageAcquisitionSettings",
 	"category":"Settings",

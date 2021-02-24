@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"LightPath",
 	"description":"This element holds a description of the Light Path associated with the Acquisition of this Channel.",
+	"modelSettings":"NA",
 	"extension":"Core",
 	"domain":"ImageAcquisitionSettings",
 	"category":"LightPath",
@@ -12,15 +13,7 @@
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
-		"LightPath":"This element holds a description of the Light Path associated with the Acquisition of this Channel.",
-		"LightSourceCoupling":"This empty element refers to a LightSourceCoupling component used in this Ligth Path.",
-		"ExcitationFilter":"This field refers to an available Excitation Filter which is part of this Filter Cube.",
-		"StandardDichroic":"This field refers to an available Dichroic Mirror which is part of this Filter Cube.",
-		"EmissionFilter":"This field refers to an available Emission Filter which is part of this Filter Cube.",
-		"GenericFilter":"This empty element refers to any additional Generic Filter component placed in this Light Path.",
-		"Aperture":"This refers to an available Optical Aperture which is part of this Optical Assembly.",
-		"OpticalAssembly":"This empty element refers to an Optical Assembly component placed in this Light Path.",
-		"PolarizationOptics":"This empty element refers to a PolarizationOptics component placed in this light path."
+		"LightPath":"This element holds a description of the Light Path associated with the Acquisition of this Channel."
 	},
 	"properties": {
 		"Name": {
@@ -36,90 +29,10 @@
 			"category":"General",
 			"readonly":true
 		},
-		"LightSourceCoupling": {
-			"type":"array",
-			"items": {
-				"description":"This empty element refers to a LightSourceCoupling component used in this Ligth Path.",
-				"type":"string",
-				"tier":2,
-				"category":"LightSourceCoupling",
-				"linkTo":"LightSourceCoupling"
-			}
-		},
-		"ExcitationFilter": {
-			"type":"array",
-			"items": {
-				"description":"This field refers to an available Excitation Filter, which is part of this Filter Cube.",
-				"type":"string",
-				"tier":1,
-				"category":"ExcitationFilter",
-				"linkTo":"ExcitationFilter"
-			}
-		},
-		"StandardDichroic": {
-			"type":"array",
-			"items": {
-				"description":"This field refers to an available Dichroic Mirror, which is part of this Filter Cube.",
-				"type":"string",
-				"tier":1,
-				"category":"StandardDichroic",
-				"linkTo":"StandardDichroic"
-			}
-		},
-		"EmissionFilter": {
-			"type":"array",
-			"items": {
-				"description":"This field refers to an available Emission Filter, which is part of this Filter Cube.",
-				"type":"string",
-				"tier":1,
-				"category":"EmissionFilter",
-				"linkTo":"EmissionFilter"
-			}
-		},
-		"GenericFilter": {
-			"type":"array",
-			"items": {
-				"description":"This empty element refers to any additional Generic Filter component placed in this Light Path.",
-				"type":"string",
-				"tier":2,
-				"category":"GenericFilter",
-				"linkTo":"GenericFilter"
-			}
-		},
-		"Aperture": {
-			"type":"array",
-			"items": {
-				"description":"This refers to an available Optical Aperture, which is part of this Optical Assembly.",
-				"type":"string",
-				"tier":1,
-				"category":"Aperture",
-				"linkTo":"Aperture"
-			}
-		},
-		"OpticalAssembly": {
-			"type":"array",
-			"items": {
-				"description":"This empty element refers to an Optical Assembly component placed in this Light Path.",
-				"type":"string",
-				"tier":1,
-				"category":"OpticalAssembly",
-				"linkTo":"OpticalAssembly"
-			}
-		},
-		"PolarizationOptics": {
-			"type":"array",
-			"items": {
-				"description":"This empty element refers to a PolarizationOptics component placed in this light path.",
-				"type":"string",
-				"tier":1,
-				"category":"PolarizationOptics",
-				"linkTo":"PolarizationOptics"
-			}
-		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

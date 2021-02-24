@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"LightEmittingDiode",
 	"description":"A Light Emitting Diode (LED) is a semiconductor light source that emits light when current flows through it. Electrons in the semiconductor recombine with electron holes, releasing energy in the form of photons. The color of the light (corresponding to the energy of the photons) is determined by the energy required for electrons to cross the band gap of the semiconductor. White light may be obtained by using multiple semiconductors or a layer of light-emitting phosphor on the semiconductor device.",
+	"modelSettings":"LightSourceSettings",
 	"extension":"Core",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Transmitted_LightSource",
@@ -43,9 +44,27 @@
 			"category":"General",
 			"readonly":true
 		},
-		"PowerMode": {
+		"PurchaseDate": {
 			"type":"string",
-			"description":"The statistic used by the Manufacturer to report the nominal Power output.",
+			"description":"This field records the Date in which this Light Source was purchased.",
+			"tier":2,
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingStatistic": {
+			"type":"string",
+			"description":"This field reports the statistic used by the Manufacturer to report the nominal Illumination Power output emitted by this Light Source at Peak Wavelength.",
+			"tier":2,
+			"enum": [
+				"Average",
+				"Maximum",
+				"Median",
+				"Other"
+			],
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingPosition": {
+			"type":"string",
+			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
 				"Average",
@@ -89,7 +108,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -120,7 +139,7 @@
 					},
 					"IlluminationPower": {
 						"type":"number",
-						"description":"This field records the nominal Power output emitted at Peak Wavelength by this Light Source as advertised by the Manufacturer.",
+						"description":"This field records the nominal Illumination Power (also known as Power Output or Illumination Intensity) emitted at Peak Wavelength by this Light Source, as advertised by the Manufacturer.",
 						"tier":1,
 						"category":"LEDModule"
 					},
@@ -128,7 +147,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":1,
-						"default":"W",
+						"default":"mW",
 						"enum": [
 							"YW",
 							"ZW",
@@ -150,7 +169,8 @@
 							"fW",
 							"aW",
 							"zW",
-							"yW"
+							"yW",
+							"%"
 						],
 						"category":"LEDModule"
 					},
@@ -205,7 +225,7 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":2,
 						"category":"LEDModule"
 					},
@@ -254,7 +274,7 @@
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":2,
 						"category":"LEDModule"
 					},

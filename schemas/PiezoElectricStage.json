@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"PiezoElectricStage",
 	"description":"This describes an optional piezoelectric-driven sample nano-positioning device associated with this Instrument. These devices typically achieve higher precision, accuracy and speed with respect to traditional Mechanical Stages.",
+	"modelSettings":"SamplePositioningSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"SamplePositioning.Stage",
@@ -710,7 +711,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

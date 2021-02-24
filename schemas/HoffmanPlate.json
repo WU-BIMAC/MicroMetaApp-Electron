@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"HoffmanPlate",
 	"description":"This element represents a Plate that contains an off-axis slit aperture positioned in the front focal plane of the Condenser. It is used alongside a Hoffman contrast modulator (i.e., optical amplitude spatial filter) present in the back focal plane of the objective or in a succeeding conjugate plane to produce contrast modulation as described by Hoffman (i.e., Hoffman Contrast Modulation, HMC). Hoffman modulation contrast is not hampered by the use of birefringent materials (such as plastic Petri dishes) in the optical pathway, so the technique is more useful for examining specimens in containers constructed with polymeric materials.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Aperture",
@@ -130,7 +131,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"FilterCube",
 	"description":"A Filter Cube is a removable cube-shaped unit that containing the filters and mirror used in epi-fluorescence microscopy to separate fluorescence excitation and emission light. It usually holds a matched set of fluorescence filters, which might include an Excitation filter and Emission filter but always includes a Dichroic mirror. A Filter Cube might be pre-assebled by the Manufacturer and pruchased as a whole or it might be custom assembled on site depending on the needs of the user.",
+	"modelSettings":"NA",
 	"extension":"Core",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"FluorescenceLightPath",
@@ -124,7 +125,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

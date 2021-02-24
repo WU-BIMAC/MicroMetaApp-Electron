@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"TubeLens",
 	"description":"A Tube Lens is an intermediate Lens, located within the Microscope's Illumination Tube, which is designed to operate as an essential component of infinity-corrected Objectives, and which should be regarded as an integral part of the Objective lens system when magnification and correction are considered. In some Microscope Tubes, Lenses might be located within the Microscope Stand and might not be immediately accessible.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Lens",
@@ -481,7 +482,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

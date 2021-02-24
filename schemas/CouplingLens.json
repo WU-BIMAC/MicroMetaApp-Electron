@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"CouplingLens",
 	"description":"This element refers to a Lens positioned at the mount connecting the Light Source Coupling device and the Microscope Stand.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Lens",
@@ -481,7 +482,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

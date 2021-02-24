@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"DarkFieldStop",
 	"description":"This element refers to a central circular stop (i.e., opaque disk) usually used in dark-field microscopy and placed in the front focal Plane of a Condenser to occlude all the direct light which would fall within the aperture of the objective.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Aperture",
@@ -168,7 +169,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

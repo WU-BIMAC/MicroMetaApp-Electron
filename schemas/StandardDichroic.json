@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"StandardDichroic",
 	"description":"A Dichroic Mirror (also often referred to as Dichroic Beamsplitter or simply as Dichroic) is a Mirror that spectrally separate light by transmitting and reflecting light as a function of wavelength. In the context of fluorescence microscopy, they are typically used to reflect the excitation light, but transmit the emitted fluorescence. Dichroic Mirrors can be categorized in different manners. However, the most important criteria for choosing a Dichoric Mirror are the Transmittance and the Reflectance Wavelength ranges. This element describes a Dichroic positioned in the standard Light Path for one or more Channels available for this Instrument.",
+	"modelSettings":"MirroringDeviceSettings",
 	"extension":"Core",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"FluorescenceLightPath",
@@ -373,7 +374,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -391,7 +392,7 @@
 					},
 					"FWHMBandwidth": {
 						"type":"number",
-						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum. In case bandwidth is not available, such as in the case of a LongPass, Notch or ShortPass configuration, please enter 000.",
 						"tier":1,
 						"category":"TransmittanceRange"
 					},
@@ -465,7 +466,7 @@
 					},
 					"FWHMBandwidth": {
 						"type":"number",
-						"description":"This field records the width of this Reflectance Range (also known as Reflection band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+						"description":"This field records the width of this Reflectance Range (also known as Reflection band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum. In case bandwidth is not available, such as in the case of a LongPass, Notch or ShortPass configuration, please enter 000.",
 						"tier":3,
 						"category":"ReflectanceRange"
 					},

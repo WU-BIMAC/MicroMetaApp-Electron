@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"FreeBeam",
 	"description":"A Free Beam coupling between the Light Source and the Microscope Stand consists of either a direct mount or an optical path that directs light across free space to the back of the Microscope Stand.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"LightSourceCoupling",

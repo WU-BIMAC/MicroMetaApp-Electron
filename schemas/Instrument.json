@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"Instrument",
 	"description":"This element describes the Instrument used to capture the Image. It is primarily a container referring to the list of hardware components included in a given Microscope. The list consists of the Microscope Stand, Microscope Table, Light Source, Light Source Coupling, Sample Holder, Focusing, Objective, Filter, Dichroic, Additional Lens (including a commonly used Magnification Changer, also known as Optovar), Additional Mirroring Device, Polarization Optics, Prism, Optical Aperture, Optical Device, Detector and Calibration Tool. The Filter element can be either composed of separate Excitation, Emission filters, and Dichroic mirrors or a single Filter Set. An Instrument might have multiple Light Sources, Detectors, Objectives, and Filters, etc. Each of these has its own ID attribute, which can be referred to from the Image, Plane or more commonly Channel elements associated with a given Image Acquisition session. It is understood that the Light Path configuration can be different for each Channel, but cannot be different for each timepoint or each Plane of an XYZ stack.",
+	"modelSettings":"MicroscopeSettings.json",
 	"image":"Image",
 	"tier":1,
 	"subCategoriesOrder": {

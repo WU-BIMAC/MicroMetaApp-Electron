@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"VarelRing",
 	"description":"This element represents a stop (i.e., opaque structure) shaped like a ring sector, which is used on the illumination side, to permit unilateral inclined illumination. It was developed to work in combination with Phase Objectives to yield contrast even when light passes through birefringent materials, such as plastic Petri dishes.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Aperture",
@@ -119,7 +120,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

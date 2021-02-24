@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"TurretObjectiveFocusing",
 	"description":"A Focusing mechanism is used to obtain maximum sharpness in an Image by changing the distance between a Sample and the optical system forming the Image. In most cases, a Z-axis Focusing mechanism moves the Objective along the optical axis. This element describes a Focusing Device associated with a rotating Objective Turret associated with this Instrument. This type of device is often operated using a rack and pinion mechanism.",
+	"modelSettings":"SamplePositioningSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"SamplePositioning.Focusing",
@@ -401,7 +402,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

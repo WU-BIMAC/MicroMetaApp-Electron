@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"TransmittanceRange",
 	"description":"This element records the Range (also known as Band) of Wavelengths that are transmitted by this optical component. It also records the maximum amount of light transmitted. Multiple of these elements can be used.",
+	"modelSettings":"NA",
 	"extension":"Core",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"ChildElement",
@@ -22,7 +23,7 @@
 		},
 		"FWHMBandwidth": {
 			"type":"number",
-			"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+			"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum. In case bandwidth is not available, such as in the case of a LongPass, Notch or ShortPass configuration, please enter 000.",
 			"tier":1,
 			"category":"TransmittanceRange"
 		},

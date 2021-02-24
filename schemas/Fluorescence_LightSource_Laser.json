@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"Laser",
 	"description":"This element describes a Light Source, which emits coherent radiation at high spectral concentrations of radiance and minimal solid angles. This includes proper Light Amplification by Stimulated Emission of Radiation (LASER) sources that emit light through a process of optical amplification based on the stimulated emission of electromagnetic radiation. It also includes Optical Parametric Oscillator (OPO) sources that use a kind of LASER resonator but based on optical gain from parametric amplification in a nonlinear crystal rather than from stimulated emission.",
+	"modelSettings":"LightSourceSettings",
 	"extension":"Core",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Fluorescence_LightSource",
@@ -221,6 +222,12 @@
 			"tier":3,
 			"category":"Laser"
 		},
+		"UsedAcoustoOpticalDevice": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) an AcoustoOptical Device was utilized during this Calibration Procedure.",
+			"tier":2,
+			"category":"Laser"
+		},
 		"Name": {
 			"type":"string",
 			"description":"A User-defined Name for this component.",
@@ -234,9 +241,27 @@
 			"category":"General",
 			"readonly":true
 		},
-		"PowerMode": {
+		"PurchaseDate": {
 			"type":"string",
-			"description":"The statistic used by the Manufacturer to report the nominal Power output.",
+			"description":"This field records the Date in which this Light Source was purchased.",
+			"tier":2,
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingStatistic": {
+			"type":"string",
+			"description":"This field reports the statistic used by the Manufacturer to report the nominal Illumination Power output emitted by this Light Source at Peak Wavelength.",
+			"tier":2,
+			"enum": [
+				"Average",
+				"Maximum",
+				"Median",
+				"Other"
+			],
+			"category":"LightSource"
+		},
+		"IlluminationPowerReportingPosition": {
+			"type":"string",
+			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
 				"Average",
@@ -280,7 +305,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
@@ -292,7 +317,7 @@
 				"properties": {
 					"IlluminationPower": {
 						"type":"number",
-						"description":"This field records the nominal Power output emitted at Peak Wavelength by this Light Source as advertised by the Manufacturer.",
+						"description":"This field records the nominal Illumination Power (also known as Power Output or Illumination Intensity) emitted at Peak Wavelength by this Light Source, as advertised by the Manufacturer.",
 						"tier":1,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -300,7 +325,7 @@
 						"type":"string",
 						"description":"NA",
 						"tier":1,
-						"default":"W",
+						"default":"mW",
 						"enum": [
 							"YW",
 							"ZW",
@@ -322,7 +347,8 @@
 							"fW",
 							"aW",
 							"zW",
-							"yW"
+							"yW",
+							"%"
 						],
 						"category":"IlluminationWavelengthRange"
 					},
@@ -377,7 +403,7 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -426,7 +452,7 @@
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},

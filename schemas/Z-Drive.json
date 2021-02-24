@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"Z-Drive",
 	"description":"This element describes a Focusing Device designed to electronically control a moving a mechanical part of the Microscope such as the Stage (see Stage-APE), or the Microscope Stand itself (e.g. most dissecting Microscopes). An example of such devices is the MFC-2000 Z-Axis Drive and Controller (http://www.asiimaging.com/controllers/mfc-2000-z-axis-drive-and-controller/#tab-id-4).",
+	"modelSettings":"SamplePositioningSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"SamplePositioning.Focusing",
@@ -400,7 +401,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

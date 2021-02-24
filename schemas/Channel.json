@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"Channel",
 	"description":"Each Image has to have at least one Plane and one Channel. The Channel element stores information about how the each Image Channel was acquired. The total number of Channel elements for a given Image must equal to SizeC.",
+	"modelSettings":"NA",
 	"extension":"Core",
 	"domain":"ImageAcquisitionSettings",
 	"category":"Image",
@@ -121,7 +122,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

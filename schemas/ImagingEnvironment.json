@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"ImagingEnvironment",
 	"description":"This element describes the environment in which the biological sample was maintained during the Acquisition of this Image.",
+	"modelSettings":"NA",
 	"extension":"Core",
 	"domain":"ImageAcquisitionSettings",
 	"category":"SampleConditions",

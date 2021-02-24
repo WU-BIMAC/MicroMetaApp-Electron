@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"SamplePositioningSettings",
 	"description":"This element holds the Setting applied to a Sample Positioning Device used  during the Acquisiton of this experimental Image as well as a reference (the ID attribute) to the Sample Positioning Device in question.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"ImageAcquisitionSettings",
 	"category":"Settings",

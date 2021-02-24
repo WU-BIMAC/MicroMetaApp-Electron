@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"PrismSettings",
 	"description":"This element holds the Setting applied to a Prism used in the Light Path during the acquisition of this Channel as well as a reference (the ID attribute) to the Prism in question.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"ImageAcquisitionSettings",
 	"category":"Settings",
@@ -51,13 +52,13 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"This field records the Wavelength(s) below which there is less than 50% Transmittance for this optical element.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":1,
 						"category":"TransmissionWavelengthRangeSettings"
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"This field records the Wavelength(s) above which there is less than 50% Transmittance for this optical element.",
+						"description":"CutOff is the Wavelength below which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":1,
 						"category":"TransmissionWavelengthRangeSettings"
 					},
@@ -125,13 +126,13 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"This field records the Wavelength(s) below which there is less than 50% Transmittance for this optical element.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":1,
 						"category":"ReflectionWavelengthRangeSettings"
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"This field records the Wavelength(s) above which there is less than 50% Transmittance for this optical element.",
+						"description":"CutOff is the Wavelength below which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":1,
 						"category":"ReflectionWavelengthRangeSettings"
 					},

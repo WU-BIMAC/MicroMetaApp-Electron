@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"EmissionFilter",
 	"description":"An optical Filter is a device designed to selectively control the Wavelengths, color temperature, vibration direction, and/or intensity of the radiation which it transmits or reflects. This element refers to an Emission Filter whose purpose is to selectively attenuate the Fluorescent Light that is emitted by the Sample depending on Wavelength. This element can be associated with an optional Filter Holder.",
+	"modelSettings":"NA",
 	"extension":"Core",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"FluorescenceLightPath",
@@ -278,7 +279,7 @@
 					},
 					"FWHMBandwidth": {
 						"type":"number",
-						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum.",
+						"description":"This field records the width of this Transmittance Range (also known as Transmission band). Specifically, the Full Width at Half Maximum (FWHM) represents the bandwidth of the Wavelength spectrum curve measured between those points whose transmission amplitude is 50% of the maximum. In case bandwidth is not available, such as in the case of a LongPass, Notch or ShortPass configuration, please enter 000.",
 						"tier":1,
 						"category":"TransmittanceRange"
 					},
@@ -341,7 +342,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

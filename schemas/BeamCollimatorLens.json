@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"BeamCollimatorLens",
 	"description":"A Beam Collimator Lens is a Lens designed to work in combination with other optical components to form a Beam Collimator device. As such, its role is to transform a strongly diverging light beam into a collimated beam, i.e., a beam where light propagates mainly only in one direction, and the beam divergence is weak.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Lens",
@@ -481,7 +482,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

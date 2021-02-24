@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"LightGuide",
 	"description":"A Light Guide coupling between the Light Source and the Microscope Stand generally consists of a casing enclosing a medium (i.e., typically fiber optic) capable of transferring light from the illuminator to the back of the Microscope Stand.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"LightSourceCoupling",
@@ -277,7 +278,7 @@
 					},
 					"CutOn": {
 						"type":"number",
-						"description":"CutOn is the Wavelength below which the response rate is below 50%.",
+						"description":"CutOn is the Wavelength below which the response rate is below 50%. In case a CutOn Wavelength is not available, such as in the case of a ShortPass or Notch configuration, please enter 000.",
 						"tier":2,
 						"category":"WavelengthRange"
 					},
@@ -326,7 +327,7 @@
 					},
 					"CutOff": {
 						"type":"number",
-						"description":"CutOff is the Wavelength above which the response rate is below 50%.",
+						"description":"CutOff is the Wavelength above which the response rate is below 50%. In case a CutOff Wavelength is not available, such as in the case of a LongPass configuration, please enter 000.",
 						"tier":2,
 						"category":"WavelengthRange"
 					},

@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"CoverGlass",
 	"description":"This element describes a rectangular or circular piece of thin glass used to cover a microscopical preparation.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"Experimental",
 	"category":"SamplePreparation",

@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"MicroscopeTable",
 	"description":"This element describes the Table used to support this Instrument during Image Acquisition.",
+	"modelSettings":"MicroscopeTableSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"MicroscopyEssentials",
@@ -181,7 +182,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

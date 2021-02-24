@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"LightSourceSettings",
 	"description":"This element holds the Setting applied to a Light Source used in the Light Path during the acquisition of this Channel as well as a reference to the LightSource (the ID attribute) in question.",
+	"modelSettings":"NA",
 	"extension":"Core",
 	"domain":"ImageAcquisitionSettings",
 	"category":"Settings",
@@ -71,17 +72,17 @@
 			],
 			"category":"LightSourceSettings"
 		},
-		"IlluminationIntensity": {
+		"IlluminationPowerSettings": {
 			"type":"number",
-			"description":"This field records the nominal Illumination Intensity (also known as Illumination Power or Power Output) that was set for the Acquisition of this Image or was reported by the Image Acquisition Software.",
+			"description":"This field records the nominal Illumination Power (also known as Power Output or Illumination Intensity) that was set for the Acquisition of this Image or was reported by the Image Acquisition Software, as advertised by the Manufacturer. Depending on the system this might be reported as a % value.",
 			"tier":1,
 			"category":"LightSourceSettings"
 		},
-		"IlluminationIntensityUnit": {
+		"lluminationPowerSettingsUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":1,
-			"default":"W",
+			"default":"mW",
 			"enum": [
 				"YW",
 				"ZW",
@@ -103,20 +104,8 @@
 				"fW",
 				"aW",
 				"zW",
-				"yW"
-			],
-			"category":"LightSourceSettings"
-		},
-		"IntensityReportingPosition": {
-			"type":"string",
-			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
-			"tier":2,
-			"enum": [
-				"Back of the Objective",
-				"Back of the Microscope Stand",
-				"Source",
-				"Specimen",
-				"Other"
+				"yW",
+				"%"
 			],
 			"category":"LightSourceSettings"
 		},
@@ -132,6 +121,12 @@
 			"tier":3,
 			"category":"LightSourceSettings"
 		},
+		"UsedAcoustoOpticalDevice": {
+			"type":"boolean",
+			"description":"In case a Laser was used for this Image Acquisition, this field records whether (True) or not (False) an AcoustoOptical Device was employed for intensity modulation.",
+			"tier":2,
+			"category":"LightSourceSettings"
+		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
@@ -143,8 +138,7 @@
 	"required": [
 		"ID",
 		"Wavelength",
-		"IlluminationIntensity",
-		"IntensityReportingPosition",
+		"IlluminationPowerSettings",
 		"Tier"
 	]
 }

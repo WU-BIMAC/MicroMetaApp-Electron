@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"PolarizationOptics",
 	"description":"This element describes a Polarization device positioned in the Ligth Path for this Instrument. A Polarization device is an optical filter rotatable through 360° that lets light waves of a specific polarization pass through while blocking light waves of other polarizations. This element can be associated with an optional Optics Turret.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"AdditionalOptics",
@@ -328,7 +329,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

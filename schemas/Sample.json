@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"Sample",
 	"description":"This field captures a description of the sample that was imaged in this experiment.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"Experimental",
 	"category":"SamplePreparation",
@@ -112,7 +113,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"Shutter",
 	"description":"This element describes a Shutter available for this Instrument. Shutters are devices that open and close, and they may be mechanically or electro-mechanically controlled. Shutters are typically used to control the Light that raches the sample (i.e., to limit phototoxicity and photobleaching especially in case of live specimens), or the Detecrtor at any one time. They can also be used for Excitation or Emission Wavelength selection.",
+	"modelSettings":"ShutterSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Aperture",
@@ -266,7 +267,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

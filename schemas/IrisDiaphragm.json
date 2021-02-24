@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"IrisDiaphragm",
 	"description":"This element represents a Diaphragm, positioned trasversally to the optical axis bounded by multiple leaves, usually metal, arranged so as to provide an opening of variable size, which is adjustable by means of a mechanical control.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Aperture",
@@ -181,7 +182,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

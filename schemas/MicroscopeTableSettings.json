@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"MicroscopeTableSettings",
 	"description":"This element refers to the MicroscopeTable used to support the Microscope used to acquire this Image and holds the settings that were applied to the Microscope during this Acquisition.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"ImageAcquisitionSettings",
 	"category":"Settings",

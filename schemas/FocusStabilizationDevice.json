@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"FocusStabilizationDevice",
 	"description":"This element describes an optional focus stabilization device (also known as, Auto Focus) that may be used for bringing an object automatically into focus for this instrument. Such devices can be controlled either via an imaging software and/or by a hardware device that detects and adjusts the objective or sample positions.",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"SamplePositioning.Focusing",
@@ -92,7 +93,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

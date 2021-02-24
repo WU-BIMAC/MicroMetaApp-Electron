@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"ObjectiveSettings",
 	"description":"This element holds the Setting applied to the Objective used during the Acquisition of this Image as well as a reference (the ID attribute) to the Objective in question.",
+	"modelSettings":"NA",
 	"extension":"Core",
 	"domain":"ImageAcquisitionSettings",
 	"category":"Settings",

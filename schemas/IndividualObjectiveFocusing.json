@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"IndividualObjectiveFocusing",
 	"description":"A Focusing mechanism is used to obtain maximum sharpness in an Image by changing the distance between a Sample and the optical system forming the Image. In most cases, a Z-axis Focusing mechanism moves the Objective along the optical axis. This element describes an optional objective nano-Focusing Device associated with this Instrument. These devices might be driven using piezoelectric mechanisms or linear motor actuators associated with crossed roller guideways. They typically achieve higher precision, accuracy, and speed than traditional Focusing Devices.",
+	"modelSettings":"SamplePositioningSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"SamplePositioning.Focusing",
@@ -407,7 +408,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},

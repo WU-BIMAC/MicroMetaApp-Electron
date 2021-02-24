@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"Fluorophore",
 	"description":"This element describes the Fluorophore whose Emission is used to produce this Channel. [plain text string].",
+	"modelSettings":"NA",
 	"extension":"Basic",
 	"domain":"Experimental",
 	"category":"SamplePreparation",

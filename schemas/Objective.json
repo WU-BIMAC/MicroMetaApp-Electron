@@ -5,6 +5,7 @@
 	"type":"object",
 	"title":"Objective",
 	"description":"The Microscope's Objective lens consists of a lens, its mount, and any associated parts. It is the part of the imaging system, which forms a primary image of the object, either alone or in conjunction with a tube lens. The Objective typically consists of a compound lens consisting of along a common axis.",
+	"modelSettings":"ObjectiveSettings",
 	"extension":"Core",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Magnification",
@@ -348,13 +349,13 @@
 			],
 			"category":"Objective"
 		},
-		"BackFocalLenght": {
+		"BackFocalLength": {
 			"type":"number",
 			"description":"This field records the distance (f') measured along the optical axis from the rear principal Plane of this Lens to the rear focal Plane (F').",
 			"tier":3,
 			"category":"Objective"
 		},
-		"BackFocalLenghtUnit": {
+		"BackFocalLengthUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":3,
@@ -480,7 +481,7 @@
 		"Description": {
 			"title":"Description",
 			"type":"string",
-			"description":"This element holds a simple multi-line comment or annotation describing this component.",
+			"description":"This is an empty element that refers to an Annotation (typically a Comment Annotation that consists of a simple multi-line comment) describing this component. ",
 			"tier":1,
 			"category":"General"
 		},
