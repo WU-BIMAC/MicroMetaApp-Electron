@@ -90,7 +90,7 @@
 			"type":"string",
 			"description":"NA",
 			"tier":2,
-			"default":"s",
+			"default":"ms",
 			"enum": [
 				"Ys",
 				"Zs",
@@ -341,7 +341,6 @@
 		"TheC",
 		"Timestamp",
 		"ExposureTime",
-		"PixelDwellTime",
 		"Tier"
 	]
 }

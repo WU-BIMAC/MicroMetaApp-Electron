@@ -66,9 +66,10 @@
 			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
-				"Average",
-				"Maximum",
-				"Median",
+				"Back of the Objective",
+				"Back of the Microscope Stand",
+				"Source",
+				"Specimen",
 				"Other"
 			],
 			"category":"LightSource"
@@ -156,7 +157,7 @@
 					},
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},

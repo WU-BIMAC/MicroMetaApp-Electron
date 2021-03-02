@@ -24,8 +24,8 @@
 			"readonly":true
 		},
 		"Temperature": {
-			"type":"number",
-			"description":"The field records the Temperature the Acquisition of this Image was performed at.",
+			"type":"string",
+			"description":"The field records the Temperature at which this Image Acquisition was performed. Allowed values include a number or the phrase 'Room Temperature'.",
 			"tier":1,
 			"category":"ImagingEnvironment"
 		},
@@ -40,6 +40,18 @@
 				"K",
 				"°R"
 			],
+			"category":"ImagingEnvironment"
+		},
+		"CO2Percent": {
+			"type":"string",
+			"description":"The field records the Carbon Dioxide concentration (expressed as a % value) at which this Image Acquisition was performed. Allowed values include a number or the phrase 'Ambient Conditions'.",
+			"tier":1,
+			"category":"ImagingEnvironment"
+		},
+		"Humidity": {
+			"type":"string",
+			"description":"The field records the Humidity (expressed as a % value) at which this Image Acquisition was performed. Allowed values include a number or the phrase 'Ambient Humidity'.",
+			"tier":1,
 			"category":"ImagingEnvironment"
 		},
 		"AirPressure": {
@@ -89,18 +101,6 @@
 			],
 			"category":"ImagingEnvironment"
 		},
-		"Humidity": {
-			"type":"number",
-			"description":"The field records then Humidity the Acquisition of this Image was performed at.",
-			"tier":1,
-			"category":"ImagingEnvironment"
-		},
-		"CO2Percent": {
-			"type":"number",
-			"description":"This field records the Carbon Dioxide concentration (expressed as a % value) around the sample during Acquisition.",
-			"tier":1,
-			"category":"ImagingEnvironment"
-		},
 		"O2Percent": {
 			"type":"number",
 			"description":"This field records the Oxygen concentration around the sample [units:none] during the Acquisition of this Image. Expressed as a percentage fraction as a value from 0.0 to 1.0.",
@@ -117,8 +117,8 @@
 	},
 	"required": [
 		"Temperature",
-		"Humidity",
 		"CO2Percent",
+		"Humidity",
 		"Tier"
 	]
 }

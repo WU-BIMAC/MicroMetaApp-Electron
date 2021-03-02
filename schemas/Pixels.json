@@ -175,7 +175,7 @@
 			"type":"string",
 			"description":"NA",
 			"tier":1,
-			"default":"µm",
+			"default":"nm",
 			"enum": [
 				"Ym",
 				"Zm",
@@ -309,8 +309,6 @@
 		"SizeT",
 		"PhysicalSizeX",
 		"PhysicalSizeY",
-		"PhysicalSizeZ",
-		"TimeIncrement",
 		"PixelType",
 		"Tier"
 	]

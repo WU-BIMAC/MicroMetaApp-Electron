@@ -505,6 +505,8 @@
 		"Iris",
 		"CorrectionCollar",
 		"WorkingDistance",
+		"ObjectiveViewField",
+		"ImageDistance",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",

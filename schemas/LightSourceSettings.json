@@ -23,55 +23,6 @@
 			"category":"General",
 			"readonly":true
 		},
-		"Wavelength": {
-			"type":"number",
-			"description":"This field records the nominal Wavelength of the excitation Light utilized in this case.",
-			"tier":1,
-			"category":"LightSourceSettings"
-		},
-		"WavelengthUnit": {
-			"type":"string",
-			"description":"NA",
-			"tier":1,
-			"default":"nm",
-			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
-			],
-			"category":"LightSourceSettings"
-		},
 		"IlluminationPowerSettings": {
 			"type":"number",
 			"description":"This field records the nominal Illumination Power (also known as Power Output or Illumination Intensity) that was set for the Acquisition of this Image or was reported by the Image Acquisition Software, as advertised by the Manufacturer. Depending on the system this might be reported as a % value.",
@@ -137,7 +88,6 @@
 	},
 	"required": [
 		"ID",
-		"Wavelength",
 		"IlluminationPowerSettings",
 		"Tier"
 	]

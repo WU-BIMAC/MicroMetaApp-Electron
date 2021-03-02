@@ -141,7 +141,7 @@
 		},
 		"RepetitionRate": {
 			"type":"number",
-			"description":"This field (also known as Pulse Frequency) describes the frequency of laser pulses if Pulse is True. The default unit is Hz.",
+			"description":"In the case this is a pulsed Laser (Pulse is True), this field (also known as Pulse Frequency) describes the frequency of laser pulses. The default unit is Hz.",
 			"tier":3,
 			"category":"Laser"
 		},
@@ -179,7 +179,7 @@
 		},
 		"PulseDuration": {
 			"type":"number",
-			"description":"Describes the duration of each Laser pulse if Pulse is True.",
+			"description":"In the case this is a pulsed Laser (Pulse is True), this field describes the duration of each Laser pulse.",
 			"tier":3,
 			"category":"Laser"
 		},
@@ -217,7 +217,7 @@
 			"category":"Laser"
 		},
 		"FrequencyMultiplication": {
-			"type":"string",
+			"type":"number",
 			"description":"This field captures the optical frequency multiplication factor that may be specified for this Laser.",
 			"tier":3,
 			"category":"Laser"
@@ -264,9 +264,10 @@
 			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
-				"Average",
-				"Maximum",
-				"Median",
+				"Back of the Objective",
+				"Back of the Microscope Stand",
+				"Source",
+				"Specimen",
 				"Other"
 			],
 			"category":"LightSource"
@@ -354,7 +355,7 @@
 					},
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"IlluminationWavelengthRange"
 					},
@@ -529,9 +530,6 @@
 		"Pulse",
 		"IsPumped",
 		"IsPump",
-		"RepetitionRate",
-		"PulseDuration",
-		"FrequencyMultiplication",
 		"ID",
 		"Manufacturer",
 		"Model",

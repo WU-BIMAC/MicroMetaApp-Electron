@@ -496,7 +496,7 @@
 				"properties": {
 					"PeakWavelength": {
 						"type":"number",
-						"description":"This field records the Wavelength associated with the peak response rate of this device. ",
+						"description":"This field records the nominal Wavelength associated with the peak response rate of this device. ",
 						"tier":2,
 						"category":"WavelengthRange"
 					},

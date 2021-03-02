@@ -112,9 +112,10 @@
 			"description":"This field records the Position where the reported Illumination Intensity value was obtained as reported by the Manufacturer.",
 			"tier":2,
 			"enum": [
-				"Average",
-				"Maximum",
-				"Median",
+				"Back of the Objective",
+				"Back of the Microscope Stand",
+				"Source",
+				"Specimen",
 				"Other"
 			],
 			"category":"LightSource"

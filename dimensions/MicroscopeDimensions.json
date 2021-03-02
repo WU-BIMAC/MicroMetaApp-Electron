@@ -761,9 +761,9 @@
 		"OpticsHolder.FilterCubeTurret":{
 			"General":{
 				"x":886.8766,
-				"y":860.0793,
+				"y":886.8766,
 				"w":527.3666,
-				"h":18.4325  
+				"h":18.4325
 			}
 		},
 		"OpticsHolder.OpticsTurret":{

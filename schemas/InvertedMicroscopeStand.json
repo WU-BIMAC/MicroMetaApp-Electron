@@ -5,7 +5,7 @@
 	"type":"object",
 	"title":"InvertedMicroscopeStand",
 	"description":"This is a Microscope in which the object is observed from beneath the stage.",
-	"modelSettings":"MicroscopeSettings",
+	"modelSettings":"MicroscopeStandSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"MicroscopeStand",
