@@ -275,6 +275,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		this.onLoadSchema = this.onLoadSchema.bind(this);
 		this.onLoadMicroscopes = this.onLoadMicroscopes.bind(this);
 		this.onLoadDimensions = this.onLoadDimensions.bind(this);
+		this.onLoadSettings = this.onLoadSettings.bind(this);
 		this.onWorkingDirectorySave = this.onWorkingDirectorySave.bind(this);
 		this.onWorkingDirectorySettingsSave = this.onWorkingDirectorySettingsSave.bind(
 			this
@@ -476,6 +477,29 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 			});
 	}
 
+	onLoadSettings(complete) {
+		const workingDirectory = this.state.workingDirectory;
+		const dirPath = path.resolve(workingDirectory, settingsDirectory);
+		let settingsDB = {};
+		readDirAsync(dirPath)
+			.then(function (fileNames) {
+				let absoluteFileNames = [];
+				fileNames.forEach(function (fileName) {
+					if (fileName.endsWith(".json"))
+						absoluteFileNames.push(path.resolve(dirPath, fileName));
+				});
+				return Promise.all(absoluteFileNames.map(readFileAsync));
+			})
+			.then(function (files) {
+				files.forEach(function (file) {
+					var setting = JSON.parse(file);
+					if (setting !== null)
+						settingsDB[setting.Name + "_" + setting.ID] = setting;
+				});
+				complete(settingsDB);
+			});
+	}
+
 	onWorkingDirectorySave(microscope, complete) {
 		const workingDirectory = this.state.workingDirectory;
 		const dirPath = path.resolve(workingDirectory, microscopeDirectory);
@@ -584,6 +608,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 					onLoadSchema={this.onLoadSchema}
 					onLoadDimensions={this.onLoadDimensions}
 					onLoadMicroscopes={this.onLoadMicroscopes}
+					onLoadSettings={this.onLoadSettings}
 					onSaveMicroscope={this.onWorkingDirectorySave}
 					onSaveSetting={this.onWorkingDirectorySettingsSave}
 					imagesPathPNG={imagesPathPNG}
