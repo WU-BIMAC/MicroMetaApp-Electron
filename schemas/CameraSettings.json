@@ -136,7 +136,7 @@
 		},
 		"OperatingTemperature": {
 			"type":"number",
-			"description":"This field represents the effective temperature the sensor is regulated to during the Acquisition of this image.",
+			"description":"This field represents the effective temperature the sensor was kept at during the Acquisition of this image.",
 			"tier":3,
 			"category":"CameraSettings"
 		},

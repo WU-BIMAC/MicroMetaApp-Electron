@@ -38,14 +38,15 @@
 				"Nucleic Acid_Aptamer motif",
 				"Nucleic Acid_Bacteriophage-derived RNA tag",
 				"Nucleic Acid_Chemical Modification",
-				"Nucleic Acid_dCad9",
-				"Nucleic Acid_Forced Intercalation",
+				"Nucleic Acid_dCas9",
 				"Nucleic Acid_Molecular Beacon",
-				"Protein_BiarsenicalDye",
+				"Nucleic Acid_Organic dye",
+				"Protein_Biarsenical dye",
 				"Protein_Biological fluorophore",
 				"Protein_Fluorescent protein",
-				"Protein_Immunological probe",
-				"Protein_Organic dyes",
+				"Protein_Organic dye_Aspecific",
+				"Protein_Organic dye_Immunological targeting",
+				"Protein_Organic dye_Specific",
 				"Protein_Self-Labelling EnzymeTag",
 				"Quantum Dots",
 				"None",
@@ -153,13 +154,7 @@
 		},
 		"Concentration": {
 			"type":"number",
-			"description":"This field records the Concentration of this Fluorophore that was used to stain the Sample and was imaged in this Channel.",
-			"tier":1,
-			"category":"Fluorophore"
-		},
-		"FBBaseID": {
-			"type":"string",
-			"description":"In case the Fluorophore is a Fluorescent Protein, this field records its FPBaseID (FPBase.org).",
+			"description":"If applicable (e.g., in the case of direct incubation of the sample  with a specific label such as DAPI or Mitotracker Red), this field records the Concentration of this Fluorophore that was used to stain the Sample and that was imaged in this Channel.",
 			"tier":1,
 			"category":"Fluorophore"
 		},
@@ -176,6 +171,12 @@
 				"Units/ml",
 				"Other"
 			],
+			"category":"Fluorophore"
+		},
+		"FBBaseID": {
+			"type":"string",
+			"description":"In case the Fluorophore is a Fluorescent Protein, this field records its FPBaseID (FPBase.org).",
+			"tier":1,
 			"category":"Fluorophore"
 		},
 		"PrimaryPublicationID": {

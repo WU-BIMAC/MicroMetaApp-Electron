@@ -334,8 +334,10 @@
 				"float",
 				"int8",
 				"int16",
+				"int12",
 				"int32",
 				"uint8",
+				"uint12",
 				"uint16",
 				"uint32",
 				"Other"

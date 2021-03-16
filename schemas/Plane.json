@@ -89,7 +89,7 @@
 		"ExposureTimeUnit": {
 			"type":"string",
 			"description":"NA",
-			"tier":2,
+			"tier":1,
 			"default":"ms",
 			"enum": [
 				"Ys",

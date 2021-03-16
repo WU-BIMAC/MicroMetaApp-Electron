@@ -164,8 +164,6 @@
 		}
 	},
 	"required": [
-		"PeakWavelength",
-		"CutOn",
-		"CutOff"
+		"PeakWavelength"
 	]
 }

@@ -294,9 +294,7 @@
 				},
 				"required": [
 					"IlluminationPower",
-					"PeakWavelength",
-					"CutOn",
-					"CutOff"
+					"PeakWavelength"
 				]
 			}
 		},

@@ -85,7 +85,7 @@
 			"enum": [
 				"Absorption",
 				"Reflection",
-				"Rifraction",
+				"Refraction",
 				"Other"
 			],
 			"category":"Dichroic"

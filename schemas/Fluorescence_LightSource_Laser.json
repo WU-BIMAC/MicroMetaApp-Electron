@@ -503,9 +503,7 @@
 				},
 				"required": [
 					"IlluminationPower",
-					"PeakWavelength",
-					"CutOn",
-					"CutOff"
+					"PeakWavelength"
 				]
 			}
 		},
@@ -534,7 +532,6 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"IlluminationWavelengthRange",
 		"Tier"
 	]
 }

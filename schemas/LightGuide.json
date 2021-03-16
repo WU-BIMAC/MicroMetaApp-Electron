@@ -376,9 +376,7 @@
 					}
 				},
 				"required": [
-					"PeakWavelength",
-					"CutOn",
-					"CutOff"
+					"PeakWavelength"
 				]
 			}
 		},
@@ -399,7 +397,6 @@
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"WavelengthRange",
 		"Tier"
 	]
 }
