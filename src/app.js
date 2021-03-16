@@ -334,19 +334,14 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 				newWorkingDirectory,
 				microMetaOptionsFile
 			);
-			// fs.readFile(mmaOptionsFile, function (err, data) {
-			// 	if (!err) {
-			// 		var options = JSON.parse(data);
-			// 		let workingDirectory = options.WorkingDirectory;
-			// 		optionsWorkingDirectory = workingDirectory;
-			// 	} else {
-			// 		optionsWorkingDirectory = newWorkingDirectory;
-			// 	}
-			// });
-			let data = fs.readFileSync(mmaOptionsFile);
-			var options = JSON.parse(data);
-			let workingDirectory = options.WorkingDirectory;
-			optionsWorkingDirectory = workingDirectory;
+			if (!fs.existsSync(mmaOptionsFile)) {
+				optionsWorkingDirectory = newWorkingDirectory;
+			} else {
+				let data = fs.readFileSync(mmaOptionsFile);
+				var options = JSON.parse(data);
+				let workingDirectory = options.WorkingDirectory;
+				optionsWorkingDirectory = workingDirectory;
+			}
 		}
 
 		//console.log("optionsWorkingDirectory");
