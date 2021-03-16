@@ -18,6 +18,7 @@ const dialog = electron.remote.dialog;
 const mainWindow = electron.BrowserWindow;
 
 const toolDirectory = "./MicroscopyMetadataTool/";
+const microMetaOptionsFile = "micrometa-options.txt";
 const schemaDirectory = "./schemas/";
 const dimensionsDirectory = "./dimensions/";
 const microscopeDirectory = "./microscopes/";
@@ -76,14 +77,18 @@ class MicroscopyMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 
 	onClickSelectWorkingDirectory() {
 		let value = this.inputRef.current.value;
-		dialog.showOpenDialog(
-			mainWindow,
-			{
+		dialog
+			.showOpenDialog(mainWindow, {
 				defaultPath: `${value}`,
 				properties: ["openDirectory"],
-			},
-			this.props.handleSelectWorkingDirectory
-		);
+			})
+			.then((result) => {
+				if (!result.canceled) {
+					this.props.handleSelectWorkingDirectory(result.filePaths);
+				} else {
+					this.props.handleSelectWorkingDirectory(null);
+				}
+			});
 	}
 
 	handleWorkingDirectoryChange() {
@@ -247,6 +252,19 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		});
 	}
 
+	static copyFilesSync(oldPath, newPath) {
+		let fileNames = fs.readdirSync(oldPath);
+		fileNames.forEach(function (fileName) {
+			let oldFile = path.resolve(oldPath, fileName);
+			let newFile = path.resolve(newPath, fileName);
+			try {
+				fs.copyFileSync(oldFile, newFile, fs.constants.COPYFILE_EXCL);
+			} catch (err) {
+				console.log(err);
+			}
+		});
+	}
+
 	static cleanDirectory(pathToClean) {
 		fs.readdirSync(pathToClean).forEach(function (file, index) {
 			const curPath = path.join(pathToClean, file);
@@ -305,99 +323,36 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 			this.onWindowResize();
 		}
 
-		const oldWorkingDirectory = this.state.workingDirectory;
+		//const oldWorkingDirectory = this.state.workingDirectory;
 		const newWorkingDirectory = path.resolve(homePath, toolDirectory);
+		let optionsWorkingDirectory = null;
 		if (!fs.existsSync(newWorkingDirectory)) {
 			fs.mkdirSync(newWorkingDirectory);
-		}
-
-		const oldSchemaDirectory = path.resolve(
-			oldWorkingDirectory,
-			schemaDirectory
-		);
-		const oldDimensionsDirectory = path.resolve(
-			oldWorkingDirectory,
-			dimensionsDirectory
-		);
-		const newSchemaDirectory = path.resolve(
-			newWorkingDirectory,
-			schemaDirectory
-		);
-		const newDimensionsDirectory = path.resolve(
-			newWorkingDirectory,
-			dimensionsDirectory
-		);
-		if (!fs.existsSync(newSchemaDirectory)) {
-			fs.mkdirSync(newSchemaDirectory);
-		}
-		if (!fs.existsSync(newDimensionsDirectory)) {
-			fs.mkdirSync(newDimensionsDirectory);
-		}
-		console.log("CleaningFiles from " + newSchemaDirectory);
-		MicroscopyMetadataToolComponent.cleanDirectory(newSchemaDirectory);
-		console.log("CleaningFiles from " + newDimensionsDirectory);
-		MicroscopyMetadataToolComponent.cleanDirectory(newDimensionsDirectory);
-
-		if (fs.existsSync(oldSchemaDirectory)) {
-			console.log("CopyFiles from " + oldSchemaDirectory);
-			MicroscopyMetadataToolComponent.copyFiles(
-				oldSchemaDirectory,
-				newSchemaDirectory
+			optionsWorkingDirectory = newWorkingDirectory;
+		} else {
+			const mmaOptionsFile = path.resolve(
+				newWorkingDirectory,
+				microMetaOptionsFile
 			);
+			// fs.readFile(mmaOptionsFile, function (err, data) {
+			// 	if (!err) {
+			// 		var options = JSON.parse(data);
+			// 		let workingDirectory = options.WorkingDirectory;
+			// 		optionsWorkingDirectory = workingDirectory;
+			// 	} else {
+			// 		optionsWorkingDirectory = newWorkingDirectory;
+			// 	}
+			// });
+			let data = fs.readFileSync(mmaOptionsFile);
+			var options = JSON.parse(data);
+			let workingDirectory = options.WorkingDirectory;
+			optionsWorkingDirectory = workingDirectory;
 		}
 
-		if (fs.existsSync(oldDimensionsDirectory)) {
-			console.log("CopyFiles from " + oldDimensionsDirectory);
-			MicroscopyMetadataToolComponent.copyFiles(
-				oldDimensionsDirectory,
-				newDimensionsDirectory
-			);
-		}
+		//console.log("optionsWorkingDirectory");
+		//console.log(optionsWorkingDirectory);
 
-		const oldMicroscopeDirectory = path.resolve(
-			oldWorkingDirectory,
-			microscopeDirectory
-		);
-		const newMicroscopeDirectory = path.resolve(
-			newWorkingDirectory,
-			microscopeDirectory
-		);
-		if (!fs.existsSync(newMicroscopeDirectory)) {
-			fs.mkdirSync(newMicroscopeDirectory);
-		}
-		if (fs.existsSync(oldMicroscopeDirectory)) {
-			console.log("CopyFiles from " + oldMicroscopeDirectory);
-			MicroscopyMetadataToolComponent.copyFiles(
-				oldMicroscopeDirectory,
-				newMicroscopeDirectory
-			);
-		}
-
-		const oldSettingsDirectory = path.resolve(
-			oldWorkingDirectory,
-			settingsDirectory
-		);
-		const newSettingsDirectory = path.resolve(
-			newWorkingDirectory,
-			settingsDirectory
-		);
-		if (!fs.existsSync(newSettingsDirectory)) {
-			fs.mkdirSync(newSettingsDirectory);
-		}
-		if (fs.existsSync(oldSettingsDirectory)) {
-			console.log("CopyFiles from " + oldSettingsDirectory);
-			MicroscopyMetadataToolComponent.copyFiles(
-				oldSettingsDirectory,
-				newSettingsDirectory
-			);
-		}
-		this.setState({ workingDirectory: newWorkingDirectory });
-
-		// window.console.log(
-		// 	"workingDirectory -- old, new",
-		// 	oldWorkingDirectory,
-		// 	newWorkingDirectory
-		// );
+		this.setState({ workingDirectory: optionsWorkingDirectory });
 	}
 
 	onLoadSchema(complete) {
@@ -553,6 +508,8 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 	}
 
 	handleSelectWorkingDirectory(filePaths) {
+		//console.log("filePaths");
+		//console.log(filePaths);
 		if (!filePaths) {
 			return;
 		}
@@ -565,6 +522,8 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		} else {
 			filePath = filePaths;
 		}
+		//console.log("filePath");
+		//console.log(filePath);
 		this.setState({ workingDirectory: filePath });
 	}
 
@@ -573,6 +532,102 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		if (fs.lstatSync(value).isDirectory() && !value.endsWith(path.sep))
 			newValue = value + path.sep;
 		else newValue = value;
+
+		let oldWorkingDirectory = path.resolve(appPath);
+		const newWorkingDirectory = path.resolve(newValue);
+
+		const oldSchemaDirectory = path.resolve(
+			oldWorkingDirectory,
+			schemaDirectory
+		);
+		const oldDimensionsDirectory = path.resolve(
+			oldWorkingDirectory,
+			dimensionsDirectory
+		);
+		const newSchemaDirectory = path.resolve(
+			newWorkingDirectory,
+			schemaDirectory
+		);
+		const newDimensionsDirectory = path.resolve(
+			newWorkingDirectory,
+			dimensionsDirectory
+		);
+		if (!fs.existsSync(newSchemaDirectory)) {
+			fs.mkdirSync(newSchemaDirectory);
+		}
+		if (!fs.existsSync(newDimensionsDirectory)) {
+			fs.mkdirSync(newDimensionsDirectory);
+		}
+		console.log("CleaningFiles from " + newSchemaDirectory);
+		MicroscopyMetadataToolComponent.cleanDirectory(newSchemaDirectory);
+		console.log("CleaningFiles from " + newDimensionsDirectory);
+		MicroscopyMetadataToolComponent.cleanDirectory(newDimensionsDirectory);
+
+		if (fs.existsSync(oldSchemaDirectory)) {
+			console.log("CopyFiles from " + oldSchemaDirectory);
+			MicroscopyMetadataToolComponent.copyFilesSync(
+				oldSchemaDirectory,
+				newSchemaDirectory
+			);
+		}
+
+		if (fs.existsSync(oldDimensionsDirectory)) {
+			console.log("CopyFiles from " + oldDimensionsDirectory);
+			MicroscopyMetadataToolComponent.copyFilesSync(
+				oldDimensionsDirectory,
+				newDimensionsDirectory
+			);
+		}
+
+		const oldMicroscopeDirectory = path.resolve(
+			oldWorkingDirectory,
+			microscopeDirectory
+		);
+		const newMicroscopeDirectory = path.resolve(
+			newWorkingDirectory,
+			microscopeDirectory
+		);
+		if (!fs.existsSync(newMicroscopeDirectory)) {
+			fs.mkdirSync(newMicroscopeDirectory);
+		}
+		if (fs.existsSync(oldMicroscopeDirectory)) {
+			console.log("CopyFiles from " + oldMicroscopeDirectory);
+			MicroscopyMetadataToolComponent.copyFilesSync(
+				oldMicroscopeDirectory,
+				newMicroscopeDirectory
+			);
+		}
+
+		const oldSettingsDirectory = path.resolve(
+			oldWorkingDirectory,
+			settingsDirectory
+		);
+		const newSettingsDirectory = path.resolve(
+			newWorkingDirectory,
+			settingsDirectory
+		);
+		if (!fs.existsSync(newSettingsDirectory)) {
+			fs.mkdirSync(newSettingsDirectory);
+		}
+		if (fs.existsSync(oldSettingsDirectory)) {
+			console.log("CopyFiles from " + oldSettingsDirectory);
+			MicroscopyMetadataToolComponent.copyFilesSync(
+				oldSettingsDirectory,
+				newSettingsDirectory
+			);
+		}
+
+		const toolWorkingDirectory = path.resolve(homePath, toolDirectory);
+		const mmaOptionsFile = path.resolve(
+			toolWorkingDirectory,
+			microMetaOptionsFile
+		);
+		let obj = {};
+		obj.WorkingDirectory = newWorkingDirectory;
+
+		let json = JSON.stringify(obj);
+		fs.writeFileSync(mmaOptionsFile, json);
+
 		this.setState({
 			workingDirectory: newValue,
 			workingDirectoryConfirmed: true,
