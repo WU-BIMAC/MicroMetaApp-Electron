@@ -299,6 +299,9 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		this.onLoadMicroscopes = this.onLoadMicroscopes.bind(this);
 		this.onLoadDimensions = this.onLoadDimensions.bind(this);
 		this.onLoadSettings = this.onLoadSettings.bind(this);
+
+		this.onLoadMetadata = this.onLoadMetadata.bind(this);
+
 		this.onWorkingDirectorySave = this.onWorkingDirectorySave.bind(this);
 		this.onWorkingDirectorySettingsSave = this.onWorkingDirectorySettingsSave.bind(
 			this
