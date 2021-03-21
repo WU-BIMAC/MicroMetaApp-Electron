@@ -66,6 +66,20 @@
 			"category":"General",
 			"readonly":true
 		},
+		"EffectiveBitDepth": {
+			"type":"string",
+			"description":"If selectable, this field reports the Effective Bit Depth that was used by the Detector's Analog to Digital Converter (ADC; also referred to as Digitizer) for the Acquisition of this Channel.",
+			"tier":1,
+			"enum": [
+				"8bit",
+				"12bit",
+				"14bit",
+				"16bit",
+				"32bit",
+				"64bit"
+			],
+			"category":"DetectorSettings"
+		},
 		"AnalogGain": {
 			"type":"number",
 			"description":"This field reports the Analog Gain (also known as Inherent Gain or simply as Gain) that was applied during the Acquisition of this Image. The Analog Gain is a property Inherent to the Detector and it specifies how many electrons correspond to 1 signal unit (photon) detected. Gain is reported in terms of electrons/ADU (analog-to-digital unit). A gain of 8 means that the Detector digitizes the light signal so that each ADU corresponds to 8 photoelectrons. NOTE: In the case of Point Detectors the value of Analog Gain can be set freely by the user. Conversely, in the case of Cameras, it is common for the Gain to be preset by the Manufacturer to minimize noise. In this case, either the Analog Gain cannot be changed or the user is given the choice of selecting between a few preset Analog Gains values upon Acquisition. Finally, several Cameras might have so-called Automatic Gain Control (AGC or AutoGain) that will automatically adjusts so the full range of the Analog-to-Digital Converter (ADC) is used. Unless you can turn off the AGC, the use of these Cameras are highly discouraged for quantitative work. ",
@@ -75,12 +89,6 @@
 		"AmplificationGain": {
 			"type":"number",
 			"description":"This field reports the Amplification Gain (i.e., electronic gain as apposed to the inherent Gain) that was set during the Acquisition of this Image. Amplification Gain in general measures of the ability of a Detector to add energy to the input light signal therefore increasing its power or amplitude. Higher Amplification Gain levels amplify the signal and result in greater brightness, contrast and background signal. Examples include: 1) the Electron Multiplication (EM) gain (as opposed to the inherent Analog Gain) for an EMCCD camera. 2) The Gain introduced by the Micro-Channel Plate in an Intensified CCD or CMOS camera. 3) The amplification of the electron current provided by a Photomultiplier Tube, and measured as the ratio of the input photoelectron current emitted by the photocatode and the current reaching the anode. 4) The signal amplification provided by an Avalache Photo Diode (APD).",
-			"tier":1,
-			"category":"DetectorSettings"
-		},
-		"Zoom": {
-			"type":"number",
-			"description":"The Zoom that was set for this Detector during the acquisition of this Image.",
 			"tier":1,
 			"category":"DetectorSettings"
 		},
@@ -113,6 +121,7 @@
 	"required": [
 		"Voltage",
 		"ID",
+		"EffectiveBitDepth",
 		"AnalogGain",
 		"AmplificationGain",
 		"Tier"

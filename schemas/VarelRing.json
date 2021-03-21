@@ -134,7 +134,6 @@
 	},
 	"required": [
 		"ID",
-		"OpticsHolderPosition",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",

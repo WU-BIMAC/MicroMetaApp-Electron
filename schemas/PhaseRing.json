@@ -246,7 +246,6 @@
 	"required": [
 		"PhaseNumber",
 		"ID",
-		"OpticsHolderPosition",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",

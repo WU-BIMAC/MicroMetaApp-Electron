@@ -166,13 +166,14 @@
 		},
 		"CorrectionCollarType": {
 			"type":"string",
-			"description":"This field records the type of Correction Collar with which this Objective is fitted.",
+			"description":"This field records the type of Correction Collar with which this Objective is fitted. In case the Objective has more than one Correction Collar please enter 'Multi' and provide more details in Description.",
 			"tier":2,
 			"enum": [
 				"Coverglass Thickness",
 				"Immersion Liquid",
 				"Numerical Aperture",
-				"Temperature"
+				"Temperature",
+				"Multi"
 			],
 			"category":"Objective"
 		},

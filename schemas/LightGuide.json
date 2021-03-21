@@ -390,7 +390,6 @@
 	},
 	"required": [
 		"Type",
-		"RefractiveIndex",
 		"NumericalAperture",
 		"ID",
 		"Transmittance",

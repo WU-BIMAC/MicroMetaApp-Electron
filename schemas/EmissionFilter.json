@@ -360,7 +360,6 @@
 		"CoatingMethod",
 		"LightPathLocation",
 		"AttenuationMethod",
-		"AttenuationCoefficient",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",

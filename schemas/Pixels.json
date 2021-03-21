@@ -255,7 +255,7 @@
 		},
 		"PixelType": {
 			"type":"string",
-			"description":"This field records the variable type used to represent the Pixel Intensity in the Image.",
+			"description":"This field records the data type used to represent the Pixel Intensity in the Image.",
 			"tier":2,
 			"enum": [
 				"bit",
@@ -264,11 +264,13 @@
 				"double-complex",
 				"float",
 				"int8",
-				"int16",
 				"int12",
+				"int14",
+				"int16",
 				"int32",
 				"uint8",
 				"uint12",
+				"uint14",
 				"uint16",
 				"uint32",
 				"Other"

@@ -26,10 +26,11 @@
 			"tier":1,
 			"enum": [
 				"Chemical",
+				"DiodePumpedSolidState (DPSS)",
 				"Dye",
 				"Gas",
 				"MetalVapor",
-				"OpticalParametricOscillator",
+				"OpticalParametricOscillator (OPS)",
 				"SolidState",
 				"SemiconductorLaserDiode",
 				"Other"
