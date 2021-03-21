@@ -9,6 +9,7 @@ import Popover from "react-bootstrap/Popover";
 
 import MicroscopyMetadataTool from "4dn-microscopy-metadata-tool";
 
+const { execSync, execFileSync } = window.require("child_process");
 const fs = window.require("fs");
 const electron = window.require("electron");
 const appPath = electron.remote.app.getAppPath();
@@ -23,6 +24,9 @@ const schemaDirectory = "./schemas/";
 const dimensionsDirectory = "./dimensions/";
 const microscopeDirectory = "./microscopes/";
 const settingsDirectory = "./settings/";
+const scriptDirectory = "./scripts/";
+
+const imageMetadataReaderScriptName = "4DNImageMetadataReader-0.0.1.jar";
 
 window.onload = () => {
 	ReactDOM.render(
@@ -289,6 +293,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 				width: window && window.innerWidth,
 				height: window && window.innerHeight,
 			},
+			//imageLoaded: false,
 		};
 		this.onLoadSchema = this.onLoadSchema.bind(this);
 		this.onLoadMicroscopes = this.onLoadMicroscopes.bind(this);
@@ -448,6 +453,30 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 				});
 				complete(settingsDB);
 			});
+	}
+
+	onLoadMetadata(imgPath, complete) {
+		const workingDirectory = this.state.workingDirectory;
+		const dirPath = path.resolve(workingDirectory, scriptDirectory);
+		let imageMetadataReaderScript = path.resolve(
+			dirPath,
+			imageMetadataReaderScriptName
+		);
+		if (!fs.existsSync(imgPath)) {
+			//console.log("Error : " + `${imgPath} does not exists`);
+			complete({ Error: `${imgPath} does not exists` });
+			return;
+		}
+		let cmd =
+			"java -jar " + imageMetadataReaderScript + " " + '"' + imgPath + '"';
+		const metadata = execSync(cmd);
+		if (metadata === "ERROR") {
+			//console.log("Error : " + `Could not read ${imgPath} metadata`);
+			complete({ Error: `Could not read ${imgPath} metadata` });
+		}
+		let metadataJSON = JSON.parse(metadata);
+		//console.log(metadataJSON);
+		complete(metadataJSON);
 	}
 
 	onWorkingDirectorySave(microscope, complete) {
@@ -639,7 +668,14 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 			path.resolve(appPath, "./public/assets/png") + path.sep;
 		const imagesPathSVG =
 			path.resolve(appPath, "./public/assets/svg") + path.sep;
+		//let imageLoaded = this.state.imageLoaded;
 		//const imagesPath = path.resolve(appPath, "./public/assets/svg");
+		// if (!imageLoaded) {
+		// 	let dir = "C:/Users/Alex/MicroscopyMetadataTool";
+		// 	let imgName = "BPAE cells 40X RGB_LacosteAuthor.czi";
+		// 	let imgPath = path.resolve(dir, imgName);
+		// 	this.onLoadMetadata(imgPath);
+		// } else
 		if (!workingDirectoryConfirmed) {
 			return (
 				<MicroscopyMetadataToolWorkingDirectoryChooser
@@ -661,6 +697,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 					onLoadSettings={this.onLoadSettings}
 					onSaveMicroscope={this.onWorkingDirectorySave}
 					onSaveSetting={this.onWorkingDirectorySettingsSave}
+					onLoadMetadata={this.onLoadMetadata}
 					imagesPathPNG={imagesPathPNG}
 					imagesPathSVG={imagesPathSVG}
 				/>
