@@ -481,8 +481,6 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 			complete({ Error: `Could not read ${imgPath} metadata` });
 		}
 		var metadataString = new TextDecoder().decode(metadata);
-		console.log("metadata");
-		console.log(metadataString);
 		let metadataJSON = JSON.parse(metadataString);
 		//console.log(metadataJSON);
 		complete(metadataJSON);
