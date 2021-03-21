@@ -25,6 +25,7 @@ const dimensionsDirectory = "./dimensions/";
 const microscopeDirectory = "./microscopes/";
 const settingsDirectory = "./settings/";
 const scriptDirectory = "./scripts/";
+const scriptDependencyDirectory = "./scripts/dependency-jars";
 
 const imageMetadataReaderScriptName = "4DNImageMetadataReader-0.0.1.jar";
 
@@ -261,10 +262,12 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		fileNames.forEach(function (fileName) {
 			let oldFile = path.resolve(oldPath, fileName);
 			let newFile = path.resolve(newPath, fileName);
-			try {
-				fs.copyFileSync(oldFile, newFile, fs.constants.COPYFILE_EXCL);
-			} catch (err) {
-				console.log(err);
+			if (!fs.lstatSync(oldFile).isDirectory()) {
+				try {
+					fs.copyFileSync(oldFile, newFile, fs.constants.COPYFILE_EXCL);
+				} catch (err) {
+					console.log(err);
+				}
 			}
 		});
 	}
@@ -272,7 +275,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 	static cleanDirectory(pathToClean) {
 		fs.readdirSync(pathToClean).forEach(function (file, index) {
 			const curPath = path.join(pathToClean, file);
-			fs.unlinkSync(curPath);
+			if (!fs.lstatSync(curPath).isDirectory()) fs.unlinkSync(curPath);
 		});
 		// readDirAsync(newSchemaDirectory).then(function (fileNames) {
 		// 	fileNames.forEach(function (fileName) {
@@ -477,7 +480,10 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 			//console.log("Error : " + `Could not read ${imgPath} metadata`);
 			complete({ Error: `Could not read ${imgPath} metadata` });
 		}
-		let metadataJSON = JSON.parse(metadata);
+		var metadataString = new TextDecoder().decode(metadata);
+		console.log("metadata");
+		console.log(metadataString);
+		let metadataJSON = JSON.parse(metadataString);
 		//console.log(metadataJSON);
 		complete(metadataJSON);
 	}
@@ -571,6 +577,14 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 			oldWorkingDirectory,
 			dimensionsDirectory
 		);
+		const oldScriptsDirectory = path.resolve(
+			oldWorkingDirectory,
+			scriptDirectory
+		);
+		const oldScriptsDependencyDirectory = path.resolve(
+			oldWorkingDirectory,
+			scriptDependencyDirectory
+		);
 		const newSchemaDirectory = path.resolve(
 			newWorkingDirectory,
 			schemaDirectory
@@ -579,16 +593,36 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 			newWorkingDirectory,
 			dimensionsDirectory
 		);
+		const newScriptsDirectory = path.resolve(
+			newWorkingDirectory,
+			scriptDirectory
+		);
+		const newScriptsDependencyDirectory = path.resolve(
+			newWorkingDirectory,
+			scriptDependencyDirectory
+		);
 		if (!fs.existsSync(newSchemaDirectory)) {
 			fs.mkdirSync(newSchemaDirectory);
 		}
 		if (!fs.existsSync(newDimensionsDirectory)) {
 			fs.mkdirSync(newDimensionsDirectory);
 		}
+		if (!fs.existsSync(newScriptsDirectory)) {
+			fs.mkdirSync(newScriptsDirectory);
+		}
+		if (!fs.existsSync(newScriptsDependencyDirectory)) {
+			fs.mkdirSync(newScriptsDependencyDirectory);
+		}
 		console.log("CleaningFiles from " + newSchemaDirectory);
 		MicroscopyMetadataToolComponent.cleanDirectory(newSchemaDirectory);
 		console.log("CleaningFiles from " + newDimensionsDirectory);
 		MicroscopyMetadataToolComponent.cleanDirectory(newDimensionsDirectory);
+		console.log("CleaningFiles from " + newScriptsDirectory);
+		MicroscopyMetadataToolComponent.cleanDirectory(newScriptsDirectory);
+		console.log("CleaningFiles from " + newScriptsDependencyDirectory);
+		MicroscopyMetadataToolComponent.cleanDirectory(
+			newScriptsDependencyDirectory
+		);
 
 		if (fs.existsSync(oldSchemaDirectory)) {
 			console.log("CopyFiles from " + oldSchemaDirectory);
@@ -603,6 +637,21 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 			MicroscopyMetadataToolComponent.copyFilesSync(
 				oldDimensionsDirectory,
 				newDimensionsDirectory
+			);
+		}
+
+		if (fs.existsSync(oldScriptsDirectory)) {
+			console.log("CopyFiles from " + oldScriptsDirectory);
+			MicroscopyMetadataToolComponent.copyFilesSync(
+				oldScriptsDirectory,
+				newScriptsDirectory
+			);
+		}
+		if (fs.existsSync(oldScriptsDependencyDirectory)) {
+			console.log("CopyFiles from " + oldScriptsDependencyDirectory);
+			MicroscopyMetadataToolComponent.copyFilesSync(
+				oldScriptsDependencyDirectory,
+				newScriptsDependencyDirectory
 			);
 		}
 
