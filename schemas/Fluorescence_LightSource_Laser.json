@@ -135,7 +135,7 @@
 			"category":"Laser"
 		},
 		"Position": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field captures the position of this Laser on a Multi Laser Engine.",
 			"tier":3,
 			"category":"Laser"

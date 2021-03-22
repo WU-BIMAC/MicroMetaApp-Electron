@@ -51,7 +51,7 @@
 			"category":"StageInsert"
 		},
 		"NumberOfSlots": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field describes the number of Specimen Holder slots on this Stage Insert.",
 			"tier":2,
 			"category":"StageInsert"

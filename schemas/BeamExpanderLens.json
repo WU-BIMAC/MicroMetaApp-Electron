@@ -32,7 +32,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"

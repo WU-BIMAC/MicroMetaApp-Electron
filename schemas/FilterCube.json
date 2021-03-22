@@ -22,7 +22,7 @@
 	},
 	"properties": {
 		"OpticsHolderPosition": {
-			"type":"string",
+			"type":"integer",
 			"description":"When relevant, this field records the position of this Filter Cube in a Optics Holder.",
 			"tier":2,
 			"category":"FilterCube"
