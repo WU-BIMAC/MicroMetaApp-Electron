@@ -7,7 +7,7 @@ import FormControl from "react-bootstrap/FormControl";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 
-import MicroscopyMetadataTool from "4dn-microscopy-metadata-tool";
+import MicroMetaAppReact from "micro-meta-app-react";
 
 const { execSync, execFileSync } = window.require("child_process");
 const fs = window.require("fs");
@@ -18,7 +18,7 @@ const path = window.require("path");
 const dialog = electron.remote.dialog;
 const mainWindow = electron.BrowserWindow;
 
-const toolDirectory = "./MicroscopyMetadataTool/";
+const toolDirectory = "./MicroMetaApp/";
 const microMetaOptionsFile = "micrometa-options.txt";
 const schemaDirectory = "./schemas/";
 const dimensionsDirectory = "./dimensions/";
@@ -31,7 +31,7 @@ const imageMetadataReaderScriptName = "4DNMicroscopyMetadataReader-0.0.1.jar";
 
 window.onload = () => {
 	ReactDOM.render(
-		<MicroscopyMetadataToolComponent />,
+		<MicroMetaAppElectronComponent />,
 		document.getElementById("root")
 	);
 };
@@ -56,7 +56,7 @@ function readFileAsync(filename) {
 	});
 }
 
-class MicroscopyMetadataToolWorkingDirectoryChooser extends React.PureComponent {
+class MicroMetaAppElectronWorkingDirectoryChooser extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -243,7 +243,7 @@ class MicroscopyMetadataToolWorkingDirectoryChooser extends React.PureComponent 
 	}
 }
 
-class MicroscopyMetadataToolComponent extends React.PureComponent {
+class MicroMetaAppElectronComponent extends React.PureComponent {
 	static copyFiles(oldPath, newPath) {
 		readDirAsync(oldPath).then(function (fileNames) {
 			fileNames.forEach(function (fileName) {
@@ -613,19 +613,17 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 			fs.mkdirSync(newScriptsDependencyDirectory);
 		}
 		console.log("CleaningFiles from " + newSchemaDirectory);
-		MicroscopyMetadataToolComponent.cleanDirectory(newSchemaDirectory);
+		MicroMetaAppElectronComponent.cleanDirectory(newSchemaDirectory);
 		console.log("CleaningFiles from " + newDimensionsDirectory);
-		MicroscopyMetadataToolComponent.cleanDirectory(newDimensionsDirectory);
+		MicroMetaAppElectronComponent.cleanDirectory(newDimensionsDirectory);
 		console.log("CleaningFiles from " + newScriptsDirectory);
-		MicroscopyMetadataToolComponent.cleanDirectory(newScriptsDirectory);
+		MicroMetaAppElectronComponent.cleanDirectory(newScriptsDirectory);
 		console.log("CleaningFiles from " + newScriptsDependencyDirectory);
-		MicroscopyMetadataToolComponent.cleanDirectory(
-			newScriptsDependencyDirectory
-		);
+		MicroMetaAppElectronComponent.cleanDirectory(newScriptsDependencyDirectory);
 
 		if (fs.existsSync(oldSchemaDirectory)) {
 			console.log("CopyFiles from " + oldSchemaDirectory);
-			MicroscopyMetadataToolComponent.copyFilesSync(
+			MicroMetaAppElectronComponent.copyFilesSync(
 				oldSchemaDirectory,
 				newSchemaDirectory
 			);
@@ -633,7 +631,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 
 		if (fs.existsSync(oldDimensionsDirectory)) {
 			console.log("CopyFiles from " + oldDimensionsDirectory);
-			MicroscopyMetadataToolComponent.copyFilesSync(
+			MicroMetaAppElectronComponent.copyFilesSync(
 				oldDimensionsDirectory,
 				newDimensionsDirectory
 			);
@@ -641,14 +639,14 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 
 		if (fs.existsSync(oldScriptsDirectory)) {
 			console.log("CopyFiles from " + oldScriptsDirectory);
-			MicroscopyMetadataToolComponent.copyFilesSync(
+			MicroMetaAppElectronComponent.copyFilesSync(
 				oldScriptsDirectory,
 				newScriptsDirectory
 			);
 		}
 		if (fs.existsSync(oldScriptsDependencyDirectory)) {
 			console.log("CopyFiles from " + oldScriptsDependencyDirectory);
-			MicroscopyMetadataToolComponent.copyFilesSync(
+			MicroMetaAppElectronComponent.copyFilesSync(
 				oldScriptsDependencyDirectory,
 				newScriptsDependencyDirectory
 			);
@@ -667,7 +665,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		}
 		if (fs.existsSync(oldMicroscopeDirectory)) {
 			console.log("CopyFiles from " + oldMicroscopeDirectory);
-			MicroscopyMetadataToolComponent.copyFilesSync(
+			MicroMetaAppElectronComponent.copyFilesSync(
 				oldMicroscopeDirectory,
 				newMicroscopeDirectory
 			);
@@ -686,7 +684,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		}
 		if (fs.existsSync(oldSettingsDirectory)) {
 			console.log("CopyFiles from " + oldSettingsDirectory);
-			MicroscopyMetadataToolComponent.copyFilesSync(
+			MicroMetaAppElectronComponent.copyFilesSync(
 				oldSettingsDirectory,
 				newSettingsDirectory
 			);
@@ -729,7 +727,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 		// } else
 		if (!workingDirectoryConfirmed) {
 			return (
-				<MicroscopyMetadataToolWorkingDirectoryChooser
+				<MicroMetaAppElectronWorkingDirectoryChooser
 					width={dims.width}
 					height={dims.height}
 					workingDirectory={workingDirectory}
@@ -739,7 +737,7 @@ class MicroscopyMetadataToolComponent extends React.PureComponent {
 			);
 		} else {
 			return (
-				<MicroscopyMetadataTool
+				<MicroMetaAppReact
 					width={dims.width}
 					height={dims.height}
 					onLoadSchema={this.onLoadSchema}

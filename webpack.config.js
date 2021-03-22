@@ -15,13 +15,13 @@ module.exports = {
 	mode: mode,
 	entry: "./src/app.js",
 	output: {
-		library: "MicroscopyMetadataToolStandAlone", // Unsure if best naming convention
+		library: "MicroMetaAppElectron", // Unsure if best naming convention
 		libraryTarget: "umd",
 		path: path.resolve("./build"),
 		filename:
 			mode === "production"
-				? "MicroscopyMetadataToolStandAlone.min.js"
-				: "MicroscopyMetadataToolStandAlone.dev.js"
+				? "MicroMetaAppElectron.min.js"
+				: "MicroMetaAppElectron.dev.js",
 	},
 	module: {
 		rules: [
@@ -29,14 +29,14 @@ module.exports = {
 				test: /\.js$/,
 				exclude: /node_modules/,
 				use: {
-					loader: "babel-loader"
-				}
+					loader: "babel-loader",
+				},
 			},
 			{
 				test: /\.css$/,
-				use: ["style-loader", "css-loader"]
-			}
-		]
+				use: ["style-loader", "css-loader"],
+			},
+		],
 	},
 	externals: {
 		// Things which we don't transpile and expect user of library/component to have or provide.
@@ -44,13 +44,13 @@ module.exports = {
 			commonjs: "react",
 			commonjs2: "react",
 			amd: "react",
-			root: "React"
+			root: "React",
 		},
 		"react-dom": {
 			commonjs: "react-dom",
 			commonjs2: "react-dom",
 			amd: "react-dom",
-			root: "ReactDOM"
-		}
-	}
+			root: "ReactDOM",
+		},
+	},
 };
