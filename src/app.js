@@ -27,7 +27,7 @@ const settingsDirectory = "./settings/";
 const scriptDirectory = "./scripts/";
 const scriptDependencyDirectory = "./scripts/dependency-jars";
 
-const imageMetadataReaderScriptName = "4DNImageMetadataReader-0.0.1.jar";
+const imageMetadataReaderScriptName = "4DNMicroscopyMetadataReader-0.0.1.jar";
 
 window.onload = () => {
 	ReactDOM.render(
