@@ -170,6 +170,12 @@
 			"category":"General",
 			"readonly":true
 		},
+		"Attenuation": {
+			"type":"number",
+			"description":"This field reports a measure of the capacity of this Light Source Coupling device to attenuate the Illumination Power of the light passing through measured at the Peak Wavelength and expressed in dB/km. ",
+			"tier":3,
+			"category":"LightSourceCoupling"
+		},
 		"Transmittance": {
 			"type":"number",
 			"description":"The maximum amount of light this Light Source Coupling device is capable of transmitting at the Peak Wavelength. It is represented as a fractional value from 0.0 to 1.0.",
@@ -392,7 +398,7 @@
 		"Type",
 		"NumericalAperture",
 		"ID",
-		"Transmittance",
+		"Attenuation",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",

@@ -43,64 +43,50 @@
 			"tier":1,
 			"category":"Lens"
 		},
-		"RefractiveIndex": {
-			"type":"number",
-			"description":"This field records the Refractive Index of the material this Lens is made of, as specified by the Manufacturer. The Refractive Index is the ratio of the speed of light (more precisely, the phase velocity) in a vacuum versus that in a given medium.",
-			"tier":3,
-			"category":"Lens"
-		},
 		"Infinity": {
 			"type":"boolean",
 			"description":"This field records whether (True) or not (False) this Lens is infinity corrected. An Infinity-corrected Lens is fixed for an infinite sample to primary Image distance. It needs to be used with a Tube Lens of appropriate focal length to obtain the specified magnification.",
 			"tier":2,
 			"category":"Lens"
 		},
-		"WorkingDistance": {
-			"type":"number",
-			"description":"This field reports the Working Distance of this Lens under normal operating conditions. The Working Distance is the distance (in air, or in the specified immersion liquid) between the front of an Objective and the surface of the cover glass or of the specimen if uncovered.",
-			"tier":2,
+		"Composite": {
+			"type":"boolean",
+			"description":"This field records whether this Lens is Composite (i.e., composed of multiple Lenses; True) or Simple (False).",
+			"tier":3,
 			"category":"Lens"
 		},
-		"WorkingDistanceUnit": {
+		"Shape": {
 			"type":"string",
-			"description":"This field reports the Working Distance of this Lens under normal operating conditions. The Working Distance is the distance (in air, or in the specified immersion liquid) between the front of an Objective and the surface of the cover glass or of the specimen if uncovered.",
-			"tier":2,
-			"default":"mm",
+			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please this attribute is often used to classify Lenses into categories.",
+			"tier":3,
 			"enum": [
-				"Ym",
-				"Zm",
-				"Em",
-				"Pm",
-				"Tm",
-				"Gm",
-				"Mm",
-				"km",
-				"hm",
-				"dam",
-				"m",
-				"dm",
-				"cm",
-				"mm",
-				"µm",
-				"nm",
-				"pm",
-				"fm",
-				"am",
-				"zm",
-				"ym",
-				"Å",
-				"thou",
-				"li",
-				"in",
-				"ft",
-				"yd",
-				"mi",
-				"ua",
-				"ly",
-				"pc",
-				"pt",
-				"Pixel",
-				"reference frame"
+				"Amici-Bertrand",
+				"Biconvex",
+				"Biconcave",
+				"Plano Convex",
+				"Plano Concave",
+				"Convex Meniscus",
+				"Concave Meniscus",
+				"Equiconvex",
+				"Other"
+			],
+			"category":"Lens"
+		},
+		"Geometry": {
+			"type":"string",
+			"description":"The geometrical shape of this lens' surface(s).",
+			"tier":3,
+			"enum": [
+				"Spherical",
+				"Aspherical",
+				"Cylindrical",
+				"Ball",
+				"Hemispheric-ball",
+				"Cone",
+				"Drum",
+				"Rod",
+				"Toric",
+				"Other"
 			],
 			"category":"Lens"
 		},
@@ -152,51 +138,65 @@
 			],
 			"category":"Lens"
 		},
-		"Type": {
+		"Coating": {
 			"type":"string",
-			"description":"This field records the general category to which this Lens belongs.",
+			"description":"An optical Coating consists of one or more thin layers of material deposited on an optical component such as a Lens or Mirror, which alters the way in which the optic reflects and transmits light. This field records the optical Coating used for this Lens.",
 			"tier":3,
-			"enum": [
-				"Amici-Bertrand",
-				"Biconvex",
-				"Biconcave",
-				"Plano Convex",
-				"Plano Concave",
-				"Convex Meniscus",
-				"Concave Meniscus",
-				"Equiconvex",
-				"Other"
-			],
-			"category":"Lens"
-		},
-		"Composite": {
-			"type":"boolean",
-			"description":"This field records whether this Lens is Composite (True) or Simple (False).",
-			"tier":3,
-			"category":"Lens"
-		},
-		"Geometry": {
-			"type":"string",
-			"description":"The geometrical shape of this lens' surface(s).",
-			"tier":3,
-			"enum": [
-				"Spherical",
-				"Aspherical",
-				"Cylindrical",
-				"Ball",
-				"Hemispheric-ball",
-				"Cone",
-				"Drum",
-				"Rod",
-				"Toric",
-				"Other"
-			],
 			"category":"Lens"
 		},
 		"AttenuationCoefficient": {
 			"type":"number",
 			"description":"This field records the Attenuation Coefficient (AC) of this optical element. The AC (aka blocking coefficient) is a material property that characterizes the degree to which light is being blocked (i.e., scattered or absorbed) by it. AC is used as a measure of the out-of-band blocking of an optical Lens, Filter, Dichroic mirror over an extended range of the spectrum. AC is often reported in units of optical density (OD), whereas OD= -log10(T), and T=Transmittance (0≤T≤1).",
 			"tier":3,
+			"category":"Lens"
+		},
+		"WorkingDistance": {
+			"type":"number",
+			"description":"This field reports the Working Distance of this Lens under normal operating conditions. The Working Distance is the distance (in air, or in the specified immersion liquid) between the front of an Objective and the surface of the cover glass or of the specimen if uncovered.",
+			"tier":2,
+			"category":"Lens"
+		},
+		"WorkingDistanceUnit": {
+			"type":"string",
+			"description":"This field reports the Working Distance of this Lens under normal operating conditions. The Working Distance is the distance (in air, or in the specified immersion liquid) between the front of an Objective and the surface of the cover glass or of the specimen if uncovered.",
+			"tier":2,
+			"default":"mm",
+			"enum": [
+				"Ym",
+				"Zm",
+				"Em",
+				"Pm",
+				"Tm",
+				"Gm",
+				"Mm",
+				"km",
+				"hm",
+				"dam",
+				"m",
+				"dm",
+				"cm",
+				"mm",
+				"µm",
+				"nm",
+				"pm",
+				"fm",
+				"am",
+				"zm",
+				"ym",
+				"Å",
+				"thou",
+				"li",
+				"in",
+				"ft",
+				"yd",
+				"mi",
+				"ua",
+				"ly",
+				"pc",
+				"pt",
+				"Pixel",
+				"reference frame"
+			],
 			"category":"Lens"
 		},
 		"ImageDistance": {
@@ -346,12 +346,6 @@
 			],
 			"category":"Lens"
 		},
-		"AbbeNumber": {
-			"type":"number",
-			"description":"This field records the Abbe number of this Lens. The Abbe Number is a measure of the material's dispersion (variation of Refractive Index versus Wavelength), with high values indicating low dispersion.",
-			"tier":3,
-			"category":"Lens"
-		},
 		"RadiusOfCurvature": {
 			"type":"number",
 			"description":"This field records the Radius of Curvature of this Lens. A spherical Lens or Mirror surface has a center of curvature located either along or decentered from the system local optical axis. The vertex of the lens surface is located on the local optical axis. The distance from the vertex to the center of curvature is the Radius of Curvature of the surface.",
@@ -406,27 +400,59 @@
 			"tier":3,
 			"enum": [
 				"alpha-Barium Borate",
-				"N-BK7 (Borosilicate Crown)",
-				"Calcium Fluoride",
-				"UV-Grade Fused Silica (UVFS)",
+				"Barium Crown (BAK/N-BAK)",
+				"Barium Flint (BAF/N-BAF)",
+				"Barium Heavy Flint (BASF/N-BASF)",
+				"Barium Light Flint (BALF/N-BALF)",
+				"Borofloat",
+				"Boron Crown (BK/N-BK)",
+				"Calcite",
+				"Calcium Fluoride (CaF2",
+				"Crown (K/N-K)",
+				"Crown Flint (KF/N-NK)",
+				"Crystal Quartz",
+				"Dense Crown (SK/N-SK)",
+				"Dense Flint (SF/N-SF)",
+				"Extra Dense Crown (SSK/N-SSK)",
+				"Extra Ligh Flint (LLF)",
+				"Flint (F/N-F)",
+				"Fluorine Crown (FK/N-FK)",
 				"Germanium",
-				"Magnesium Fluoride",
-				"N-SF11 (Dense Flint)",
+				"Lanthanum Crown (LAK/N-LAK)",
+				"Lanthanum Dense Flint (LASF/N-LASF)",
+				"Lanthanum Flint (LAFN/N-LAF)",
+				"Light Flint (LF)",
+				"Magnesium Fluoride (MgF2)",
+				"Phosphate Crown (PK/N-PK)",
+				"Phosphate Dense (PSK/N-PSK)",
 				"Polytetrafluoroethylene (PFTE)",
+				"Rutile (TiO2)",
+				"Short Flint Special (KZFS/N-KZFS)",
+				"Silicon (Si)",
+				"UV-Grade Fused Silica (UVFS)",
+				"Yttrium Orthovanadate (YVO4)",
+				"Zerodur (Lithium Aluminum Ailicon Oxide)",
+				"Zinc Crown (ZK/N-ZK)",
 				"Zinc Selenide (ZnSe)",
 				"Other"
 			],
 			"category":"Lens"
 		},
-		"Coating": {
+		"GlassCode": {
 			"type":"string",
-			"description":"An optical Coating consists of one or more thin layers of material deposited on an optical component such as a Lens or Mirror, which alters the way in which the optic reflects and transmits light. This field records the optical Coating used for this Lens.",
+			"description":"If available, this field records the international Glass Code of the material that constitutes this Lens. The Glass Code designation is based on U.S. military standard MIL-G-174, and it consists of a six-digit number specifying the glass according to its Refractive Index nd at the Fraunhofer d- (or D3-) line, and its Abbe Number Vd also taken at that line. The resulting Glass Code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit Glass Code of 517642.",
 			"tier":3,
 			"category":"Lens"
 		},
-		"GlassCode": {
-			"type":"integer",
-			"description":"If available, this field records the international Glass Code of the material that constitutes this Lens. The Glass Code designation is based on U.S. military standard MIL-G-174, and it consists of a six-digit number specifying the glass according to its Refractive Index nd at the Fraunhofer d- (or D3-) line, and its Abbe Number Vd also taken at that line. The resulting Glass Code is the value of nd-1 rounded to three digits, followed by Vd rounded to three digits, with all decimal points ignored. For example, BK7 has nd = 1.5168 and Vd = 64.17, giving a six-digit Glass Code of 517642.",
+		"RefractiveIndex": {
+			"type":"number",
+			"description":"This field records the Refractive Index of the material this Lens is made of, as specified by the Manufacturer. The Refractive Index is the ratio of the speed of light (more precisely, the phase velocity) in a vacuum versus that in a given medium.",
+			"tier":3,
+			"category":"Lens"
+		},
+		"AbbeNumber": {
+			"type":"number",
+			"description":"This field records the Abbe number of this Lens. The Abbe Number is a measure of the material's dispersion (variation of Refractive Index versus Wavelength), with high values indicating low dispersion.",
 			"tier":3,
 			"category":"Lens"
 		},
@@ -497,8 +523,8 @@
 	"required": [
 		"ID",
 		"Magnification",
-		"Type",
 		"Composite",
+		"Shape",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
