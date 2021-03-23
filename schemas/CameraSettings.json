@@ -80,7 +80,7 @@
 			"category":"CameraSettings"
 		},
 		"Integration": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field represents the number of sequential frames that have been averaged to obtain this image, to improve the overall signal-to-noise ratio.",
 			"tier":2,
 			"category":"CameraSettings"

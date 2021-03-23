@@ -88,7 +88,7 @@
 			"category":"Filter"
 		},
 		"FilterHolderPosition": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the position of this element in a Filter Holder of any kind, such as a Filter Slider, Turret or Wheel.",
 			"tier":2,
 			"category":"Filter"

@@ -24,19 +24,19 @@
 			"readonly":true
 		},
 		"TheZ": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the Z-section to which this Plane corresponds. This is numbered from 0.",
 			"tier":1,
 			"category":"Plane"
 		},
 		"TheT": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records th Timepoint to which this Plane corresponds. This is numbered from 0.",
 			"tier":1,
 			"category":"Plane"
 		},
 		"TheC": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records th Channel to which this Plane corresponds. This is numbered from 0.",
 			"tier":1,
 			"category":"Plane"

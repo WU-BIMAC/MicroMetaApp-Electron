@@ -107,14 +107,14 @@
 			"category":"Channel"
 		},
 		"Color": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field records the Color used to render this Channel - encoded as RGBA. The default value is -1 corresponding #FFFFFFFF, so solid white (it is a signed 32 bit value).",
 			"tier":1,
 			"default":"-1",
 			"category":"Channel"
 		},
 		"SamplesPerPixel": {
-			"type":"string",
+			"type":"integer",
 			"description":"This field is prevalently used for RGB Images and records the number of samples the detector takes to form each pixel value. [units:none]",
 			"tier":3,
 			"category":"Channel"
