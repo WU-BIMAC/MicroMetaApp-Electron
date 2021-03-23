@@ -164,7 +164,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"integer",
+			"type":"string",
 			"description":"This field records the position of this Mirroring Device in a Optics Holder of any kind, such as a Slider, Turret or Wheel.",
 			"tier":2,
 			"category":"MirroringDevice"

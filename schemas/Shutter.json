@@ -179,7 +179,7 @@
 			"readonly":true
 		},
 		"OpticsHolderPosition": {
-			"type":"integer",
+			"type":"string",
 			"description":"This field records the position of this Optical Aperture in a Optics Turret.",
 			"tier":2,
 			"category":"OpticalAperture"

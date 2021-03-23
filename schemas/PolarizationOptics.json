@@ -109,7 +109,7 @@
 		},
 		"MaterialName": {
 			"type":"string",
-			"description":"This field records the chemical composition or the nonproprietary trade designation of the Material this Polarization Optics is made of.",
+			"description":"This field records the chemical composition or designation of the Material this Polarization Optics is made of.",
 			"tier":3,
 			"enum": [
 				"alpha-Barium Borate",

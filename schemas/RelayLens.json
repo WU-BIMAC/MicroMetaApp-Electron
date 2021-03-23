@@ -32,7 +32,7 @@
 			"readonly":true
 		},
 		"Magnification": {
-			"type":"integer",
+			"type":"number",
 			"description":"This field records the nominal Magnification provided by this Lens as specified by the Manufacturer.",
 			"tier":1,
 			"category":"Lens"
@@ -57,7 +57,7 @@
 		},
 		"Shape": {
 			"type":"string",
-			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please this attribute is often used to classify Lenses into categories.",
+			"description":"This field records the shape of the profile (e.g., concave vs. convex) of this Lens. Please note that this attribute is often used to classify Lenses into categories.",
 			"tier":3,
 			"enum": [
 				"Amici-Bertrand",
@@ -396,7 +396,7 @@
 		},
 		"MaterialName": {
 			"type":"string",
-			"description":"This field records the chemical composition or the nonproprietary trade designation of the Material this Lens is made of.",
+			"description":"This field records the chemical composition or designation of the Material this Lens is made of.",
 			"tier":3,
 			"enum": [
 				"alpha-Barium Borate",
