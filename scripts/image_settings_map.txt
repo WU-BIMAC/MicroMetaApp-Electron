@@ -67,7 +67,7 @@ Image.Pixels.PhysicalSizeZ:Image.Pixels.PhysicalSizeZ
 //Image.Pixels.PhysicalSizeZUnit:Image.Pixels.PhysicalSizeZUnit
 Image.Pixels.TimeIncrement:Image.Pixels.TimeIncrement
 //Image.Pixels.TimeIncrementUnit:Image.Pixels.TimeIncrementUnit
-Image.Pixels.Type:Image.Pixels.Type
+Image.Pixels.Type:Image.Pixels.PixelType
 Image.Pixels.Interleaved:Image.Pixels.Interleaved
 Image.Pixels.SignificantBits:Image.Pixels.SignificantBits
 Image.Pixels.BigEndian:Image.Pixels.BigEndian
