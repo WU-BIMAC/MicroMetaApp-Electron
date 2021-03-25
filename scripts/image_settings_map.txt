@@ -24,7 +24,7 @@ Image.Description:Image.Description
 //IMAGING ENVIRONMENT
 //Image.ImagingEnvironment:Image.ImagingEnvironment
 //Image.ImagingEnvironment.ID:Image.ImagingEnvironment.ID
-Image.ImagingEnvironment.Namespace:Image.ImagingEnvironment.Namespace
+//Image.ImagingEnvironment.Namespace:Image.ImagingEnvironment.Namespace
 //Image.ImagingEnvironment.Annotator:Image.ImagingEnvironment.Annotator
 //Image.ImagingEnvironment.Annotator.ExperimenterID:Image.ImagingEnvironment.Annotator.ExperimenterID
 //Image.ImagingEnvironment.AnnotationRef:Image.ImagingEnvironment.AnnotationRef
@@ -117,30 +117,30 @@ Image.Pixels.Channel.EmissionWavelength:Image.Channel.Fluorophore.EmissionWavele
 //Image.Pixels.Channel.FilterSet.EmissionFilterRef:Image.Channel.LightPath.FilterSet.EmissionFilterRef
 
 //LIGHTSOURCE SETTINGS
-//Image.Pixels.Channel.LightSourceSettings:Image.Channel.LightPath.LightSourceSettings
-//Image.Pixels.Channel.LightSourceSettings.LightSourceID:Image.Channel.LightPath.LightSourceSettings.LightSourceID
-Image.Pixels.Channel.LightSourceSettings.Wavelength:Image.Channel.LightPath.LightSourceSettings.Wavelength
-Image.Pixels.Channel.LightSourceSettings.Attenuation:Image.Channel.LightPath.LightSourceSettings.Attenuation
+//Image.Pixels.Channel.LightSourceSettings:Image.Channel.LightPath.ComponentSettings.LightSourceSettings
+//Image.Pixels.Channel.LightSourceSettings.LightSourceID:Image.Channel.LightPath.ComponentSettings.LightSourceSettings.LightSourceID
+Image.Pixels.Channel.LightSourceSettings.Wavelength:Image.Channel.LightPath.ComponentSettings.LightSourceSettings.Wavelength
+Image.Pixels.Channel.LightSourceSettings.Attenuation:Image.Channel.LightPath.ComponentSettings.LightSourceSettings.Attenuation
 
 //DETECTOR SETTINGS
-//Image.Pixels.Channel.DetectorSettings:Image.Channel.LightPath.DetectorSettings
-//Image.Pixels.Channel.DetectorSettings.DetectorID:Image.Channel.LightPath.DetectorSettings.DetectorID
-Image.Pixels.Channel.DetectorSettings.Gain:Image.Channel.LightPath.DetectorSettings.AnalogGain
-Image.Pixels.Channel.DetectorSettings.AmplificationGain:Image.Channel.LightPath.DetectorSettings.AmplificationGain
-Image.Pixels.Channel.DetectorSettings.Offset:Image.Channel.LightPath.DetectorSettings.Offset
-//Image.Pixels.Channel.DetectorSettings.DetectorID:Image.Channel.LightPath.DetectorSettings.DetectorID
-Image.Pixels.Channel.DetectorSettings.Gain:Image.Channel.LightPath.DetectorSettings.AnalogGain
-Image.Pixels.Channel.DetectorSettings.AmplificationGain:Image.Channel.LightPath.DetectorSettings.AmplificationGain
-Image.Pixels.Channel.DetectorSettings.Offset:Image.Channel.LightPath.DetectorSettings.Offset
-Image.Pixels.Channel.DetectorSettings.Binning:Image.Channel.LightPath.DetectorSettings.Binning
-Image.Pixels.Channel.DetectorSettings.PixelsReadOutRate:Image.Channel.LightPath.DetectorSettings.PixelsReadOutRate
-Image.Pixels.Channel.DetectorSettings.Integration:Image.Channel.LightPath.DetectorSettings.Integration
-//Image.Pixels.Channel.DetectorSettings.DetectorID:Image.Channel.LightPath.DetectorSettings.DetetectorID
-Image.Pixels.Channel.DetectorSettings.Gain:Image.Channel.LightPath.DetectorSettings.AnalogGain
-Image.Pixels.Channel.DetectorSettings.AmplificationGain:Image.Channel.LightPath.DetectorSettings.AmplificationGain
-Image.Pixels.Channel.DetectorSettings.Offset:Image.Channel.LightPath.DetectorSettings.Offset
-Image.Pixels.Channel.DetectorSettings.Voltage:Image.Channel.LightPath.DetectorSettings.Voltage
-Image.Pixels.Channel.DetectorSettings.Zoom:Image.Channel.LightPath.DetectorSettings.Zoom
+//Image.Pixels.Channel.DetectorSettings:Image.Channel.LightPath.ComponentSettings.DetectorSettings
+//Image.Pixels.Channel.DetectorSettings.DetectorID:Image.Channel.LightPath.ComponentSettings.DetectorSettings.DetectorID
+Image.Pixels.Channel.DetectorSettings.Gain:Image.Channel.LightPath.ComponentSettings.DetectorSettings.AnalogGain
+Image.Pixels.Channel.DetectorSettings.AmplificationGain:Image.Channel.LightPath.ComponentSettings.DetectorSettings.AmplificationGain
+Image.Pixels.Channel.DetectorSettings.Offset:Image.Channel.LightPath.ComponentSettings.DetectorSettings.Offset
+//Image.Pixels.Channel.DetectorSettings.DetectorID:Image.Channel.LightPath.ComponentSettings.DetectorSettings.DetectorID
+Image.Pixels.Channel.DetectorSettings.Gain:Image.Channel.LightPath.ComponentSettings.DetectorSettings.AnalogGain
+Image.Pixels.Channel.DetectorSettings.AmplificationGain:Image.Channel.LightPath.ComponentSettings.DetectorSettings.AmplificationGain
+Image.Pixels.Channel.DetectorSettings.Offset:Image.Channel.LightPath.ComponentSettings.DetectorSettings.Offset
+Image.Pixels.Channel.DetectorSettings.Binning:Image.Channel.LightPath.ComponentSettings.DetectorSettings.Binning
+Image.Pixels.Channel.DetectorSettings.PixelsReadOutRate:Image.Channel.LightPath.ComponentSettings.DetectorSettings.PixelsReadOutRate
+Image.Pixels.Channel.DetectorSettings.Integration:Image.Channel.LightPath.ComponentSettings.DetectorSettings.Integration
+//Image.Pixels.Channel.DetectorSettings.DetectorID:Image.Channel.LightPath.ComponentSettings.DetectorSettings.DetetectorID
+Image.Pixels.Channel.DetectorSettings.Gain:Image.Channel.LightPath.ComponentSettings.DetectorSettings.AnalogGain
+Image.Pixels.Channel.DetectorSettings.AmplificationGain:Image.Channel.LightPath.ComponentSettings.DetectorSettings.AmplificationGain
+Image.Pixels.Channel.DetectorSettings.Offset:Image.Channel.LightPath.ComponentSettings.DetectorSettings.Offset
+Image.Pixels.Channel.DetectorSettings.Voltage:Image.Channel.LightPath.ComponentSettings.DetectorSettings.Voltage
+Image.Pixels.Channel.DetectorSettings.Zoom:Image.Channel.LightPath.ComponentSettings.DetectorSettings.Zoom
 
 //LIGHTPATH
 //Image.Pixels.Channel.LightPath:Image.Channel.LightPath
