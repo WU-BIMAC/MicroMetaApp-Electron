@@ -84,8 +84,7 @@
 		"NrOfSlots": {
 			"type":"integer",
 			"description":"This field records how many Slots this Optics Holder has.",
-			"tier":3,
-			"default":"6",
+			"tier":2,
 			"category":"OpticsHolder"
 		},
 		"Manufacturer": {
