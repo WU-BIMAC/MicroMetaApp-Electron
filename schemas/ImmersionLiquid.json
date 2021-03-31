@@ -91,9 +91,6 @@
 	},
 	"required": [
 		"ID",
-		"Manufacturer",
-		"Model",
-		"CatalogNumber",
 		"Tier"
 	]
 }
