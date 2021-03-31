@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"TransmissionWavelengthRangeSettings.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"TransmissionWavelengthRangeSettings",
 	"description":"This element records the range of Transmission Wavelengths that were set for this optical component during the Acquisition of this Image. It also records the maximum amount of light transmitted. Multiple of this elements can be used.",

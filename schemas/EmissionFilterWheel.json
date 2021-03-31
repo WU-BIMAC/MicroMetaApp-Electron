@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"EmissionFilterWheel.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"EmissionFilterWheel",
 	"description":"This element represents a circular holder for multiple individual Emission Filters.",

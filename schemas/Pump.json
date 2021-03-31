@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Pump.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"Pump",
 	"description":"In case the primary Laser is Pumped, this element describe a secondary Laser, positioned upstream of the primary Laser and used to pump it.",

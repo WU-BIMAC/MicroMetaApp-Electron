@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"MechanicalStage.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"MechanicalStage",
 	"description":"This element describes a Stage fitted with ball-screw drives or rack mechanisms (sometimes equipped with precision calibration) to primarily assist in the translational movement of the Sample in the X and Y directions. A Mechanical Stage may be built into the Microscope Stand or it may consist of a removable insert. It may be manually operated, or it might be driven by linear electrodynamic motors, such as for example, in computer-controlled digital Microscopes. In some rare cases, a Mechanical Stage might also be used for Focusing (Z-axis movement), i.e., in simple surveying Microscopes.",
@@ -39,13 +39,13 @@
 			],
 			"category":"Stage"
 		},
-		"XYRepetability": {
+		"XYRepeatability": {
 			"type":"number",
 			"description":"This field captures the expected Accuracy with which this Stage is capable of returning to a previously visited XY-plane Position, as specified by the Manufacturer. This metric is important for example for Tiling.",
 			"tier":1,
 			"category":"Stage"
 		},
-		"XYRepetabilityUnit": {
+		"XYRepeatabilityUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":1,
@@ -379,13 +379,13 @@
 			],
 			"category":"SamplePositioning"
 		},
-		"ZRepetability": {
+		"ZRepeatability": {
 			"type":"number",
 			"description":"This field captures the expected Accuracy with which this Sample Positioning Device is capable of returning to a previously visited Z-axis Position, as specified by the Manufacturer. This metric is important for example for Tiling.",
 			"tier":1,
 			"category":"SamplePositioning"
 		},
-		"ZRepetabilityUnit": {
+		"ZRepeatabilityUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":1,
@@ -724,13 +724,13 @@
 		}
 	},
 	"required": [
-		"XYRepetability",
+		"XYRepeatability",
 		"XTravelRange",
 		"YTravelRange",
 		"ID",
 		"Encoded",
 		"Motorized",
-		"ZRepetability",
+		"ZRepeatability",
 		"MovementAxes",
 		"BuiltIn",
 		"Manufacturer",

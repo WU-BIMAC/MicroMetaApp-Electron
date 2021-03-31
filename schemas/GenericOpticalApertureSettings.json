@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"GenericOpticalApertureSettings.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"GenericOpticalApertureSettings",
 	"description":"This element holds the Setting applied to a Generic Optical Aperture used during the Acquisition of this Channel as well as a reference (the ID attribute) to the Optical Aperture in question.",

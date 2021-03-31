@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Z-Drive.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"Z-Drive",
 	"description":"This element describes a Focusing Device designed to electronically control a moving a mechanical part of the Microscope such as the Stage (see Stage-APE), or the Microscope Stand itself (e.g. most dissecting Microscopes). An example of such devices is the MFC-2000 Z-Axis Drive and Controller (http://www.asiimaging.com/controllers/mfc-2000-z-axis-drive-and-controller/#tab-id-4).",
@@ -69,13 +69,13 @@
 			],
 			"category":"SamplePositioning"
 		},
-		"ZRepetability": {
+		"ZRepeatability": {
 			"type":"number",
 			"description":"This field captures the expected Accuracy with which this Sample Positioning Device is capable of returning to a previously visited Z-axis Position, as specified by the Manufacturer. This metric is important for example for Tiling.",
 			"tier":1,
 			"category":"SamplePositioning"
 		},
-		"ZRepetabilityUnit": {
+		"ZRepeatabilityUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":1,
@@ -417,7 +417,7 @@
 		"ID",
 		"Encoded",
 		"Motorized",
-		"ZRepetability",
+		"ZRepeatability",
 		"MovementAxes",
 		"BuiltIn",
 		"Manufacturer",

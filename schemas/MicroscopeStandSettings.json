@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"MicroscopeStandSettings.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"MicroscopeStandSettings",
 	"description":"This element refers to the Microscope Stand used to acquire this Image and it holds the Settings that were applied to the Microscope Stand during this Acquisition.",

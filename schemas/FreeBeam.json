@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"FreeBeam.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"FreeBeam",
 	"description":"A Free Beam coupling between the Light Source and the Microscope Stand consists of either a direct mount or an optical path that directs light across free space to the back of the Microscope Stand.",

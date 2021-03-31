@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"IndividualObjectiveFocusing.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"IndividualObjectiveFocusing",
 	"description":"A Focusing mechanism is used to obtain maximum sharpness in an Image by changing the distance between a Sample and the optical system forming the Image. In most cases, a Z-axis Focusing mechanism moves the Objective along the optical axis. This element describes an optional objective nano-Focusing Device associated with this Instrument. These devices might be driven using piezoelectric mechanisms or linear motor actuators associated with crossed roller guideways. They typically achieve higher precision, accuracy, and speed than traditional Focusing Devices.",
@@ -76,13 +76,13 @@
 			],
 			"category":"SamplePositioning"
 		},
-		"ZRepetability": {
+		"ZRepeatability": {
 			"type":"number",
 			"description":"This field captures the expected Accuracy with which this Sample Positioning Device is capable of returning to a previously visited Z-axis Position, as specified by the Manufacturer. This metric is important for example for Tiling.",
 			"tier":1,
 			"category":"SamplePositioning"
 		},
-		"ZRepetabilityUnit": {
+		"ZRepeatabilityUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":1,
@@ -425,7 +425,7 @@
 		"ID",
 		"Encoded",
 		"Motorized",
-		"ZRepetability",
+		"ZRepeatability",
 		"MovementAxes",
 		"BuiltIn",
 		"Manufacturer",

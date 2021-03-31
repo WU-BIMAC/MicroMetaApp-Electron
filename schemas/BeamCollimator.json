@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"BeamCollimator.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"BeamCollimator",
 	"description":"Beam Collimators are Lens Systems that transform a strongly diverging light beam into a collimated beam, i.e., a beam where light propagates essentially only in one direction, and the beam divergence is weak. Beam Collimators typically contain some kind of Focusing Lens, or sometimes a curved Mirror, and usually some opto-mechanics for stable mounting and possibly adjustment. Beam Expanders can be custom built or they are also available as pre-assembled optical devices.",

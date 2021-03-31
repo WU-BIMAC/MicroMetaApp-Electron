@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Experiment.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"Experiment",
 	"description":"This element describes the experiment during which this Image was acquired. The optional Description element may contain free text to further describe the experiment.",

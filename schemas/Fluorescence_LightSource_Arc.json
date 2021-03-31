@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Arc.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"Arc",
 	"description":"An Arc lamp is a discharge lamp that produces light by an electric arc (also called a voltaic arc), which is typically generated between metal electrodes and travels through an inert gas in a glass bulb. The inert gas can be Mercury (He), Xenon (Xe), or a mixture of the two. The choice of the gas is important because its nature determines the spectral behavior of the lamp. Refer to Type for more informations about this aspect.",

@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"MountingMedium.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"MountingMedium",
 	"description":"This element refers to the Mounting Medium that was used during the acquisition of this Image. According to ISO 10934-1:2002, a Mounting Medium is a liquid, synthetic resin or other medium in which this Specimen is placed during Image Acquisition. NOTE For fixed Samples observed by transmitted-light microscopy, this Medium is transparent, colourless and of specified refractive index, enclosed between the slide and the cover glass. For reflected-light microscopy, the mounting medium is normally a resin with which the Sample is impregnated so that a polished section may be made. For live Samples, the Medium is typically the tissue culture growth substrate.",

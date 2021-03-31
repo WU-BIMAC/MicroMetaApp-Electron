@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PhotoDiode.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"PhotoDiode",
 	"description":"This element represents a Photovoltaic Detector. Most photodiodes used in confocal microscopes are Avalanche Photodiode (APD) which because of the amplification gain have good sensitivities and less dark current.",

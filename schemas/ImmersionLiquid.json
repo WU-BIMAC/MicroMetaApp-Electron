@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ImmersionLiquid.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"ImmersionLiquid",
 	"description":"This element refers to the Immersion Liquid that was used with this Objective during the Acquisition of this Image. According to ISO 10934-1:2002, an Immersion Liquid is a liquid (commonly immersion oil, water, glycerol or any media in which the Specimen is submerged during acquisition in case a Cover Glass is not used) specified as suitable for use in the space between the front of an Objective lens and the Cover Glass or the Object itself (i.e., such as is the case for Dipping Objectives). Refer to ISO 8036-1 for more details on Immersion Oil. Please NOTE: Because the Immersion Liquid is considered in the computing of corrections to be part of the lens, its refractive index and dispersion (or Abbe number) are critical. Also please NOTE: In case a Cover Glass is not used during Acquisition the Immersion Liquid is most often referred to as Dipping Medium. Examples of Dipping Media include, water-based solutions (biological buffers, culture media, other water-based solutions) and organic-based [FocusClear (CLARITY); CUBIC-1, CUBIC-2, CUBIC-R1, CUBIC-R2; 2,2-thiodiethanol (TDE); ethyl cinnamate; Benzyl Benzoate and BB-PEG (PEGASOS); Benzyl Alcohol, Benzyl Benzoate (BABB); dibenzyl ether (DBE); Ethanol].",
@@ -91,8 +91,6 @@
 	},
 	"required": [
 		"ID",
-		"Type",
-		"RefractiveIndex",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",

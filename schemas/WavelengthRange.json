@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"WavelengthRange.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"WavelengthRange",
 	"description":"This element records a range of Wavelengths this component is designed for, according to the Manufacturer. Multiple of this element may be used.",

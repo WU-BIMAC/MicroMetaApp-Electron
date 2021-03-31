@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PiezoElectricStage.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"PiezoElectricStage",
 	"description":"This describes an optional piezoelectric-driven sample nano-positioning device associated with this Instrument. These devices typically achieve higher precision, accuracy and speed with respect to traditional Mechanical Stages.",
@@ -39,13 +39,13 @@
 			],
 			"category":"Stage"
 		},
-		"XYRepetability": {
+		"XYRepeatability": {
 			"type":"number",
 			"description":"This field captures the expected Accuracy with which this Stage is capable of returning to a previously visited XY-plane Position, as specified by the Manufacturer. This metric is important for example for Tiling.",
 			"tier":1,
 			"category":"Stage"
 		},
-		"XYRepetabilityUnit": {
+		"XYRepeatabilityUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":1,
@@ -379,13 +379,13 @@
 			],
 			"category":"SamplePositioning"
 		},
-		"ZRepetability": {
+		"ZRepeatability": {
 			"type":"number",
 			"description":"This field captures the expected Accuracy with which this Sample Positioning Device is capable of returning to a previously visited Z-axis Position, as specified by the Manufacturer. This metric is important for example for Tiling.",
 			"tier":1,
 			"category":"SamplePositioning"
 		},
-		"ZRepetabilityUnit": {
+		"ZRepeatabilityUnit": {
 			"type":"string",
 			"description":"NA",
 			"tier":1,
@@ -724,13 +724,13 @@
 		}
 	},
 	"required": [
-		"XYRepetability",
+		"XYRepeatability",
 		"XTravelRange",
 		"YTravelRange",
 		"ID",
 		"Encoded",
 		"Motorized",
-		"ZRepetability",
+		"ZRepeatability",
 		"MovementAxes",
 		"BuiltIn",
 		"Manufacturer",

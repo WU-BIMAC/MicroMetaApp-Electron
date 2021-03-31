@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ShutterSettings.json",
-	"version":"2.00.0",
+	"modelVersion":"2.00.0",
 	"type":"object",
 	"title":"ShutterSettings",
 	"description":"This element holds the Setting applied to a Shutter used in the Light Path during the acquisition of this Channel as well as a reference (the ID attribute) to the Shutter in question.",
