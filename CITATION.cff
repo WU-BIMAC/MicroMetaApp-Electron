@@ -1,4 +1,5 @@
 abstract: Micro-Meta App is an intuitive Graphical User Interface (GUI)-based open-source software that helps scientists to interactively build graphical representations of microscope hardware by dragging-and-dropping individual components onto the workspace and entering the relevant attribute values based on the 4D Nucleome (4DN) - BioImaging North America (BINA) Microscopy Metadata guidelines that scale experimental complexity. From this, Micro-Meta App automatically generates structured Microscope-files that can be saved locally, consumed by existing data-portals, shared with other scientists and used repeatedly whenever the same microscope is used to produce image data. Thus, when the image acquisition settings utilized to produce a given image dataset needs to be recorded, the user selects the desired image data alongside the relevant Microscope-file. Then, Micro-Meta App imports the relevant metadata from the header of image data files to be annotated and interactively guides the user through the collection of all missing attributes. Finally, the App generates a Settings-file, which coupled with the Microscope-file contains comprehensive descriptions of the conditions utilized to produce individual microscopy datasets.
+  - 
 authors: 
   -
     affiliation: Program in Molecular Medicine, UMass Medical School, Worcester MA 01605, USA
@@ -10,42 +11,42 @@ authors:
     family-names: Balashov
     given-names: Alexander
   -
-    affiliation: "Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA"
+    affiliation: Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA
     family-names: Ehmsen
     given-names: Shannon
   -
-    affiliation: "Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA"
+    affiliation: Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA
     family-names: Ozturk
     given-names: Serkan Utku
     orcid: https://orcid.org/0000-0001-8835-787X
-  -  
-    affiliation: "Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA"
+  -
+    affiliation: Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA
     family-names: Alver
     given-names: Burak
-    orcid: "https://orcid.org/https://orcid.org/0000-0002-5019-7652"
+    orcid: https://orcid.org/https://orcid.org/0000-0002-5019-7652
   -
-    affiliation: " Program in Molecular Medicine, UMass Medical School, Worcester MA 01605, USA"
-    family-names: "Strambio-De-Castillia"
+    affiliation:  Program in Molecular Medicine, UMass Medical School, Worcester MA 01605, USA
+    family-names: Strambio-De-Castillia
     given-names: Caterina
     email: caterina.strambio@umassmed.edu
-    orcid: "https://orcid.org/https://orcid.org/0000-0002-1069-1816"
-cff-version: "1.1.3"
+    orcid: https://orcid.org/https://orcid.org/0000-0002-1069-1816
+cff-version: 1.1.3
 date-released: 2021-04-20
 keywords: 
   - metadata
   - microscopy
   - standards
-  - "data model"
+  - data model
   - OME
-  - "open science"
+  - open science
   - reproducibility
-  - "quality control"
-  - "data provenance"
-license: "GNU General Public License v.3"
-message: "If you use this software please cite both the software using the metadata indicated below, and the papers as indicated in the scope of each reference."
-repository-code: "https://github.com/WU-BIMAC/MicroMetaApp-Electron"
-title: "Micro-Meta App - Electron implementation"
-version: "0.46.5-b1-0 stable beta"
+  - quality control
+  - data provenance
+license: GNU General Public License v.3
+message: If you use this software please cite both the software using the metadata indicated below, and the papers as indicated in the scope of each reference.
+repository-code: https://github.com/WU-BIMAC/MicroMetaApp-Electron
+title: Micro-Meta App - Electron implementation
+version: 0.46.5-b1-0 stable beta
   - 
 references:
   - type: article
@@ -57,13 +58,14 @@ references:
         email: alessandro.rigano@umassmed.edu
       - family-names: Balashov
         given-names: Alexander
-        affiliation: "Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA"
-      - family-names: "Utku-Ozturk"
-        given-names: Serkan
-        affiliation: "Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA"
+        affiliation: Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA
+      - family-names: Ozturk
+        given-names: Serkan Utku
+        affiliation: Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA
+        orcid: https://orcid.org/0000-0001-8835-787
       - family-names: Ehmsen
         given-names: Shannon
-        affiliation: "Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA"
+        affiliation: Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA
       - family-names: Ryan
         given-names: Joel
         affiliation: Advanced BioImaging Facility (ABIF), McGill University, Montreal, Quebec, H3G 0B1, Canada
@@ -126,11 +128,11 @@ references:
         orcid: https://orcid.org/0000-0001-8569-0466
       - family-names: Park
         given-names: Peter
-        affiliation: "Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA"
+        affiliation: Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA
       - family-names: Alver
         given-names: Burak
-        affiliation: "Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA"
-        orcid: "https://orcid.org/https://orcid.org/0000-0002-5019-7652"
+        affiliation: Department of Biomedical Informatics, Harvard Medical School, Boston, MA 02115, USA
+        orcid: https://orcid.org/https://orcid.org/0000-0002-5019-7652
       - family-names: Grunwald
         given-names: David
         affiliation: RNA Therapeutics Institute, UMass Medical School, Worcester MA 01605, USA
@@ -139,7 +141,7 @@ references:
         affiliation: University of Massachusetts Medical School
         email: caterina.strambio@umassmed.edu
         orcid: https://orcid.org/0000-0002-1069-1816
-    title: "Micro-Meta App: an interactive software tool to facilitate the collection of microscopy metadata based on community-driven specifications."
+    title: Micro-Meta App: an interactive software tool to facilitate the collection of microscopy metadata based on community-driven specifications.
     year: 2021
     journal: ArXiv.org
     doi: 
