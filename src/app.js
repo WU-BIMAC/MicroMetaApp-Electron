@@ -9,7 +9,7 @@ import Popover from "react-bootstrap/Popover";
 
 import MicroMetaAppReact from "micro-meta-app-react";
 
-const { execSync, execFileSync } = window.require("child_process");
+const { execSync, spawnSync } = window.require("child_process");
 const fs = window.require("fs");
 const electron = window.require("electron");
 const appPath = electron.remote.app.getAppPath();
@@ -473,18 +473,65 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			complete({ Error: `${imgPath} does not exists` });
 			return;
 		}
-		let cmd =
-			"java -jar " + imageMetadataReaderScript + " " + '"' + imgPath + '"';
-		const metadata = execSync(cmd);
-		if (metadata === "ERROR") {
-			//console.log("Error : " + `Could not read ${imgPath} metadata`);
-			complete({ Error: `Could not read ${imgPath} metadata` });
+		let checkVersionCmd = "java";
+		let checkVersionCmdArgs = ["-version"];
+		try {
+			const checkVersionResults = spawnSync(
+				checkVersionCmd,
+				checkVersionCmdArgs
+			);
+			var checkVersionResultsString = new TextDecoder().decode(
+				checkVersionResults.stderr
+			);
+
+			let javaVersion = checkVersionResultsString.split("\n")[0];
+			javaVersion = javaVersion.replace('java version "', "");
+			javaVersion = javaVersion.replace('"', "");
+			let javaVersionSplit = javaVersion.split(".");
+			let javaVersionMain = Number(javaVersionSplit[0]);
+			let javaVersionSub = Number(javaVersionSplit[1]);
+			if (javaVersionMain < 1 || javaVersionSub < 8) {
+				complete({
+					Error:
+						"This software require at least java version 1.8, you are currently running java version " +
+						javaVersion +
+						". Update your java version or skip the image loading process.",
+				});
+				return;
+			} else {
+				console.log("Java version validated " + javaVersion);
+			}
+		} catch (exception) {
+			complete({
+				Error: "Could not verify the java version installed on your system",
+			});
+			return;
 		}
-		var metadataString = new TextDecoder().decode(metadata);
-		console.log("metadataString");
-		console.log(metadataString);
-		let metadataJSON = JSON.parse(metadataString);
-		complete(metadataJSON);
+
+		let cmd =
+			"java -jar " +
+			'"' +
+			imageMetadataReaderScript +
+			'"' +
+			" " +
+			'"' +
+			imgPath +
+			'"';
+		try {
+			const metadata = execSync(cmd);
+			if (metadata === "ERROR") {
+				//console.log("Error : " + `Could not read ${imgPath} metadata`);
+				complete({ Error: `Could not read ${imgPath} metadata` });
+				return;
+			}
+			var metadataString = new TextDecoder().decode(metadata);
+			console.log("metadataString");
+			console.log(metadataString);
+			let metadataJSON = JSON.parse(metadataString);
+			complete(metadataJSON);
+		} catch (exception) {
+			complete({ Error: "Something went wrong trying to read the metadata" });
+		}
 	}
 
 	onWorkingDirectorySave(microscope, complete) {
@@ -749,6 +796,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 					onLoadMetadata={this.onLoadMetadata}
 					imagesPathPNG={imagesPathPNG}
 					imagesPathSVG={imagesPathSVG}
+					hasSettings={true}
 				/>
 			);
 		}
