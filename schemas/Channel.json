@@ -31,7 +31,7 @@
 		},
 		"IlluminationType": {
 			"type":"string",
-			"description":"This filed describes the Light Microscopy Illumination method performed in this case. Allowable terms were obtained from the Biological Imaging Methods Ontology (Fbbi; https://www.ebi.ac.uk/ols/ontologies/fbbi) Light Microscopy term (http://purl.obolibrary.org/obo/FBbi_00000345).",
+			"description":"This field describes the Light Microscopy Illumination method performed in this case. Allowable terms were obtained from the Biological Imaging Methods Ontology (Fbbi; https://www.ebi.ac.uk/ols/ontologies/fbbi) Light Microscopy term (http://purl.obolibrary.org/obo/FBbi_00000345).",
 			"tier":1,
 			"enum": [
 				"4DPlus",
@@ -81,7 +81,7 @@
 		},
 		"IlluminationTypeTermAcession": {
 			"type":"string",
-			"description":"This field records the Accession ID for the term used to describe the Illumination Type. A sub-classes of EFO:0000635 (http://www.ebi.ac.uk/efo/EFO_0000635) is recommended.",
+			"description":"This field records the Accession ID for the term used to describe the Illumination Type. A sub-classes of Light Microscopy term (http://purl.obolibrary.org/obo/FBbi_00000345) is recommended.",
 			"tier":1,
 			"category":"Channel"
 		},

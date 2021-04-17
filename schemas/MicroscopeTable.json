@@ -8,8 +8,8 @@
 	"modelSettings":"MicroscopeTableSettings",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"MicroscopyEssentials",
-	"image":"MicroscopyEssentials_MicroscopeTable.svg",
+	"category":"MicroscopyAccessories",
+	"image":"MicroscopyAccessories_MicroscopeTable.svg",
 	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",

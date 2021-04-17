@@ -8,8 +8,8 @@
 	"modelSettings":"ImagingEnvironment",
 	"extension":"Basic",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"MicroscopyEssentials",
-	"image":"MicroscopyEssentials_EnvironmentalControlDevice.svg",
+	"category":"MicroscopyAccessories",
+	"image":"MicroscopyAccessories_EnvironmentalControlDevice.svg",
 	"tier":1,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
