@@ -8,7 +8,7 @@
 				"h":1150.9761
 			}
 		},
-		"MicroscopyEssentials.MicroscopeTable":{
+		"MicroscopyAccessories.MicroscopeTable":{
 			"General":{
 				"x":1613.7446,
 				"y":1072.818,
@@ -16,7 +16,7 @@
 				"h":43.0292 
 			}
 		},
-		"MicroscopyEssentials.EnvironmentalControlDevice":{
+		"MicroscopyAccessories.EnvironmentalControlDevice":{
 			"General":{
 				"x":2093.4117,
 				"y":913.9234,
@@ -1198,7 +1198,7 @@
 				"h":1150.9761
 			}
 		},
-		"MicroscopyEssentials.MicroscopeTable":{
+		"MicroscopyAccessories.MicroscopeTable":{
 			"General":{
 				"x":1613.7446,
 				"y":1072.818,
@@ -1206,7 +1206,7 @@
 				"h":43.0292 
 			}
 		},
-		"MicroscopyEssentials.EnvironmentalControlDevice":{
+		"MicroscopyAccessories.EnvironmentalControlDevice":{
 			"General":{
 				"x":2093.4117,
 				"y":913.9234,
