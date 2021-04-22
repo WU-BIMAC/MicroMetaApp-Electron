@@ -36,12 +36,6 @@
 			"tier":1,
 			"category":"Objective"
 		},
-		"CalibratedMagnification": {
-			"type":"number",
-			"description":"This field captures the Magnification of the Objective as measured via a calibration process- i.e., '59.987' for a 60x lens.",
-			"tier":2,
-			"category":"Objective"
-		},
 		"LensNA": {
 			"type":"number",
 			"description":"This field captures the nominal Numerical Aperture (NA) of this Objective as specified by the Manufactuer, expressed as a floating-point (real) number (e.g. 1.27 NA). NA is a number that was defined initially by Abbe to characterize Objectives and Condensers. NA can be calculated by the expression n sin alpha, where n is the Refractive Index of the medium between the Lens and the Sample, and alpha is half the Angular Aperture of the Lens. NA is a measure of how much of the illumination that leaves the specimen actually passes through the Lens. The larger the NA, the more information the lens can transmit. Expected range 0.02 - 1.5.",
@@ -86,6 +80,28 @@
 			],
 			"category":"Objective"
 		},
+		"ImmersionType": {
+			"type":"string",
+			"description":"According to ISO 10934-1:2002, an Immersion Liquid is a liquid (commonly immersion oil, water or glycerol) specified as suitable for use in the space between the front of an immersion lens and the object NOTE Because the immersion liquid is considered in the computing of corrections to be part of the lens, its refractive index and dispersion (or Abbe number) are critical. Please refer to ISO 8036-1 for more details on Immersion Oil. This field describes the general category of the Immersion Liquid this Objective is designed for, according to the Manufacturer. If the general category is not Air, the actual Immersion Liquid that was used during the Acquisition of a specific Image must be specified in Objective Settings.",
+			"tier":1,
+			"enum": [
+				"Air",
+				"Dipping",
+				"Glycerol",
+				"Multi",
+				"Mineral Oil",
+				"Silicone Oil",
+				"Water",
+				"Other"
+			],
+			"category":"Objective"
+		},
+		"InfinityCorrected": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) this Objective is infinity corrected. An Infinity-corrected Objective is corrected for an infinite sample to primary image distance and needs to be used with a Tube Lens of appropriate focal length to obtains its nominal magnification.",
+			"tier":1,
+			"category":"Objective"
+		},
 		"ContrastModulation": {
 			"type":"string",
 			"description":"This field specifies the presence in this Objective of a contrast modulation device, such as a Phase Ring (Ph1, Ph2, Ph3), a Hoffman modulator, a Varel modulator, or similar.",
@@ -119,22 +135,6 @@
 			],
 			"category":"Objective"
 		},
-		"ImmersionType": {
-			"type":"string",
-			"description":"According to ISO 10934-1:2002, an Immersion Liquid is a liquid (commonly immersion oil, water or glycerol) specified as suitable for use in the space between the front of an immersion lens and the object NOTE Because the immersion liquid is considered in the computing of corrections to be part of the lens, its refractive index and dispersion (or Abbe number) are critical. Please refer to ISO 8036-1 for more details on Immersion Oil. This field describes the general category of the Immersion Liquid this Objective is designed for, according to the Manufacturer. If the general category is not Air, the actual Immersion Liquid that was used during the Acquisition of a specific Image must be specified in Objective Settings.",
-			"tier":1,
-			"enum": [
-				"Air",
-				"Dipping",
-				"Glycerol",
-				"Multi",
-				"Mineral Oil",
-				"Silicone Oil",
-				"Water",
-				"Other"
-			],
-			"category":"Objective"
-		},
 		"DippingMedium": {
 			"type":"string",
 			"description":"In case the Immersion Type for this Objective is designated as Dipping, this field captures the type of Dipping Medium this Objective is compatible with. Examples include, water-based (biological buffers, culture media, other water-based solutions) organic-based [FocusClear (CLARITY); CUBIC-1, CUBIC-2, CUBIC-R1, CUBIC-R2; 2,2-thiodiethanol (TDE); ethyl cinnamate; Benzyl Benzoate and BB-PEG (PEGASOS); Benzyl Alcohol, Benzyl Benzoate (BABB); dibenzyl ether (DBE); 100% Ethanol].",
@@ -143,65 +143,6 @@
 				"Water-based",
 				"Organic-based",
 				"Other"
-			],
-			"category":"Objective"
-		},
-		"InfinityCorrected": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) this Objective is infinity corrected. An Infinity-corrected Objective is corrected for an infinite sample to primary image distance and needs to be used with a Tube Lens of appropriate focal length to obtains its nominal magnification.",
-			"tier":1,
-			"category":"Objective"
-		},
-		"Iris": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) the Objective was fitted with an Iris. Manufacturers offer high NA Objectives, which are equipped with an internal Iris Diaphragm that increases image contrast during digital imaging to compensate for image flare artifacts due to light emitted from areas outside the focal plane. Opening or closing the Iris Diaphragm determines the size of the Objective rear aperture yielding a variable NA range between 0.5 and the Objective's upper limit.",
-			"tier":2,
-			"category":"Objective"
-		},
-		"CorrectionCollar": {
-			"type":"boolean",
-			"description":"This field records whether (True) or not (False) the Objective was fitted with a Correction Collar. When using high NA dry Objectives (NA 0.8 or greater), cover glass thickness variations of only a few micrometers, immersion medium, and temperature changes result in dramatic image degradation due to aberration. To compensate for these errors, the more highly corrected Objectives are equipped with a Correction Collar mechanism, which is provided to adjust the central lens group position to compensate for deviations from correct optical path length due to changes in Cover Glass Thickness, the nature of the Immersion Liquid, different Numerical Apertures, and Temperature.",
-			"tier":2,
-			"category":"Objective"
-		},
-		"CorrectionCollarType": {
-			"type":"string",
-			"description":"This field records the type of Correction Collar with which this Objective is fitted. In case the Objective has more than one Correction Collar please enter 'Multi' and provide more details in Description.",
-			"tier":2,
-			"enum": [
-				"Coverglass Thickness",
-				"Immersion Liquid",
-				"Numerical Aperture",
-				"Temperature",
-				"Multi"
-			],
-			"category":"Objective"
-		},
-		"PhaseContrastDesignation": {
-			"type":"string",
-			"description":"If the Objective is designed for Phase, this field specifies the Phase Contrast type designation (see: https://www.microscopyu.com/techniques/phase-contrast/phase-contrast-Microscope-configuration).",
-			"tier":2,
-			"enum": [
-				"Phase",
-				"PHACO",
-				"PC",
-				"PhL",
-				"Ph1",
-				"Ph2",
-				"Ph3",
-				"Ph4",
-				"DL",
-				"DLL",
-				"DM",
-				"ADL",
-				"PL",
-				"PLL",
-				"PM",
-				"PH",
-				"NL",
-				"NM",
-				"BM",
-				"NH"
 			],
 			"category":"Objective"
 		},
@@ -252,6 +193,65 @@
 				"Pixel",
 				"reference frame"
 			],
+			"category":"Objective"
+		},
+		"CorrectionCollar": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) the Objective was fitted with a Correction Collar. When using high NA dry Objectives (NA 0.8 or greater), cover glass thickness variations of only a few micrometers, immersion medium, and temperature changes result in dramatic image degradation due to aberration. To compensate for these errors, the more highly corrected Objectives are equipped with a Correction Collar mechanism, which is provided to adjust the central lens group position to compensate for deviations from correct optical path length due to changes in Cover Glass Thickness, the nature of the Immersion Liquid, different Numerical Apertures, and Temperature.",
+			"tier":2,
+			"category":"Objective"
+		},
+		"CorrectionCollarType": {
+			"type":"string",
+			"description":"This field records the type of Correction Collar with which this Objective is fitted. In case the Objective has more than one Correction Collar please enter 'Multi' and provide more details in Description.",
+			"tier":2,
+			"enum": [
+				"Coverglass Thickness",
+				"Immersion Liquid",
+				"Numerical Aperture",
+				"Temperature",
+				"Multi"
+			],
+			"category":"Objective"
+		},
+		"PhaseContrastDesignation": {
+			"type":"string",
+			"description":"If the Objective is designed for Phase, this field specifies the Phase Contrast type designation (see: https://www.microscopyu.com/techniques/phase-contrast/phase-contrast-Microscope-configuration).",
+			"tier":2,
+			"enum": [
+				"Phase",
+				"PHACO",
+				"PC",
+				"PhL",
+				"Ph1",
+				"Ph2",
+				"Ph3",
+				"Ph4",
+				"DL",
+				"DLL",
+				"DM",
+				"ADL",
+				"PL",
+				"PLL",
+				"PM",
+				"PH",
+				"NL",
+				"NM",
+				"BM",
+				"NH"
+			],
+			"category":"Objective"
+		},
+		"CalibratedMagnification": {
+			"type":"number",
+			"description":"This field captures the Magnification of the Objective as measured via a calibration process- i.e., '59.987' for a 60x lens.",
+			"tier":2,
+			"category":"Objective"
+		},
+		"Iris": {
+			"type":"boolean",
+			"description":"This field records whether (True) or not (False) the Objective was fitted with an Iris. Manufacturers offer high NA Objectives, which are equipped with an internal Iris Diaphragm that increases image contrast during digital imaging to compensate for image flare artifacts due to light emitted from areas outside the focal plane. Opening or closing the Iris Diaphragm determines the size of the Objective rear aperture yielding a variable NA range between 0.5 and the Objective's upper limit.",
+			"tier":2,
 			"category":"Objective"
 		},
 		"ObjectiveViewField": {
@@ -507,13 +507,12 @@
 		"Magnification",
 		"LensNA",
 		"Correction",
-		"ContrastModulation",
-		"DIC",
 		"ImmersionType",
 		"InfinityCorrected",
-		"Iris",
-		"CorrectionCollar",
+		"ContrastModulation",
+		"DIC",
 		"WorkingDistance",
+		"CorrectionCollar",
 		"ObjectiveViewField",
 		"ImageDistance",
 		"Manufacturer",

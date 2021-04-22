@@ -5,7 +5,7 @@
 	"type":"object",
 	"title":"GenericDetector",
 	"description":"This element is used to represent a Generic Detector as a collection of Key/Value pairs, which are stored in a Map. One of the other detector elements should always be used in preference to this if possible.",
-	"modelSettings":"DetectorSettings",
+	"modelSettings":"GenericDetectorSettings",
 	"extension":"Core",
 	"domain":"MicroscopeHardwareSpecifications",
 	"category":"Detector",
