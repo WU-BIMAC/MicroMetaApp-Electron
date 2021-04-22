@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Prism.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"Prism",
 	"description":"This element describes a Prism positioned in the Light Path for one or more Channels available for this Instrument. A Prism is a block of glass or other transparent material with at least two intersecting flat, polished surfaces, used to disperse light or deviate it through an angle. A Prism can be viewed as an ensemble of different rigidly mounted Mirrors, with each face having a permanent orientation with respect to others. A Prism can be employed to deflect or deviate a light beam, rotate or invert an Image, separate polarization states, or disperse light into its component Wavelengths. An Instrument may have several Prisms with different functionality such as Polarizing, Reflecting, or Refracting (or Dispersing). Polarizing Prisms are birefringent crystals that divide incident non-polarized light into separate components polarized orthogonally to each other. Reflecting Prisms are useful for redirecting light beams by total internal reflection. Refracting (or Dispersing) Prisms can be employed to bend and separate light into its component colors. This element can be associated with an optional Optics Turret.",

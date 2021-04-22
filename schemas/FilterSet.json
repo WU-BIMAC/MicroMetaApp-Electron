@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"FilterSet.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"FilterSet",
 	"description":"This element represents a FilterSet that was used for the acquisition of this Channel. A Filter Set is typically composed of one Excitation Filter, one Emission Filter and a Dichroic. They might either be pre-assembled by the Manufacturer and purchased as a whole or they can be custom assembled on site depending on the needs of the user.",

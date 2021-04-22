@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"GenericDichroic.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"GenericDichroic",
 	"description":"A Dichroic Mirror (also often referred to as Dichroic Beamsplitter or simply as Dichroic) is a Mirror that spectrally separate light by transmitting and reflecting light as a function of wavelength. In the context of fluorescence microscopy, they are typically used to reflect the excitation light, but transmit the emitted fluorescence. Dichroic Mirrors can be categorized in different manners. However, the most important criteria for choosing a Dichoric Mirror are the Transmittance and the Reflectance Wavelength ranges. This element describes an additional Generic Dichroic positioned in the Ligth Path for one or more Channel available for this Instrument.",

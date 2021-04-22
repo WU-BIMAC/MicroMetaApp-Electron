@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Plane.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"Plane",
 	"description":"Each Image has to have at least one Plane and one Channel. The Plane element holds the Microscope stage and Image timing data for a given Channel/z-section/timepoint. The total number of Plane elements for a given Image must equal to SizeZ x SizeC x SizeT.",

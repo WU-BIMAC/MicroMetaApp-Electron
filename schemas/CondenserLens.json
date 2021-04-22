@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CondenserLens.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"CondenserLens",
 	"description":"A Condenser Lens renders a divergent beam from a point source into a parallel or converging beam to illuminate an object. It acts to gather light from the Light Source and concentrate it into a cone of light that illuminates the specimen. The aperture and angle of the light cone must be adjusted (via the size of the diaphragm) for each different objective Lens with different numerical apertures. Conserser Lenses are typically housed within a specific component of the Microscope called the Condenser.",

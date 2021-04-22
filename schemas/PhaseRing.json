@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PhaseRing.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"PhaseRing",
 	"description":"This element (also called Phase Annulus) refers to an annular (ring-like) slit used to produce contrast modulation following Zernike, in which the Image contrast of a phase object is enhanced by altering the phase and amplitude of the direct light with respect to those of the diffracted light. This illuminating aperture Diaphragm is placed in the front focal Plane of the Condenser and acts in conjunction with an appropriate phase plate, usually in the form of an annulus, placed in the back focal Plane of the objective (or in a succeeding Plane conjugate with this).",

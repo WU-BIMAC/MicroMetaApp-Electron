@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"BeamCollimatorLens.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"BeamCollimatorLens",
 	"description":"A Beam Collimator Lens is a Lens designed to work in combination with other optical components to form a Beam Collimator device. As such, its role is to transform a strongly diverging light beam into a collimated beam, i.e., a beam where light propagates mainly only in one direction, and the beam divergence is weak.",

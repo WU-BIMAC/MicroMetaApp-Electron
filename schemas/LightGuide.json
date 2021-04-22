@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"LightGuide.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"LightGuide",
 	"description":"A Light Guide coupling between the Light Source and the Microscope Stand generally consists of a casing enclosing a medium (i.e., typically fiber optic) capable of transferring light from the illuminator to the back of the Microscope Stand.",

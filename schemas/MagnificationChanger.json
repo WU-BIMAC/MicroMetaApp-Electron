@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"MagnificationChanger.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"MagnificationChanger",
 	"description":"A Magnification Changer (also known as Optovar because one of the first magnification changing devices was developed by Zeiss and given this proprietary Name) provides additional magnification that can be beneficial when a desired field of view is required for the imaging sensor. Magnification Changers are placed before the Tube Lens within the infinity space of the optical system. Typical magnification increments are 1.25x, 1.6x, and 2x.",

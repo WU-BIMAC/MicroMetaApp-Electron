@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"SampleHolder.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"SampleHolder",
 	"description":"This element describes the device (often referred to as Sample Carrier, Container or Vessel) on which the specimen was mounted for microscopical examination. It typically is flat and it could be made of glass or plastic. Examples include Microscope slides, Petri dishes, and multi-well plates.",

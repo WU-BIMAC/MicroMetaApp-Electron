@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Condenser.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"Condenser",
 	"description":"Condensers are Lens Systems located above the Light Source and under the sample in an Upright Microscope, and above the stage and below the Light Source in an Inverted Microscope. They act to gather light from the Light Source and concentrate it into a cone of light that illuminates the specimen. They typically include a Turret system and Diaphragms. The aperture and angle of the light cone must be adjusted (via the size of the Diaphragm) for each different Objective.",

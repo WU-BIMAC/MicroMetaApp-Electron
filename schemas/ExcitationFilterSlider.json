@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ExcitationFilterSlider.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"ExcitationFilterSlider",
 	"description":"This element represents a linear holder for multiple individual Excitation Filters.",

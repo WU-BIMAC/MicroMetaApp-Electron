@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"WavelengthProfileFile.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"WavelengthProfileFile",
 	"description":"This element consists of a file containing the Wavelength profile of this hardware component.",

@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ObjectiveSettings.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"ObjectiveSettings",
 	"description":"This element holds the Setting applied to the Objective used during the Acquisition of this Image as well as a reference (the ID attribute) to the Objective in question.",

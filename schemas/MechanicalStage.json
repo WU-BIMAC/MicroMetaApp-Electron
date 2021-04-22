@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"MechanicalStage.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"MechanicalStage",
 	"description":"This element describes a Stage fitted with ball-screw drives or rack mechanisms (sometimes equipped with precision calibration) to primarily assist in the translational movement of the Sample in the X and Y directions. A Mechanical Stage may be built into the Microscope Stand or it may consist of a removable insert. It may be manually operated, or it might be driven by linear electrodynamic motors, such as for example, in computer-controlled digital Microscopes. In some rare cases, a Mechanical Stage might also be used for Focusing (Z-axis movement), i.e., in simple surveying Microscopes.",

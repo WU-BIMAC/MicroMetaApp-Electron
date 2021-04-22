@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"HybridPhotoDetector.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"HybridPhotoDetector",
 	"description":"This element represents a hybrid Photomultiplier and Avalanche Photodiode (APD).",

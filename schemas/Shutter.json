@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Shutter.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"Shutter",
 	"description":"This element describes a Shutter available for this Instrument. Shutters are devices that open and close, and they may be mechanically or electro-mechanically controlled. Shutters are typically used to control the Light that raches the sample (i.e., to limit phototoxicity and photobleaching especially in case of live specimens), or the Detecrtor at any one time. They can also be used for Excitation or Emission Wavelength selection.",

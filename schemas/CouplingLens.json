@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"CouplingLens.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"CouplingLens",
 	"description":"This element refers to a Lens positioned at the mount connecting the Light Source Coupling device and the Microscope Stand.",

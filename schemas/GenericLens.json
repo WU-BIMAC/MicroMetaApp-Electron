@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"GenericLens.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"GenericLens",
 	"description":"This element refers to any additional Generic Lens positioned in the Light Path for a given Channel.",

@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Objective.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"Objective",
 	"description":"The Microscope's Objective lens consists of a lens, its mount, and any associated parts. It is the part of the imaging system, which forms a primary image of the object, either alone or in conjunction with a tube lens. The Objective typically consists of a compound lens consisting of along a common axis.",

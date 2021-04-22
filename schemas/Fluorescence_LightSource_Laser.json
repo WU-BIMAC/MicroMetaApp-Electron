@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_Laser.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"Laser",
 	"description":"This element describes a Light Source, which emits coherent radiation at high spectral concentrations of radiance and minimal solid angles. This includes proper Light Amplification by Stimulated Emission of Radiation (LASER) sources that emit light through a process of optical amplification based on the stimulated emission of electromagnetic radiation. It also includes Optical Parametric Oscillator (OPO) sources that use a kind of LASER resonator but based on optical gain from parametric amplification in a nonlinear crystal rather than from stimulated emission.",

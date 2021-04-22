@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"StageLabel.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"StageLabel",
 	"description":"The StageLabel is used to specify the Name and Position for a Stage position in the Microscope's reference frame.",

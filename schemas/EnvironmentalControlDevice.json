@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"EnvironmentalControlDevice.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"EnvironmentalControlDevice",
 	"description":"This element describes an Environmental Control Device available for this Instrument to maintain a controlled Imaging Environment during Imaging Environment.",

@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PiezoElectricStage.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"PiezoElectricStage",
 	"description":"This describes an optional piezoelectric-driven sample nano-positioning device associated with this Instrument. These devices typically achieve higher precision, accuracy and speed with respect to traditional Mechanical Stages.",

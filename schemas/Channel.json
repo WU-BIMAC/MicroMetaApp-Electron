@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Channel.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"Channel",
 	"description":"Each Image has to have at least one Plane and one Channel. The Channel element stores information about how the each Image Channel was acquired. The total number of Channel elements for a given Image must equal to SizeC.",

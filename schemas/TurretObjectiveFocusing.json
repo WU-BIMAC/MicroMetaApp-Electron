@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"TurretObjectiveFocusing.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"TurretObjectiveFocusing",
 	"description":"A Focusing mechanism is used to obtain maximum sharpness in an Image by changing the distance between a Sample and the optical system forming the Image. In most cases, a Z-axis Focusing mechanism moves the Objective along the optical axis. This element describes a Focusing Device associated with a rotating Objective Turret associated with this Instrument. This type of device is often operated using a rack and pinion mechanism.",

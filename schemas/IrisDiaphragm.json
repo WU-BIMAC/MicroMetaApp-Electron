@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"IrisDiaphragm.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"IrisDiaphragm",
 	"description":"This element represents a Diaphragm, positioned trasversally to the optical axis bounded by multiple leaves, usually metal, arranged so as to provide an opening of variable size, which is adjustable by means of a mechanical control.",

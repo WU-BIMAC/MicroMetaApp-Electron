@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"FocusStabilizationDevice.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"FocusStabilizationDevice",
 	"description":"This element describes an optional focus stabilization device (also known as, Auto Focus) that may be used for bringing an object automatically into focus for this instrument. Such devices can be controlled either via an imaging software and/or by a hardware device that detects and adjusts the objective or sample positions.",

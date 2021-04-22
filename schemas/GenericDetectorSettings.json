@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"GenericDetectorSettings.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"GenericDetectorSettings",
 	"description":"This element refers to the Generic Detector that was used to Acquire this Channel and it holds the Settings that were applied to the Detector during this Acquisition.",

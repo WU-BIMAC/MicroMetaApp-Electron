@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"PolarizationOptics.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"PolarizationOptics",
 	"description":"This element describes a Polarization device positioned in the Ligth Path for this Instrument. A Polarization device is an optical filter rotatable through 360° that lets light waves of a specific polarization pass through while blocking light waves of other polarizations. This element can be associated with an optional Optics Turret.",

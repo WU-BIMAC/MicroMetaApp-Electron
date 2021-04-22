@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"RelayLens.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"RelayLens",
 	"description":"A Relay Lens is often used in combination with other Lenses for transferring an Image into a different optical plane. A typical example of Relay Lens is the Lens positioned at the mount connecting a Detector with the Microscope Stand.",

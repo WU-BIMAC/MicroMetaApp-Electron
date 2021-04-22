@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"VarelRing.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"VarelRing",
 	"description":"This element represents a stop (i.e., opaque structure) shaped like a ring sector, which is used on the illumination side, to permit unilateral inclined illumination. It was developed to work in combination with Phase Objectives to yield contrast even when light passes through birefringent materials, such as plastic Petri dishes.",

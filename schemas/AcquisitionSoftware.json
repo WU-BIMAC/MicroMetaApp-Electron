@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"AcquisitionSoftware.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"AcquisitionSoftware",
 	"description":"This element represents a commercial, or open-source Software, script, macro, plugin or module utilized for driving this Instrument during Image Acquisition.",

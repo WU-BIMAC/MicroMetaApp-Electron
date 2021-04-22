@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorescence_LightSource_MultiLaserEngine.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"MultiLaserEngine",
 	"description":"This element describes a Light Source device that contains multiple Lasers built into a single box. This element contains Reference(s) to individual Laser components built separately and assembled as part of this device.",

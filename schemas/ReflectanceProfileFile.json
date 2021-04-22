@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"ReflectanceProfileFile.json",
-	"modelVersion":"2.00.0",
+	"modelVersion":"2.01.0",
 	"type":"object",
 	"title":"ReflectanceProfileFile",
 	"description":"This element represents a file in .csv or other suitable formats containing the Reflectance profile of this optical component.",
