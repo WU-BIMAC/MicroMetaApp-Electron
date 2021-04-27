@@ -490,7 +490,10 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			let javaVersionSplit = javaVersion.split(".");
 			let javaVersionMain = Number(javaVersionSplit[0]);
 			let javaVersionSub = Number(javaVersionSplit[1]);
-			if (javaVersionMain < 1 || javaVersionSub < 8) {
+			if (
+				javaVersionMain < 1 ||
+				(javaVersionMain === 1 && javaVersionSub < 8)
+			) {
 				complete({
 					Error:
 						"This software require at least java version 1.8, you are currently running java version " +
