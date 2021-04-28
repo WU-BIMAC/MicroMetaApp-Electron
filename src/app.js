@@ -27,7 +27,7 @@ const settingsDirectory = "./settings/";
 const scriptDirectory = "./scripts/";
 const scriptDependencyDirectory = "./scripts/dependency-jars";
 
-const imageMetadataReaderScriptName = "4DNMicroscopyMetadataReader-0.0.1.jar";
+const imageMetadataReaderScriptName = "4DNMicroscopyMetadataReader-1.0.0.jar";
 
 window.onload = () => {
 	ReactDOM.render(
@@ -430,10 +430,16 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			})
 			.then(function (files) {
 				files.forEach(function (file) {
-					var microscope = JSON.parse(file);
-					if (microscope !== null)
-						microscopesDB[microscope.Name + "_" + microscope.ID] = microscope;
+					try {
+						var microscope = JSON.parse(file);
+						if (microscope !== null)
+							microscopesDB[microscope.Name + "_" + microscope.ID] = microscope;
+					} catch (exception) {
+						console.log("Could not parse " + file);
+					}
 				});
+				console.log("microscopesDB");
+				console.log(microscopesDB);
 				complete(microscopesDB);
 			});
 	}
@@ -522,12 +528,14 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			'"';
 		try {
 			const metadata = execSync(cmd);
-			if (metadata === "ERROR") {
+			console.log(metadata);
+			var metadataString = new TextDecoder().decode(metadata);
+			if (metadataString.startsWith("ERROR:")) {
 				//console.log("Error : " + `Could not read ${imgPath} metadata`);
+				console.log(metadata);
 				complete({ Error: `Could not read ${imgPath} metadata` });
 				return;
 			}
-			var metadataString = new TextDecoder().decode(metadata);
 			console.log("metadataString");
 			console.log(metadataString);
 			let metadataJSON = JSON.parse(metadataString);
