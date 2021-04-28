@@ -541,7 +541,10 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			let metadataJSON = JSON.parse(metadataString);
 			complete(metadataJSON);
 		} catch (exception) {
-			console.log(exception);
+			console.log("error - " + exception.name + " - " + exception.message);
+			console.log("stack:");
+			console.log(exception.message);
+			console.log(exception.stack);
 			complete({ Error: "Something went wrong trying to read the metadata" });
 		}
 	}
