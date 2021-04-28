@@ -532,7 +532,8 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			var metadataString = new TextDecoder().decode(metadata);
 			if (metadataString.startsWith("ERROR:")) {
 				//console.log("Error : " + `Could not read ${imgPath} metadata`);
-				console.log(metadata);
+				console.log("ERROR:")
+				console.log(metadataString.replace("ERROR:", ""));
 				complete({ Error: `Could not read ${imgPath} metadata` });
 				return;
 			}
