@@ -27,7 +27,7 @@ const settingsDirectory = "./settings/";
 const scriptDirectory = "./scripts/";
 const scriptDependencyDirectory = "./scripts/dependency-jars";
 
-const imageMetadataReaderScriptName = "4DNMicroscopyMetadataReader-1.0.0.jar";
+const imageMetadataReaderScriptName = "4DNMicroscopyMetadataReader-1.0.1.jar";
 
 window.onload = () => {
 	ReactDOM.render(
@@ -532,7 +532,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			var metadataString = new TextDecoder().decode(metadata);
 			if (metadataString.startsWith("ERROR:")) {
 				//console.log("Error : " + `Could not read ${imgPath} metadata`);
-				console.log("ERROR:")
+				console.log("ERROR:");
 				console.log(metadataString.replace("ERROR:", ""));
 				complete({ Error: `Could not read ${imgPath} metadata` });
 				return;
