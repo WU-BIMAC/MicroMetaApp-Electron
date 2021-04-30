@@ -34,12 +34,12 @@ authors:
     email: caterina.strambio@umassmed.edu
     orcid: https://orcid.org/https://orcid.org/0000-0002-1069-1816
   - 
-date-released: 2021-04-22
+date-released: 2021-04-29
 license: GNU General Public License v.3
 repository-code: https://github.com/WU-BIMAC/MicroMetaApp-Electron
 title: Micro-Meta App - Electron implementation
-version: 1.0.0-b1-2 stable beta
-doi: PENDING
+version: 1.1.0-b1-1 stable beta
+doi: 10.5281/zenodo.4729011
   - 
 keywords: 
   - metadata
