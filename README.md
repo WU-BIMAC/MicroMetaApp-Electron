@@ -1,6 +1,6 @@
 # 4DN Micro-Meta App Electron
 
-*Summary (#summary)
+-Summary (#summary)
 
 ## Summary
 Micro-Meta App is an interactive tool that was developed by Alex Rigano in the Strambio De Castillia's lab at UMMS to facilitate the documentation of light microscopy experiments on the basis of the scalable [4DN-BINA-OME](https://zenodo.org/record/4710731) Microscopy Metadata specifications that extend the [OME Data Model](https://www.openmicroscopy.org/Schemas/Documentation/Generated/OME-2016-06/ome.html), which are now published on [BioRxiv.org](https://www.biorxiv.org/content/10.1101/2021.04.25.441198v1) and further described in our perspective manuscript on [ArXiv.org](https://arxiv.org/abs/1910.11370).
