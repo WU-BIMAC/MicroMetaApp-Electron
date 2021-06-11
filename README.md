@@ -1,6 +1,12 @@
 # 4DN Micro-Meta App Electron
 
-1 [Summary](#summary)
+1. [Summary](#summary)
+2. [Background](#background)
+3. [Description](#description)
+4. [Website](https://wu-bimac.github.io/MicroMetaApp.github.io/)
+5. [Documentation](https://micrometaapp-docs.readthedocs.io/en/latest/index.html)
+6. [Installation](https://micrometaapp-docs.readthedocs.io/en/latest/docs/intro/installation.html)
+7. [Tutorial Video](https://micrometaapp-docs.readthedocs.io/en/latest/docs/tutorials/index.html)
 
 ## Summary
 Micro-Meta App is an interactive tool that was developed by Alex Rigano in the Strambio De Castillia's lab at UMMS to facilitate the documentation of light microscopy experiments on the basis of the scalable [4DN-BINA-OME](https://zenodo.org/record/4710731) Microscopy Metadata specifications that extend the [OME Data Model](https://www.openmicroscopy.org/Schemas/Documentation/Generated/OME-2016-06/ome.html), which are now published on [BioRxiv.org](https://www.biorxiv.org/content/10.1101/2021.04.25.441198v1) and further described in our perspective manuscript on [ArXiv.org](https://arxiv.org/abs/1910.11370).
@@ -30,3 +36,6 @@ Micro-Meta App is a novel application that provides an interactive and intuitive
 4. Finally, the App generates a Settings JSON file that, alongside with the associated Microscope JSON file, contain comprehensive descriptions of the conditions utilized to produce individual microscopy datasets, and that can be stored on the user’s file system, or on third party repositories. 
 
 To lower the barrier of adoption of Micro-Meta App by a wide community of users the application is available as a stand-alone program, as a plugin of the OMERO web client and as a service of the 4DN data portal.
+
+## Documentation
+An extended 
