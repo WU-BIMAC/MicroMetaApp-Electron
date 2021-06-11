@@ -4,9 +4,10 @@
 2. [Background](#background)
 3. [Description](#description)
 4. [Website](https://wu-bimac.github.io/MicroMetaApp.github.io/)
-5. [Documentation](https://micrometaapp-docs.readthedocs.io/en/latest/index.html)
-6. [Installation](https://micrometaapp-docs.readthedocs.io/en/latest/docs/intro/installation.html)
-7. [Tutorial Video](https://micrometaapp-docs.readthedocs.io/en/latest/docs/tutorials/VideoTutorials.html)
+5. [Installation](https://micrometaapp-docs.readthedocs.io/en/latest/docs/intro/installation.html)
+6. [Documentation](https://micrometaapp-docs.readthedocs.io/en/latest/index.html)
+7. [Step-by-Step Instructions](https://micrometaapp-docs.readthedocs.io/en/latest/docs/tutorials/index.html#step-by-step-instructions)
+8. [Tutorial Videos](https://micrometaapp-docs.readthedocs.io/en/latest/docs/tutorials/VideoTutorials.html#micro-meta-app-video-tutorials)
 
 ## Summary
 Micro-Meta App is an interactive tool that was developed by Alex Rigano in the Strambio De Castillia's lab at UMMS to facilitate the documentation of light microscopy experiments on the basis of the scalable [4DN-BINA-OME](https://zenodo.org/record/4710731) Microscopy Metadata specifications that extend the [OME Data Model](https://www.openmicroscopy.org/Schemas/Documentation/Generated/OME-2016-06/ome.html), which are now published on [BioRxiv.org](https://www.biorxiv.org/content/10.1101/2021.04.25.441198v1) and further described in our perspective manuscript on [ArXiv.org](https://arxiv.org/abs/1910.11370).
