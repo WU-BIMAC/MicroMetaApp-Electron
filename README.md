@@ -36,6 +36,3 @@ Micro-Meta App is a novel application that provides an interactive and intuitive
 4. Finally, the App generates a Settings JSON file that, alongside with the associated Microscope JSON file, contain comprehensive descriptions of the conditions utilized to produce individual microscopy datasets, and that can be stored on the user’s file system, or on third party repositories. 
 
 To lower the barrier of adoption of Micro-Meta App by a wide community of users the application is available as a stand-alone program, as a plugin of the OMERO web client and as a service of the 4DN data portal.
-
-## Documentation
-An extended 
