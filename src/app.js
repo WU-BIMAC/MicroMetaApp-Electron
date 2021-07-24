@@ -62,15 +62,12 @@ class MicroMetaAppElectronWorkingDirectoryChooser extends React.PureComponent {
 		this.state = {
 			isPathValid: false,
 		};
-		this.onClickSelectWorkingDirectory = this.onClickSelectWorkingDirectory.bind(
-			this
-		);
-		this.onClickConfirmWorkingDirectory = this.onClickConfirmWorkingDirectory.bind(
-			this
-		);
-		this.handleWorkingDirectoryChange = this.handleWorkingDirectoryChange.bind(
-			this
-		);
+		this.onClickSelectWorkingDirectory =
+			this.onClickSelectWorkingDirectory.bind(this);
+		this.onClickConfirmWorkingDirectory =
+			this.onClickConfirmWorkingDirectory.bind(this);
+		this.handleWorkingDirectoryChange =
+			this.handleWorkingDirectoryChange.bind(this);
 
 		this.inputRef = React.createRef();
 	}
@@ -306,16 +303,13 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		this.onLoadMetadata = this.onLoadMetadata.bind(this);
 
 		this.onWorkingDirectorySave = this.onWorkingDirectorySave.bind(this);
-		this.onWorkingDirectorySettingsSave = this.onWorkingDirectorySettingsSave.bind(
-			this
-		);
+		this.onWorkingDirectorySettingsSave =
+			this.onWorkingDirectorySettingsSave.bind(this);
 
-		this.handleSelectWorkingDirectory = this.handleSelectWorkingDirectory.bind(
-			this
-		);
-		this.handleConfirmWorkingDirectory = this.handleConfirmWorkingDirectory.bind(
-			this
-		);
+		this.handleSelectWorkingDirectory =
+			this.handleSelectWorkingDirectory.bind(this);
+		this.handleConfirmWorkingDirectory =
+			this.handleConfirmWorkingDirectory.bind(this);
 
 		this.onWindowResize = this.onWindowResize.bind(this);
 	}
@@ -361,7 +355,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		this.setState({ workingDirectory: optionsWorkingDirectory });
 	}
 
-	onLoadSchema(complete) {
+	onLoadSchema(complete, resolve) {
 		const workingDirectory = this.state.workingDirectory;
 		const dirPath = path.resolve(workingDirectory, schemaDirectory);
 		let schema = [];
@@ -386,11 +380,11 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 					}
 				});
 				//console.log(schema);
-				complete(schema);
+				complete(schema, resolve);
 			});
 	}
 
-	onLoadDimensions(complete) {
+	onLoadDimensions(complete, resolve) {
 		const workingDirectory = this.state.workingDirectory;
 		const dirPath = path.resolve(workingDirectory, dimensionsDirectory);
 		let dimensions = {};
@@ -411,11 +405,11 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 					}
 				});
 				//console.log(schema);
-				complete(dimensions);
+				complete(dimensions, resolve);
 			});
 	}
 
-	onLoadMicroscopes(complete) {
+	onLoadMicroscopes(complete, resolve) {
 		const workingDirectory = this.state.workingDirectory;
 		const dirPath = path.resolve(workingDirectory, microscopeDirectory);
 		let microscopesDB = {};
@@ -440,11 +434,11 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 				});
 				console.log("microscopesDB");
 				console.log(microscopesDB);
-				complete(microscopesDB);
+				complete(microscopesDB, resolve);
 			});
 	}
 
-	onLoadSettings(complete) {
+	onLoadSettings(complete, resolve) {
 		const workingDirectory = this.state.workingDirectory;
 		const dirPath = path.resolve(workingDirectory, settingsDirectory);
 		let settingsDB = {};
@@ -463,11 +457,11 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 					if (setting !== null)
 						settingsDB[setting.Name + "_" + setting.ID] = setting;
 				});
-				complete(settingsDB);
+				complete(settingsDB, resolve);
 			});
 	}
 
-	onLoadMetadata(imgPath, complete) {
+	onLoadMetadata(imgPath, complete, resolve) {
 		const workingDirectory = this.state.workingDirectory;
 		const dirPath = path.resolve(workingDirectory, scriptDirectory);
 		let imageMetadataReaderScript = path.resolve(
@@ -540,13 +534,16 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			console.log("metadataString");
 			console.log(metadataString);
 			let metadataJSON = JSON.parse(metadataString);
-			complete(metadataJSON);
+			complete(metadataJSON, resolve);
 		} catch (exception) {
 			console.log("error - " + exception.name + " - " + exception.message);
 			console.log("stack:");
 			console.log(exception.message);
 			console.log(exception.stack);
-			complete({ Error: "Something went wrong trying to read the metadata" });
+			complete(
+				{ Error: "Something went wrong trying to read the metadata" },
+				resolve
+			);
 		}
 	}
 
