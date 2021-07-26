@@ -152,8 +152,12 @@ class MicroMetaAppElectronWorkingDirectoryChooser extends React.PureComponent {
 				background: "green",
 			});
 		}
+		let titleText = "Select your home folder";
 		return (
 			<div style={containerStyle}>
+				<div style={{ textAlign: "center", fontWeight: "bold" }}>
+					{titleText}
+				</div>
 				<OverlayTrigger
 					placement={"top"}
 					delay={{ show: 1000, hide: 1000 }}
@@ -161,9 +165,9 @@ class MicroMetaAppElectronWorkingDirectoryChooser extends React.PureComponent {
 					rootCloseEvent={"mousedown" || "click"}
 					overlay={
 						<Popover id="popover-basic">
-							<Popover.Title as="h3">Current working folder</Popover.Title>
+							<Popover.Title as="h3">Current home folder</Popover.Title>
 							<Popover.Content>
-								<p>The path to the current working folder.</p>
+								<p>The path to the current home folder.</p>
 							</Popover.Content>
 						</Popover>
 					}
@@ -810,6 +814,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 					imagesPathPNG={imagesPathPNG}
 					imagesPathSVG={imagesPathSVG}
 					hasSettings={true}
+					isElectron={true}
 				/>
 			);
 		}
