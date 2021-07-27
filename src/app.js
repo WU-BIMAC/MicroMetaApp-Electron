@@ -152,7 +152,7 @@ class MicroMetaAppElectronWorkingDirectoryChooser extends React.PureComponent {
 				background: "green",
 			});
 		}
-		let titleText = "Select your home folder";
+		let titleText = "Select your local Micro-Meta App home folder";
 		return (
 			<div style={containerStyle}>
 				<div style={{ textAlign: "center", fontWeight: "bold" }}>
@@ -165,9 +165,15 @@ class MicroMetaAppElectronWorkingDirectoryChooser extends React.PureComponent {
 					rootCloseEvent={"mousedown" || "click"}
 					overlay={
 						<Popover id="popover-basic">
-							<Popover.Title as="h3">Current home folder</Popover.Title>
+							<Popover.Title as="h3">
+								Select your local Micro-Meta App home folder
+							</Popover.Title>
 							<Popover.Content>
-								<p>The path to the current home folder.</p>
+								<p>
+									Select the folder on your local computer that you want to use
+									as Micro-Meta App home folder to store Microscope.json and
+									Settings.json files.
+								</p>
 							</Popover.Content>
 						</Popover>
 					}
@@ -465,7 +471,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			});
 	}
 
-	onLoadMetadata(imgPath, complete, resolve) {
+	onLoadMetadata(imgPath, complete) {
 		const workingDirectory = this.state.workingDirectory;
 		const dirPath = path.resolve(workingDirectory, scriptDirectory);
 		let imageMetadataReaderScript = path.resolve(
@@ -538,16 +544,13 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			console.log("metadataString");
 			console.log(metadataString);
 			let metadataJSON = JSON.parse(metadataString);
-			complete(metadataJSON, resolve);
+			complete(metadataJSON);
 		} catch (exception) {
 			console.log("error - " + exception.name + " - " + exception.message);
 			console.log("stack:");
 			console.log(exception.message);
 			console.log(exception.stack);
-			complete(
-				{ Error: "Something went wrong trying to read the metadata" },
-				resolve
-			);
+			complete({ Error: "Something went wrong trying to read the metadata" });
 		}
 	}
 
