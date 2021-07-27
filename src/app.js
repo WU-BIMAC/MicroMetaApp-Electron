@@ -170,9 +170,9 @@ class MicroMetaAppElectronWorkingDirectoryChooser extends React.PureComponent {
 							</Popover.Title>
 							<Popover.Content>
 								<p>
-									Select the folder on your local computer that you want to use
-									as Micro-Meta App home folder to store Microscope.json and
-									Settings.json files.
+									SSelect the folder on your local computer that you want to use
+									as the Micro-Meta App home folder, in which to store
+									Microscope.JSON and SettingsJSON files.
 								</p>
 							</Popover.Content>
 						</Popover>
