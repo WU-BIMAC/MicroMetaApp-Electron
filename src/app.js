@@ -24,6 +24,7 @@ const schemaDirectory = "./schemas/";
 const dimensionsDirectory = "./dimensions/";
 const microscopeDirectory = "./microscopes/";
 const settingsDirectory = "./settings/";
+const tiersDirectory = "./tiers/";
 const scriptDirectory = "./scripts/";
 const scriptDependencyDirectory = "./scripts/dependency-jars";
 
@@ -309,6 +310,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		this.onLoadMicroscopes = this.onLoadMicroscopes.bind(this);
 		this.onLoadDimensions = this.onLoadDimensions.bind(this);
 		this.onLoadSettings = this.onLoadSettings.bind(this);
+		this.onLoadTierList = this.onLoadTierList.bind(this);
 
 		this.onLoadMetadata = this.onLoadMetadata.bind(this);
 
@@ -468,6 +470,28 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 						settingsDB[setting.Name + "_" + setting.ID] = setting;
 				});
 				complete(settingsDB, resolve);
+			});
+	}
+
+	onLoadTierList(complete, resolve) {
+		const workingDirectory = this.state.workingDirectory;
+		const dirPath = path.resolve(workingDirectory, tiersDirectory);
+		let tiers = {};
+		readDirAsync(dirPath)
+			.then(function (fileNames) {
+				let absoluteFileNames = [];
+				fileNames.forEach(function (fileName) {
+					if (fileName.endsWith(".json"))
+						absoluteFileNames.push(path.resolve(dirPath, fileName));
+				});
+				return Promise.all(absoluteFileNames.map(readFileAsync));
+			})
+			.then(function (files) {
+				files.forEach(function (file) {
+					var loadedTiers = JSON.parse(file);
+					if (loadedTiers !== null) tiers = loadedTiers;
+				});
+				complete(tiers, resolve);
 			});
 	}
 
@@ -757,6 +781,19 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			);
 		}
 
+		const oldTiersDirectory = path.resolve(oldWorkingDirectory, tiersDirectory);
+		const newTiersDirectory = path.resolve(newWorkingDirectory, tiersDirectory);
+		if (!fs.existsSync(newTiersDirectory)) {
+			fs.mkdirSync(newTiersDirectory);
+		}
+		if (fs.existsSync(oldTiersDirectory)) {
+			console.log("CopyFiles from " + oldTiersDirectory);
+			MicroMetaAppElectronComponent.copyFilesSync(
+				oldTiersDirectory,
+				newTiersDirectory
+			);
+		}
+
 		const toolWorkingDirectory = path.resolve(homePath, toolDirectory);
 		const mmaOptionsFile = path.resolve(
 			toolWorkingDirectory,
@@ -811,6 +848,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 					onLoadDimensions={this.onLoadDimensions}
 					onLoadMicroscopes={this.onLoadMicroscopes}
 					onLoadSettings={this.onLoadSettings}
+					onLoadTierList={this.onLoadTierList}
 					onSaveMicroscope={this.onWorkingDirectorySave}
 					onSaveSetting={this.onWorkingDirectorySettingsSave}
 					onLoadMetadata={this.onLoadMetadata}
