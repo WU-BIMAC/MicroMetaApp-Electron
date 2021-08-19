@@ -1,0 +1,17 @@
+[{
+		"Index": 1,
+		"Name": "Tier 1: Minimum Information/Material & Methods",
+		"Description": "Reporting qualitative effects, or effects that require simple quantification including the identification of objects larger than the resolution limit followed by basic  feature extraction and statistical analysis",
+		"MinimumComponentsList": "[Transmitted_LightSource || Fluorescence_LightSource, Objective, Detector]"
+	}, {
+		"Index": 2,
+		"Name": "Tier 2: Advanced Quantification and/or Live Cell Imaging",
+		"Description": "Identification and localization of diffraction-limited particles, super-resolution microscopy, tracking of intracellular dynamics",
+		"MinimumComponentsList": "[Transmitted_LightSource || Fluorescence_LightSource, Objective, Detector]"
+	}, {
+		"Index": 3,
+		"Name": "Tier 3: Manufacturing/Technical Development/Full Documentation",
+		"Description": "Full documentation of microscopic setup, image acquisition and quality control",
+		"MinimumComponentsList": "[Transmitted_LightSource || Fluorescence_LightSource, Objective, Detector]"
+	}
+]
