@@ -675,6 +675,8 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			oldWorkingDirectory,
 			scriptDependencyDirectory
 		);
+		const oldTiersDirectory = path.resolve(oldWorkingDirectory, tiersDirectory);
+
 		const newSchemaDirectory = path.resolve(
 			newWorkingDirectory,
 			schemaDirectory
@@ -691,6 +693,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			newWorkingDirectory,
 			scriptDependencyDirectory
 		);
+		const newTiersDirectory = path.resolve(newWorkingDirectory, tiersDirectory);
 		if (!fs.existsSync(newSchemaDirectory)) {
 			fs.mkdirSync(newSchemaDirectory);
 		}
@@ -703,6 +706,9 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		if (!fs.existsSync(newScriptsDependencyDirectory)) {
 			fs.mkdirSync(newScriptsDependencyDirectory);
 		}
+		if (!fs.existsSync(newTiersDirectory)) {
+			fs.mkdirSync(newTiersDirectory);
+		}
 		console.log("CleaningFiles from " + newSchemaDirectory);
 		MicroMetaAppElectronComponent.cleanDirectory(newSchemaDirectory);
 		console.log("CleaningFiles from " + newDimensionsDirectory);
@@ -711,6 +717,10 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		MicroMetaAppElectronComponent.cleanDirectory(newScriptsDirectory);
 		console.log("CleaningFiles from " + newScriptsDependencyDirectory);
 		MicroMetaAppElectronComponent.cleanDirectory(newScriptsDependencyDirectory);
+		console.log("CleaningFiles from " + newScriptsDependencyDirectory);
+		MicroMetaAppElectronComponent.cleanDirectory(newScriptsDependencyDirectory);
+		console.log("CleaningFiles from " + newTiersDirectory);
+		MicroMetaAppElectronComponent.cleanDirectory(newTiersDirectory);
 
 		if (fs.existsSync(oldSchemaDirectory)) {
 			console.log("CopyFiles from " + oldSchemaDirectory);
@@ -740,6 +750,14 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			MicroMetaAppElectronComponent.copyFilesSync(
 				oldScriptsDependencyDirectory,
 				newScriptsDependencyDirectory
+			);
+		}
+
+		if (fs.existsSync(oldTiersDirectory)) {
+			console.log("CopyFiles from " + oldTiersDirectory);
+			MicroMetaAppElectronComponent.copyFilesSync(
+				oldTiersDirectory,
+				newTiersDirectory
 			);
 		}
 
@@ -778,19 +796,6 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			MicroMetaAppElectronComponent.copyFilesSync(
 				oldSettingsDirectory,
 				newSettingsDirectory
-			);
-		}
-
-		const oldTiersDirectory = path.resolve(oldWorkingDirectory, tiersDirectory);
-		const newTiersDirectory = path.resolve(newWorkingDirectory, tiersDirectory);
-		if (!fs.existsSync(newTiersDirectory)) {
-			fs.mkdirSync(newTiersDirectory);
-		}
-		if (fs.existsSync(oldTiersDirectory)) {
-			console.log("CopyFiles from " + oldTiersDirectory);
-			MicroMetaAppElectronComponent.copyFilesSync(
-				oldTiersDirectory,
-				newTiersDirectory
 			);
 		}
 
