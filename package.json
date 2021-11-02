@@ -1,13 +1,12 @@
 {
 	"name": "micro-meta-app-electron",
-	"version": "1.6.0-b1",
+	"version": "1.6.1-b1",
 	"private": true,
 	"main": "./main.js",
 	"publishConfig": {
 		"access": "restricted"
 	},
 	"dependencies": {
-		"micro-meta-app-react": "github:WU-BIMAC/MicroMetaApp-React#master",
 		"react": "^16.14.0",
 		"react-bootstrap": "1.4.0",
 		"react-dom": "^16.14.0"
