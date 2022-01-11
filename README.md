@@ -11,6 +11,8 @@
 9. [Example data files](https://doi.org/10.5281/zenodo.4891883)
 
 Use these videos to get started with using Micro-Meta App after downloading the example data files:
+
+[Part 1](https://vimeo.com/562022222)
     
     **[Part 1](https://vimeo.com/562022222)**
     **[Part 2](https://vimeo.com/562022281)**
