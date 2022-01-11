@@ -12,9 +12,9 @@
 
 Use these videos to get started with using Micro-Meta App after downloading the example data files:
     
-    * [Part 1](https://vimeo.com/562022222)
-
-    * [Part 2](https://vimeo.com/562022281)
+    * 
+    [Part 1](https://vimeo.com/562022222)
+    [Part 2](https://vimeo.com/562022281)
 
 ## Summary
 Micro-Meta App is an interactive tool that was developed by Alex Rigano in the Strambio De Castillia's lab at the University of Massachusetts Chan Medical School to facilitate the documentation of light microscopy experiments on the basis of the scalable [4DN-BINA-OME](https://zenodo.org/record/4710731) Microscopy Metadata specifications that extend the [OME Data Model](https://www.openmicroscopy.org/Schemas/Documentation/Generated/OME-2016-06/ome.html).
