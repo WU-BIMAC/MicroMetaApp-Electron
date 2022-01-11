@@ -16,11 +16,11 @@ Use these videos to get started with using Micro-Meta App after downloading the 
 2. [Video 2](https://vimeo.com/562022281)
 
 ## Summary
-Micro-Meta App is an interactive tool that was developed by Alex Rigano in the Strambio De Castillia's lab at the University of Massachusetts Chan Medical School to facilitate the documentation of light microscopy experiments on the basis of the scalable [4DN-BINA-OME](https://zenodo.org/record/4710731) Microscopy Metadata specifications that extend the [OME Data Model](https://www.openmicroscopy.org/Schemas/Documentation/Generated/OME-2016-06/ome.html).
+**Micro-Meta App** is an interactive tool that was developed by Alex Rigano in the Strambio De Castillia's lab at the University of Massachusetts Chan Medical School to facilitate the documentation of light microscopy experiments on the basis of the scalable [4DN-BINA-OME](https://zenodo.org/record/4710731) Microscopy Metadata specifications that extend the [OME Data Model](https://www.openmicroscopy.org/Schemas/Documentation/Generated/OME-2016-06/ome.html).
 
-> Micro-Meta App is now featured on a **[FOCUS ISSUE](https://www.nature.com/collections/djiciihhjh)** of **[Nature Methods](https://doi.org/10.1038/s41592-021-01315-z)** and is published on **[BioRxiv.org](https://doi.org/10.1101/2021.05.31.446382)** publications!.
+> **News!** Micro-Meta App is now featured on a **[FOCUS ISSUE](https://www.nature.com/collections/djiciihhjh)** of **[Nature Methods](https://doi.org/10.1038/s41592-021-01315-z)** and is published on **[BioRxiv.org](https://doi.org/10.1101/2021.05.31.446382)** publications!.
 
-It visually and intuitively guides micoscope users through the often laborious process of collecting and reporting the minimal microscopy and image acquisition metadata defined by the 4DN microscopy metadata tiered system of guidelines. 
+**Micro-Meta App** is used to visually and intuitively document the microscopy conditions used to acquire specific datasets based on community-driven 4DN-BINA-OME Microscopy Metadata specifications. 
 
 This repository contains a stand-alone version of the tool implemented in Javascript [Electron](https://www.electronjs.org/).
 
