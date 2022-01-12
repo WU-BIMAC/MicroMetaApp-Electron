@@ -1,7 +1,7 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
 	"ID":"Fluorophore.json",
-	"modelVersion":"2.01.0",
+	"modelVersion":"2.01.1",
 	"type":"object",
 	"title":"Fluorophore",
 	"description":"This element describes the Fluorophore whose Emission is used to produce this Channel. [plain text string].",
@@ -226,6 +226,9 @@
 	},
 	"required": [
 		"ID",
+		"Manufacturer",
+		"Model",
+		"CatalogNumber",
 		"Tier"
 	]
 }

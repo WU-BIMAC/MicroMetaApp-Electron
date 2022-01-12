@@ -1180,7 +1180,7 @@
 				"h":94.5
 			}
 		},
-		"Calibration.IntensityCalibrationTool":{
+		"CalibrationTools.IntensityCalibrationTool":{
 			"General":{
 				"x":1963.7673,
 				"y":1001.8739,
@@ -2378,7 +2378,7 @@
 				"h":94.5
 			}
 		},
-		"Calibration.IntensityCalibrationTool":{
+		"CalibrationTools.IntensityCalibrationTool":{
 			"General":{
 				"x":1963.7673,
 				"y":1001.8739,

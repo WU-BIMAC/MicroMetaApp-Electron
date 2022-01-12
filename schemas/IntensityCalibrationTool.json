@@ -1,87 +1,58 @@
 {
 	"$schema":"http://json-schema.org/draft-07/schema",
-	"ID":"DichroicFilterSlider.json",
+	"ID":"IntensityCalibrationTool.json",
 	"modelVersion":"2.01.1",
 	"type":"object",
-	"title":"DichroicFilterSlider",
-	"description":"This element represents a linear holder for multiple individual Dichroics.",
+	"title":"IntensityCalibrationTool",
+	"description":"A tool, such as the Meta-Max calibration toold developed by the 4D Nucleome Imaging Standards Working Group, used to perform an intensity calibration procedure.",
 	"modelSettings":"NA",
-	"extension":"Basic",
+	"extension":"Calibration and Performance",
 	"domain":"MicroscopeHardwareSpecifications",
-	"category":"OpticsHolder",
-	"image":"OpticsHolder_DichroicFilterSlider.svg",
-	"tier":1,
+	"category":"CalibrationTools",
+	"image":"CalibrationTools_IntensityCalibrationTool.svg",
+	"tier":2,
 	"subCategoriesOrder": {
 		"General":"General information about the element",
 		"ManufacturerSpec":"This describes the Manufacturer specifications for this component (i.e., Manufacturer Name, Model designation and Catalog Number).",
-		"OpticsHolder":"This element represents a Holder for Filters, Dichroic and other Optical Element that is associated with this Instrument. These Holders come in different arrangements such as Cubes, Sliders, Turrets, and Wheels. While some of these Holders, such as Filter Cubes, might be pre-assebled by the Manufacturer and pruchased as a whole, in the majority of cases they are assembled on site depending on the needs of the user.",
-		"FilterSlider":"This element represents a linear holder for multiple individual Filters or Dichroics.",
-		"DichroicFilterSlider":"This element represents a linear holder for multiple individual Dichroics.",
-		"StandardDichroic":"This field refers to an available Dichroic Mirror which is part of this Filter Cube."
+		"IntensityCalibrationTool":"A tool, such as the Meta-Max calibration toold developed by the 4D Nucleome Imaging Standards Working Group, used to perform an intensity calibration procedure.",
+		"LightSensor":"This is an empty element that refers to the Light Sensor associated with this Intensity Calibration Tool."
 	},
 	"properties": {
 		"Name": {
 			"type":"string",
 			"description":"A User-defined Name for this component.",
-			"tier":1,
+			"tier":2,
 			"category":"General"
 		},
 		"ID": {
 			"type":"string",
 			"description":"A Unique Identifier for this component.",
-			"tier":1,
+			"tier":2,
 			"category":"General",
 			"readonly":true
 		},
-		"Motorized": {
-			"type":"boolean",
-			"description":"This field describes whether this device is Motor (True) or Manually (False) operated.",
-			"tier":3,
-			"category":"OpticsHolder"
-		},
-		"ResponseTime": {
-			"type":"number",
-			"description":"This field records the time it takes for this Shutter to open and close, according to the Manufacturer.",
-			"tier":3,
-			"category":"OpticsHolder"
-		},
-		"ResponseTimeUnit": {
+		"Type": {
 			"type":"string",
-			"description":"NA",
-			"tier":3,
-			"enum": [
-				"Ys",
-				"Zs",
-				"Es",
-				"Ps",
-				"Ts",
-				"Gs",
-				"Ms",
-				"ks",
-				"hs",
-				"das",
-				"s",
-				"ds",
-				"cs",
-				"ms",
-				"µs",
-				"ns",
-				"ps",
-				"fs",
-				"as",
-				"zs",
-				"ys",
-				"min",
-				"h",
-				"d"
-			],
-			"category":"OpticsHolder"
-		},
-		"NrOfSlots": {
-			"type":"integer",
-			"description":"This field records how many Slots this Optics Holder has.",
+			"description":"This field captures the general category to which this Intensity Calibration tool belongs.",
 			"tier":2,
-			"category":"OpticsHolder"
+			"category":"IntensityCalibrationTool"
+		},
+		"CalibrationType": {
+			"type":"string",
+			"description":"The type of calibration proceudure this tool is intended to perform.",
+			"tier":2,
+			"enum": [
+				"Detector",
+				"Excitation",
+				"Other"
+			],
+			"category":"IntensityCalibrationTool"
+		},
+		"LastCalibrationDate": {
+			"type":"string",
+			"description":"This field records the Date in which the most recent Calibration Procedure of this Calibration Tool was performed.",
+			"tier":2,
+			"category":"IntensityCalibrationTool"
 		},
 		"Manufacturer": {
 			"type":"string",
@@ -114,6 +85,13 @@
 			"tier":3,
 			"category":"ManufacturerSpec"
 		},
+		"LightSensor": {
+			"type":"string",
+			"description":"This is an empty element that refers to the Light Sensor associated with this Intensity Calibration Tool.",
+			"tier":2,
+			"category":"LightSensor",
+			"linkTo":"LightSensor"
+		},
 		"Description": {
 			"title":"Description",
 			"type":"string",
@@ -121,30 +99,22 @@
 			"tier":1,
 			"category":"General"
 		},
-		"StandardDichroic": {
-			"type":"array",
-			"items": {
-				"description":"This field refers to an available Dichroic Mirror, which is part of this Filter Cube.",
-				"type":"string",
-				"tier":1,
-				"category":"StandardDichroic",
-				"linkTo":"StandardDichroic"
-			}
-		},
 		"Tier": {
 			"type":"integer",
 			"description":"The tier level of this component.",
-			"tier":1,
+			"tier":2,
 			"category":"General",
 			"readonly":true
 		}
 	},
 	"required": [
 		"ID",
+		"Type",
+		"CalibrationType",
 		"Manufacturer",
 		"Model",
 		"CatalogNumber",
-		"StandardDichroic",
+		"LightSensor",
 		"Tier"
 	]
 }
