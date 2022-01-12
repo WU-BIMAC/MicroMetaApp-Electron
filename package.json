@@ -1,6 +1,6 @@
 {
 	"name": "micro-meta-app-electron",
-	"version": "1.6.13-b1",
+	"version": "1.6.15-b1",
 	"private": true,
 	"main": "./main.js",
 	"publishConfig": {
