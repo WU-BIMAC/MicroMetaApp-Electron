@@ -180,7 +180,7 @@ class MicroMetaAppElectronWorkingDirectoryChooser extends React.PureComponent {
 								</Popover.Title>
 								<Popover.Content>
 									<p>
-										SSelect the folder on your local computer that you want to
+										Select the folder on your local computer that you want to
 										use as the Micro-Meta App home folder, in which to store
 										Microscope.JSON and SettingsJSON files.
 									</p>
@@ -450,8 +450,11 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 				files.forEach(function (file) {
 					try {
 						var microscope = JSON.parse(file);
-						if (microscope !== null)
-							microscopesDB[microscope.Name + "_" + microscope.ID] = microscope;
+						if (microscope !== null) {
+							microscopesDB[microscope.Name + "_" + microscope.ID] = {};
+							microscopesDB[microscope.Name + "_" + microscope.ID].microscope =
+								microscope;
+						}
 					} catch (exception) {
 						console.log("Could not parse " + file);
 					}
@@ -478,8 +481,10 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			.then(function (files) {
 				files.forEach(function (file) {
 					var setting = JSON.parse(file);
-					if (setting !== null)
-						settingsDB[setting.Name + "_" + setting.ID] = setting;
+					if (setting !== null) {
+						settingsDB[setting.Name + "_" + setting.ID] = {};
+						settingsDB[setting.Name + "_" + setting.ID].setting = setting;
+					}
 				});
 				complete(settingsDB, resolve);
 			});
