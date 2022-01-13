@@ -9,21 +9,21 @@
 
 # Micro-Meta App Electron
 
-1. [Summary](#summary)
-2. [Background](#background)
-3. [Description](#description)
-4. [Website](https://wu-bimac.github.io/MicroMetaApp.github.io/)
-5. [Documentation](https://micrometaapp-docs.readthedocs.io/en/latest/index.html)
-6. [Installation](https://micrometaapp-docs.readthedocs.io/en/latest/docs/intro/installation.html)
-7. [Step-by-Step Instructions](https://micrometaapp-docs.readthedocs.io/en/latest/docs/tutorials/index.html#step-by-step-instructions)
-8. [Tutorial Videos](https://micrometaapp-docs.readthedocs.io/en/latest/docs/tutorials/VideoTutorials.html#micro-meta-app-video-tutorials)
-9. [Example data files](https://doi.org/10.5281/zenodo.4891883)
+1. [Quick start guide](#quick start guide)
+2. [Summary](#summary)
+3. [Background](#background)
+4. [Description](#description)
+5. [Website](https://wu-bimac.github.io/MicroMetaApp.github.io/)
+6. [Documentation](https://micrometaapp-docs.readthedocs.io/en/latest/index.html)
+7. [Installation](https://micrometaapp-docs.readthedocs.io/en/latest/docs/intro/installation.html)
+8. [Step-by-Step Instructions](https://micrometaapp-docs.readthedocs.io/en/latest/docs/tutorials/index.html#step-by-step-instructions)
+9. [Tutorial Videos](https://micrometaapp-docs.readthedocs.io/en/latest/docs/tutorials/VideoTutorials.html#micro-meta-app-video-tutorials)
+10. [Example data files](https://doi.org/10.5281/zenodo.4891883)
 
+## Quick start guide
 Use these videos to get started with using Micro-Meta App after downloading the example data files:
-
 1. [Video 1](https://vimeo.com/562022222)
 2. [Video 2](https://vimeo.com/562022281)
-
 
 ## Summary
 **Micro-Meta App** is an interactive tool that was developed by Alex Rigano in the Strambio De Castillia's lab at the University of Massachusetts Chan Medical School to facilitate the documentation of light microscopy experiments on the basis of the scalable [4DN-BINA-OME](https://zenodo.org/record/4710731) Microscopy Metadata specifications that extend the [OME Data Model](https://www.openmicroscopy.org/Schemas/Documentation/Generated/OME-2016-06/ome.html).
