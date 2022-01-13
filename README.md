@@ -9,7 +9,7 @@
 
 # Micro-Meta App Electron
 
-1. [Quick start guide](#quick start guide)
+1. [Quick start guide](#quick-start-guide)
 2. [Summary](#summary)
 3. [Background](#background)
 4. [Description](#description)
