@@ -47,6 +47,7 @@ authors:
     email: caterina.strambio@umassmed.edu
 repository-code: 'https://github.com/WU-BIMAC/MicroMetaApp-Electron'
 url: 'https://wu-bimac.github.io/MicroMetaApp.github.io/'
+doi: 10.5281/zenodo.5140157
 repository-artifact: >-
   https://github.com/WU-BIMAC/MicroMetaApp-Electron/releases/latest
 abstract: >-
@@ -62,8 +63,8 @@ keywords:
   - quality control
   - data provenance
 license: GPL-3.0-or-later
-version: 1.1.0-b1-1 stable beta
-date-released: '2021-04-29'
+version: 1.3.3-b1-1 stable beta
+date-released: '2021-07-27'
 references:
   - authors:
       - family-names: Mathias
