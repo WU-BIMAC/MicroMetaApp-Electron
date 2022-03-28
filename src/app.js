@@ -536,24 +536,46 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			);
 
 			let javaVersion = checkVersionResultsString.split("\n")[0];
-			javaVersion = javaVersion.replace('java version "', "");
-			javaVersion = javaVersion.replace('"', "");
-			let javaVersionSplit = javaVersion.split(".");
-			let javaVersionMain = Number(javaVersionSplit[0]);
-			let javaVersionSub = Number(javaVersionSplit[1]);
-			if (
-				javaVersionMain < 1 ||
-				(javaVersionMain === 1 && javaVersionSub < 8)
-			) {
+			javaVersion = javaVersion.replace("b'", "");
+			javaVersion = javaVersion.replace("\\n'", "");
+			if (javaVersion.startsWith("java version")) {
+				javaVersion = javaVersion.replace('java version "', "");
+				javaVersion = javaVersion.replace('"', "");
+				let javaVersionSplit = javaVersion.split(".");
+				let javaVersionMain = Number(javaVersionSplit[0]);
+				let javaVersionSub = Number(javaVersionSplit[1]);
+				if (
+					javaVersionMain < 1 ||
+					(javaVersionMain === 1 && javaVersionSub < 8)
+				) {
+					complete({
+						Error:
+							"This software require at least java version 1.8, you are currently running java version " +
+							javaVersion +
+							". Update your java version or skip the image loading process.",
+					});
+					return;
+				}
+			} else if (javaVersion.startsWith("openjdk version")) {
+				javaVersion = javaVersion.replace('openjdk version "', "");
+				javaVersion = javaVersion.split('"')[0];
+				let javaVersionSplit = javaVersion.split(".");
+				let javaVersionMain = Number(javaVersionSplit[0]);
+				let javaVersionSub = Number(javaVersionSplit[1]);
+				if (javaVersionMain < 8) {
+					complete({
+						Error:
+							"This software require at least openjdk version 8, you are currently running openjdk version " +
+							javaVersion +
+							". Update your openjdk version or skip the image loading process.",
+					});
+					return;
+				}
+			} else {
 				complete({
-					Error:
-						"This software require at least java version 1.8, you are currently running java version " +
-						javaVersion +
-						". Update your java version or skip the image loading process.",
+					Error: "Unable to parse java version " + javaVersion + ".",
 				});
 				return;
-			} else {
-				console.log("Java version validated " + javaVersion);
 			}
 		} catch (exception) {
 			complete({
