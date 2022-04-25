@@ -555,6 +555,14 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 							". Update your java version or skip the image loading process.",
 					});
 					return;
+				} else if (javaVersionMain > 1 && javaVersionMain < 8) {
+					complete({
+						Error:
+							"This software require at least java version 1.8, you are currently running java version " +
+							javaVersion +
+							". Update your java version or skip the image loading process.",
+					});
+					return;
 				}
 			} else if (javaVersion.startsWith("openjdk version")) {
 				javaVersion = javaVersion.replace('openjdk version "', "");
@@ -562,7 +570,18 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 				let javaVersionSplit = javaVersion.split(".");
 				let javaVersionMain = Number(javaVersionSplit[0]);
 				let javaVersionSub = Number(javaVersionSplit[1]);
-				if (javaVersionMain < 8) {
+				if (
+					javaVersionMain < 1 ||
+					(javaVersionMain === 1 && javaVersionSub < 8)
+				) {
+					complete({
+						Error:
+							"This software require at least openjdk version 8, you are currently running openjdk version " +
+							javaVersion +
+							". Update your openjdk version or skip the image loading process.",
+					});
+					return;
+				} else if (javaVersionMain > 1 && javaVersionMain < 8) {
 					complete({
 						Error:
 							"This software require at least openjdk version 8, you are currently running openjdk version " +
