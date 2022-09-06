@@ -9,6 +9,14 @@ import Popover from "react-bootstrap/Popover";
 
 import MicroMetaAppReact from "micro-meta-app-react";
 
+import {
+	string_logo_img_micro_bk,
+	number_logo_width,
+	number_logo_height,
+} from "micro-meta-app-react/es/constants";
+
+const url = require("url");
+
 const { execSync, spawnSync } = window.require("child_process");
 const fs = window.require("fs");
 const electron = window.require("electron");
@@ -149,6 +157,34 @@ class MicroMetaAppElectronWorkingDirectoryChooser extends React.PureComponent {
 			flexWrap: "wrap",
 			alignItems: "center",
 		};
+		const folderSelectorContainer = {
+			display: "flex",
+			justifyContent: "flex-start",
+			flexFlow: "column",
+			width: "100%",
+			//height: `${number_logo_height}px`,
+			height: "60%",
+			alignItems: "center",
+		};
+		const logoContainer = {
+			display: "flex",
+			justifyContent: "flex-end",
+			flexFlow: "column",
+			width: "100%",
+			//height: `${number_logo_height}px`,
+			height: "40%",
+			alignItems: "center",
+		};
+		let styleImage = {
+			width: "100%",
+			height: "100%",
+			margin: "auto",
+		};
+
+		let styleImageContainer = {
+			width: `${number_logo_width}px`,
+			height: `${number_logo_height}px`,
+		};
 		let controlStyle = {
 			height: "50px",
 		};
@@ -161,101 +197,118 @@ class MicroMetaAppElectronWorkingDirectoryChooser extends React.PureComponent {
 				background: "green",
 			});
 		}
+
+		let logoImg = url.resolve(
+			this.props.imagesPathPNG,
+			string_logo_img_micro_bk
+		);
+		let logoPath =
+			logoImg +
+			(logoImg.indexOf("githubusercontent.com") > -1 ? "?sanitize=true" : "");
 		let titleText = "Select your local Micro-Meta App home folder";
+
 		return (
 			<div style={wrapperContainer}>
 				<div style={mainContainer}>
-					<div style={{ textAlign: "center", fontWeight: "bold" }}>
-						{titleText}
+					<div style={logoContainer}>
+						<div style={styleImageContainer}>
+							<img src={logoPath} alt={logoImg} style={styleImage} />
+						</div>
 					</div>
-					<OverlayTrigger
-						placement={"top"}
-						delay={{ show: 1000, hide: 1000 }}
-						rootClose={true}
-						rootCloseEvent={"mousedown" || "click"}
-						overlay={
-							<Popover id="popover-basic">
-								<Popover.Title as="h3">
-									Select your local Micro-Meta App home folder
-								</Popover.Title>
-								<Popover.Content>
-									<p>
-										Select the folder on your local computer that you want to
-										use as the Micro-Meta App home folder, in which to store
-										Microscope.JSON and SettingsJSON files.
-									</p>
-								</Popover.Content>
-							</Popover>
-						}
-					>
-						<InputGroup className="mb-3" style={inputContainerStyle}>
-							<FormControl
-								ref={this.inputRef}
-								onChange={this.handleWorkingDirectoryChange}
-								aria-label="workingDirectory"
-								aria-describedby="basic-addon2"
-								size="lg"
-								value={workingDirectory}
-							/>
-							<InputGroup.Append>
-								<InputGroup.Text style={controlStyle}>
-									{isPathValid ? <div>&#10004;</div> : <div>&#10006;</div>}
-								</InputGroup.Text>
-							</InputGroup.Append>
-						</InputGroup>
-					</OverlayTrigger>
-					<div style={buttonContainerStyle}>
+					<div style={folderSelectorContainer}>
+						<div style={{ textAlign: "center", fontWeight: "bold" }}>
+							{titleText}
+						</div>
 						<OverlayTrigger
-							placement={"left"}
+							placement={"top"}
 							delay={{ show: 1000, hide: 1000 }}
 							rootClose={true}
 							rootCloseEvent={"mousedown" || "click"}
 							overlay={
 								<Popover id="popover-basic">
 									<Popover.Title as="h3">
-										Browse local file-system
+										Select your local Micro-Meta App home folder
 									</Popover.Title>
 									<Popover.Content>
 										<p>
-											Click this button to navigate your file system and select
-											a home folder that will contain your saved Microscope
-											files. This folder will constitute your local Repository.
+											Select the folder on your local computer that you want to
+											use as the Micro-Meta App home folder, in which to store
+											Microscope.JSON and SettingsJSON files.
 										</p>
 									</Popover.Content>
 								</Popover>
 							}
 						>
-							<Button
-								onClick={this.onClickSelectWorkingDirectory}
-								style={buttonStyle}
-								size="lg"
-							>
-								Browse
-							</Button>
+							<InputGroup className="mb-3" style={inputContainerStyle}>
+								<FormControl
+									ref={this.inputRef}
+									onChange={this.handleWorkingDirectoryChange}
+									aria-label="workingDirectory"
+									aria-describedby="basic-addon2"
+									size="lg"
+									value={workingDirectory}
+								/>
+								<InputGroup.Append>
+									<InputGroup.Text style={controlStyle}>
+										{isPathValid ? <div>&#10004;</div> : <div>&#10006;</div>}
+									</InputGroup.Text>
+								</InputGroup.Append>
+							</InputGroup>
 						</OverlayTrigger>
-						<OverlayTrigger
-							placement={"right"}
-							delay={{ show: 1000, hide: 1000 }}
-							rootClose={true}
-							rootCloseEvent={"mousedown" || "click"}
-							overlay={
-								<Popover id="popover-basic">
-									<Popover.Title as="h3">Continue</Popover.Title>
-									<Popover.Content>
-										<p>Click Continue to use the current working folder.</p>
-									</Popover.Content>
-								</Popover>
-							}
-						>
-							<Button
-								onClick={this.onClickConfirmWorkingDirectory}
-								style={buttonStyle}
-								size="lg"
-								disabled={!isPathValid}
+						<div style={buttonContainerStyle}>
+							<OverlayTrigger
+								placement={"left"}
+								delay={{ show: 1000, hide: 1000 }}
+								rootClose={true}
+								rootCloseEvent={"mousedown" || "click"}
+								overlay={
+									<Popover id="popover-basic">
+										<Popover.Title as="h3">
+											Browse local file-system
+										</Popover.Title>
+										<Popover.Content>
+											<p>
+												Click this button to navigate your file system and
+												select a home folder that will contain your saved
+												Microscope files. This folder will constitute your local
+												Repository.
+											</p>
+										</Popover.Content>
+									</Popover>
+								}
 							>
-								Continue
-							</Button>
-						</OverlayTrigger>
+								<Button
+									onClick={this.onClickSelectWorkingDirectory}
+									style={buttonStyle}
+									size="lg"
+								>
+									Browse
+								</Button>
+							</OverlayTrigger>
+							<OverlayTrigger
+								placement={"right"}
+								delay={{ show: 1000, hide: 1000 }}
+								rootClose={true}
+								rootCloseEvent={"mousedown" || "click"}
+								overlay={
+									<Popover id="popover-basic">
+										<Popover.Title as="h3">Continue</Popover.Title>
+										<Popover.Content>
+											<p>Click Continue to use the current working folder.</p>
+										</Popover.Content>
+									</Popover>
+								}
+							>
+								<Button
+									onClick={this.onClickConfirmWorkingDirectory}
+									style={buttonStyle}
+									size="lg"
+									disabled={!isPathValid}
+								>
+									Continue
+								</Button>
+							</OverlayTrigger>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -902,6 +955,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 					workingDirectory={workingDirectory}
 					handleSelectWorkingDirectory={this.handleSelectWorkingDirectory}
 					handleConfirmWorkingDirectory={this.handleConfirmWorkingDirectory}
+					imagesPathPNG={imagesPathPNG}
 				/>
 			);
 		} else {
