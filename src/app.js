@@ -17,14 +17,18 @@ import {
 
 const url = require("url");
 
+const remote = require("@electron/remote");
+
 const { execSync, spawnSync } = window.require("child_process");
 const fs = window.require("fs");
 const electron = window.require("electron");
-const appPath = electron.remote.app.getAppPath();
-const homePath = electron.remote.app.getPath("home");
+const BrowserWindow = remote.BrowserWindow;
+
+const appPath = remote.app.getAppPath();
+const homePath = remote.app.getPath("home");
 const path = window.require("path");
-const dialog = electron.remote.dialog;
-const mainWindow = electron.BrowserWindow;
+const dialog = remote.dialog;
+const mainWindow = BrowserWindow;
 
 const toolDirectory = "./MicroMetaApp/";
 const microMetaOptionsFile = "micrometa-options.txt";

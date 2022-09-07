@@ -10,9 +10,8 @@ var plugins = [];
 var mode = env === "production" ? "production" : "development";
 
 module.exports = {
-	// Entry point to our code. This index.js (or other-name)
-	// file/module should export the MicroscropyApp Component
 	mode: mode,
+	target: "electron-main",
 	entry: "./src/app.js",
 	output: {
 		library: "MicroMetaAppElectron", // Unsure if best naming convention
