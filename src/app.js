@@ -8,12 +8,17 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 
 import MicroMetaAppReact from "micro-meta-app-react";
+import MicroMetaExplorer from "micro-meta-explorer";
+
+import ModeSelector from "./modeSelector";
 
 import {
 	string_logo_img_micro_bk,
 	number_logo_width,
 	number_logo_height,
 } from "micro-meta-app-react/es/constants";
+
+import { isDefined } from "micro-meta-app-react/es/genericUtilities";
 
 const url = require("url");
 
@@ -42,9 +47,11 @@ const scriptDependencyDirectory = "./scripts/dependency-jars";
 
 const imageMetadataReaderScriptName = "4DNMicroscopyMetadataReader-1.0.1.jar";
 
+const IS_DEBUG = true;
+
 window.onload = () => {
 	ReactDOM.render(
-		<MicroMetaAppElectronComponent />,
+		<MicroMetaAppElectronComponent isDebug={IS_DEBUG} />,
 		document.getElementById("root")
 	);
 };
@@ -374,6 +381,9 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 				height: window && window.innerHeight,
 			},
 			//imageLoaded: false,
+			isModeSelected: false,
+			useMicroMetaExplorer: null,
+			mmeMicroscope: null,
 		};
 		this.onLoadSchema = this.onLoadSchema.bind(this);
 		this.onLoadMicroscopes = this.onLoadMicroscopes.bind(this);
@@ -382,6 +392,12 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		this.onLoadTierList = this.onLoadTierList.bind(this);
 
 		this.onLoadMetadata = this.onLoadMetadata.bind(this);
+
+		this.onClickHome = this.onClickHome.bind(this);
+		this.onClickOpen = this.onClickOpen.bind(this);
+
+		this.onClickMMA = this.onClickMMA.bind(this);
+		this.onClickMME = this.onClickMME.bind(this);
 
 		this.onWorkingDirectorySave = this.onWorkingDirectorySave.bind(this);
 		this.onWorkingDirectorySettingsSave =
@@ -933,6 +949,31 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		});
 	}
 
+	onClickOpen(microscope) {
+		this.setState({
+			isModeSelected: true,
+			useMicroMetaExplorer: false,
+			mmeMicroscope: microscope,
+		});
+	}
+
+	onClickHome() {
+		if (this.props.isDebug) console.log("onClickHome");
+		this.setState({
+			isModeSelected: false,
+			useMicroMetaExplorer: null,
+			mmeMicroscope: null,
+		});
+	}
+
+	onClickMME() {
+		this.setState({ isModeSelected: true, useMicroMetaExplorer: true });
+	}
+
+	onClickMMA() {
+		this.setState({ isModeSelected: true, useMicroMetaExplorer: false });
+	}
+
 	render() {
 		const {
 			windowDimensions: dims,
@@ -960,27 +1001,88 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 					handleSelectWorkingDirectory={this.handleSelectWorkingDirectory}
 					handleConfirmWorkingDirectory={this.handleConfirmWorkingDirectory}
 					imagesPathPNG={imagesPathPNG}
+					isDebug={this.props.isDebug}
 				/>
+			);
+		}
+
+		let wrapperContainer = {
+			display: "flex",
+			justifyContent: "center",
+			flexFlow: "column",
+			width: dims.width,
+			height: dims.height,
+			alignItems: "center",
+		};
+
+		console.log("isModeSelected");
+		console.log(this.state.isModeSelected);
+		console.log("useMicroMetaExplorer");
+		console.log(this.state.useMicroMetaExplorer);
+		console.log("mmeMicroscope");
+		console.log(this.state.mmeMicroscope);
+
+		if (!this.state.isModeSelected) {
+			return (
+				<div style={wrapperContainer}>
+					<ModeSelector
+						imagesPathPNG={imagesPathPNG}
+						imagesPathSVG={imagesPathSVG}
+						// onClickLoadSchema={this.handleLoadSchema}
+						// onClickLoadDimensions={this.handleLoadDimensions}
+						// onClickLoadMicroscopes={this.handleLoadMicroscopes}
+						// onClickLoadSettings={this.handleLoadSettings}
+						// onClickLoadTierList={this.handleLoadTierList}
+						// onClickHandleMicPreset={this.handleMicPreset}
+						onClickMME={this.onClickMME}
+						onClickMMA={this.onClickMMA}
+						// is4DNPortal={this.state.is4DNPortal}
+						hasExplorer={true}
+						isDebug={this.props.isDebug}
+					/>
+				</div>
 			);
 		} else {
-			return (
-				<MicroMetaAppReact
-					width={dims.width}
-					height={dims.height}
-					onLoadSchema={this.onLoadSchema}
-					onLoadDimensions={this.onLoadDimensions}
-					onLoadMicroscopes={this.onLoadMicroscopes}
-					onLoadSettings={this.onLoadSettings}
-					onLoadTierList={this.onLoadTierList}
-					onSaveMicroscope={this.onWorkingDirectorySave}
-					onSaveSetting={this.onWorkingDirectorySettingsSave}
-					onLoadMetadata={this.onLoadMetadata}
-					imagesPathPNG={imagesPathPNG}
-					imagesPathSVG={imagesPathSVG}
-					hasSettings={true}
-					isElectron={true}
-				/>
-			);
+			if (this.state.useMicroMetaExplorer) {
+				return (
+					<div style={wrapperContainer}>
+						<MicroMetaExplorer
+							width={dims.width}
+							height={dims.height}
+							onLoadSchema={this.onLoadSchema}
+							onLoadMicroscopes={this.onLoadMicroscopes}
+							imagesPathPNG={imagesPathPNG}
+							imagesPathSVG={imagesPathSVG}
+							onClickHome={this.onClickHome}
+							onClickOpen={this.onClickOpen}
+							isDebug={this.props.isDebug}
+						/>
+					</div>
+				);
+			} else {
+				return (
+					<MicroMetaAppReact
+						width={dims.width}
+						height={dims.height}
+						onLoadSchema={this.onLoadSchema}
+						onLoadDimensions={this.onLoadDimensions}
+						onLoadMicroscopes={this.onLoadMicroscopes}
+						onLoadSettings={this.onLoadSettings}
+						onLoadTierList={this.onLoadTierList}
+						onSaveMicroscope={this.onWorkingDirectorySave}
+						onSaveSetting={this.onWorkingDirectorySettingsSave}
+						onLoadMetadata={this.onLoadMetadata}
+						imagesPathPNG={imagesPathPNG}
+						imagesPathSVG={imagesPathSVG}
+						hasSettings={true}
+						isElectron={true}
+						isMMEOpen={isDefined(this.state.mmeMicroscope)}
+						onClickHome={this.onClickHome}
+						isDebug={this.props.isDebug}
+						microscope={this.state.mmeMicroscope}
+					/>
+				);
+			}
 		}
 	}
 }
