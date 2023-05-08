@@ -1,6 +1,6 @@
 {
 	"name": "micro-meta-app-electron",
-	"version": "1.7.25-b1",
+	"version": "2.0.0-b1",
 	"private": true,
 	"main": "./main.js",
 	"publishConfig": {
@@ -9,6 +9,7 @@
 	"dependencies": {
 		"@electron/remote": "^2.0.8",
 		"micro-meta-app-react": "github:WU-BIMAC/MicroMetaApp-React#master",
+		"micro-meta-explorer": "github:WU-BIMAC/MicroMetaExplorer#master",
 		"react": ">=17.0.2",
 		"react-bootstrap": "1.4.0",
 		"react-dom": ">=17.0.2"
@@ -21,6 +22,7 @@
 		"dev": "gulp dev",
 		"build": "gulp build-prod && gulp build-dev",
 		"update-mma": "npm uninstall micro-meta-app-react && npm cache clean --force && npm install micro-meta-app-react@github:WU-BIMAC/MicroMetaApp-React#master --save",
+		"update-mme": "npm uninstall micro-meta-explorer && npm cache clean --force && npm install micro-meta-explorer@github:WU-BIMAC/MicroMetaExplorer#master --save",
 		"dist_win": "electron-builder build --win --x64 --ia32",
 		"dist_mac": "electron-builder build --mac"
 	},
