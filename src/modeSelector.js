@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 
-import MicroMetaAppReact from "micro-meta-app-react";
 import PopoverTooltip from "micro-meta-app-react/es/components/popoverTooltip";
 
 const url = require("url");
@@ -9,12 +8,12 @@ const url = require("url");
 import {
 	number_logo_width,
 	number_logo_height,
-	manage_instrument_tooltip,
-	manage_settings_tooltip,
 	string_logo_img_micro_bk,
 	string_manage_hardware_circle_img,
 	string_manage_settings_circle_img,
 } from "micro-meta-app-react/es/constants";
+
+import { mme_tooltip, mma_tooltip, footnote } from "./constants";
 
 export default class ModeSelector extends React.PureComponent {
 	constructor(props) {
@@ -156,9 +155,9 @@ export default class ModeSelector extends React.PureComponent {
 					</div>
 					<div style={modeSelectorContainer}>
 						<PopoverTooltip
-							position={manage_instrument_tooltip.position}
-							title={manage_instrument_tooltip.title}
-							content={manage_instrument_tooltip.content}
+							position={mme_tooltip.position}
+							title={mme_tooltip.title}
+							content={mme_tooltip.content}
 							element={
 								<Button
 									disabled={!selectionEnabled || !this.props.hasExplorer}
@@ -178,7 +177,10 @@ export default class ModeSelector extends React.PureComponent {
 											</div>
 											<div style={buttonsInnerBottomContainer}>
 												<h2 style={styleText_1}>Micro-Meta Explorer</h2>
-												<p style={styleText_2}>TBD</p>
+												<p style={styleText_2}>
+													Compare the hardware components of different available
+													microscopes and select the one you are interested in.
+												</p>
 											</div>
 										</div>
 									}
@@ -186,9 +188,9 @@ export default class ModeSelector extends React.PureComponent {
 							}
 						/>
 						<PopoverTooltip
-							position={manage_settings_tooltip.position}
-							title={manage_settings_tooltip.title}
-							content={manage_settings_tooltip.content}
+							position={mma_tooltip.position}
+							title={mma_tooltip.title}
+							content={mma_tooltip.content}
 							element={
 								<Button
 									disabled={!selectionEnabled}
@@ -208,7 +210,11 @@ export default class ModeSelector extends React.PureComponent {
 											</div>
 											<div style={buttonsInnerBottomContainer}>
 												<h2 style={styleText_1}>Micro-Meta App</h2>
-												<p style={styleText_2}>TBD</p>
+												<p style={styleText_2}>
+													Collect information about the microscope hardware
+													components and the image acquisition settings
+													associated with specific datasets.
+												</p>
 											</div>
 										</div>
 									}
@@ -216,15 +222,7 @@ export default class ModeSelector extends React.PureComponent {
 							}
 						/>
 					</div>
-					<p>
-						(c) Copyright 2018-2023 University of Massachusetts Chan Medical
-						School. All Rights Reserved.
-						<br />
-						The software is distributed under the terms of the{" "}
-						<a href="https://www.gnu.org/licenses/gpl-3.0.html">
-							GNU General Public License v3.0.
-						</a>
-					</p>
+					{footnote}
 				</div>
 			</div>
 		);

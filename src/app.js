@@ -18,6 +18,8 @@ import {
 	number_logo_height,
 } from "micro-meta-app-react/es/constants";
 
+import { footnote } from "./constants";
+
 import { isDefined } from "micro-meta-app-react/es/genericUtilities";
 
 const url = require("url");
@@ -33,6 +35,7 @@ const appPath = remote.app.getAppPath();
 const homePath = remote.app.getPath("home");
 const path = window.require("path");
 const dialog = remote.dialog;
+
 const mainWindow = BrowserWindow;
 
 const toolDirectory = "./MicroMetaApp/";
@@ -102,6 +105,7 @@ class MicroMetaAppElectronWorkingDirectoryChooser extends React.PureComponent {
 		dialog
 			.showOpenDialog(mainWindow, {
 				defaultPath: `${value}`,
+				buttonLabel: "Select",
 				properties: ["openDirectory"],
 			})
 			.then((result) => {
@@ -321,6 +325,7 @@ class MicroMetaAppElectronWorkingDirectoryChooser extends React.PureComponent {
 							</OverlayTrigger>
 						</div>
 					</div>
+					{footnote}
 				</div>
 			</div>
 		);
