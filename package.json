@@ -8,7 +8,7 @@
 	},
 	"dependencies": {
 		"@electron/remote": "^2.0.8",
-		"micro-meta-app-react": "github:WU-BIMAC/MicroMetaApp-React#master",
+		"micro-meta-app-react": "github:WU-BIMAC/MicroMetaApp-React#feature/save-microscope-components",
 		"micro-meta-explorer": "github:WU-BIMAC/MicroMetaExplorer#master",
 		"react": ">=17.0.2",
 		"react-bootstrap": "1.4.0",
@@ -21,7 +21,7 @@
 		"buildDev": "gulp build-dev",
 		"dev": "gulp dev",
 		"build": "gulp build-prod && gulp build-dev",
-		"update-mma": "npm uninstall micro-meta-app-react && npm cache clean --force && npm install micro-meta-app-react@github:WU-BIMAC/MicroMetaApp-React#master --save",
+		"update-mma": "npm uninstall micro-meta-app-react && npm cache clean --force && npm install micro-meta-app-react@github:WU-BIMAC/MicroMetaApp-React#feature/save-microscope-components --save",
 		"update-mme": "npm uninstall micro-meta-explorer && npm cache clean --force && npm install micro-meta-explorer@github:WU-BIMAC/MicroMetaExplorer#master --save",
 		"dist_win": "electron-builder build --win --x64 --ia32",
 		"dist_mac": "electron-builder build --mac"
