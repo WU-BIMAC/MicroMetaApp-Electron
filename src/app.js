@@ -719,6 +719,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 	onWorkingDirectorySave(microscope, complete) {
 		const workingDirectory = this.state.workingDirectory;
 		const dirPath = path.resolve(workingDirectory, microscopeDirectory);
+
 		//let dirPath = null;
 		// let isTemplate = microscope.isTemplate;
 		// if (isTemplate) {
@@ -728,7 +729,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		// }
 		// console.log("microscope:");
 		// console.log(microscope);
-
+		
 		let json = JSON.stringify(microscope);
 		let micName = microscope.Name;
 		let micNameNormalized = micName.replace(/\s+/g, "_").toLowerCase();
@@ -740,6 +741,42 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			complete(micNameNormalized);
 		});
 	}
+
+	onWorkingDirectorySaveComponent() {
+		if(this.props.isDebug) console.log("inside of function onWorkingDirectorySaveComponent in file app.js of Electron");
+	}
+
+	// onWorkingDirectoryComponentSave(microscope, complete) {
+	// 	const workingDirectory = this.state.workingDirectory;
+	// 	const componentDirectory = "./components/"
+	// 	const dirComponentPath = path.resolve(workingDirectory, componentDirectory);
+
+	// 	let components = microscope.components || [];
+	// 	let componentsSaved = [];
+	// 	let componentCount = 0;
+	// 	components.forEach((component, index) => {
+    //         let componentName = component.Name || `component_${index}`; // Use the component name if available, otherwise index
+    //         let componentNameNormalized = componentName.replace(/\s+/g, "_").toLowerCase();
+    //         let componentFileName = path.resolve(dirPath, `${componentNameNormalized}.json`);
+
+    //         // Create a JSON object for the component
+    //         let componentJson = JSON.stringify(component);
+
+    //         // Write the component's JSON data to a file
+    //         fs.writeFile(componentFileName, componentJson, function () {
+	// 			console.log(`Saved component: ${componentName}`);
+	// 			componentsSaved.push(componentNameNormalized); 
+
+    //             // Check if all components have been processed
+    //             componentCount++;
+    //             if (componentCount === components.length) {
+    //                 // All components have been saved, call the complete callback
+    //                 console.log("All components have been saved:", componentsSaved);
+    //                 complete([micNameNormalized, ...componentsSaved]); // Return the microscope and components' names to the callback
+    //             }
+    //         });
+    //     });
+	// }
 
 	onWorkingDirectorySettingsSave(settings, complete) {
 		const workingDirectory = this.state.workingDirectory;
@@ -1075,6 +1112,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 						onLoadSettings={this.onLoadSettings}
 						onLoadTierList={this.onLoadTierList}
 						onSaveMicroscope={this.onWorkingDirectorySave}
+						onSaveComponent={this.onWorkingDirectorySaveComponent}
 						onSaveSetting={this.onWorkingDirectorySettingsSave}
 						onLoadMetadata={this.onLoadMetadata}
 						imagesPathPNG={imagesPathPNG}
