@@ -743,7 +743,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 	}
 
 	onWorkingDirectorySaveComponent() {
-		if(this.props.isDebug) console.log("inside of function onWorkingDirectorySaveComponent in file app.js of Electron");
+		console.log("inside of function onWorkingDirectorySaveComponent in file app.js of Electron");
 	}
 
 	// onWorkingDirectoryComponentSave(microscope, complete) {
