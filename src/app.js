@@ -405,6 +405,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		this.onClickMMA = this.onClickMMA.bind(this);
 		this.onClickMME = this.onClickMME.bind(this);
 
+		this.saveAllComponents = this.saveAllComponents.bind(this);
 		this.onWorkingDirectorySave = this.onWorkingDirectorySave.bind(this);
 		this.onWorkingDirectorySaveComponent = this.onWorkingDirectorySaveComponent.bind(this);
 		this.onWorkingDirectorySettingsSave =
@@ -703,8 +704,6 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 				complete({ Error: `Could not read ${imgPath} metadata` });
 				return;
 			}
-			//console.log("metadataString");
-			//console.log(metadataString);
 			let metadataJSON = JSON.parse(metadataString);
 			console.log("onLoadMetadata");
 			console.log(metadataJSON);
@@ -720,7 +719,8 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 
 	onWorkingDirectorySave(microscope, complete) {
 		console.log("inside of the function onWorkingDirectorySave");
-		console.log("value of the state workingDirectory: ", this.state.workingDirectory);
+		console.log("this is the microscope: ", microscope);
+
 		const workingDirectory = this.state.workingDirectory;
 		const dirPath = path.resolve(workingDirectory, microscopeDirectory);
 
@@ -739,59 +739,99 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		let micNameNormalized = micName.replace(/\s+/g, "_").toLowerCase();
 		//let fileName = dirPath + `${micNameNormalized}.json`;
 		let fileName = path.resolve(dirPath, `${micNameNormalized}.json`);
-		// console.log("dirPath " + dirPath);
-		// console.log("fileName " + fileName);
 		fs.writeFile(fileName, json, function () {
 			complete(micNameNormalized);
 		});
 	}
 
-	onWorkingDirectorySaveComponent(component, complete) {
-		console.log("inside of function onWorkingDirectorySaveComponent in file app.js of Electron");
+	saveAllComponents(elementData, complete, validationTier) {
+		const elementDataCopy = JSON.parse(JSON.stringify(elementData));
+		let saveCount = 0;
+		const keys = Object.keys(elementDataCopy);
+	
+		const onSaveComplete = (componentName) => {
+			// console.log(`${componentName} has been saved.`);
+			saveCount++;
+	
+			if (saveCount === keys.length) {
+				complete();
+			}
+		};
+	
+		keys.forEach((key) => {
+			const component = elementDataCopy[key];
+	
+			this.onWorkingDirectorySaveComponent(component, onSaveComplete, validationTier);
+		});
+	}
+
+	onWorkingDirectorySaveComponent(component, complete, validationTier) {
 		const workingDirectory = this.state.workingDirectory;
 		const dirPath = path.resolve(workingDirectory, componentDirectory);
-
-		let json = JSON.stringify(component);
+		const componentCopy = JSON.parse(JSON.stringify(component));
+		const { Schema_ID } = componentCopy;
+		const componentType = Schema_ID ? Schema_ID.split('.')[0] : "unknown";
+	
+		const isLinkedField = (value) => {
+			if (Array.isArray(value)) {
+				return value.every((entry) => typeof entry === "string" && entry.includes("/"));
+			}
+			return false;
+		};
+	
+		const linkedFields = {};
+		const otherFields = {};
+	
+		Object.entries(componentCopy).forEach(([key, value]) => {
+			if (isLinkedField(value)) {
+				linkedFields[key] = value;
+			} else {
+				otherFields[key] = value;
+			}
+		});
+	
+		const { ID, ...remainingData } = otherFields;
+	
+		const {
+			Category,
+			Domain,
+			Extension,
+			Height,
+			ModelVersion,
+			OccupiedSpot,
+			OffsetX,
+			OffsetY,
+			PositionX,
+			PositionY,
+			PositionZ,
+			Rotate,
+			Width,
+			...consolidatedData
+		} = remainingData;
+	
+		delete consolidatedData.Schema_ID;
+	
+		for (const key in linkedFields) {
+			if (linkedFields[key]?.value !== undefined) {
+				delete consolidatedData[key];
+			}
+		}
+	
+		const { Manufacturer, Model, CatalogNumber } = consolidatedData;
+		const newName = `${componentType}_${Manufacturer}_${Model}_${CatalogNumber}_${validationTier}`
+			.replace(/\s+/g, "_")
+			.toLowerCase();
+		consolidatedData.Name = newName;
+	
+		let json = JSON.stringify(consolidatedData);
 		let componentName = component.Name;
 		let componentNameNormalized = componentName.replace(/\s+/g, "_").toLowerCase();
-		let fileName = path.resolve(dirPath, `${componentNameNormalized}.json`);
-
+		let fileName = path.resolve(dirPath, `${newName}.json`);
+	
 		fs.writeFile(fileName, json, function () {
 			complete(componentNameNormalized);
 		});
 	}
-
-	// onWorkingDirectoryComponentSave(microscope, complete) {
-	// 	const workingDirectory = this.state.workingDirectory;
-	// 	const componentDirectory = "./components/"
-	// 	const dirComponentPath = path.resolve(workingDirectory, componentDirectory);
-
-	// 	let components = microscope.components || [];
-	// 	let componentsSaved = [];
-	// 	let componentCount = 0;
-	// 	components.forEach((component, index) => {
-    //         let componentName = component.Name || `component_${index}`; // Use the component name if available, otherwise index
-    //         let componentNameNormalized = componentName.replace(/\s+/g, "_").toLowerCase();
-    //         let componentFileName = path.resolve(dirPath, `${componentNameNormalized}.json`);
-
-    //         // Create a JSON object for the component
-    //         let componentJson = JSON.stringify(component);
-
-    //         // Write the component's JSON data to a file
-    //         fs.writeFile(componentFileName, componentJson, function () {
-	// 			console.log(`Saved component: ${componentName}`);
-	// 			componentsSaved.push(componentNameNormalized); 
-
-    //             // Check if all components have been processed
-    //             componentCount++;
-    //             if (componentCount === components.length) {
-    //                 // All components have been saved, call the complete callback
-    //                 console.log("All components have been saved:", componentsSaved);
-    //                 complete([micNameNormalized, ...componentsSaved]); // Return the microscope and components' names to the callback
-    //             }
-    //         });
-    //     });
-	// }
 
 	onWorkingDirectorySettingsSave(settings, complete) {
 		const workingDirectory = this.state.workingDirectory;
@@ -1147,6 +1187,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 						onSaveMicroscope={this.onWorkingDirectorySave}
 						onSaveComponent={this.onWorkingDirectorySaveComponent}
 						onSaveSetting={this.onWorkingDirectorySettingsSave}
+						saveAllComponents={this.saveAllComponents}
 						onLoadMetadata={this.onLoadMetadata}
 						imagesPathPNG={imagesPathPNG}
 						imagesPathSVG={imagesPathSVG}
