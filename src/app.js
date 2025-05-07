@@ -378,7 +378,6 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 
 	constructor(props) {
 		super(props);
-		//window.console.log("Application directory:", appPath);
 		this.state = {
 			workingDirectory: path.resolve(appPath),
 			workingDirectoryConfirmed: false,
@@ -386,13 +385,33 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 				width: window && window.innerWidth,
 				height: window && window.innerHeight,
 			},
-			//imageLoaded: false,
 			isModeSelected: false,
 			useMicroMetaExplorer: null,
 			mmeMicroscope: null,
 		};
+		this.knownComponentTypes = new Set([
+			"MicroscopyAccessory",
+			"Software",
+			"Transmitted_Lightsource", 
+			"Fluorescence_Lightsource", 
+			"Magnification", 
+			"FluorescenceLightPath", 
+			"Stage", 
+			"Focusing", 
+			"OpticalAssembly", 
+			"OpticsHolder", 
+			"Aperture", 
+			"Filter", 
+			"MirroringDevice", 
+			"Lens", 
+			"AdditionalOptics", 
+			"Detector", 
+			"Camera", 
+			"PointDetector",
+		]);
 		this.onLoadSchema = this.onLoadSchema.bind(this);
 		this.onLoadMicroscopes = this.onLoadMicroscopes.bind(this);
+		this.onLoadComponents = this.onLoadComponents.bind(this);
 		this.onLoadDimensions = this.onLoadDimensions.bind(this);
 		this.onLoadSettings = this.onLoadSettings.bind(this);
 		this.onLoadTierList = this.onLoadTierList.bind(this);
@@ -408,6 +427,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		this.saveAllComponents = this.saveAllComponents.bind(this);
 		this.onWorkingDirectorySave = this.onWorkingDirectorySave.bind(this);
 		this.onWorkingDirectorySaveComponent = this.onWorkingDirectorySaveComponent.bind(this);
+		this.onLoadComponent = this.onLoadComponent.bind(this);
 		this.onWorkingDirectorySettingsSave =
 			this.onWorkingDirectorySettingsSave.bind(this);
 
@@ -454,9 +474,6 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			}
 		}
 
-		//console.log("optionsWorkingDirectory");
-		//console.log(optionsWorkingDirectory);
-
 		this.setState({ workingDirectory: optionsWorkingDirectory });
 	}
 
@@ -475,7 +492,6 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			.then(function (files) {
 				files.forEach(function (file) {
 					var fileSchema = JSON.parse(file);
-					//console.log(fileSchema);
 					if (fileSchema !== null) {
 						if (fileSchema.constructor === Array) {
 							schema = schema.concat(fileSchema);
@@ -484,7 +500,6 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 						}
 					}
 				});
-				//console.log(schema);
 				complete(schema, resolve);
 			});
 	}
@@ -504,12 +519,10 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			.then(function (files) {
 				files.forEach(function (file) {
 					var fileSchema = JSON.parse(file);
-					//console.log(fileSchema);
 					if (fileSchema !== null) {
 						dimensions = Object.assign(dimensions, fileSchema);
 					}
 				});
-				//console.log(schema);
 				complete(dimensions, resolve);
 			});
 	}
@@ -540,9 +553,92 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 						console.log("Could not parse " + file);
 					}
 				});
-				console.log("microscopesDB");
-				console.log(microscopesDB);
 				complete(microscopesDB, resolve);
+			});
+	}
+
+	onLoadComponents(complete, resolve) {
+		const workingDirectory = this.state.workingDirectory;
+		const componentsBaseDir = path.resolve(workingDirectory, componentDirectory);
+		let componentsTree = {
+			loadedComponents: {}
+		};
+	
+		function isDirectory(source) {
+			return fs.lstatSync(source).isDirectory();
+		}
+
+		function sortTreeAlphabetically(obj) {
+			if (typeof obj !== 'object' || obj === null) return obj;
+		
+			const sorted = {};
+			Object.keys(obj)
+				.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+				.forEach((key) => {
+					sorted[key] = sortTreeAlphabetically(obj[key]);
+				});
+			return sorted;
+		}
+	
+		readDirAsync(componentsBaseDir)
+			.then((subdirs) => {
+				const typeFolders = subdirs
+					.map((name) => path.join(componentsBaseDir, name))
+					.filter(isDirectory);
+	
+				const typePromises = typeFolders.map((typeFolderPath) => {
+					const typeName = path.basename(typeFolderPath);
+	
+					return readDirAsync(typeFolderPath).then((fileNames) => {
+						const jsonFiles = fileNames
+							.filter((fileName) => fileName.endsWith(".json"))
+							.map((fileName) => path.resolve(typeFolderPath, fileName));
+	
+						return Promise.all(jsonFiles.map(readFileAsync)).then((files) => {
+							files.forEach((file) => {
+								try {
+									const component = JSON.parse(file);
+									if (component) {
+										const manufacturer = component.Manufacturer || "Unknown Manufacturer";
+										const model = component.Model || "Unknown Model";
+										const entryKey = component.Name;
+	
+										// Initialize type level
+										if (!componentsTree.loadedComponents[typeName]) {
+											componentsTree.loadedComponents[typeName] = {};
+										}
+	
+										// Initialize manufacturer level
+										if (!componentsTree.loadedComponents[typeName][manufacturer]) {
+											componentsTree.loadedComponents[typeName][manufacturer] = {};
+										}
+	
+										// Initialize model level
+										if (!componentsTree.loadedComponents[typeName][manufacturer][model]) {
+											componentsTree.loadedComponents[typeName][manufacturer][model] = {};
+										}
+	
+										// Add the component
+										componentsTree.loadedComponents[typeName][manufacturer][model][entryKey] = {
+											component
+										};
+									}
+								} catch (err) {
+									console.warn(`Could not parse component file in ${typeName}:`, err);
+								}
+							});
+						});
+					});
+				});
+	
+				return Promise.all(typePromises);
+			})
+			.then(() => {
+				componentsTree.loadedComponents = sortTreeAlphabetically(componentsTree.loadedComponents);
+				complete(componentsTree, resolve);
+			})
+			.catch((err) => {
+				console.error("Error loading components:", err);
 			});
 	}
 
@@ -718,26 +814,11 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 	}
 
 	onWorkingDirectorySave(microscope, complete) {
-		console.log("inside of the function onWorkingDirectorySave");
-		console.log("this is the microscope: ", microscope);
-
 		const workingDirectory = this.state.workingDirectory;
 		const dirPath = path.resolve(workingDirectory, microscopeDirectory);
-
-		//let dirPath = null;
-		// let isTemplate = microscope.isTemplate;
-		// if (isTemplate) {
-		// 	dirPath = workingDirectory + "templates/";
-		// } else {
-		// 	dirPath = workingDirectory + "microscopes/";
-		// }
-		// console.log("microscope:");
-		// console.log(microscope);
-		
 		let json = JSON.stringify(microscope);
 		let micName = microscope.Name;
 		let micNameNormalized = micName.replace(/\s+/g, "_").toLowerCase();
-		//let fileName = dirPath + `${micNameNormalized}.json`;
 		let fileName = path.resolve(dirPath, `${micNameNormalized}.json`);
 		fs.writeFile(fileName, json, function () {
 			complete(micNameNormalized);
@@ -750,7 +831,6 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		const keys = Object.keys(elementDataCopy);
 	
 		const onSaveComplete = (componentName) => {
-			// console.log(`${componentName} has been saved.`);
 			saveCount++;
 	
 			if (saveCount === keys.length) {
@@ -770,7 +850,23 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		const dirPath = path.resolve(workingDirectory, componentDirectory);
 		const componentCopy = JSON.parse(JSON.stringify(component));
 		const { Schema_ID } = componentCopy;
-		const componentType = Schema_ID ? Schema_ID.split('.')[0] : "unknown";
+		const componentTypeName = Schema_ID ? Schema_ID.split('.')[0] : "unknown";
+
+		let componentType = "unknown";
+		if (componentCopy.OccupiedSpot) {
+			for (let type of this.knownComponentTypes) {
+				if (componentCopy.OccupiedSpot.includes(type)) {
+					componentType = type;
+					break; 
+				}
+			}
+		}
+
+		const componentTypeDir = path.resolve(workingDirectory, "Components", componentTypeName);
+
+		if (!fs.existsSync(componentTypeDir)) {
+			fs.mkdirSync(componentTypeDir, { recursive: true });
+		}
 	
 		const isLinkedField = (value) => {
 			if (Array.isArray(value)) {
@@ -818,51 +914,75 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		}
 	
 		const { Manufacturer, Model, CatalogNumber } = consolidatedData;
-		const newName = `${componentType}_${Manufacturer}_${Model}_${CatalogNumber}_${validationTier}`
+		const newName = `${componentTypeName}_${Manufacturer}_${Model}_${CatalogNumber}_${validationTier}`
 			.replace(/\s+/g, "_")
 			.toLowerCase();
 		consolidatedData.Name = newName;
 	
-		let json = JSON.stringify(consolidatedData);
 		let componentName = component.Name;
 		let componentNameNormalized = componentName.replace(/\s+/g, "_").toLowerCase();
-		let fileName = path.resolve(dirPath, `${newName}.json`);
+
+		let json = JSON.stringify(consolidatedData, null, 2);
+		let fileName = path.resolve(componentTypeDir, `${newName}.json`);
 	
 		fs.writeFile(fileName, json, function () {
 			complete(componentNameNormalized);
 		});
 	}
 
+	onLoadComponent(complete, resolve) {
+		dialog.showOpenDialog({
+			properties: ['openFile'],   
+			filters: [{ name: 'JSON Files', extensions: ['json'] }], 
+		})
+		.then(result => {
+			if (result.canceled) {
+				return; 
+			}
+	
+			const filePath = result.filePaths[0];
+	
+			readFileAsync(filePath)
+				.then(file => {
+					try {
+						let component = JSON.parse(file);
+						let componentsDB = {};
+
+						if (component !== null) {
+							let componentKey = `${component.Name}_${component.ID}`;
+							componentsDB[componentKey] = { component };
+						}
+	
+						complete(componentsDB, resolve);
+					} catch (exception) {
+						console.log("Could not parse:", filePath);
+					}
+				})
+				.catch(error => {
+					console.log("Error reading the file:", error);
+				});
+		})
+		.catch(err => {
+			console.log('Failed to open file dialog:', err);
+		});
+	}
+
 	onWorkingDirectorySettingsSave(settings, complete) {
 		const workingDirectory = this.state.workingDirectory;
 		const dirPath = path.resolve(workingDirectory, settingsDirectory);
-		//let dirPath = null;
-		// let isTemplate = microscope.isTemplate;
-		// if (isTemplate) {
-		// 	dirPath = workingDirectory + "templates/";
-		// } else {
-		// 	dirPath = workingDirectory + "microscopes/";
-		// }
-		// console.log("microscope:");
-		// console.log(microscope);
 
 		let json = JSON.stringify(settings);
 		let settingsName = settings.Name;
 		let settingsNameNormalized = settingsName
 			.replace(/\s+/g, "_")
 			.toLowerCase();
-		//let fileName = dirPath + `${micNameNormalized}.json`;
 		let fileName = path.resolve(dirPath, `${settingsNameNormalized}.json`);
-		// console.log("dirPath " + dirPath);
-		// console.log("fileName " + fileName);
 		fs.writeFile(fileName, json, function () {
 			complete(settingsNameNormalized);
 		});
 	}
 
 	handleSelectWorkingDirectory(filePaths) {
-		//console.log("filePaths");
-		//console.log(filePaths);
 		if (!filePaths) {
 			return;
 		}
@@ -875,8 +995,6 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		} else {
 			filePath = filePaths;
 		}
-		//console.log("filePath");
-		//console.log(filePath);
 		this.setState({ workingDirectory: filePath });
 	}
 
@@ -1182,10 +1300,12 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 						onLoadSchema={this.onLoadSchema}
 						onLoadDimensions={this.onLoadDimensions}
 						onLoadMicroscopes={this.onLoadMicroscopes}
+						onLoadComponents={this.onLoadComponents}
 						onLoadSettings={this.onLoadSettings}
 						onLoadTierList={this.onLoadTierList}
 						onSaveMicroscope={this.onWorkingDirectorySave}
 						onSaveComponent={this.onWorkingDirectorySaveComponent}
+						onLoadComponent={this.onLoadComponent}
 						onSaveSetting={this.onWorkingDirectorySettingsSave}
 						saveAllComponents={this.saveAllComponents}
 						onLoadMetadata={this.onLoadMetadata}
