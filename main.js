@@ -17,6 +17,7 @@ function createWindow() {
 		},
 		width: 1200,
 		height: 820,
+		icon: path.join(__dirname, "build", "New-MicroMetaApp-Icon.ico"),
 	});
 	require("@electron/remote/main").enable(mainWindow.webContents);
 	let indexURL = url.format({

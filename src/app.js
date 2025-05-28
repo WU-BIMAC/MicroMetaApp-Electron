@@ -411,6 +411,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		]);
 		this.onLoadSchema = this.onLoadSchema.bind(this);
 		this.onLoadMicroscopes = this.onLoadMicroscopes.bind(this);
+		this.loadComponentsFromBaseDir = this.loadComponentsFromBaseDir.bind(this);
 		this.onLoadComponents = this.onLoadComponents.bind(this);
 		this.onLoadDimensions = this.onLoadDimensions.bind(this);
 		this.onLoadSettings = this.onLoadSettings.bind(this);
@@ -557,30 +558,11 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			});
 	}
 
-	onLoadComponents(complete, resolve) {
-		const workingDirectory = this.state.workingDirectory;
-		const componentsBaseDir = path.resolve(workingDirectory, componentDirectory);
-		let componentsTree = {
-			loadedComponents: {}
-		};
-	
+	loadComponentsFromBaseDir(componentsBaseDir, componentsTree) {
 		function isDirectory(source) {
 			return fs.lstatSync(source).isDirectory();
-		}
-
-		function sortTreeAlphabetically(obj) {
-			if (typeof obj !== 'object' || obj === null) return obj;
-		
-			const sorted = {};
-			Object.keys(obj)
-				.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
-				.forEach((key) => {
-					sorted[key] = sortTreeAlphabetically(obj[key]);
-				});
-			return sorted;
-		}
-	
-		readDirAsync(componentsBaseDir)
+		  }
+		return readDirAsync(componentsBaseDir)
 			.then((subdirs) => {
 				const typeFolders = subdirs
 					.map((name) => path.join(componentsBaseDir, name))
@@ -604,22 +586,22 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 										const entryKey = component.Name;
 	
 										// Initialize type level
-										if (!componentsTree.loadedComponents[typeName]) {
-											componentsTree.loadedComponents[typeName] = {};
+										if (!componentsTree[typeName]) {
+											componentsTree[typeName] = {};
 										}
 	
 										// Initialize manufacturer level
-										if (!componentsTree.loadedComponents[typeName][manufacturer]) {
-											componentsTree.loadedComponents[typeName][manufacturer] = {};
+										if (!componentsTree[typeName][manufacturer]) {
+											componentsTree[typeName][manufacturer] = {};
 										}
 	
 										// Initialize model level
-										if (!componentsTree.loadedComponents[typeName][manufacturer][model]) {
-											componentsTree.loadedComponents[typeName][manufacturer][model] = {};
+										if (!componentsTree[typeName][manufacturer][model]) {
+											componentsTree[typeName][manufacturer][model] = {};
 										}
 	
 										// Add the component
-										componentsTree.loadedComponents[typeName][manufacturer][model][entryKey] = {
+										componentsTree[typeName][manufacturer][model][entryKey] = {
 											component
 										};
 									}
@@ -632,14 +614,41 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 				});
 	
 				return Promise.all(typePromises);
-			})
-			.then(() => {
-				componentsTree.loadedComponents = sortTreeAlphabetically(componentsTree.loadedComponents);
-				complete(componentsTree, resolve);
-			})
-			.catch((err) => {
-				console.error("Error loading components:", err);
 			});
+	}
+
+	onLoadComponents(complete, resolve) {
+		const workingDirectory = this.state.workingDirectory;
+		const templateDir = path.resolve(workingDirectory, "components_template");
+	
+		let componentsTree = {
+			loadedComponents: {}
+		};
+	
+		function sortTreeAlphabetically(obj) {
+			if (typeof obj !== 'object' || obj === null) return obj;
+	
+			const sorted = {};
+			Object.keys(obj)
+				.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+				.forEach((key) => {
+					sorted[key] = sortTreeAlphabetically(obj[key]);
+				});
+			return sorted;
+		}
+	
+		// Only load from components_template directory
+		(fs.existsSync(templateDir)
+			? this.loadComponentsFromBaseDir(templateDir, componentsTree.loadedComponents)
+			: Promise.resolve()
+		)
+		.then(() => {
+			componentsTree.loadedComponents = sortTreeAlphabetically(componentsTree.loadedComponents);
+			complete(componentsTree, resolve);
+		})
+		.catch((err) => {
+			console.error("Error loading components:", err);
+		});
 	}
 
 	onLoadSettings(complete, resolve) {
@@ -825,70 +834,74 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		});
 	}
 
+	// saveAllComponents(elementData, complete, validationTier) {
+	// 	const elementDataCopy = JSON.parse(JSON.stringify(elementData));
+	// 	let saveCount = 0;
+	// 	const keys = Object.keys(elementDataCopy);
+	// 	let duplicateFound = false;
+
+	// 	const onSaveComplete = (componentName, error) => {
+	// 		saveCount++;
+	// 		if (error) {
+	// 			duplicateFound = true;
+	// 		}
+	// 		if (saveCount === keys.length) {
+	// 			if (duplicateFound) {
+	// 				complete("At least one component file name already exists. Not all components were.");
+	// 			} else {
+	// 				complete(null);
+	// 			}
+	// 		}
+	// 	};
+	
+	// 	keys.forEach((key) => {
+	// 		const component = elementDataCopy[key];
+	// 		this.onWorkingDirectorySaveComponent(component, onSaveComplete, validationTier, true);
+	// 	});
+	// }
+
 	saveAllComponents(elementData, complete, validationTier) {
 		const elementDataCopy = JSON.parse(JSON.stringify(elementData));
 		let saveCount = 0;
 		const keys = Object.keys(elementDataCopy);
+		let duplicateFiles = [];
 	
-		const onSaveComplete = (componentName) => {
+		const onSaveComplete = (componentName, error) => {
 			saveCount++;
-	
+			if (error && componentName) {
+				duplicateFiles.push(componentName);
+			}
 			if (saveCount === keys.length) {
-				complete();
+				if (duplicateFiles.length > 0) {
+					const msg = `Components saved but the following component file names already exist and were not saved:\n\n${duplicateFiles.join('\n')}`;
+					complete(msg);
+				} else {
+					complete(null);
+				}
 			}
 		};
 	
 		keys.forEach((key) => {
 			const component = elementDataCopy[key];
-	
 			this.onWorkingDirectorySaveComponent(component, onSaveComplete, validationTier);
 		});
 	}
 
 	onWorkingDirectorySaveComponent(component, complete, validationTier) {
 		const workingDirectory = this.state.workingDirectory;
-		const dirPath = path.resolve(workingDirectory, componentDirectory);
 		const componentCopy = JSON.parse(JSON.stringify(component));
 		const { Schema_ID } = componentCopy;
 		const componentTypeName = Schema_ID ? Schema_ID.split('.')[0] : "unknown";
-
-		let componentType = "unknown";
-		if (componentCopy.OccupiedSpot) {
-			for (let type of this.knownComponentTypes) {
-				if (componentCopy.OccupiedSpot.includes(type)) {
-					componentType = type;
-					break; 
-				}
-			}
-		}
-
-		const componentTypeDir = path.resolve(workingDirectory, "Components", componentTypeName);
-
+	
+		const componentTypeDir = path.resolve(workingDirectory, "components_template", componentTypeName);
+	
 		if (!fs.existsSync(componentTypeDir)) {
 			fs.mkdirSync(componentTypeDir, { recursive: true });
 		}
 	
-		const isLinkedField = (value) => {
-			if (Array.isArray(value)) {
-				return value.every((entry) => typeof entry === "string" && entry.includes("/"));
-			}
-			return false;
-		};
-	
-		const linkedFields = {};
-		const otherFields = {};
-	
-		Object.entries(componentCopy).forEach(([key, value]) => {
-			if (isLinkedField(value)) {
-				linkedFields[key] = value;
-			} else {
-				otherFields[key] = value;
-			}
-		});
-	
-		const { ID, ...remainingData } = otherFields;
-	
+		// Remove unwanted fields
 		const {
+			ID,
 			Category,
 			Domain,
 			Extension,
@@ -902,33 +915,29 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			PositionZ,
 			Rotate,
 			Width,
+			Schema_ID: _,
 			...consolidatedData
-		} = remainingData;
-	
-		delete consolidatedData.Schema_ID;
-	
-		for (const key in linkedFields) {
-			if (linkedFields[key]?.value !== undefined) {
-				delete consolidatedData[key];
-			}
-		}
+		} = componentCopy;
 	
 		const { Manufacturer, Model, CatalogNumber } = consolidatedData;
-		const newName = `${componentTypeName}_${Manufacturer}_${Model}_${CatalogNumber}_${validationTier}`
+		const validation = validationTier ? `_${validationTier}` : "";
+		const newName = `${componentTypeName}_${Manufacturer}_${Model}_${CatalogNumber}${validation}`
 			.replace(/\s+/g, "_")
 			.toLowerCase();
 		consolidatedData.Name = newName;
 	
-		let componentName = component.Name;
-		let componentNameNormalized = componentName.replace(/\s+/g, "_").toLowerCase();
-
 		let json = JSON.stringify(consolidatedData, null, 2);
 		let fileName = path.resolve(componentTypeDir, `${newName}.json`);
 	
-		fs.writeFile(fileName, json, function () {
-			complete(componentNameNormalized);
-		});
+		if (fs.existsSync(fileName)) {
+			complete(path.basename(fileName), `Cannot save component: file ${path.basename(fileName)} already exists.`);
+		} else {
+			fs.writeFile(fileName, json, function () {
+				complete(newName, null);
+			});
+		}
 	}
+	
 
 	onLoadComponent(complete, resolve) {
 		dialog.showOpenDialog({
@@ -1129,21 +1138,21 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			);
 		}
 
-		const oldComponentDirectory = path.resolve(
+		const oldComponentTemplateDirectory = path.resolve(
 			oldWorkingDirectory,
-			componentDirectory
+			"components_template"
 		);
-		const newComponentDirectory = path.resolve(
+		const newComponentTemplateDirectory = path.resolve(
 			newWorkingDirectory,
-			componentDirectory
+			"components_template"
 		);
 
-		if (!fs.existsSync(newComponentDirectory)) {
-			fs.mkdirSync(newComponentDirectory);
+		if (!fs.existsSync(newComponentTemplateDirectory)) {
+			fs.mkdirSync(newComponentTemplateDirectory);
 		}
-		if (fs.existsSync(oldComponentDirectory)) {
-			console.log("CopyFiles from " + oldComponentDirectory);
-			MicroMetaAppElectronComponent.copyFilesSync(oldComponentDirectory, newComponentDirectory);
+		if (fs.existsSync(oldComponentTemplateDirectory)) {
+			console.log("CopyFiles from " + oldComponentTemplateDirectory);
+			MicroMetaAppElectronComponent.copyFilesSync(oldComponentTemplateDirectory, newComponentTemplateDirectory);
 		}
 
 		const oldSettingsDirectory = path.resolve(
@@ -1317,6 +1326,8 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 						onClickHome={this.onClickHome}
 						isDebug={this.props.isDebug}
 						microscope={this.state.mmeMicroscope}
+						workingDirectory={this.state.workingDirectory}
+						homePath={homePath}
 					/>
 				);
 			}
