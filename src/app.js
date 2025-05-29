@@ -800,7 +800,6 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			'"';
 		try {
 			const metadata = execSync(cmd);
-			console.log(metadata);
 			var metadataString = new TextDecoder().decode(metadata);
 			if (metadataString.startsWith("ERROR:")) {
 				//console.log("Error : " + `Could not read ${imgPath} metadata`);
@@ -1256,13 +1255,6 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			height: dims.height,
 			alignItems: "center",
 		};
-
-		console.log("isModeSelected");
-		console.log(this.state.isModeSelected);
-		console.log("useMicroMetaExplorer");
-		console.log(this.state.useMicroMetaExplorer);
-		console.log("mmeMicroscope");
-		console.log(this.state.mmeMicroscope);
 
 		if (!this.state.isModeSelected) {
 			return (
