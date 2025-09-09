@@ -36,7 +36,8 @@ const homePath = remote.app.getPath("home");
 const path = window.require("path");
 const dialog = remote.dialog;
 
-const mainWindow = BrowserWindow;
+//const mainWindow = BrowserWindow;
+const mainWindow = remote.getCurrentWindow();
 
 const toolDirectory = "./MicroMetaApp/";
 const microMetaOptionsFile = "micrometa-options.txt";
@@ -106,7 +107,6 @@ class MicroMetaAppElectronWorkingDirectoryChooser extends React.PureComponent {
 		dialog
 			.showOpenDialog(mainWindow, {
 				defaultPath: `${value}`,
-				buttonLabel: "Select",
 				properties: ["openDirectory"],
 			})
 			.then((result) => {
@@ -392,21 +392,21 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		this.knownComponentTypes = new Set([
 			"MicroscopyAccessory",
 			"Software",
-			"Transmitted_Lightsource", 
-			"Fluorescence_Lightsource", 
-			"Magnification", 
-			"FluorescenceLightPath", 
-			"Stage", 
-			"Focusing", 
-			"OpticalAssembly", 
-			"OpticsHolder", 
-			"Aperture", 
-			"Filter", 
-			"MirroringDevice", 
-			"Lens", 
-			"AdditionalOptics", 
-			"Detector", 
-			"Camera", 
+			"Transmitted_Lightsource",
+			"Fluorescence_Lightsource",
+			"Magnification",
+			"FluorescenceLightPath",
+			"Stage",
+			"Focusing",
+			"OpticalAssembly",
+			"OpticsHolder",
+			"Aperture",
+			"Filter",
+			"MirroringDevice",
+			"Lens",
+			"AdditionalOptics",
+			"Detector",
+			"Camera",
 			"PointDetector",
 		]);
 		this.onLoadSchema = this.onLoadSchema.bind(this);
@@ -427,7 +427,8 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 
 		this.saveAllComponents = this.saveAllComponents.bind(this);
 		this.onWorkingDirectorySave = this.onWorkingDirectorySave.bind(this);
-		this.onWorkingDirectorySaveComponent = this.onWorkingDirectorySaveComponent.bind(this);
+		this.onWorkingDirectorySaveComponent =
+			this.onWorkingDirectorySaveComponent.bind(this);
 		this.onLoadComponent = this.onLoadComponent.bind(this);
 		this.onWorkingDirectorySettingsSave =
 			this.onWorkingDirectorySettingsSave.bind(this);
@@ -561,94 +562,102 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 	loadComponentsFromBaseDir(componentsBaseDir, componentsTree) {
 		function isDirectory(source) {
 			return fs.lstatSync(source).isDirectory();
-		  }
-		return readDirAsync(componentsBaseDir)
-			.then((subdirs) => {
-				const typeFolders = subdirs
-					.map((name) => path.join(componentsBaseDir, name))
-					.filter(isDirectory);
-	
-				const typePromises = typeFolders.map((typeFolderPath) => {
-					const typeName = path.basename(typeFolderPath);
-	
-					return readDirAsync(typeFolderPath).then((fileNames) => {
-						const jsonFiles = fileNames
-							.filter((fileName) => fileName.endsWith(".json"))
-							.map((fileName) => path.resolve(typeFolderPath, fileName));
-	
-						return Promise.all(jsonFiles.map(readFileAsync)).then((files) => {
-							files.forEach((file) => {
-								try {
-									const component = JSON.parse(file);
-									if (component) {
-										const manufacturer = component.Manufacturer || "Unknown Manufacturer";
-										const model = component.Model || "Unknown Model";
-										const entryKey = component.Name;
-	
-										// Initialize type level
-										if (!componentsTree[typeName]) {
-											componentsTree[typeName] = {};
-										}
-	
-										// Initialize manufacturer level
-										if (!componentsTree[typeName][manufacturer]) {
-											componentsTree[typeName][manufacturer] = {};
-										}
-	
-										// Initialize model level
-										if (!componentsTree[typeName][manufacturer][model]) {
-											componentsTree[typeName][manufacturer][model] = {};
-										}
-	
-										// Add the component
-										componentsTree[typeName][manufacturer][model][entryKey] = {
-											component
-										};
+		}
+		return readDirAsync(componentsBaseDir).then((subdirs) => {
+			const typeFolders = subdirs
+				.map((name) => path.join(componentsBaseDir, name))
+				.filter(isDirectory);
+
+			const typePromises = typeFolders.map((typeFolderPath) => {
+				const typeName = path.basename(typeFolderPath);
+
+				return readDirAsync(typeFolderPath).then((fileNames) => {
+					const jsonFiles = fileNames
+						.filter((fileName) => fileName.endsWith(".json"))
+						.map((fileName) => path.resolve(typeFolderPath, fileName));
+
+					return Promise.all(jsonFiles.map(readFileAsync)).then((files) => {
+						files.forEach((file) => {
+							try {
+								const component = JSON.parse(file);
+								if (component) {
+									const manufacturer =
+										component.Manufacturer || "Unknown Manufacturer";
+									const model = component.Model || "Unknown Model";
+									const entryKey = component.Name;
+
+									// Initialize type level
+									if (!componentsTree[typeName]) {
+										componentsTree[typeName] = {};
 									}
-								} catch (err) {
-									console.warn(`Could not parse component file in ${typeName}:`, err);
+
+									// Initialize manufacturer level
+									if (!componentsTree[typeName][manufacturer]) {
+										componentsTree[typeName][manufacturer] = {};
+									}
+
+									// Initialize model level
+									if (!componentsTree[typeName][manufacturer][model]) {
+										componentsTree[typeName][manufacturer][model] = {};
+									}
+
+									// Add the component
+									componentsTree[typeName][manufacturer][model][entryKey] = {
+										component,
+									};
 								}
-							});
+							} catch (err) {
+								console.warn(
+									`Could not parse component file in ${typeName}:`,
+									err
+								);
+							}
 						});
 					});
 				});
-	
-				return Promise.all(typePromises);
 			});
+
+			return Promise.all(typePromises);
+		});
 	}
 
 	onLoadComponents(complete, resolve) {
 		const workingDirectory = this.state.workingDirectory;
 		const templateDir = path.resolve(workingDirectory, "components_template");
-	
+
 		let componentsTree = {
-			loadedComponents: {}
+			loadedComponents: {},
 		};
-	
+
 		function sortTreeAlphabetically(obj) {
-			if (typeof obj !== 'object' || obj === null) return obj;
-	
+			if (typeof obj !== "object" || obj === null) return obj;
+
 			const sorted = {};
 			Object.keys(obj)
-				.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }))
+				.sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }))
 				.forEach((key) => {
 					sorted[key] = sortTreeAlphabetically(obj[key]);
 				});
 			return sorted;
 		}
-	
+
 		// Only load from components_template directory
 		(fs.existsSync(templateDir)
-			? this.loadComponentsFromBaseDir(templateDir, componentsTree.loadedComponents)
+			? this.loadComponentsFromBaseDir(
+					templateDir,
+					componentsTree.loadedComponents
+			  )
 			: Promise.resolve()
 		)
-		.then(() => {
-			componentsTree.loadedComponents = sortTreeAlphabetically(componentsTree.loadedComponents);
-			complete(componentsTree, resolve);
-		})
-		.catch((err) => {
-			console.error("Error loading components:", err);
-		});
+			.then(() => {
+				componentsTree.loadedComponents = sortTreeAlphabetically(
+					componentsTree.loadedComponents
+				);
+				complete(componentsTree, resolve);
+			})
+			.catch((err) => {
+				console.error("Error loading components:", err);
+			});
 	}
 
 	onLoadSettings(complete, resolve) {
@@ -852,7 +861,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 	// 			}
 	// 		}
 	// 	};
-	
+
 	// 	keys.forEach((key) => {
 	// 		const component = elementDataCopy[key];
 	// 		this.onWorkingDirectorySaveComponent(component, onSaveComplete, validationTier, true);
@@ -864,7 +873,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		let saveCount = 0;
 		const keys = Object.keys(elementDataCopy);
 		let duplicateFiles = [];
-	
+
 		const onSaveComplete = (componentName, error) => {
 			saveCount++;
 			if (error && componentName) {
@@ -872,17 +881,23 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			}
 			if (saveCount === keys.length) {
 				if (duplicateFiles.length > 0) {
-					const msg = `Components saved but the following component file names already exist and were not saved:\n\n${duplicateFiles.join('\n')}`;
+					const msg = `Components saved but the following component file names already exist and were not saved:\n\n${duplicateFiles.join(
+						"\n"
+					)}`;
 					complete(msg);
 				} else {
 					complete(null);
 				}
 			}
 		};
-	
+
 		keys.forEach((key) => {
 			const component = elementDataCopy[key];
-			this.onWorkingDirectorySaveComponent(component, onSaveComplete, validationTier);
+			this.onWorkingDirectorySaveComponent(
+				component,
+				onSaveComplete,
+				validationTier
+			);
 		});
 	}
 
@@ -890,14 +905,18 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		const workingDirectory = this.state.workingDirectory;
 		const componentCopy = JSON.parse(JSON.stringify(component));
 		const { Schema_ID } = componentCopy;
-		const componentTypeName = Schema_ID ? Schema_ID.split('.')[0] : "unknown";
-	
-		const componentTypeDir = path.resolve(workingDirectory, "components_template", componentTypeName);
-	
+		const componentTypeName = Schema_ID ? Schema_ID.split(".")[0] : "unknown";
+
+		const componentTypeDir = path.resolve(
+			workingDirectory,
+			"components_template",
+			componentTypeName
+		);
+
 		if (!fs.existsSync(componentTypeDir)) {
 			fs.mkdirSync(componentTypeDir, { recursive: true });
 		}
-	
+
 		// Remove unwanted fields
 		const {
 			ID,
@@ -917,62 +936,77 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			Schema_ID: _,
 			...consolidatedData
 		} = componentCopy;
-	
+
+		//FIXME: shouldnt it be componentName instead of componentTypeName
 		const { Manufacturer, Model, CatalogNumber } = consolidatedData;
-		const validation = validationTier ? `_${validationTier}` : "";
-		const newName = `${componentTypeName}_${Manufacturer}_${Model}_${CatalogNumber}${validation}`
-			.replace(/\s+/g, "_")
-			.toLowerCase();
+		let newName = `${componentTypeName}`;
+		if (componentTypeName === "AcquisitionSoftware") {
+			newName =
+				newName + `_${componentCopy.Name}_Version-${componentCopy.Version}`;
+		} else {
+			newName = newName + `_${Manufacturer}_${Model}_${CatalogNumber}`;
+		}
+		const validation = validationTier ? `_Tier${validationTier}` : "_TierNA";
+		newName = newName + `${validation}`;
+		newName = newName.toLowerCase();
+		newName = newName.replace(/\s+/g, "-");
+		newName = newName.replaceAll("/", "~");
+		newName = newName.replaceAll(/[:<>|?*"\\]/g, "");
+		//Fixme this needs to replace / and \ with -
+		// Check for mac linux and windows char that cannot be used in filenames
 		consolidatedData.Name = newName;
-	
+
 		let json = JSON.stringify(consolidatedData, null, 2);
 		let fileName = path.resolve(componentTypeDir, `${newName}.json`);
-	
+
 		if (fs.existsSync(fileName)) {
-			complete(path.basename(fileName), `Cannot save component: file ${path.basename(fileName)} already exists.`);
+			complete(
+				path.basename(fileName),
+				`Cannot save component: file ${path.basename(fileName)} already exists.`
+			);
 		} else {
 			fs.writeFile(fileName, json, function () {
 				complete(newName, null);
 			});
 		}
 	}
-	
 
 	onLoadComponent(complete, resolve) {
-		dialog.showOpenDialog({
-			properties: ['openFile'],   
-			filters: [{ name: 'JSON Files', extensions: ['json'] }], 
-		})
-		.then(result => {
-			if (result.canceled) {
-				return; 
-			}
-	
-			const filePath = result.filePaths[0];
-	
-			readFileAsync(filePath)
-				.then(file => {
-					try {
-						let component = JSON.parse(file);
-						let componentsDB = {};
+		dialog
+			.showOpenDialog({
+				properties: ["openFile"],
+				filters: [{ name: "JSON Files", extensions: ["json"] }],
+			})
+			.then((result) => {
+				if (result.canceled) {
+					return;
+				}
 
-						if (component !== null) {
-							let componentKey = `${component.Name}_${component.ID}`;
-							componentsDB[componentKey] = { component };
+				const filePath = result.filePaths[0];
+
+				readFileAsync(filePath)
+					.then((file) => {
+						try {
+							let component = JSON.parse(file);
+							let componentsDB = {};
+
+							if (component !== null) {
+								let componentKey = `${component.Name}_${component.ID}`;
+								componentsDB[componentKey] = { component };
+							}
+
+							complete(componentsDB, resolve);
+						} catch (exception) {
+							console.log("Could not parse:", filePath);
 						}
-	
-						complete(componentsDB, resolve);
-					} catch (exception) {
-						console.log("Could not parse:", filePath);
-					}
-				})
-				.catch(error => {
-					console.log("Error reading the file:", error);
-				});
-		})
-		.catch(err => {
-			console.log('Failed to open file dialog:', err);
-		});
+					})
+					.catch((error) => {
+						console.log("Error reading the file:", error);
+					});
+			})
+			.catch((err) => {
+				console.log("Failed to open file dialog:", err);
+			});
 	}
 
 	onWorkingDirectorySettingsSave(settings, complete) {
@@ -1151,7 +1185,10 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		}
 		if (fs.existsSync(oldComponentTemplateDirectory)) {
 			console.log("CopyFiles from " + oldComponentTemplateDirectory);
-			MicroMetaAppElectronComponent.copyFilesSync(oldComponentTemplateDirectory, newComponentTemplateDirectory);
+			MicroMetaAppElectronComponent.copyFilesSync(
+				oldComponentTemplateDirectory,
+				newComponentTemplateDirectory
+			);
 		}
 
 		const oldSettingsDirectory = path.resolve(
