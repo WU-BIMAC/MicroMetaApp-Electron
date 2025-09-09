@@ -27,7 +27,7 @@
 		"dist_mac": "electron-builder build --mac"
 	},
 	"build": {
-		"icon": "build/logo.ico",
+		"icon": "public/assets/icon/favicon.ico",
 		"appId": "edu.umassmed.MicroMetaAppElectron",
 		"asar": true,
 		"files": [
@@ -71,10 +71,10 @@
 		},
 		"win": {
 			"target": "zip",
-			"icon": "build/logo.ico"
+			"icon": "public/assets/icon/favicon.ico"
 		},
 		"mac": {
-			"icon": "build/logo.icns"
+			"icon": "public/assets/icon/logo.icns"
 		}
 	},
 	"browserslist": [

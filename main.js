@@ -17,7 +17,7 @@ function createWindow() {
 		},
 		width: 1200,
 		height: 820,
-		icon: path.join(__dirname, "build", "New-MicroMetaApp-Icon.ico"),
+		icon: path.join(__dirname, "public/assets/icon", "favicon.ico"),
 	});
 	require("@electron/remote/main").enable(mainWindow.webContents);
 	let indexURL = url.format({
@@ -30,7 +30,13 @@ function createWindow() {
 	mainWindow.on("closed", () => (mainWindow = null));
 }
 
-app.on("ready", createWindow);
+app.on("ready", () => {
+	if (process.platform === "darwin") {
+		app.dock.setIcon(path.join(__dirname, "public/assets/icon", "favicon.png"));
+	}
+
+	createWindow();
+});
 
 app.on("window-all-closed", () => {
 	if (process.platform !== "darwin") {
