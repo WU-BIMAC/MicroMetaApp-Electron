@@ -9,11 +9,15 @@ import {
 	number_logo_width,
 	number_logo_height,
 	string_logo_img_micro_bk,
-	string_manage_hardware_circle_img,
-	string_manage_settings_circle_img,
 } from "micro-meta-app-react/es/constants";
 
-import { mme_tooltip, mma_tooltip, footnote } from "./constants";
+import {
+	string_mme_img,
+	mme_tooltip,
+	string_mma_img,
+	mma_tooltip,
+	footnote,
+} from "./constants";
 
 export default class ModeSelector extends React.PureComponent {
 	constructor(props) {
@@ -121,30 +125,20 @@ export default class ModeSelector extends React.PureComponent {
 
 		let logoImg = url.resolve(
 			this.props.imagesPathPNG,
-			string_logo_img_micro_bk
+			string_logo_img_micro_bk,
 		);
-		let hardwareImg = url.resolve(
-			this.props.imagesPathSVG,
-			string_manage_hardware_circle_img
-		);
-		let settingsImg = url.resolve(
-			this.props.imagesPathSVG,
-			string_manage_settings_circle_img
-		);
+		let mmeImg = url.resolve(this.props.imagesPathSVG, string_mme_img);
+		let mmaImg = url.resolve(this.props.imagesPathSVG, string_mma_img);
 
 		let logoPath =
 			logoImg +
 			(logoImg.indexOf("githubusercontent.com") > -1 ? "?sanitize=true" : "");
-		let hardwareImgPath =
-			hardwareImg +
-			(hardwareImg.indexOf("githubusercontent.com") > -1
-				? "?sanitize=true"
-				: "");
-		let settingsImgPath =
-			settingsImg +
-			(settingsImg.indexOf("githubusercontent.com") > -1
-				? "?sanitize=true"
-				: "");
+		let mmeImgPath =
+			mmeImg +
+			(mmeImg.indexOf("githubusercontent.com") > -1 ? "?sanitize=true" : "");
+		let mmaImgPath =
+			mmaImg +
+			(mmaImg.indexOf("githubusercontent.com") > -1 ? "?sanitize=true" : "");
 		return (
 			<div style={wrapperContainer}>
 				<div style={mainContainer}>
@@ -170,8 +164,8 @@ export default class ModeSelector extends React.PureComponent {
 										<div style={buttonsInnerContainer}>
 											<div style={buttonsInnerTopContainer}>
 												<img
-													src={hardwareImgPath}
-													alt={this.props.hardwareImg}
+													src={mmeImgPath}
+													alt={mmeImg}
 													style={styleIconImage}
 												/>
 											</div>
@@ -203,8 +197,8 @@ export default class ModeSelector extends React.PureComponent {
 										<div style={buttonsInnerContainer}>
 											<div style={buttonsInnerTopContainer}>
 												<img
-													src={settingsImgPath}
-													alt={settingsImg}
+													src={mmaImgPath}
+													alt={mmaImg}
 													style={styleIconImage}
 												/>
 											</div>

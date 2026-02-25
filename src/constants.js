@@ -4,6 +4,9 @@ import { version as mmVersion } from "../package.json";
 import { version as mmeVersion } from "micro-meta-explorer/package.json";
 import { version as mmaVersion } from "micro-meta-app-react/package.json";
 
+export const string_mme_img = "MME_round.svg";
+export const string_mma_img = "MMA_round.svg";
+
 export const mma_tooltip = {
 	title: "Micro-Meta App",
 	content: <p>Click this button to launch Micro-Meta App.</p>,
