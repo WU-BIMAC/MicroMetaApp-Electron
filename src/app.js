@@ -57,7 +57,7 @@ const IS_DEBUG = true;
 window.onload = () => {
 	ReactDOM.render(
 		<MicroMetaAppElectronComponent isDebug={IS_DEBUG} />,
-		document.getElementById("root")
+		document.getElementById("root"),
 	);
 };
 
@@ -216,7 +216,7 @@ class MicroMetaAppElectronWorkingDirectoryChooser extends React.PureComponent {
 
 		let logoImg = url.resolve(
 			this.props.imagesPathPNG,
-			string_logo_img_micro_bk
+			string_logo_img_micro_bk,
 		);
 		let logoPath =
 			logoImg +
@@ -420,7 +420,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		this.onLoadMetadata = this.onLoadMetadata.bind(this);
 
 		this.onClickHome = this.onClickHome.bind(this);
-		this.onClickOpen = this.onClickOpen.bind(this);
+		this.onClickOpenInMMA = this.onClickOpenInMMA.bind(this);
 
 		this.onClickMMA = this.onClickMMA.bind(this);
 		this.onClickMME = this.onClickMME.bind(this);
@@ -464,7 +464,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		} else {
 			const mmaOptionsFile = path.resolve(
 				newWorkingDirectory,
-				microMetaOptionsFile
+				microMetaOptionsFile,
 			);
 			if (!fs.existsSync(mmaOptionsFile)) {
 				optionsWorkingDirectory = newWorkingDirectory;
@@ -609,7 +609,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 							} catch (err) {
 								console.warn(
 									`Could not parse component file in ${typeName}:`,
-									err
+									err,
 								);
 							}
 						});
@@ -645,13 +645,13 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		(fs.existsSync(templateDir)
 			? this.loadComponentsFromBaseDir(
 					templateDir,
-					componentsTree.loadedComponents
-			  )
+					componentsTree.loadedComponents,
+				)
 			: Promise.resolve()
 		)
 			.then(() => {
 				componentsTree.loadedComponents = sortTreeAlphabetically(
-					componentsTree.loadedComponents
+					componentsTree.loadedComponents,
 				);
 				complete(componentsTree, resolve);
 			})
@@ -712,7 +712,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		const dirPath = path.resolve(workingDirectory, scriptDirectory);
 		let imageMetadataReaderScript = path.resolve(
 			dirPath,
-			imageMetadataReaderScriptName
+			imageMetadataReaderScriptName,
 		);
 		if (!fs.existsSync(imgPath)) {
 			//console.log("Error : " + `${imgPath} does not exists`);
@@ -724,10 +724,10 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		try {
 			const checkVersionResults = spawnSync(
 				checkVersionCmd,
-				checkVersionCmdArgs
+				checkVersionCmdArgs,
 			);
 			var checkVersionResultsString = new TextDecoder().decode(
-				checkVersionResults.stderr
+				checkVersionResults.stderr,
 			);
 
 			let javaVersion = checkVersionResultsString.split("\n")[0];
@@ -882,7 +882,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			if (saveCount === keys.length) {
 				if (duplicateFiles.length > 0) {
 					const msg = `Components saved but the following component file names already exist and were not saved:\n\n${duplicateFiles.join(
-						"\n"
+						"\n",
 					)}`;
 					complete(msg);
 				} else {
@@ -896,7 +896,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			this.onWorkingDirectorySaveComponent(
 				component,
 				onSaveComplete,
-				validationTier
+				validationTier,
 			);
 		});
 	}
@@ -910,7 +910,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		const componentTypeDir = path.resolve(
 			workingDirectory,
 			"components_template",
-			componentTypeName
+			componentTypeName,
 		);
 
 		if (!fs.existsSync(componentTypeDir)) {
@@ -962,7 +962,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		if (fs.existsSync(fileName)) {
 			complete(
 				path.basename(fileName),
-				`Cannot save component: file ${path.basename(fileName)} already exists.`
+				`Cannot save component: file ${path.basename(fileName)} already exists.`,
 			);
 		} else {
 			fs.writeFile(fileName, json, function () {
@@ -1051,37 +1051,37 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 
 		const oldSchemaDirectory = path.resolve(
 			oldWorkingDirectory,
-			schemaDirectory
+			schemaDirectory,
 		);
 		const oldDimensionsDirectory = path.resolve(
 			oldWorkingDirectory,
-			dimensionsDirectory
+			dimensionsDirectory,
 		);
 		const oldScriptsDirectory = path.resolve(
 			oldWorkingDirectory,
-			scriptDirectory
+			scriptDirectory,
 		);
 		const oldScriptsDependencyDirectory = path.resolve(
 			oldWorkingDirectory,
-			scriptDependencyDirectory
+			scriptDependencyDirectory,
 		);
 		const oldTiersDirectory = path.resolve(oldWorkingDirectory, tiersDirectory);
 
 		const newSchemaDirectory = path.resolve(
 			newWorkingDirectory,
-			schemaDirectory
+			schemaDirectory,
 		);
 		const newDimensionsDirectory = path.resolve(
 			newWorkingDirectory,
-			dimensionsDirectory
+			dimensionsDirectory,
 		);
 		const newScriptsDirectory = path.resolve(
 			newWorkingDirectory,
-			scriptDirectory
+			scriptDirectory,
 		);
 		const newScriptsDependencyDirectory = path.resolve(
 			newWorkingDirectory,
-			scriptDependencyDirectory
+			scriptDependencyDirectory,
 		);
 		const newTiersDirectory = path.resolve(newWorkingDirectory, tiersDirectory);
 		if (!fs.existsSync(newSchemaDirectory)) {
@@ -1116,7 +1116,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			console.log("CopyFiles from " + oldSchemaDirectory);
 			MicroMetaAppElectronComponent.copyFilesSync(
 				oldSchemaDirectory,
-				newSchemaDirectory
+				newSchemaDirectory,
 			);
 		}
 
@@ -1124,7 +1124,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			console.log("CopyFiles from " + oldDimensionsDirectory);
 			MicroMetaAppElectronComponent.copyFilesSync(
 				oldDimensionsDirectory,
-				newDimensionsDirectory
+				newDimensionsDirectory,
 			);
 		}
 
@@ -1132,14 +1132,14 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			console.log("CopyFiles from " + oldScriptsDirectory);
 			MicroMetaAppElectronComponent.copyFilesSync(
 				oldScriptsDirectory,
-				newScriptsDirectory
+				newScriptsDirectory,
 			);
 		}
 		if (fs.existsSync(oldScriptsDependencyDirectory)) {
 			console.log("CopyFiles from " + oldScriptsDependencyDirectory);
 			MicroMetaAppElectronComponent.copyFilesSync(
 				oldScriptsDependencyDirectory,
-				newScriptsDependencyDirectory
+				newScriptsDependencyDirectory,
 			);
 		}
 
@@ -1147,17 +1147,17 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			console.log("CopyFiles from " + oldTiersDirectory);
 			MicroMetaAppElectronComponent.copyFilesSync(
 				oldTiersDirectory,
-				newTiersDirectory
+				newTiersDirectory,
 			);
 		}
 
 		const oldMicroscopeDirectory = path.resolve(
 			oldWorkingDirectory,
-			microscopeDirectory
+			microscopeDirectory,
 		);
 		const newMicroscopeDirectory = path.resolve(
 			newWorkingDirectory,
-			microscopeDirectory
+			microscopeDirectory,
 		);
 
 		if (!fs.existsSync(newMicroscopeDirectory)) {
@@ -1167,17 +1167,17 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			console.log("CopyFiles from " + oldMicroscopeDirectory);
 			MicroMetaAppElectronComponent.copyFilesSync(
 				oldMicroscopeDirectory,
-				newMicroscopeDirectory
+				newMicroscopeDirectory,
 			);
 		}
 
 		const oldComponentTemplateDirectory = path.resolve(
 			oldWorkingDirectory,
-			"components_template"
+			"components_template",
 		);
 		const newComponentTemplateDirectory = path.resolve(
 			newWorkingDirectory,
-			"components_template"
+			"components_template",
 		);
 
 		if (!fs.existsSync(newComponentTemplateDirectory)) {
@@ -1187,17 +1187,17 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			console.log("CopyFiles from " + oldComponentTemplateDirectory);
 			MicroMetaAppElectronComponent.copyFilesSync(
 				oldComponentTemplateDirectory,
-				newComponentTemplateDirectory
+				newComponentTemplateDirectory,
 			);
 		}
 
 		const oldSettingsDirectory = path.resolve(
 			oldWorkingDirectory,
-			settingsDirectory
+			settingsDirectory,
 		);
 		const newSettingsDirectory = path.resolve(
 			newWorkingDirectory,
-			settingsDirectory
+			settingsDirectory,
 		);
 		if (!fs.existsSync(newSettingsDirectory)) {
 			fs.mkdirSync(newSettingsDirectory);
@@ -1206,14 +1206,14 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			console.log("CopyFiles from " + oldSettingsDirectory);
 			MicroMetaAppElectronComponent.copyFilesSync(
 				oldSettingsDirectory,
-				newSettingsDirectory
+				newSettingsDirectory,
 			);
 		}
 
 		const toolWorkingDirectory = path.resolve(homePath, toolDirectory);
 		const mmaOptionsFile = path.resolve(
 			toolWorkingDirectory,
-			microMetaOptionsFile
+			microMetaOptionsFile,
 		);
 		let obj = {};
 		obj.WorkingDirectory = newWorkingDirectory;
@@ -1227,11 +1227,19 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 		});
 	}
 
-	onClickOpen(microscope) {
+	onClickOpenInMMA(microscope) {
 		this.setState({
 			isModeSelected: true,
 			useMicroMetaExplorer: false,
 			mmeMicroscope: microscope,
+		});
+	}
+
+	onClickOpenInMME(microscope) {
+		this.setState({
+			isModeSelected: true,
+			useMicroMetaExplorer: true,
+			mmaMicroscope: microscope,
 		});
 	}
 
@@ -1241,6 +1249,7 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 			isModeSelected: false,
 			useMicroMetaExplorer: null,
 			mmeMicroscope: null,
+			mmaMicroscope: null,
 		});
 	}
 
@@ -1325,8 +1334,9 @@ class MicroMetaAppElectronComponent extends React.PureComponent {
 							imagesPathPNG={imagesPathPNG}
 							imagesPathSVG={imagesPathSVG}
 							onClickHome={this.onClickHome}
-							onClickOpen={this.onClickOpen}
+							onClickOpen={this.onClickOpenInMMA}
 							isDebug={this.props.isDebug}
+							isMMAOpen={isDefined(this.state.mmaMicroscope)}
 						/>
 					</div>
 				);
