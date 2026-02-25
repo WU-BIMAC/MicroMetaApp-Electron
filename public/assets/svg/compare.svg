@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="17" viewBox="0 0 22 17">
+  <defs>
+    <clipPath id="clip-Compare_-_White">
+      <rect width="22" height="17"/>
+    </clipPath>
+  </defs>
+  <g id="Compare_-_White" data-name="Compare - White" clip-path="url(#clip-Compare_-_White)">
+    <path id="exchange-alt-solid" d="M0,60.74v-.68a1.021,1.021,0,0,1,1.021-1.021h15.31V57a1.021,1.021,0,0,1,1.742-.722l3.4,3.4a1.021,1.021,0,0,1,0,1.443l-3.4,3.4a1.021,1.021,0,0,1-1.742-.722V61.761H1.021A1.021,1.021,0,0,1,0,60.74ZM20.754,67.2H5.444V65.163A1.021,1.021,0,0,0,3.7,64.442l-3.4,3.4a1.021,1.021,0,0,0,0,1.443l3.4,3.4a1.021,1.021,0,0,0,1.742-.722V69.927h15.31a1.021,1.021,0,0,0,1.021-1.021v-.68A1.021,1.021,0,0,0,20.754,67.2Z" transform="translate(0 -55.983)" fill="#fff"/>
+  </g>
+</svg>

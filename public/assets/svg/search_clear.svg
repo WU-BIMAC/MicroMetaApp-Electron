@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="15" height="15" viewBox="0 0 15 15">
+  <defs>
+    <clipPath id="clip-Clear_-_Gray">
+      <rect width="15" height="15"/>
+    </clipPath>
+  </defs>
+  <g id="Clear_-_Gray" data-name="Clear - Gray" clip-path="url(#clip-Clear_-_Gray)">
+    <path id="times-solid" d="M9.76,87.077l4.024-4.024a1.265,1.265,0,0,0,0-1.789l-.894-.894a1.265,1.265,0,0,0-1.789,0L7.077,84.394,3.053,80.37a1.265,1.265,0,0,0-1.789,0l-.894.894a1.265,1.265,0,0,0,0,1.789l4.024,4.024L.37,91.1a1.265,1.265,0,0,0,0,1.789l.894.894a1.265,1.265,0,0,0,1.789,0L7.077,89.76,11.1,93.784a1.265,1.265,0,0,0,1.789,0l.894-.894a1.265,1.265,0,0,0,0-1.789Z" transform="translate(0.423 -79.577)" fill="#868686"/>
+  </g>
+</svg>
